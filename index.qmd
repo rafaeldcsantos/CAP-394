@@ -1,0 +1,11 @@
+---
+title: "CAP-394"
+---
+
+This is a Quarto website. For CAP-394!
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+```{r}
+1 + 1
+```
