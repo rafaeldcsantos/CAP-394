@@ -2,7 +2,7 @@
 title: "CAP-394"
 ---
 
-This is a Quarto website. For CAP-394!
+This is a Quarto website. For CAP-394! Using docs path!
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
