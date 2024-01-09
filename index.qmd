@@ -1,12 +1,9 @@
 ---
-title: "CAP-394"
+title: "CAP-394 Lecture Notes"
+author: "Rafael Santos"
+date: "2024-01-14"
 ---
 
-This is a Quarto website. For CAP-394! Using docs path!
+Yello? V2
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
 

@@ -4,17 +4,32 @@ project:
   
 website:
   title: "CAP-394"
+  favicon: "resources/CAP394-Icon.png" 
+  sidebar:
+    style: "docked"
+    search: true  
+    contents: auto
   navbar:
+    logo: "resources/CAP394-Icon.png" 
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - 000-Intro.qmd
+      - 600-Projects.qmd
+  page-navigation: true
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme:
+      - cosmo
+      - "resources/styles.scss"
     toc: true
 
-editor: visual
+
+chapters:
+  - index.qmd
+  - 000-Intro.qmd
+  - 600-Projects.qmd
+  - 610-Capes-GraduateProgramsProjects.qmd
+
 

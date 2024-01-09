@@ -1,0 +1,27 @@
+---
+title: "Introduction"
+author: "Rafael Santos"
+date: "`r Sys.Date()`"  # Automatically set the current date
+---
+
+# Introduction
+
+This is a Quarto website. For CAP-394! Using docs path!
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+```{r}
+1 + 1
+```
+
+And..
+
+
+```{r}
+require(visNetwork, quietly = TRUE)
+# minimal example
+nodes <- data.frame(id = 1:3)
+edges <- data.frame(from = c(1,2), to = c(1,3))
+visNetwork(nodes, edges, width = "100%")
+```
+

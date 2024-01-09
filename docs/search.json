@@ -1,16 +1,16 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "CAP-394",
+    "objectID": "000-Intro.html",
+    "href": "000-Intro.html",
+    "title": "Introduction",
     "section": "",
-    "text": "This is a Quarto website. For CAP-394! Using docs path!\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "Introduction\nThis is a Quarto website. For CAP-394! Using docs path!\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2\n\n\nAnd..\n\nrequire(visNetwork, quietly = TRUE)\n# minimal example\nnodes &lt;- data.frame(id = 1:3)\nedges &lt;- data.frame(from = c(1,2), to = c(1,3))\nvisNetwork(nodes, edges, width = \"100%\")"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CAP-394 Lecture Notes",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "Yello? V2"
   }
 ]
