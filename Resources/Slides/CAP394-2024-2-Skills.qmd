@@ -1,0 +1,197 @@
+## Slides
+
+
+---
+
+![This is our third lecture, and possibly the longest one. We will cover a very incomplete list of skills a data scientist should know.](Resources/Slides/CAP394-2024-2-Skills-Slide1.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Basically we will get a 90-minutes (or more) tour of the basic data science skills and see some examples.](Resources/Slides/CAP394-2024-2-Skills-Slide2.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![A bad joke here – there aren’t 820 steps, of course, but we will see that there are more than one person can handle, and this is not a bad thing! ](Resources/Slides/CAP394-2024-2-Skills-Slide3.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![I use this figure a lot – it is based on the book Doing Data Science by Rachel Schutt and Cathy O’Neil, OReilly, 2014, which I highly recommend. The icons I use in this document are based on the figure.<br>It shows the data science process, or a data science project cycle. Basically, we collect data about something we want to study, clean and preprocess it, do some basic (and more complex analysis), visualize/report/publish and eventually create a new data product that can be used by others. <br>All this is used to make decisions, which purposefully will be outside of the scope of most of our projects (usually decisions come from managers and other stakeholders of the project). <br>Not all steps must be followed, and some results may require retracing of the steps. But this basic compartmentalization helps us organize our ideas for the project, and we can comment on the skills required for each step. <br><br> ](Resources/Slides/CAP394-2024-2-Skills-Slide4.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Since new tools, techniques, frameworks, algorithms, concepts, etc. are being actively developed, there is no way we can learn about all of those. Let’s take a tour through most of the better-known ones. ](Resources/Slides/CAP394-2024-2-Skills-Slide5.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![This is not always a technical skill – sometimes you need to be able to talk to and understand researchers, clients, managers, professors, etc. from other fields. You don’t need to be a full-fledged astronomer do help in an astronomy data science problem but need to understand the basic concepts and think about good questions, good data and good results.](Resources/Slides/CAP394-2024-2-Skills-Slide6.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![This is a bit more complex. For many toy problems, the data would be already collected and organized, you just need to start the analysis. But for several other problems the data may be disorganized, or incomplete, or inaccessible, or even inexistent – collecting the data may be part of the data science project! <br>](Resources/Slides/CAP394-2024-2-Skills-Slide7.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Another dead link, but you can get some references for the “80%” part at https://www.projectpro.io/article/why-data-preparation-is-an-important-part-of-data-science/242  and https://www.researchgate.net/publication/335577003_Data_preparation_and_preprocessing_for_broadcast_systems_monitoring_in_PHM_framework <br>Some people disagree, and https://blog.ldodds.com/2020/01/31/do-data-scientists-spend-80-of-their-time-cleaning-data-turns-out-no/ is a good reading.<br>Anyway we will see that for some clean, nice projects the “cleaning and organizing” part is way less than 60%, while for some more “rough” projects it may be more than 80%.](Resources/Slides/CAP394-2024-2-Skills-Slide8.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![See the previous slide notes about this figure and its sources.<br>Anyway, cleaning and collecting data (AKA data wrangling) seems to be not fun at all. But of course, it depends on the data and job, and may be a very important part on the whole data science process. We will see a very good example with the Supermarket data.](Resources/Slides/CAP394-2024-2-Skills-Slide9.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![I like the Merriam Webster definition because it covers an interesting definition for our purposes and an almost contrary view! <br>We won’t have to learn a whole programming language, only learn (by doing) short bits of code to solve specific problems.](Resources/Slides/CAP394-2024-2-Skills-Slide10.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Coding used to be an exclusive tool for computer scientists. These days are long gone – you can start coding (hacking) in a browser!<br>Coding also provides the “glue” for data collection, preprocessing and analysis tools, allowing us to tell a story about the data. This is essential for reproduction of experiments.](Resources/Slides/CAP394-2024-2-Skills-Slide11.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Don’t worry too much about the neural network bit. But imagine that you have to experiment with different parameters. Using the GUI-based tool you will have to open a dialog, set a value, click on a button and repeat for each and every change. Using something like a function call (the part in purple) you could use a script (small part of code) that changes the value programmatically and let the computer do the heavy work. ](Resources/Slides/CAP394-2024-2-Skills-Slide12.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![To create short pieces of code that process some data (basic cleaning, preprocessing, analysis) we don’t need a powerful computer with a compiler or integrated development environment – a basic browser would do. There are several companies that provide sites where you can edit and run basic code. Of course there are limitations, so for more processing-heavy work a full computer is recommended.<br>](Resources/Slides/CAP394-2024-2-Skills-Slide13.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Another way to hack – simpler, perhaps more intuitive but more manual and less flexible: Orange. ](Resources/Slides/CAP394-2024-2-Skills-Slide14.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![I like to show this as one of the proofs that data science is not a new science but something that was made possible by the evolution of technologies. These are punch cards, used until the 1980s. A deck of punch cards would represent the data and the code to process the data. Not as nearly as flexible or powerful as what we have today, but similar in the idea.](Resources/Slides/CAP394-2024-2-Skills-Slide15.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![There is a large number of resources for learning Python (and for learning how to do a specific task in Python). It is a very good choice of general programming language.<br>There are still two major versions of Python out there, I strongly suggest using version 3. If your computer have other versions installed and you want to use Python locally, use conda to create environments (a must in a Mac). If you will do data science only using hosted notebooks (e.g. Kaggle, Google Colab) this is not an issue.](Resources/Slides/CAP394-2024-2-Skills-Slide16.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Here’s a simple code in Python that reads a file with global average temperatures per year, do some basic operations in a variable and plot the results. All elements shown are screenshots from a notebook – we will see more about notebooks soon. <br>The complete code is shown in the lecture notes for this course.](Resources/Slides/CAP394-2024-2-Skills-Slide17.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![To show how simple is to create code for basic data science tasks here are some more lines that create a linear fit to the data and plot it over the original data. <br>The complete code is shown in the lecture notes for this course.<br>](Resources/Slides/CAP394-2024-2-Skills-Slide18.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![R has a steep learning curve, specially if you have a strong OO or procedural programming,  but there are several resources on how to solve specific problems in R. <br>Use Rstudio (and the official release of R) to develop code in R in your machine, or a hosted notebook provider (Google Colab, Kaggle).](Resources/Slides/CAP394-2024-2-Skills-Slide19.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![This is the R version of the Python code shown before. We will read a file with global average temperatures per year, do some basic operations in a variable and plot the results. All elements shown are screenshots from a notebook – we will see more about notebooks soon. <br>The complete code is shown in the lecture notes for this course.<br>](Resources/Slides/CAP394-2024-2-Skills-Slide20.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Here are some more lines that create a linear fit to the data and plot it over the original data. <br>The complete code is shown in the lecture notes for this course.<br><br>](Resources/Slides/CAP394-2024-2-Skills-Slide21.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![In other words: don’t worry about learning all of a programming language. Learn the basics and search for the specifics online.<br>Don’t put all your programming eggs in a basket: R, Python are good for hacking, but a knowledge of other languages and tools (especially command line tools) may be handy. On the other hand almost everything can be done in almost any modern language!<br>Don’t worry about perfect code – make code that works.](Resources/Slides/CAP394-2024-2-Skills-Slide22.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Is using ChatGPT cheating? It can be really helpful for writing small bits of code, but may fail for slightly more complex functions, As always, the user must know the right questions to ask.](Resources/Slides/CAP394-2024-2-Skills-Slide23.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![LLM tools (ChatGPT, CoPilot, CodeWhisperer, etc.) can help generating bits of code, with good results when given initial information. Use them wisely, check to code, learn with it, interact with the LLM giving suggestions and asking questions and enhancements. Use it as a code assistant, not as a coder.](Resources/Slides/CAP394-2024-2-Skills-Slide24.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![EDA has an interesting story, see https://link.springer.com/referenceworkentry/10.1007/978-0-387-32833-1_136<br>Basically we will take a look at the data – either with basic statistical analysis or with charts and plots. Doing this we will have a better idea on the nature of the data, its completeness, relations between the variables, etc.](Resources/Slides/CAP394-2024-2-Skills-Slide25.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![There are many questions we can ask, meaning that there are many tools and techniques! We’ve already seen some patterns with the annual temperature example. <br>Think about questions about your data and how to answer them with code/visualization/statistics.](Resources/Slides/CAP394-2024-2-Skills-Slide26.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![The Iris flowers are a good dataset for basic exploratory data analysis. In this dataset there are measures (length and width of petals and sepals) of 150 samples of three classes of Iris flowers. They differ a bit in the dimensions. Let’s see what we can infer from this data. <br>The complete code is shown in the lecture notes for this course.<br><br><br>](Resources/Slides/CAP394-2024-2-Skills-Slide27.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Here’s a heatmap showing the number of French rolls sold in a local supermarket chain per day and hour of day. We can detect some patterns that explain features on the data that were not clear – can you find some?<br>The complete code is shown in the lecture notes for this course.<br><br><br><br>](Resources/Slides/CAP394-2024-2-Skills-Slide28.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Now that we used EDA we have a good (or even approximate) idea of our data’s structure, general behavior, completeness, etc. we can apply methods to better describe it. Machine Learning and Data Mining (basically the same thing, but broader in scope) can be used for this.<br>In this course we won’t learn EDA, programming or machine learning in detail, just enough to do our exercises and credits. See courses in the Applied Computing program for more information on machine learning, neural networks, applied AI, etc.<br><br>](Resources/Slides/CAP394-2024-2-Skills-Slide29.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Models are combinations of algorithms and internal representations that can be used to describe data (and the physical phenomena behind it).<br>For example, for the global warming data, we could use the parameters of the fitted curve to predict the temperature in any year in the future. <br>For the Iris data we can infer some rules, e.g. that any Iris flower with a petal length shorter than 2.5cm is of class “setosa”.<br><br>Models can be too simplistic or more complex than suggested by EDA: the temperature model does not present a good fit for years before 1820 or after 2000. Other more complex, better fitting curves may be used.<br><br>Models can be incomplete: one simple rule classifies the “setosa” flowers but there is no simple rule that classifies “versicolor” and “virginica” without errors.<br>](Resources/Slides/CAP394-2024-2-Skills-Slide30.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Models depends a lot on what we want to do with the data. For example, for the supermarket basket data we could think of models that:<br>Predict the total sales in cash depending on the day of the week and supermarket branch.<br>Predict the number of French rolls that will be sold in an hour by fitting a curve that predicts rolls/hour for every day in the week.<br>Estimate the probability that someone that buys more than 5 French rolls would also buy milk in the same transaction.<br><br>Models ultimately depends on the data and algorithms used, and may yield unexpected or incorrect results, depending on several factors.<br>Data may be incomplete or badly preprocessed.<br>Metadata or ancillary data may be necessary (e.g. see the vertical gaps in this figure – what are they?)<br>The existing data may not be enough for the analysis (e.g. we cannot identify individual clients on this data).<br><br>That’s why Data Science is a process – eventually we need to trace back our steps.<br>](Resources/Slides/CAP394-2024-2-Skills-Slide31.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![There are plenty of choices to learn from data but we have to know a bit about the capabilities and limitations of the algorithms to use them efficiently. Even so, sometimes there is not a clear best choice for an algorithm.<br>For example, neural networks can predict better the increase of temperature, but their prediction is hard to understand (compared to “temperature will increase X degrees in Y years”). Depending on the task we need to find a balance between accuracy and simplicity/interpretability.<br>Some models are trained from data – this may become computationally expensive depending on the algorithm and the data.  ](Resources/Slides/CAP394-2024-2-Skills-Slide32.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![One of the key concepts of data science is the emphasis on presenting results. There are several facets of this: creating nice, engaging visualizations of the data is useful for EDA and to present final results; telling a story about the data can be used for reproducibility and evaluation. <br><br>One way to communicate results to other practitioners of data science (in contrast to reports for final users) is to use notebooks. We’ve already seen some glimpses of notebooks, which are basically a way to arrange text, images and code (including results of executing the code) in a single document that shows all steps and results of a particular analysis task. <br><br>Notebooks can be shared as files, or publicly using tools like Kaggle, Google Colab, SciServer, etc.](Resources/Slides/CAP394-2024-2-Skills-Slide33.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![After doing preprocessing, EDA, analysis, documentation (use notebooks!) we may get a different dataset from the one we started with. This dataset was probably filtered, preprocessed, modified, annotated, etc. and may have additional value when compared to the raw original data – think about all the work you put on it! <br>Consider publishing the data product of your processing, EDA and analysis with the analysis and documentation itself. Think about the value for others and how nice would it be if you had it to start with! ](Resources/Slides/CAP394-2024-2-Skills-Slide34.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![We’ve seen some problems that may arise when processing the data, doing EDA and creating/applying models. Let’s see what else can go wrong!](Resources/Slides/CAP394-2024-2-Skills-Slide35.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Here’s a simple approach to answer the question “how are the total bills for transactions on the supermarket distributed?“ for the supermarket data. We see that the histogram is dominated by a bar on the 0-20000 reais range, which is weird – we wouldn’t even expect a 20000 bill for a local supermarket. Examining the data closely we see that there was a bill of R$ 505050.00 with a change of R$ 505044.22 – clearly a typo, but part of the data anyway. How can we automatically remove this outlier? Should we?](Resources/Slides/CAP394-2024-2-Skills-Slide36.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Some data online may not be curated, formatted or freely available. I’ve found files that were supposed to be in CSV format but were badly formatted, reading was very complicated (e.g some data from CAPES uses a semicolon to separate the fields, but some fields contain semicolons…) <br>Historic data, spread over several files, may have structural differences in the files themselves, so we cannot process all in the same way.<br>If we need to “glue” different data sources together we may face issues that make the getting and processing steps of the data science process take much longer. <br>And since new datasets may have different features or fields, we need to reevaluate processing code when doing new data.](Resources/Slides/CAP394-2024-2-Skills-Slide37.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![One example of problems with data: spreadsheets should naturally be tidy, easily readable by humans and machines. But humans may prefer some aesthetics that could confuse machine-reading of the data.<br>](Resources/Slides/CAP394-2024-2-Skills-Slide38.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![These files were downloaded from CAPES Open Data Portal. Each spreadsheet covers an year of information on lecturers on graduate programs. We can see that the number of columns changed at least twice. Processing this whole dataset as one would require identification of a common set of columns. ](Resources/Slides/CAP394-2024-2-Skills-Slide39.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Basically, check the code for every new data release, particularly when the data sources are out of the data science team control. ](Resources/Slides/CAP394-2024-2-Skills-Slide40.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Evaluation for this course will be based on attendance, homework and projects. Here’s the guidelines/suggestions for your project.](Resources/Slides/CAP394-2024-2-Skills-Slide41.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Step 1 is the one that may take more time. You must find a project that 1) is interesting enough for you; 2) has public or accessible data; 3) can be explored with at least the EDA concepts; 4) can be done in 3-4 months.<br>Step 2 is also very important, but if we get an interesting project we may already have interesting questions about it. But beware of projects for which the data is not readily accessible!<br>](Resources/Slides/CAP394-2024-2-Skills-Slide42.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![This is the fun part! Create code (notebooks!) that explore the data and help you tell a story about it. Check for issues on the data, see how complete it is, visualize it to see patterns.<br>It is possible that the code (especially notebooks) get too large or unwieldly, consider creating a notebook for data cleaning and saving it in an intermediate format, and other notebooks to explore it using EDA.<br>](Resources/Slides/CAP394-2024-2-Skills-Slide43.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![If you can do EDA on your data you can possibly see some patterns. Think again about the questions you may have about your data and see if any of those patterns can be used to answer the questions (or at least to raise more questions!)](Resources/Slides/CAP394-2024-2-Skills-Slide44.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Create well-documented notebooks, with lots of text, figures and explanation about the steps you’re taking. Avoid code-only notebooks!<br>Even if the results are bad, create notebooks to tell stories about the data. These may be useful for future attempts!](Resources/Slides/CAP394-2024-2-Skills-Slide45.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Sometimes we have the ideas and questions but not the data or the ability to create code to explore it. It is very tempting to ask a data scientist (or programmer) to solve the task for you, but remember that being a data scientist means working in an interdisciplinary way! Don’t just throw the problem and run away, talk with your collaborator, work together as a team and you will get the results. ](Resources/Slides/CAP394-2024-2-Skills-Slide46.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![Finally!<br>There are some additional slides that will not be part of this lecture (but eventually published). ](Resources/Slides/CAP394-2024-2-Skills-Slide47.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![I strongly recommend the Schutt & O’Neil book, which present case studies, code, basic concepts in an easy-to-follow way.<br><br>“Introducing Data Science” is a Python-centric good, practical introduction. “Python for Data Analysis” is also a good introduction, with examples formatted as notebooks, making it easy to follow.<br><br>“Copying and Pasting from Stack Overflow” is not a real book, of course, but I feel that searching for answers for code snippets there (or using ChatGPT) is not wrong per se, as long as the reader verify the answers and try to understand what is going on!<br><br><br><br>](Resources/Slides/CAP394-2024-2-Skills-Slide48.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+

@@ -1,0 +1,12 @@
+---
+title: Introduction
+format:
+  html:
+    css: Resources/CSS/custom.scss
+---
+ 
+ 
+# Introduction
+
+This section will contain some visualization examples.
+

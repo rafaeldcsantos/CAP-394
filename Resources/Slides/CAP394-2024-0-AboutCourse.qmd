@@ -1,0 +1,25 @@
+## Slides
+
+
+---
+
+![Today we’ll talk about INPE, the Applied Computing Program, and the Introduction to Data Science (CAP-394) course.](Resources/Slides/CAP394-2024-0-AboutCourse-Slide1.png){.lightbox group="CAP394-2024-0-AboutCourse"}
+
+---
+
+![The Introduction to Data Science is not part of any specialty track of the Graduate Program in Applied Computing but is related to several other courses in the program. It is not a prerequisite to any other course, and it does not have any prerequisites.](Resources/Slides/CAP394-2024-0-AboutCourse-Slide2.png){.lightbox group="CAP394-2024-0-AboutCourse"}
+
+---
+
+![How we’ll divide the course time into lectures, plenty of homework and some small projects.](Resources/Slides/CAP394-2024-0-AboutCourse-Slide3.png){.lightbox group="CAP394-2024-0-AboutCourse"}
+
+---
+
+![Basically how we will manage the course. Lectures can be online depending on the schedule and on where I will be on the lecture’s day, but may also be in-person – do not consider this course as being fully online!<br>Important: we will do some projects together to undestand the issues in a data science project but the students will also need to propose and execute a capstone project!](Resources/Slides/CAP394-2024-0-AboutCourse-Slide4.png){.lightbox group="CAP394-2024-0-AboutCourse"}
+
+---
+
+![I’m online (e-mail) basically every day, almost all the time, but don’t have too much free time for meetings. Plan ahead!](Resources/Slides/CAP394-2024-0-AboutCourse-Slide5.png){.lightbox group="CAP394-2024-0-AboutCourse"}
+
+---
+

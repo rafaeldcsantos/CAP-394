@@ -1,0 +1,13 @@
+---
+lightbox: true
+format:
+  html:
+    css: Resources/CSS/custom.scss
+---
+
+
+# About the Course
+
+This is the material (slides and notes) of the first lecture on the course.
+
+{{< include Resources/Slides/CAP394-2024-0-AboutCourse.qmd >}}

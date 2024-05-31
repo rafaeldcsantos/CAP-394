@@ -1,9 +1,0 @@
----
-title: "CAPES BLAH"
-author: "Rafael Santos"
-date: "`r Sys.Date()`"  # Automatically set the current date
----
-
-# CAPES
-
-## Open Data

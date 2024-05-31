@@ -1,28 +1,45 @@
 project:
   type: website
   output-dir: docs
-  
+
+
 website:
   title: "CAP-394"
-  favicon: "resources/CAP394-Icon.png" 
+  favicon: "Resources/Images/CAP394-Icon.png" 
   sidebar:
+    logo: "Resources/Images/CAP394-Icon-Trim.png"
     style: "docked"
-    search: true  
-    contents: auto
-  navbar:
-    logo: "resources/CAP394-Icon.png" 
-    left:
-      - href: index.qmd
-        text: Home
-      - 000-Intro.qmd
-      - 600-Projects.qmd
-  page-navigation: true
+    search: true
+    contents:
+      - index.qmd  
+      - section: "Lectures"
+        contents:
+        - 00-Lectures-Intro.qmd
+        - 01-Lectures-WhatIs.qmd
+        - 02-Lectures-Skills.qmd
+      - section: "Visualization"
+        contents:
+        - 10-Visualization-Intro.qmd
+      - section: "Projects"
+        contents:
+        - 20-Projects-Intro.qmd
+        - 23-Projects-Supermarket.qmd
+      - section: "Ideas Bank"
+        contents:
+        - 30-Ideas-Intro.qmd
+  page-footer: 
+    center: "<a href='https://linktr.ee/rafaeldcsantos'>Rafael Santos</a>" 
+
+
+
+
+
 
 format:
   html:
     theme:
-      - cosmo
-      - "resources/styles.scss"
+      - spacelab
+      - "Resources/SCSS/styles.scss"
     toc: true
 
 

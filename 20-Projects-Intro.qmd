@@ -1,0 +1,19 @@
+---
+format:
+  html:
+    css: Resources/CSS/custom.css
+---
+
+# Introduction
+
+This section will contain some Data Science Projects that are used in our lectures.
+
+Projects are somehow complex tasks around a specific dataset that requires data wrangling, organization, EDA, visualization, and in some cases application of machine learning techniques. 
+
+Most projects will include ideas for class discussions and several exercises. 
+
+Projects that are ready to be explored are on the sidebar on the left.
+
+
+
+

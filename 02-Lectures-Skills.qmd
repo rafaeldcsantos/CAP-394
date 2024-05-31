@@ -1,0 +1,119 @@
+---
+lightbox: true
+format:
+  html:
+    css: Resources/CSS/custom.scss
+bibliography: CAP394.bib      
+---
+
+
+# Skills for Data Science
+
+This is the material (slides and notes) of the third lecture on the course.
+
+{{< include Resources/Slides/CAP394-2024-2-Skills.qmd >}}
+
+## Code for examples used in this lecture
+
+### Average Temperature Basic Example
+
+In this notebook we will do a very simple data science project: plot the Earth's average land temperature and see if it is getting higher. The original data came from the [Berkeley Earth site](http://berkeleyearth.org/), an independent U.S. non-profit organization focused on environmental data science. The original data file can be [downloaded here](http://berkeleyearth.lbl.gov/auto/Global/Complete_TAVG_summary.txt) or [here (a local copy)](Resources/Data/AverageTemperature/Complete_TAVG_summary.txt). It is a text file with annual and five-year average temperatures and respective uncertainties.
+
+The first 30 lines of that file are shown below:
+
+``` {.plaintext}
+% This file contains a brief summary of the land-surface average results 
+% produced by the Berkeley Averaging method.  Temperatures are in 
+% Celsius and reported as anomalies relative to the Jan 1951-Dec 1980
+% average. Uncertainties represent the 95% confidence interval for 
+% statistical and spatial undersampling effects.
+% 
+% The current dataset presented here is described as: 
+% 
+%   Estimated Global Land-Surface TAVG based on the Complete Berkeley Dataset
+% 
+% 
+% This analysis was run on 07-Feb-2022 15:32:40
+% 
+% Results are based on 50590 time series 
+%   with 20945177 data points
+% 
+% Estimated Jan 1951-Dec 1980 absolute temperature (C): 8.60 +/- 0.06
+% 
+% 
+% 
+% Year, Annual Anomaly, Annual Unc., Five-year Anomaly, Five-year Unc.
+ 
+  1750      -1.220          NaN              NaN             NaN
+  1751      -1.311          NaN              NaN             NaN
+  1753      -0.955        1.005              NaN             NaN
+  1754      -0.379        0.934              NaN             NaN
+  1755      -0.698        0.980           -0.553           0.608
+  1756      -0.421        1.596           -0.831           0.586
+  1757      -0.310        0.896           -1.024           0.612
+  1758      -2.345        1.366           -1.347           0.882
+``` 
+
+Let's use Python [@python2001], Pandas [@pandasmckinney2012] and Matplotlib [@matplotlibhunter2007] for the analysis scripts, which will read the data and plot the year versus the corrected annual average temperature, and after that let's see if we can see a trend using a basic linear model.
+
+First we import the libraries we're going to use.
+
+```{python}
+#| classes: custompython
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+```
+ 
+Now we can read the file into a data frame -- more on this later in the course. If you want to reproduce this make sure you have the file in the right path.
+Note that we have to explicitely name the columns for this data set. 
+ 
+```{python}
+#| classes: custompython
+inputfile = "Resources/Data/AverageTemperature/Complete_TAVG_summary.txt"
+data = pd.read_csv(inputfile,sep="\\s+",skiprows=22,header=None)
+data.columns = ["Year","Annual.Anomaly","Annual.Uncertainty",
+                "FiveYear.Anomaly","FiveYear.Uncertainty"]
+```
+ 
+Let's see how the data looks (as a data frame):
+
+```{python}
+#| classes: custompython
+ data 
+```
+
+We want to plot the temperature, but we have the anomaly. All we need to do is to add 8.65ºC to the anomaly (see a detailed explanation at [this NASA's Earth Observatory site](https://earthobservatory.nasa.gov/world-of-change/global-temperatures) or [NOAA's National Centers for Environmental Information](https://www.ncei.noaa.gov/access/monitoring/dyk/anomalies-vs-temperature)).
+
+```{python}
+#| classes: custompython
+data["Annual"] = data["Annual.Anomaly"]+8.65
+```
+
+Now let's plot the annual temperature against the year:
+
+```{python}
+#| classes: custompython
+ax = data.plot(kind="line",x="Year",y="Annual")
+plt.show()
+```
+
+Let's fit a linear regression model that will basically describe temperature a function of the year using the data we have. Don't worry about the math details for the time being.  
+
+```{python}
+#| classes: custompython
+model = LinearRegression()
+X = pd.DataFrame(data["Year"])
+Y = pd.DataFrame(data["Annual"])
+model.fit(X,Y)
+Y_pred = model.predict(X)
+```
+
+`Y_pred` contains the predicted temperature values from the years. We can now create another plot that shows the original data and the linear model as a straigth line in red.
+
+```{python}
+#| classes: custompython
+plt.plot(data["Year"],data["Annual"])
+plt.plot(data["Year"],Y_pred,color="red")
+plt.show()
+```

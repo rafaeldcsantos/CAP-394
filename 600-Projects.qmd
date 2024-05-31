@@ -1,9 +1,0 @@
----
-title: "Projects"
-author: "Rafael Santos"
-date: "`r Sys.Date()`"  # Automatically set the current date
----
-
-# Projects2
-
-## About

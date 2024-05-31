@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CAP-394</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../Resources/Images/CAP394-Icon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../Resources/Images/CAP394-Icon-Trim.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About this Course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../00-Lectures-Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About the Course</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../01-Lectures-WhatIs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is Data Science?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../02-Lectures-Skills.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Skills for Data Science</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../10-Visualization-Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Projects</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../20-Projects-Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../23-Projects-Supermarket.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Supermarket Basket Analysis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Ideas Bank</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../30-Ideas-Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="slides" class="level2">
+<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide1.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-1" title="This is our third lecture, and possibly the longest one. We will cover a very incomplete list of skills a data scientist should know."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide1.png" class="img-fluid figure-img" alt="This is our third lecture, and possibly the longest one. We will cover a very incomplete list of skills a data scientist should know."></a></p>
+<figcaption>This is our third lecture, and possibly the longest one. We will cover a very incomplete list of skills a data scientist should know.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide2.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-2" title="Basically we will get a 90-minutes (or more) tour of the basic data science skills and see some examples."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide2.png" class="img-fluid figure-img" alt="Basically we will get a 90-minutes (or more) tour of the basic data science skills and see some examples."></a></p>
+<figcaption>Basically we will get a 90-minutes (or more) tour of the basic data science skills and see some examples.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide3.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-3" title="A bad joke here – there aren’t 820 steps, of course, but we will see that there are more than one person can handle, and this is not a bad thing!"><img src="Resources/Slides/CAP394-2024-2-Skills-Slide3.png" class="img-fluid figure-img" alt="A bad joke here – there aren’t 820 steps, of course, but we will see that there are more than one person can handle, and this is not a bad thing!"></a></p>
+<figcaption>A bad joke here – there aren’t 820 steps, of course, but we will see that there are more than one person can handle, and this is not a bad thing!</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide4.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-4" title="I use this figure a lot – it is based on the book Doing Data Science by Rachel Schutt and Cathy O’Neil, OReilly, 2014, which I highly recommend. The icons I use in this document are based on the figure. It shows the data science process, or a data science project cycle. Basically, we collect data about something we want to study, clean and preprocess it, do some basic (and more complex analysis), visualize/report/publish and eventually create a new data product that can be used by others.  All this is used to make decisions, which purposefully will be outside of the scope of most of our projects (usually decisions come from managers and other stakeholders of the project).  Not all steps must be followed, and some results may require retracing of the steps. But this basic compartmentalization helps us organize our ideas for the project, and we can comment on the skills required for each step.   "><img src="Resources/Slides/CAP394-2024-2-Skills-Slide4.png" class="img-fluid figure-img" alt="I use this figure a lot – it is based on the book Doing Data Science by Rachel Schutt and Cathy O’Neil, OReilly, 2014, which I highly recommend. The icons I use in this document are based on the figure. It shows the data science process, or a data science project cycle. Basically, we collect data about something we want to study, clean and preprocess it, do some basic (and more complex analysis), visualize/report/publish and eventually create a new data product that can be used by others.  All this is used to make decisions, which purposefully will be outside of the scope of most of our projects (usually decisions come from managers and other stakeholders of the project).  Not all steps must be followed, and some results may require retracing of the steps. But this basic compartmentalization helps us organize our ideas for the project, and we can comment on the skills required for each step.  "></a></p>
+<figcaption>I use this figure a lot – it is based on the book Doing Data Science by Rachel Schutt and Cathy O’Neil, OReilly, 2014, which I highly recommend. The icons I use in this document are based on the figure.<br>It shows the data science process, or a data science project cycle. Basically, we collect data about something we want to study, clean and preprocess it, do some basic (and more complex analysis), visualize/report/publish and eventually create a new data product that can be used by others. <br>All this is used to make decisions, which purposefully will be outside of the scope of most of our projects (usually decisions come from managers and other stakeholders of the project). <br>Not all steps must be followed, and some results may require retracing of the steps. But this basic compartmentalization helps us organize our ideas for the project, and we can comment on the skills required for each step. <br><br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide5.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-5" title="Since new tools, techniques, frameworks, algorithms, concepts, etc. are being actively developed, there is no way we can learn about all of those. Let’s take a tour through most of the better-known ones."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide5.png" class="img-fluid figure-img" alt="Since new tools, techniques, frameworks, algorithms, concepts, etc. are being actively developed, there is no way we can learn about all of those. Let’s take a tour through most of the better-known ones."></a></p>
+<figcaption>Since new tools, techniques, frameworks, algorithms, concepts, etc. are being actively developed, there is no way we can learn about all of those. Let’s take a tour through most of the better-known ones.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide6.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-6" title="This is not always a technical skill – sometimes you need to be able to talk to and understand researchers, clients, managers, professors, etc. from other fields. You don’t need to be a full-fledged astronomer do help in an astronomy data science problem but need to understand the basic concepts and think about good questions, good data and good results."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide6.png" class="img-fluid figure-img" alt="This is not always a technical skill – sometimes you need to be able to talk to and understand researchers, clients, managers, professors, etc. from other fields. You don’t need to be a full-fledged astronomer do help in an astronomy data science problem but need to understand the basic concepts and think about good questions, good data and good results."></a></p>
+<figcaption>This is not always a technical skill – sometimes you need to be able to talk to and understand researchers, clients, managers, professors, etc. from other fields. You don’t need to be a full-fledged astronomer do help in an astronomy data science problem but need to understand the basic concepts and think about good questions, good data and good results.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide7.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-7" title="This is a bit more complex. For many toy problems, the data would be already collected and organized, you just need to start the analysis. But for several other problems the data may be disorganized, or incomplete, or inaccessible, or even inexistent – collecting the data may be part of the data science project!  "><img src="Resources/Slides/CAP394-2024-2-Skills-Slide7.png" class="img-fluid figure-img" alt="This is a bit more complex. For many toy problems, the data would be already collected and organized, you just need to start the analysis. But for several other problems the data may be disorganized, or incomplete, or inaccessible, or even inexistent – collecting the data may be part of the data science project!  "></a></p>
+<figcaption>This is a bit more complex. For many toy problems, the data would be already collected and organized, you just need to start the analysis. But for several other problems the data may be disorganized, or incomplete, or inaccessible, or even inexistent – collecting the data may be part of the data science project! <br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide8.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-8" title="Another dead link, but you can get some references for the “80%” part at https://www.projectpro.io/article/why-data-preparation-is-an-important-part-of-data-science/242 and https://www.researchgate.net/publication/335577003_Data_preparation_and_preprocessing_for_broadcast_systems_monitoring_in_PHM_framework  Some people disagree, and https://blog.ldodds.com/2020/01/31/do-data-scientists-spend-80-of-their-time-cleaning-data-turns-out-no/ is a good reading. Anyway we will see that for some clean, nice projects the “cleaning and organizing” part is way less than 60%, while for some more “rough” projects it may be more than 80%."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide8.png" class="img-fluid figure-img" alt="Another dead link, but you can get some references for the “80%” part at https://www.projectpro.io/article/why-data-preparation-is-an-important-part-of-data-science/242 and https://www.researchgate.net/publication/335577003_Data_preparation_and_preprocessing_for_broadcast_systems_monitoring_in_PHM_framework  Some people disagree, and https://blog.ldodds.com/2020/01/31/do-data-scientists-spend-80-of-their-time-cleaning-data-turns-out-no/ is a good reading. Anyway we will see that for some clean, nice projects the “cleaning and organizing” part is way less than 60%, while for some more “rough” projects it may be more than 80%."></a></p>
+<figcaption>Another dead link, but you can get some references for the “80%” part at https://www.projectpro.io/article/why-data-preparation-is-an-important-part-of-data-science/242 and https://www.researchgate.net/publication/335577003_Data_preparation_and_preprocessing_for_broadcast_systems_monitoring_in_PHM_framework <br>Some people disagree, and https://blog.ldodds.com/2020/01/31/do-data-scientists-spend-80-of-their-time-cleaning-data-turns-out-no/ is a good reading.<br>Anyway we will see that for some clean, nice projects the “cleaning and organizing” part is way less than 60%, while for some more “rough” projects it may be more than 80%.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide9.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-9" title="See the previous slide notes about this figure and its sources. Anyway, cleaning and collecting data (AKA data wrangling) seems to be not fun at all. But of course, it depends on the data and job, and may be a very important part on the whole data science process. We will see a very good example with the Supermarket data."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide9.png" class="img-fluid figure-img" alt="See the previous slide notes about this figure and its sources. Anyway, cleaning and collecting data (AKA data wrangling) seems to be not fun at all. But of course, it depends on the data and job, and may be a very important part on the whole data science process. We will see a very good example with the Supermarket data."></a></p>
+<figcaption>See the previous slide notes about this figure and its sources.<br>Anyway, cleaning and collecting data (AKA data wrangling) seems to be not fun at all. But of course, it depends on the data and job, and may be a very important part on the whole data science process. We will see a very good example with the Supermarket data.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide10.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-10" title="I like the Merriam Webster definition because it covers an interesting definition for our purposes and an almost contrary view!  We won’t have to learn a whole programming language, only learn (by doing) short bits of code to solve specific problems."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide10.png" class="img-fluid figure-img" alt="I like the Merriam Webster definition because it covers an interesting definition for our purposes and an almost contrary view!  We won’t have to learn a whole programming language, only learn (by doing) short bits of code to solve specific problems."></a></p>
+<figcaption>I like the Merriam Webster definition because it covers an interesting definition for our purposes and an almost contrary view! <br>We won’t have to learn a whole programming language, only learn (by doing) short bits of code to solve specific problems.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide11.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-11" title="Coding used to be an exclusive tool for computer scientists. These days are long gone – you can start coding (hacking) in a browser! Coding also provides the “glue” for data collection, preprocessing and analysis tools, allowing us to tell a story about the data. This is essential for reproduction of experiments."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide11.png" class="img-fluid figure-img" alt="Coding used to be an exclusive tool for computer scientists. These days are long gone – you can start coding (hacking) in a browser! Coding also provides the “glue” for data collection, preprocessing and analysis tools, allowing us to tell a story about the data. This is essential for reproduction of experiments."></a></p>
+<figcaption>Coding used to be an exclusive tool for computer scientists. These days are long gone – you can start coding (hacking) in a browser!<br>Coding also provides the “glue” for data collection, preprocessing and analysis tools, allowing us to tell a story about the data. This is essential for reproduction of experiments.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide12.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-12" title="Don’t worry too much about the neural network bit. But imagine that you have to experiment with different parameters. Using the GUI-based tool you will have to open a dialog, set a value, click on a button and repeat for each and every change. Using something like a function call (the part in purple) you could use a script (small part of code) that changes the value programmatically and let the computer do the heavy work."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide12.png" class="img-fluid figure-img" alt="Don’t worry too much about the neural network bit. But imagine that you have to experiment with different parameters. Using the GUI-based tool you will have to open a dialog, set a value, click on a button and repeat for each and every change. Using something like a function call (the part in purple) you could use a script (small part of code) that changes the value programmatically and let the computer do the heavy work."></a></p>
+<figcaption>Don’t worry too much about the neural network bit. But imagine that you have to experiment with different parameters. Using the GUI-based tool you will have to open a dialog, set a value, click on a button and repeat for each and every change. Using something like a function call (the part in purple) you could use a script (small part of code) that changes the value programmatically and let the computer do the heavy work.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide13.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-13" title="To create short pieces of code that process some data (basic cleaning, preprocessing, analysis) we don’t need a powerful computer with a compiler or integrated development environment – a basic browser would do. There are several companies that provide sites where you can edit and run basic code. Of course there are limitations, so for more processing-heavy work a full computer is recommended. "><img src="Resources/Slides/CAP394-2024-2-Skills-Slide13.png" class="img-fluid figure-img" alt="To create short pieces of code that process some data (basic cleaning, preprocessing, analysis) we don’t need a powerful computer with a compiler or integrated development environment – a basic browser would do. There are several companies that provide sites where you can edit and run basic code. Of course there are limitations, so for more processing-heavy work a full computer is recommended. "></a></p>
+<figcaption>To create short pieces of code that process some data (basic cleaning, preprocessing, analysis) we don’t need a powerful computer with a compiler or integrated development environment – a basic browser would do. There are several companies that provide sites where you can edit and run basic code. Of course there are limitations, so for more processing-heavy work a full computer is recommended.<br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide14.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-14" title="Another way to hack – simpler, perhaps more intuitive but more manual and less flexible: Orange."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide14.png" class="img-fluid figure-img" alt="Another way to hack – simpler, perhaps more intuitive but more manual and less flexible: Orange."></a></p>
+<figcaption>Another way to hack – simpler, perhaps more intuitive but more manual and less flexible: Orange.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide15.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-15" title="I like to show this as one of the proofs that data science is not a new science but something that was made possible by the evolution of technologies. These are punch cards, used until the 1980s. A deck of punch cards would represent the data and the code to process the data. Not as nearly as flexible or powerful as what we have today, but similar in the idea."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide15.png" class="img-fluid figure-img" alt="I like to show this as one of the proofs that data science is not a new science but something that was made possible by the evolution of technologies. These are punch cards, used until the 1980s. A deck of punch cards would represent the data and the code to process the data. Not as nearly as flexible or powerful as what we have today, but similar in the idea."></a></p>
+<figcaption>I like to show this as one of the proofs that data science is not a new science but something that was made possible by the evolution of technologies. These are punch cards, used until the 1980s. A deck of punch cards would represent the data and the code to process the data. Not as nearly as flexible or powerful as what we have today, but similar in the idea.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide16.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-16" title="There is a large number of resources for learning Python (and for learning how to do a specific task in Python). It is a very good choice of general programming language. There are still two major versions of Python out there, I strongly suggest using version 3. If your computer have other versions installed and you want to use Python locally, use conda to create environments (a must in a Mac). If you will do data science only using hosted notebooks (e.g.&nbsp;Kaggle, Google Colab) this is not an issue."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide16.png" class="img-fluid figure-img" alt="There is a large number of resources for learning Python (and for learning how to do a specific task in Python). It is a very good choice of general programming language. There are still two major versions of Python out there, I strongly suggest using version 3. If your computer have other versions installed and you want to use Python locally, use conda to create environments (a must in a Mac). If you will do data science only using hosted notebooks (e.g.&nbsp;Kaggle, Google Colab) this is not an issue."></a></p>
+<figcaption>There is a large number of resources for learning Python (and for learning how to do a specific task in Python). It is a very good choice of general programming language.<br>There are still two major versions of Python out there, I strongly suggest using version 3. If your computer have other versions installed and you want to use Python locally, use conda to create environments (a must in a Mac). If you will do data science only using hosted notebooks (e.g.&nbsp;Kaggle, Google Colab) this is not an issue.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide17.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-17" title="Here’s a simple code in Python that reads a file with global average temperatures per year, do some basic operations in a variable and plot the results. All elements shown are screenshots from a notebook – we will see more about notebooks soon.  The complete code is shown in the lecture notes for this course."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide17.png" class="img-fluid figure-img" alt="Here’s a simple code in Python that reads a file with global average temperatures per year, do some basic operations in a variable and plot the results. All elements shown are screenshots from a notebook – we will see more about notebooks soon.  The complete code is shown in the lecture notes for this course."></a></p>
+<figcaption>Here’s a simple code in Python that reads a file with global average temperatures per year, do some basic operations in a variable and plot the results. All elements shown are screenshots from a notebook – we will see more about notebooks soon. <br>The complete code is shown in the lecture notes for this course.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide18.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-18" title="To show how simple is to create code for basic data science tasks here are some more lines that create a linear fit to the data and plot it over the original data.  The complete code is shown in the lecture notes for this course. "><img src="Resources/Slides/CAP394-2024-2-Skills-Slide18.png" class="img-fluid figure-img" alt="To show how simple is to create code for basic data science tasks here are some more lines that create a linear fit to the data and plot it over the original data.  The complete code is shown in the lecture notes for this course. "></a></p>
+<figcaption>To show how simple is to create code for basic data science tasks here are some more lines that create a linear fit to the data and plot it over the original data. <br>The complete code is shown in the lecture notes for this course.<br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide19.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-19" title="R has a steep learning curve, specially if you have a strong OO or procedural programming, but there are several resources on how to solve specific problems in R.  Use Rstudio (and the official release of R) to develop code in R in your machine, or a hosted notebook provider (Google Colab, Kaggle)."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide19.png" class="img-fluid figure-img" alt="R has a steep learning curve, specially if you have a strong OO or procedural programming, but there are several resources on how to solve specific problems in R.  Use Rstudio (and the official release of R) to develop code in R in your machine, or a hosted notebook provider (Google Colab, Kaggle)."></a></p>
+<figcaption>R has a steep learning curve, specially if you have a strong OO or procedural programming, but there are several resources on how to solve specific problems in R. <br>Use Rstudio (and the official release of R) to develop code in R in your machine, or a hosted notebook provider (Google Colab, Kaggle).</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide20.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-20" title="This is the R version of the Python code shown before. We will read a file with global average temperatures per year, do some basic operations in a variable and plot the results. All elements shown are screenshots from a notebook – we will see more about notebooks soon.  The complete code is shown in the lecture notes for this course. "><img src="Resources/Slides/CAP394-2024-2-Skills-Slide20.png" class="img-fluid figure-img" alt="This is the R version of the Python code shown before. We will read a file with global average temperatures per year, do some basic operations in a variable and plot the results. All elements shown are screenshots from a notebook – we will see more about notebooks soon.  The complete code is shown in the lecture notes for this course. "></a></p>
+<figcaption>This is the R version of the Python code shown before. We will read a file with global average temperatures per year, do some basic operations in a variable and plot the results. All elements shown are screenshots from a notebook – we will see more about notebooks soon. <br>The complete code is shown in the lecture notes for this course.<br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide21.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-21" title="Here are some more lines that create a linear fit to the data and plot it over the original data.  The complete code is shown in the lecture notes for this course.  "><img src="Resources/Slides/CAP394-2024-2-Skills-Slide21.png" class="img-fluid figure-img" alt="Here are some more lines that create a linear fit to the data and plot it over the original data.  The complete code is shown in the lecture notes for this course. "></a></p>
+<figcaption>Here are some more lines that create a linear fit to the data and plot it over the original data. <br>The complete code is shown in the lecture notes for this course.<br><br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide22.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-22" title="In other words: don’t worry about learning all of a programming language. Learn the basics and search for the specifics online. Don’t put all your programming eggs in a basket: R, Python are good for hacking, but a knowledge of other languages and tools (especially command line tools) may be handy. On the other hand almost everything can be done in almost any modern language! Don’t worry about perfect code – make code that works."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide22.png" class="img-fluid figure-img" alt="In other words: don’t worry about learning all of a programming language. Learn the basics and search for the specifics online. Don’t put all your programming eggs in a basket: R, Python are good for hacking, but a knowledge of other languages and tools (especially command line tools) may be handy. On the other hand almost everything can be done in almost any modern language! Don’t worry about perfect code – make code that works."></a></p>
+<figcaption>In other words: don’t worry about learning all of a programming language. Learn the basics and search for the specifics online.<br>Don’t put all your programming eggs in a basket: R, Python are good for hacking, but a knowledge of other languages and tools (especially command line tools) may be handy. On the other hand almost everything can be done in almost any modern language!<br>Don’t worry about perfect code – make code that works.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide23.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-23" title="Is using ChatGPT cheating? It can be really helpful for writing small bits of code, but may fail for slightly more complex functions, As always, the user must know the right questions to ask."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide23.png" class="img-fluid figure-img" alt="Is using ChatGPT cheating? It can be really helpful for writing small bits of code, but may fail for slightly more complex functions, As always, the user must know the right questions to ask."></a></p>
+<figcaption>Is using ChatGPT cheating? It can be really helpful for writing small bits of code, but may fail for slightly more complex functions, As always, the user must know the right questions to ask.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide24.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-24" title="LLM tools (ChatGPT, CoPilot, CodeWhisperer, etc.) can help generating bits of code, with good results when given initial information. Use them wisely, check to code, learn with it, interact with the LLM giving suggestions and asking questions and enhancements. Use it as a code assistant, not as a coder."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide24.png" class="img-fluid figure-img" alt="LLM tools (ChatGPT, CoPilot, CodeWhisperer, etc.) can help generating bits of code, with good results when given initial information. Use them wisely, check to code, learn with it, interact with the LLM giving suggestions and asking questions and enhancements. Use it as a code assistant, not as a coder."></a></p>
+<figcaption>LLM tools (ChatGPT, CoPilot, CodeWhisperer, etc.) can help generating bits of code, with good results when given initial information. Use them wisely, check to code, learn with it, interact with the LLM giving suggestions and asking questions and enhancements. Use it as a code assistant, not as a coder.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide25.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-25" title="EDA has an interesting story, see https://link.springer.com/referenceworkentry/10.1007/978-0-387-32833-1_136 Basically we will take a look at the data – either with basic statistical analysis or with charts and plots. Doing this we will have a better idea on the nature of the data, its completeness, relations between the variables, etc."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide25.png" class="img-fluid figure-img" alt="EDA has an interesting story, see https://link.springer.com/referenceworkentry/10.1007/978-0-387-32833-1_136 Basically we will take a look at the data – either with basic statistical analysis or with charts and plots. Doing this we will have a better idea on the nature of the data, its completeness, relations between the variables, etc."></a></p>
+<figcaption>EDA has an interesting story, see https://link.springer.com/referenceworkentry/10.1007/978-0-387-32833-1_136<br>Basically we will take a look at the data – either with basic statistical analysis or with charts and plots. Doing this we will have a better idea on the nature of the data, its completeness, relations between the variables, etc.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide26.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-26" title="There are many questions we can ask, meaning that there are many tools and techniques! We’ve already seen some patterns with the annual temperature example.  Think about questions about your data and how to answer them with code/visualization/statistics."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide26.png" class="img-fluid figure-img" alt="There are many questions we can ask, meaning that there are many tools and techniques! We’ve already seen some patterns with the annual temperature example.  Think about questions about your data and how to answer them with code/visualization/statistics."></a></p>
+<figcaption>There are many questions we can ask, meaning that there are many tools and techniques! We’ve already seen some patterns with the annual temperature example. <br>Think about questions about your data and how to answer them with code/visualization/statistics.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide27.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-27" title="The Iris flowers are a good dataset for basic exploratory data analysis. In this dataset there are measures (length and width of petals and sepals) of 150 samples of three classes of Iris flowers. They differ a bit in the dimensions. Let’s see what we can infer from this data.  The complete code is shown in the lecture notes for this course.   "><img src="Resources/Slides/CAP394-2024-2-Skills-Slide27.png" class="img-fluid figure-img" alt="The Iris flowers are a good dataset for basic exploratory data analysis. In this dataset there are measures (length and width of petals and sepals) of 150 samples of three classes of Iris flowers. They differ a bit in the dimensions. Let’s see what we can infer from this data.  The complete code is shown in the lecture notes for this course. "></a></p>
+<figcaption>The Iris flowers are a good dataset for basic exploratory data analysis. In this dataset there are measures (length and width of petals and sepals) of 150 samples of three classes of Iris flowers. They differ a bit in the dimensions. Let’s see what we can infer from this data. <br>The complete code is shown in the lecture notes for this course.<br><br><br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide28.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-28" title="Here’s a heatmap showing the number of French rolls sold in a local supermarket chain per day and hour of day. We can detect some patterns that explain features on the data that were not clear – can you find some? The complete code is shown in the lecture notes for this course.    "><img src="Resources/Slides/CAP394-2024-2-Skills-Slide28.png" class="img-fluid figure-img" alt="Here’s a heatmap showing the number of French rolls sold in a local supermarket chain per day and hour of day. We can detect some patterns that explain features on the data that were not clear – can you find some? The complete code is shown in the lecture notes for this course. "></a></p>
+<figcaption>Here’s a heatmap showing the number of French rolls sold in a local supermarket chain per day and hour of day. We can detect some patterns that explain features on the data that were not clear – can you find some?<br>The complete code is shown in the lecture notes for this course.<br><br><br><br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide29.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-29" title="Now that we used EDA we have a good (or even approximate) idea of our data’s structure, general behavior, completeness, etc. we can apply methods to better describe it. Machine Learning and Data Mining (basically the same thing, but broader in scope) can be used for this. In this course we won’t learn EDA, programming or machine learning in detail, just enough to do our exercises and credits. See courses in the Applied Computing program for more information on machine learning, neural networks, applied AI, etc.  "><img src="Resources/Slides/CAP394-2024-2-Skills-Slide29.png" class="img-fluid figure-img" alt="Now that we used EDA we have a good (or even approximate) idea of our data’s structure, general behavior, completeness, etc. we can apply methods to better describe it. Machine Learning and Data Mining (basically the same thing, but broader in scope) can be used for this. In this course we won’t learn EDA, programming or machine learning in detail, just enough to do our exercises and credits. See courses in the Applied Computing program for more information on machine learning, neural networks, applied AI, etc. "></a></p>
+<figcaption>Now that we used EDA we have a good (or even approximate) idea of our data’s structure, general behavior, completeness, etc. we can apply methods to better describe it. Machine Learning and Data Mining (basically the same thing, but broader in scope) can be used for this.<br>In this course we won’t learn EDA, programming or machine learning in detail, just enough to do our exercises and credits. See courses in the Applied Computing program for more information on machine learning, neural networks, applied AI, etc.<br><br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide30.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-30" title="Models are combinations of algorithms and internal representations that can be used to describe data (and the physical phenomena behind it). For example, for the global warming data, we could use the parameters of the fitted curve to predict the temperature in any year in the future.  For the Iris data we can infer some rules, e.g.&nbsp;that any Iris flower with a petal length shorter than 2.5cm is of class “setosa”.  Models can be too simplistic or more complex than suggested by EDA: the temperature model does not present a good fit for years before 1820 or after 2000. Other more complex, better fitting curves may be used.  Models can be incomplete: one simple rule classifies the “setosa” flowers but there is no simple rule that classifies “versicolor” and “virginica” without errors. "><img src="Resources/Slides/CAP394-2024-2-Skills-Slide30.png" class="img-fluid figure-img" alt="Models are combinations of algorithms and internal representations that can be used to describe data (and the physical phenomena behind it). For example, for the global warming data, we could use the parameters of the fitted curve to predict the temperature in any year in the future.  For the Iris data we can infer some rules, e.g.&nbsp;that any Iris flower with a petal length shorter than 2.5cm is of class “setosa”. Models can be too simplistic or more complex than suggested by EDA: the temperature model does not present a good fit for years before 1820 or after 2000. Other more complex, better fitting curves may be used. Models can be incomplete: one simple rule classifies the “setosa” flowers but there is no simple rule that classifies “versicolor” and “virginica” without errors. "></a></p>
+<figcaption>Models are combinations of algorithms and internal representations that can be used to describe data (and the physical phenomena behind it).<br>For example, for the global warming data, we could use the parameters of the fitted curve to predict the temperature in any year in the future. <br>For the Iris data we can infer some rules, e.g.&nbsp;that any Iris flower with a petal length shorter than 2.5cm is of class “setosa”.<br><br>Models can be too simplistic or more complex than suggested by EDA: the temperature model does not present a good fit for years before 1820 or after 2000. Other more complex, better fitting curves may be used.<br><br>Models can be incomplete: one simple rule classifies the “setosa” flowers but there is no simple rule that classifies “versicolor” and “virginica” without errors.<br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide31.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-31" title="Models depends a lot on what we want to do with the data. For example, for the supermarket basket data we could think of models that: Predict the total sales in cash depending on the day of the week and supermarket branch. Predict the number of French rolls that will be sold in an hour by fitting a curve that predicts rolls/hour for every day in the week. Estimate the probability that someone that buys more than 5 French rolls would also buy milk in the same transaction.  Models ultimately depends on the data and algorithms used, and may yield unexpected or incorrect results, depending on several factors. Data may be incomplete or badly preprocessed. Metadata or ancillary data may be necessary (e.g.&nbsp;see the vertical gaps in this figure – what are they?) The existing data may not be enough for the analysis (e.g.&nbsp;we cannot identify individual clients on this data).  That’s why Data Science is a process – eventually we need to trace back our steps. "><img src="Resources/Slides/CAP394-2024-2-Skills-Slide31.png" class="img-fluid figure-img" alt="Models depends a lot on what we want to do with the data. For example, for the supermarket basket data we could think of models that: Predict the total sales in cash depending on the day of the week and supermarket branch. Predict the number of French rolls that will be sold in an hour by fitting a curve that predicts rolls/hour for every day in the week. Estimate the probability that someone that buys more than 5 French rolls would also buy milk in the same transaction. Models ultimately depends on the data and algorithms used, and may yield unexpected or incorrect results, depending on several factors. Data may be incomplete or badly preprocessed. Metadata or ancillary data may be necessary (e.g.&nbsp;see the vertical gaps in this figure – what are they?) The existing data may not be enough for the analysis (e.g.&nbsp;we cannot identify individual clients on this data). That’s why Data Science is a process – eventually we need to trace back our steps. "></a></p>
+<figcaption>Models depends a lot on what we want to do with the data. For example, for the supermarket basket data we could think of models that:<br>Predict the total sales in cash depending on the day of the week and supermarket branch.<br>Predict the number of French rolls that will be sold in an hour by fitting a curve that predicts rolls/hour for every day in the week.<br>Estimate the probability that someone that buys more than 5 French rolls would also buy milk in the same transaction.<br><br>Models ultimately depends on the data and algorithms used, and may yield unexpected or incorrect results, depending on several factors.<br>Data may be incomplete or badly preprocessed.<br>Metadata or ancillary data may be necessary (e.g.&nbsp;see the vertical gaps in this figure – what are they?)<br>The existing data may not be enough for the analysis (e.g.&nbsp;we cannot identify individual clients on this data).<br><br>That’s why Data Science is a process – eventually we need to trace back our steps.<br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide32.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-32" title="There are plenty of choices to learn from data but we have to know a bit about the capabilities and limitations of the algorithms to use them efficiently. Even so, sometimes there is not a clear best choice for an algorithm. For example, neural networks can predict better the increase of temperature, but their prediction is hard to understand (compared to “temperature will increase X degrees in Y years”). Depending on the task we need to find a balance between accuracy and simplicity/interpretability. Some models are trained from data – this may become computationally expensive depending on the algorithm and the data."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide32.png" class="img-fluid figure-img" alt="There are plenty of choices to learn from data but we have to know a bit about the capabilities and limitations of the algorithms to use them efficiently. Even so, sometimes there is not a clear best choice for an algorithm. For example, neural networks can predict better the increase of temperature, but their prediction is hard to understand (compared to “temperature will increase X degrees in Y years”). Depending on the task we need to find a balance between accuracy and simplicity/interpretability. Some models are trained from data – this may become computationally expensive depending on the algorithm and the data."></a></p>
+<figcaption>There are plenty of choices to learn from data but we have to know a bit about the capabilities and limitations of the algorithms to use them efficiently. Even so, sometimes there is not a clear best choice for an algorithm.<br>For example, neural networks can predict better the increase of temperature, but their prediction is hard to understand (compared to “temperature will increase X degrees in Y years”). Depending on the task we need to find a balance between accuracy and simplicity/interpretability.<br>Some models are trained from data – this may become computationally expensive depending on the algorithm and the data.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide33.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-33" title="One of the key concepts of data science is the emphasis on presenting results. There are several facets of this: creating nice, engaging visualizations of the data is useful for EDA and to present final results; telling a story about the data can be used for reproducibility and evaluation.   One way to communicate results to other practitioners of data science (in contrast to reports for final users) is to use notebooks. We’ve already seen some glimpses of notebooks, which are basically a way to arrange text, images and code (including results of executing the code) in a single document that shows all steps and results of a particular analysis task.   Notebooks can be shared as files, or publicly using tools like Kaggle, Google Colab, SciServer, etc."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide33.png" class="img-fluid figure-img" alt="One of the key concepts of data science is the emphasis on presenting results. There are several facets of this: creating nice, engaging visualizations of the data is useful for EDA and to present final results; telling a story about the data can be used for reproducibility and evaluation.  One way to communicate results to other practitioners of data science (in contrast to reports for final users) is to use notebooks. We’ve already seen some glimpses of notebooks, which are basically a way to arrange text, images and code (including results of executing the code) in a single document that shows all steps and results of a particular analysis task.  Notebooks can be shared as files, or publicly using tools like Kaggle, Google Colab, SciServer, etc."></a></p>
+<figcaption>One of the key concepts of data science is the emphasis on presenting results. There are several facets of this: creating nice, engaging visualizations of the data is useful for EDA and to present final results; telling a story about the data can be used for reproducibility and evaluation. <br><br>One way to communicate results to other practitioners of data science (in contrast to reports for final users) is to use notebooks. We’ve already seen some glimpses of notebooks, which are basically a way to arrange text, images and code (including results of executing the code) in a single document that shows all steps and results of a particular analysis task. <br><br>Notebooks can be shared as files, or publicly using tools like Kaggle, Google Colab, SciServer, etc.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide34.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-34" title="After doing preprocessing, EDA, analysis, documentation (use notebooks!) we may get a different dataset from the one we started with. This dataset was probably filtered, preprocessed, modified, annotated, etc. and may have additional value when compared to the raw original data – think about all the work you put on it!  Consider publishing the data product of your processing, EDA and analysis with the analysis and documentation itself. Think about the value for others and how nice would it be if you had it to start with!"><img src="Resources/Slides/CAP394-2024-2-Skills-Slide34.png" class="img-fluid figure-img" alt="After doing preprocessing, EDA, analysis, documentation (use notebooks!) we may get a different dataset from the one we started with. This dataset was probably filtered, preprocessed, modified, annotated, etc. and may have additional value when compared to the raw original data – think about all the work you put on it!  Consider publishing the data product of your processing, EDA and analysis with the analysis and documentation itself. Think about the value for others and how nice would it be if you had it to start with!"></a></p>
+<figcaption>After doing preprocessing, EDA, analysis, documentation (use notebooks!) we may get a different dataset from the one we started with. This dataset was probably filtered, preprocessed, modified, annotated, etc. and may have additional value when compared to the raw original data – think about all the work you put on it! <br>Consider publishing the data product of your processing, EDA and analysis with the analysis and documentation itself. Think about the value for others and how nice would it be if you had it to start with!</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide35.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-35" title="We’ve seen some problems that may arise when processing the data, doing EDA and creating/applying models. Let’s see what else can go wrong!"><img src="Resources/Slides/CAP394-2024-2-Skills-Slide35.png" class="img-fluid figure-img" alt="We’ve seen some problems that may arise when processing the data, doing EDA and creating/applying models. Let’s see what else can go wrong!"></a></p>
+<figcaption>We’ve seen some problems that may arise when processing the data, doing EDA and creating/applying models. Let’s see what else can go wrong!</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide36.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-36" title="Here’s a simple approach to answer the question “how are the total bills for transactions on the supermarket distributed?“ for the supermarket data. We see that the histogram is dominated by a bar on the 0-20000 reais range, which is weird – we wouldn’t even expect a 20000 bill for a local supermarket. Examining the data closely we see that there was a bill of R$ 505050.00 with a change of R$ 505044.22 – clearly a typo, but part of the data anyway. How can we automatically remove this outlier? Should we?"><img src="Resources/Slides/CAP394-2024-2-Skills-Slide36.png" class="img-fluid figure-img" alt="Here’s a simple approach to answer the question “how are the total bills for transactions on the supermarket distributed?“ for the supermarket data. We see that the histogram is dominated by a bar on the 0-20000 reais range, which is weird – we wouldn’t even expect a 20000 bill for a local supermarket. Examining the data closely we see that there was a bill of R$ 505050.00 with a change of R$ 505044.22 – clearly a typo, but part of the data anyway. How can we automatically remove this outlier? Should we?"></a></p>
+<figcaption>Here’s a simple approach to answer the question “how are the total bills for transactions on the supermarket distributed?“ for the supermarket data. We see that the histogram is dominated by a bar on the 0-20000 reais range, which is weird – we wouldn’t even expect a 20000 bill for a local supermarket. Examining the data closely we see that there was a bill of R$ 505050.00 with a change of R$ 505044.22 – clearly a typo, but part of the data anyway. How can we automatically remove this outlier? Should we?</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide37.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-37" title="Some data online may not be curated, formatted or freely available. I’ve found files that were supposed to be in CSV format but were badly formatted, reading was very complicated (e.g some data from CAPES uses a semicolon to separate the fields, but some fields contain semicolons…)  Historic data, spread over several files, may have structural differences in the files themselves, so we cannot process all in the same way. If we need to “glue” different data sources together we may face issues that make the getting and processing steps of the data science process take much longer.  And since new datasets may have different features or fields, we need to reevaluate processing code when doing new data."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide37.png" class="img-fluid figure-img" alt="Some data online may not be curated, formatted or freely available. I’ve found files that were supposed to be in CSV format but were badly formatted, reading was very complicated (e.g some data from CAPES uses a semicolon to separate the fields, but some fields contain semicolons…)  Historic data, spread over several files, may have structural differences in the files themselves, so we cannot process all in the same way. If we need to “glue” different data sources together we may face issues that make the getting and processing steps of the data science process take much longer.  And since new datasets may have different features or fields, we need to reevaluate processing code when doing new data."></a></p>
+<figcaption>Some data online may not be curated, formatted or freely available. I’ve found files that were supposed to be in CSV format but were badly formatted, reading was very complicated (e.g some data from CAPES uses a semicolon to separate the fields, but some fields contain semicolons…) <br>Historic data, spread over several files, may have structural differences in the files themselves, so we cannot process all in the same way.<br>If we need to “glue” different data sources together we may face issues that make the getting and processing steps of the data science process take much longer. <br>And since new datasets may have different features or fields, we need to reevaluate processing code when doing new data.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide38.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-38" title="One example of problems with data: spreadsheets should naturally be tidy, easily readable by humans and machines. But humans may prefer some aesthetics that could confuse machine-reading of the data. "><img src="Resources/Slides/CAP394-2024-2-Skills-Slide38.png" class="img-fluid figure-img" alt="One example of problems with data: spreadsheets should naturally be tidy, easily readable by humans and machines. But humans may prefer some aesthetics that could confuse machine-reading of the data. "></a></p>
+<figcaption>One example of problems with data: spreadsheets should naturally be tidy, easily readable by humans and machines. But humans may prefer some aesthetics that could confuse machine-reading of the data.<br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide39.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-39" title="These files were downloaded from CAPES Open Data Portal. Each spreadsheet covers an year of information on lecturers on graduate programs. We can see that the number of columns changed at least twice. Processing this whole dataset as one would require identification of a common set of columns."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide39.png" class="img-fluid figure-img" alt="These files were downloaded from CAPES Open Data Portal. Each spreadsheet covers an year of information on lecturers on graduate programs. We can see that the number of columns changed at least twice. Processing this whole dataset as one would require identification of a common set of columns."></a></p>
+<figcaption>These files were downloaded from CAPES Open Data Portal. Each spreadsheet covers an year of information on lecturers on graduate programs. We can see that the number of columns changed at least twice. Processing this whole dataset as one would require identification of a common set of columns.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide40.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-40" title="Basically, check the code for every new data release, particularly when the data sources are out of the data science team control."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide40.png" class="img-fluid figure-img" alt="Basically, check the code for every new data release, particularly when the data sources are out of the data science team control."></a></p>
+<figcaption>Basically, check the code for every new data release, particularly when the data sources are out of the data science team control.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide41.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-41" title="Evaluation for this course will be based on attendance, homework and projects. Here’s the guidelines/suggestions for your project."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide41.png" class="img-fluid figure-img" alt="Evaluation for this course will be based on attendance, homework and projects. Here’s the guidelines/suggestions for your project."></a></p>
+<figcaption>Evaluation for this course will be based on attendance, homework and projects. Here’s the guidelines/suggestions for your project.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide42.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-42" title="Step 1 is the one that may take more time. You must find a project that 1) is interesting enough for you; 2) has public or accessible data; 3) can be explored with at least the EDA concepts; 4) can be done in 3-4 months. Step 2 is also very important, but if we get an interesting project we may already have interesting questions about it. But beware of projects for which the data is not readily accessible! "><img src="Resources/Slides/CAP394-2024-2-Skills-Slide42.png" class="img-fluid figure-img" alt="Step 1 is the one that may take more time. You must find a project that 1) is interesting enough for you; 2) has public or accessible data; 3) can be explored with at least the EDA concepts; 4) can be done in 3-4 months. Step 2 is also very important, but if we get an interesting project we may already have interesting questions about it. But beware of projects for which the data is not readily accessible! "></a></p>
+<figcaption>Step 1 is the one that may take more time. You must find a project that 1) is interesting enough for you; 2) has public or accessible data; 3) can be explored with at least the EDA concepts; 4) can be done in 3-4 months.<br>Step 2 is also very important, but if we get an interesting project we may already have interesting questions about it. But beware of projects for which the data is not readily accessible!<br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide43.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-43" title="This is the fun part! Create code (notebooks!) that explore the data and help you tell a story about it. Check for issues on the data, see how complete it is, visualize it to see patterns. It is possible that the code (especially notebooks) get too large or unwieldly, consider creating a notebook for data cleaning and saving it in an intermediate format, and other notebooks to explore it using EDA. "><img src="Resources/Slides/CAP394-2024-2-Skills-Slide43.png" class="img-fluid figure-img" alt="This is the fun part! Create code (notebooks!) that explore the data and help you tell a story about it. Check for issues on the data, see how complete it is, visualize it to see patterns. It is possible that the code (especially notebooks) get too large or unwieldly, consider creating a notebook for data cleaning and saving it in an intermediate format, and other notebooks to explore it using EDA. "></a></p>
+<figcaption>This is the fun part! Create code (notebooks!) that explore the data and help you tell a story about it. Check for issues on the data, see how complete it is, visualize it to see patterns.<br>It is possible that the code (especially notebooks) get too large or unwieldly, consider creating a notebook for data cleaning and saving it in an intermediate format, and other notebooks to explore it using EDA.<br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide44.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-44" title="If you can do EDA on your data you can possibly see some patterns. Think again about the questions you may have about your data and see if any of those patterns can be used to answer the questions (or at least to raise more questions!)"><img src="Resources/Slides/CAP394-2024-2-Skills-Slide44.png" class="img-fluid figure-img" alt="If you can do EDA on your data you can possibly see some patterns. Think again about the questions you may have about your data and see if any of those patterns can be used to answer the questions (or at least to raise more questions!)"></a></p>
+<figcaption>If you can do EDA on your data you can possibly see some patterns. Think again about the questions you may have about your data and see if any of those patterns can be used to answer the questions (or at least to raise more questions!)</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide45.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-45" title="Create well-documented notebooks, with lots of text, figures and explanation about the steps you’re taking. Avoid code-only notebooks! Even if the results are bad, create notebooks to tell stories about the data. These may be useful for future attempts!"><img src="Resources/Slides/CAP394-2024-2-Skills-Slide45.png" class="img-fluid figure-img" alt="Create well-documented notebooks, with lots of text, figures and explanation about the steps you’re taking. Avoid code-only notebooks! Even if the results are bad, create notebooks to tell stories about the data. These may be useful for future attempts!"></a></p>
+<figcaption>Create well-documented notebooks, with lots of text, figures and explanation about the steps you’re taking. Avoid code-only notebooks!<br>Even if the results are bad, create notebooks to tell stories about the data. These may be useful for future attempts!</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide46.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-46" title="Sometimes we have the ideas and questions but not the data or the ability to create code to explore it. It is very tempting to ask a data scientist (or programmer) to solve the task for you, but remember that being a data scientist means working in an interdisciplinary way! Don’t just throw the problem and run away, talk with your collaborator, work together as a team and you will get the results."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide46.png" class="img-fluid figure-img" alt="Sometimes we have the ideas and questions but not the data or the ability to create code to explore it. It is very tempting to ask a data scientist (or programmer) to solve the task for you, but remember that being a data scientist means working in an interdisciplinary way! Don’t just throw the problem and run away, talk with your collaborator, work together as a team and you will get the results."></a></p>
+<figcaption>Sometimes we have the ideas and questions but not the data or the ability to create code to explore it. It is very tempting to ask a data scientist (or programmer) to solve the task for you, but remember that being a data scientist means working in an interdisciplinary way! Don’t just throw the problem and run away, talk with your collaborator, work together as a team and you will get the results.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide47.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-47" title="Finally! There are some additional slides that will not be part of this lecture (but eventually published)."><img src="Resources/Slides/CAP394-2024-2-Skills-Slide47.png" class="img-fluid figure-img" alt="Finally! There are some additional slides that will not be part of this lecture (but eventually published)."></a></p>
+<figcaption>Finally!<br>There are some additional slides that will not be part of this lecture (but eventually published).</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-2-Skills-Slide48.png" class="lightbox" data-gallery="CAP394-2024-2-Skills" data-glightbox="description: .lightbox-desc-48" title="I strongly recommend the Schutt &amp; O’Neil book, which present case studies, code, basic concepts in an easy-to-follow way.  “Introducing Data Science” is a Python-centric good, practical introduction. “Python for Data Analysis” is also a good introduction, with examples formatted as notebooks, making it easy to follow.  “Copying and Pasting from Stack Overflow” is not a real book, of course, but I feel that searching for answers for code snippets there (or using ChatGPT) is not wrong per se, as long as the reader verify the answers and try to understand what is going on!    "><img src="Resources/Slides/CAP394-2024-2-Skills-Slide48.png" class="img-fluid figure-img" alt="I strongly recommend the Schutt &amp; O’Neil book, which present case studies, code, basic concepts in an easy-to-follow way. “Introducing Data Science” is a Python-centric good, practical introduction. “Python for Data Analysis” is also a good introduction, with examples formatted as notebooks, making it easy to follow. “Copying and Pasting from Stack Overflow” is not a real book, of course, but I feel that searching for answers for code snippets there (or using ChatGPT) is not wrong per se, as long as the reader verify the answers and try to understand what is going on! "></a></p>
+<figcaption>I strongly recommend the Schutt &amp; O’Neil book, which present case studies, code, basic concepts in an easy-to-follow way.<br><br>“Introducing Data Science” is a Python-centric good, practical introduction. “Python for Data Analysis” is also a good introduction, with examples formatted as notebooks, making it easy to follow.<br><br>“Copying and Pasting from Stack Overflow” is not a real book, of course, but I feel that searching for answers for code snippets there (or using ChatGPT) is not wrong per se, as long as the reader verify the answers and try to understand what is going on!<br><br><br><br></figcaption>
+</figure>
+</div>
+<hr>
+
+
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">This is our third lecture, and possibly the longest one. We will cover a very incomplete list of skills a data scientist should know.</span>
+<span class="glightbox-desc lightbox-desc-2">Basically we will get a 90-minutes (or more) tour of the basic data science skills and see some examples.</span>
+<span class="glightbox-desc lightbox-desc-3">A bad joke here – there aren’t 820 steps, of course, but we will see that there are more than one person can handle, and this is not a bad thing!</span>
+<span class="glightbox-desc lightbox-desc-4">I use this figure a lot – it is based on the book Doing Data Science by Rachel Schutt and Cathy O’Neil, OReilly, 2014, which I highly recommend. The icons I use in this document are based on the figure.<br>It shows the data science process, or a data science project cycle. Basically, we collect data about something we want to study, clean and preprocess it, do some basic (and more complex analysis), visualize/report/publish and eventually create a new data product that can be used by others. <br>All this is used to make decisions, which purposefully will be outside of the scope of most of our projects (usually decisions come from managers and other stakeholders of the project). <br>Not all steps must be followed, and some results may require retracing of the steps. But this basic compartmentalization helps us organize our ideas for the project, and we can comment on the skills required for each step. <br><br></span>
+<span class="glightbox-desc lightbox-desc-5">Since new tools, techniques, frameworks, algorithms, concepts, etc. are being actively developed, there is no way we can learn about all of those. Let’s take a tour through most of the better-known ones.</span>
+<span class="glightbox-desc lightbox-desc-6">This is not always a technical skill – sometimes you need to be able to talk to and understand researchers, clients, managers, professors, etc. from other fields. You don’t need to be a full-fledged astronomer do help in an astronomy data science problem but need to understand the basic concepts and think about good questions, good data and good results.</span>
+<span class="glightbox-desc lightbox-desc-7">This is a bit more complex. For many toy problems, the data would be already collected and organized, you just need to start the analysis. But for several other problems the data may be disorganized, or incomplete, or inaccessible, or even inexistent – collecting the data may be part of the data science project! <br></span>
+<span class="glightbox-desc lightbox-desc-8">Another dead link, but you can get some references for the “80%” part at https://www.projectpro.io/article/why-data-preparation-is-an-important-part-of-data-science/242 and https://www.researchgate.net/publication/335577003_Data_preparation_and_preprocessing_for_broadcast_systems_monitoring_in_PHM_framework <br>Some people disagree, and https://blog.ldodds.com/2020/01/31/do-data-scientists-spend-80-of-their-time-cleaning-data-turns-out-no/ is a good reading.<br>Anyway we will see that for some clean, nice projects the “cleaning and organizing” part is way less than 60%, while for some more “rough” projects it may be more than 80%.</span>
+<span class="glightbox-desc lightbox-desc-9">See the previous slide notes about this figure and its sources.<br>Anyway, cleaning and collecting data (AKA data wrangling) seems to be not fun at all. But of course, it depends on the data and job, and may be a very important part on the whole data science process. We will see a very good example with the Supermarket data.</span>
+<span class="glightbox-desc lightbox-desc-10">I like the Merriam Webster definition because it covers an interesting definition for our purposes and an almost contrary view! <br>We won’t have to learn a whole programming language, only learn (by doing) short bits of code to solve specific problems.</span>
+<span class="glightbox-desc lightbox-desc-11">Coding used to be an exclusive tool for computer scientists. These days are long gone – you can start coding (hacking) in a browser!<br>Coding also provides the “glue” for data collection, preprocessing and analysis tools, allowing us to tell a story about the data. This is essential for reproduction of experiments.</span>
+<span class="glightbox-desc lightbox-desc-12">Don’t worry too much about the neural network bit. But imagine that you have to experiment with different parameters. Using the GUI-based tool you will have to open a dialog, set a value, click on a button and repeat for each and every change. Using something like a function call (the part in purple) you could use a script (small part of code) that changes the value programmatically and let the computer do the heavy work.</span>
+<span class="glightbox-desc lightbox-desc-13">To create short pieces of code that process some data (basic cleaning, preprocessing, analysis) we don’t need a powerful computer with a compiler or integrated development environment – a basic browser would do. There are several companies that provide sites where you can edit and run basic code. Of course there are limitations, so for more processing-heavy work a full computer is recommended.<br></span>
+<span class="glightbox-desc lightbox-desc-14">Another way to hack – simpler, perhaps more intuitive but more manual and less flexible: Orange.</span>
+<span class="glightbox-desc lightbox-desc-15">I like to show this as one of the proofs that data science is not a new science but something that was made possible by the evolution of technologies. These are punch cards, used until the 1980s. A deck of punch cards would represent the data and the code to process the data. Not as nearly as flexible or powerful as what we have today, but similar in the idea.</span>
+<span class="glightbox-desc lightbox-desc-16">There is a large number of resources for learning Python (and for learning how to do a specific task in Python). It is a very good choice of general programming language.<br>There are still two major versions of Python out there, I strongly suggest using version 3. If your computer have other versions installed and you want to use Python locally, use conda to create environments (a must in a Mac). If you will do data science only using hosted notebooks (e.g.&nbsp;Kaggle, Google Colab) this is not an issue.</span>
+<span class="glightbox-desc lightbox-desc-17">Here’s a simple code in Python that reads a file with global average temperatures per year, do some basic operations in a variable and plot the results. All elements shown are screenshots from a notebook – we will see more about notebooks soon. <br>The complete code is shown in the lecture notes for this course.</span>
+<span class="glightbox-desc lightbox-desc-18">To show how simple is to create code for basic data science tasks here are some more lines that create a linear fit to the data and plot it over the original data. <br>The complete code is shown in the lecture notes for this course.<br></span>
+<span class="glightbox-desc lightbox-desc-19">R has a steep learning curve, specially if you have a strong OO or procedural programming, but there are several resources on how to solve specific problems in R. <br>Use Rstudio (and the official release of R) to develop code in R in your machine, or a hosted notebook provider (Google Colab, Kaggle).</span>
+<span class="glightbox-desc lightbox-desc-20">This is the R version of the Python code shown before. We will read a file with global average temperatures per year, do some basic operations in a variable and plot the results. All elements shown are screenshots from a notebook – we will see more about notebooks soon. <br>The complete code is shown in the lecture notes for this course.<br></span>
+<span class="glightbox-desc lightbox-desc-21">Here are some more lines that create a linear fit to the data and plot it over the original data. <br>The complete code is shown in the lecture notes for this course.<br><br></span>
+<span class="glightbox-desc lightbox-desc-22">In other words: don’t worry about learning all of a programming language. Learn the basics and search for the specifics online.<br>Don’t put all your programming eggs in a basket: R, Python are good for hacking, but a knowledge of other languages and tools (especially command line tools) may be handy. On the other hand almost everything can be done in almost any modern language!<br>Don’t worry about perfect code – make code that works.</span>
+<span class="glightbox-desc lightbox-desc-23">Is using ChatGPT cheating? It can be really helpful for writing small bits of code, but may fail for slightly more complex functions, As always, the user must know the right questions to ask.</span>
+<span class="glightbox-desc lightbox-desc-24">LLM tools (ChatGPT, CoPilot, CodeWhisperer, etc.) can help generating bits of code, with good results when given initial information. Use them wisely, check to code, learn with it, interact with the LLM giving suggestions and asking questions and enhancements. Use it as a code assistant, not as a coder.</span>
+<span class="glightbox-desc lightbox-desc-25">EDA has an interesting story, see https://link.springer.com/referenceworkentry/10.1007/978-0-387-32833-1_136<br>Basically we will take a look at the data – either with basic statistical analysis or with charts and plots. Doing this we will have a better idea on the nature of the data, its completeness, relations between the variables, etc.</span>
+<span class="glightbox-desc lightbox-desc-26">There are many questions we can ask, meaning that there are many tools and techniques! We’ve already seen some patterns with the annual temperature example. <br>Think about questions about your data and how to answer them with code/visualization/statistics.</span>
+<span class="glightbox-desc lightbox-desc-27">The Iris flowers are a good dataset for basic exploratory data analysis. In this dataset there are measures (length and width of petals and sepals) of 150 samples of three classes of Iris flowers. They differ a bit in the dimensions. Let’s see what we can infer from this data. <br>The complete code is shown in the lecture notes for this course.<br><br><br></span>
+<span class="glightbox-desc lightbox-desc-28">Here’s a heatmap showing the number of French rolls sold in a local supermarket chain per day and hour of day. We can detect some patterns that explain features on the data that were not clear – can you find some?<br>The complete code is shown in the lecture notes for this course.<br><br><br><br></span>
+<span class="glightbox-desc lightbox-desc-29">Now that we used EDA we have a good (or even approximate) idea of our data’s structure, general behavior, completeness, etc. we can apply methods to better describe it. Machine Learning and Data Mining (basically the same thing, but broader in scope) can be used for this.<br>In this course we won’t learn EDA, programming or machine learning in detail, just enough to do our exercises and credits. See courses in the Applied Computing program for more information on machine learning, neural networks, applied AI, etc.<br><br></span>
+<span class="glightbox-desc lightbox-desc-30">Models are combinations of algorithms and internal representations that can be used to describe data (and the physical phenomena behind it).<br>For example, for the global warming data, we could use the parameters of the fitted curve to predict the temperature in any year in the future. <br>For the Iris data we can infer some rules, e.g.&nbsp;that any Iris flower with a petal length shorter than 2.5cm is of class “setosa”.<br><br>Models can be too simplistic or more complex than suggested by EDA: the temperature model does not present a good fit for years before 1820 or after 2000. Other more complex, better fitting curves may be used.<br><br>Models can be incomplete: one simple rule classifies the “setosa” flowers but there is no simple rule that classifies “versicolor” and “virginica” without errors.<br></span>
+<span class="glightbox-desc lightbox-desc-31">Models depends a lot on what we want to do with the data. For example, for the supermarket basket data we could think of models that:<br>Predict the total sales in cash depending on the day of the week and supermarket branch.<br>Predict the number of French rolls that will be sold in an hour by fitting a curve that predicts rolls/hour for every day in the week.<br>Estimate the probability that someone that buys more than 5 French rolls would also buy milk in the same transaction.<br><br>Models ultimately depends on the data and algorithms used, and may yield unexpected or incorrect results, depending on several factors.<br>Data may be incomplete or badly preprocessed.<br>Metadata or ancillary data may be necessary (e.g.&nbsp;see the vertical gaps in this figure – what are they?)<br>The existing data may not be enough for the analysis (e.g.&nbsp;we cannot identify individual clients on this data).<br><br>That’s why Data Science is a process – eventually we need to trace back our steps.<br></span>
+<span class="glightbox-desc lightbox-desc-32">There are plenty of choices to learn from data but we have to know a bit about the capabilities and limitations of the algorithms to use them efficiently. Even so, sometimes there is not a clear best choice for an algorithm.<br>For example, neural networks can predict better the increase of temperature, but their prediction is hard to understand (compared to “temperature will increase X degrees in Y years”). Depending on the task we need to find a balance between accuracy and simplicity/interpretability.<br>Some models are trained from data – this may become computationally expensive depending on the algorithm and the data.</span>
+<span class="glightbox-desc lightbox-desc-33">One of the key concepts of data science is the emphasis on presenting results. There are several facets of this: creating nice, engaging visualizations of the data is useful for EDA and to present final results; telling a story about the data can be used for reproducibility and evaluation. <br><br>One way to communicate results to other practitioners of data science (in contrast to reports for final users) is to use notebooks. We’ve already seen some glimpses of notebooks, which are basically a way to arrange text, images and code (including results of executing the code) in a single document that shows all steps and results of a particular analysis task. <br><br>Notebooks can be shared as files, or publicly using tools like Kaggle, Google Colab, SciServer, etc.</span>
+<span class="glightbox-desc lightbox-desc-34">After doing preprocessing, EDA, analysis, documentation (use notebooks!) we may get a different dataset from the one we started with. This dataset was probably filtered, preprocessed, modified, annotated, etc. and may have additional value when compared to the raw original data – think about all the work you put on it! <br>Consider publishing the data product of your processing, EDA and analysis with the analysis and documentation itself. Think about the value for others and how nice would it be if you had it to start with!</span>
+<span class="glightbox-desc lightbox-desc-35">We’ve seen some problems that may arise when processing the data, doing EDA and creating/applying models. Let’s see what else can go wrong!</span>
+<span class="glightbox-desc lightbox-desc-36">Here’s a simple approach to answer the question “how are the total bills for transactions on the supermarket distributed?“ for the supermarket data. We see that the histogram is dominated by a bar on the 0-20000 reais range, which is weird – we wouldn’t even expect a 20000 bill for a local supermarket. Examining the data closely we see that there was a bill of R$ 505050.00 with a change of R$ 505044.22 – clearly a typo, but part of the data anyway. How can we automatically remove this outlier? Should we?</span>
+<span class="glightbox-desc lightbox-desc-37">Some data online may not be curated, formatted or freely available. I’ve found files that were supposed to be in CSV format but were badly formatted, reading was very complicated (e.g some data from CAPES uses a semicolon to separate the fields, but some fields contain semicolons…) <br>Historic data, spread over several files, may have structural differences in the files themselves, so we cannot process all in the same way.<br>If we need to “glue” different data sources together we may face issues that make the getting and processing steps of the data science process take much longer. <br>And since new datasets may have different features or fields, we need to reevaluate processing code when doing new data.</span>
+<span class="glightbox-desc lightbox-desc-38">One example of problems with data: spreadsheets should naturally be tidy, easily readable by humans and machines. But humans may prefer some aesthetics that could confuse machine-reading of the data.<br></span>
+<span class="glightbox-desc lightbox-desc-39">These files were downloaded from CAPES Open Data Portal. Each spreadsheet covers an year of information on lecturers on graduate programs. We can see that the number of columns changed at least twice. Processing this whole dataset as one would require identification of a common set of columns.</span>
+<span class="glightbox-desc lightbox-desc-40">Basically, check the code for every new data release, particularly when the data sources are out of the data science team control.</span>
+<span class="glightbox-desc lightbox-desc-41">Evaluation for this course will be based on attendance, homework and projects. Here’s the guidelines/suggestions for your project.</span>
+<span class="glightbox-desc lightbox-desc-42">Step 1 is the one that may take more time. You must find a project that 1) is interesting enough for you; 2) has public or accessible data; 3) can be explored with at least the EDA concepts; 4) can be done in 3-4 months.<br>Step 2 is also very important, but if we get an interesting project we may already have interesting questions about it. But beware of projects for which the data is not readily accessible!<br></span>
+<span class="glightbox-desc lightbox-desc-43">This is the fun part! Create code (notebooks!) that explore the data and help you tell a story about it. Check for issues on the data, see how complete it is, visualize it to see patterns.<br>It is possible that the code (especially notebooks) get too large or unwieldly, consider creating a notebook for data cleaning and saving it in an intermediate format, and other notebooks to explore it using EDA.<br></span>
+<span class="glightbox-desc lightbox-desc-44">If you can do EDA on your data you can possibly see some patterns. Think again about the questions you may have about your data and see if any of those patterns can be used to answer the questions (or at least to raise more questions!)</span>
+<span class="glightbox-desc lightbox-desc-45">Create well-documented notebooks, with lots of text, figures and explanation about the steps you’re taking. Avoid code-only notebooks!<br>Even if the results are bad, create notebooks to tell stories about the data. These may be useful for future attempts!</span>
+<span class="glightbox-desc lightbox-desc-46">Sometimes we have the ideas and questions but not the data or the ability to create code to explore it. It is very tempting to ask a data scientist (or programmer) to solve the task for you, but remember that being a data scientist means working in an interdisciplinary way! Don’t just throw the problem and run away, talk with your collaborator, work together as a team and you will get the results.</span>
+<span class="glightbox-desc lightbox-desc-47">Finally!<br>There are some additional slides that will not be part of this lecture (but eventually published).</span>
+<span class="glightbox-desc lightbox-desc-48">I strongly recommend the Schutt &amp; O’Neil book, which present case studies, code, basic concepts in an easy-to-follow way.<br><br>“Introducing Data Science” is a Python-centric good, practical introduction. “Python for Data Analysis” is also a good introduction, with examples formatted as notebooks, making it easy to follow.<br><br>“Copying and Pasting from Stack Overflow” is not a real book, of course, but I feel that searching for answers for code snippets there (or using ChatGPT) is not wrong per se, as long as the reader verify the answers and try to understand what is going on!<br><br><br><br></span>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p><a href="https://linktr.ee/rafaeldcsantos">Rafael Santos</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+</body></html>

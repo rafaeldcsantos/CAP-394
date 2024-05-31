@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CAP-394</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Resources/Images/CAP394-Icon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="Resources/CSS/custom.scss">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./20-Projects-Intro.html">Projects</a></li><li class="breadcrumb-item"><a href="./23-Projects-Supermarket.html">Supermarket Basket Analysis</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./Resources/Images/CAP394-Icon-Trim.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About this Course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-Lectures-Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About the Course</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-Lectures-WhatIs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is Data Science?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-Lectures-Skills.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Skills for Data Science</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-Visualization-Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Projects</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-Projects-Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-Projects-Supermarket.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Supermarket Basket Analysis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Ideas Bank</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30-Ideas-Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link active" data-scroll-target="#the-data">The Data</a></li>
+  <li><a href="#reading-and-preprocessing" id="toc-reading-and-preprocessing" class="nav-link" data-scroll-target="#reading-and-preprocessing">Reading and Preprocessing</a></li>
+  <li><a href="#basic-eda" id="toc-basic-eda" class="nav-link" data-scroll-target="#basic-eda">Basic EDA</a>
+  <ul class="collapse">
+  <li><a href="#how-many-different-products-does-the-supermarket-sells" id="toc-how-many-different-products-does-the-supermarket-sells" class="nav-link" data-scroll-target="#how-many-different-products-does-the-supermarket-sells">How many different products does the supermarket sells?</a></li>
+  <li><a href="#whats-the-average-basket-value" id="toc-whats-the-average-basket-value" class="nav-link" data-scroll-target="#whats-the-average-basket-value">What’s the average basket value?</a></li>
+  <li><a href="#are-there-patterns-on-the-amounts-paid-by-the-costumers" id="toc-are-there-patterns-on-the-amounts-paid-by-the-costumers" class="nav-link" data-scroll-target="#are-there-patterns-on-the-amounts-paid-by-the-costumers">Are there patterns on the amounts paid by the costumers?</a></li>
+  <li><a href="#are-there-temporal-patterns-on-the-sales-data" id="toc-are-there-temporal-patterns-on-the-sales-data" class="nav-link" data-scroll-target="#are-there-temporal-patterns-on-the-sales-data">Are there temporal patterns on the sales data?</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./20-Projects-Intro.html">Projects</a></li><li class="breadcrumb-item"><a href="./23-Projects-Supermarket.html">Supermarket Basket Analysis</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Supermarket Basket Analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This chapter presents a more or less complete example of a data science approach to analysis of a supermarket transaction database. The data was obtained from an anonymous Brazilian supermarket and preprocessed to make some examples easier to follow and modify.</p>
+<section id="the-data" class="level1">
+<h1>The Data</h1>
+<p>The main dataset used in this project can be downloaded as <a href="Resources/Data/SupermarketCSV/transactions.csv">a CSV-formatted file (57MB)</a>.</p>
+<p>CSV (comma-separated values) files contains one record per line, with the fields of the recort separated by a special character, usually a comma. The first 10 lines of that file are shown below (lines are wide, please scroll horizontally to see all the fields):</p>
+<pre class="plaintext"><code>FileID,StoreID,POSID,TransactionID,Date,itemOrder,Description,UnitPrice,Quantity,Amount,Unit,PaymentMethod,TotalDue,TotalPaid,Change,Status
+050501/075954_01090841.xml,0003,0001,001026,20050501080242,001,"VELA FESTLAR FELIZ ANI",   0.78,   1.00,   0.78,Un,"Dinheiro      ",      4.00,      2.91,      1.09,T
+050501/075954_01090841.xml,0003,0001,001026,20050501080242,002,"VELA FESTLAR FELIZ ANI",   0.78,   1.00,   0.78,Un,"Dinheiro      ",      4.00,      2.91,      1.09,T
+050501/075954_01090841.xml,0003,0001,001026,20050501080242,003,"ESCOVA D. TEK DURA    ",   1.35,   1.00,   1.35,Un,"Dinheiro      ",      4.00,      2.91,      1.09,T
+050501/075956_01090842.xml,0003,0001,001027,20050501080351,001,"SUSTAGEN 380G KIDS CHO",   7.89,   1.00,   7.89,Un,"Dinheiro      ",     10.00,      8.91,      1.09,T
+050501/075956_01090842.xml,0003,0001,001027,20050501080351,002,"PAO FRANCES           ",   0.17,   6.00,   1.02,Un,"Dinheiro      ",     10.00,      8.91,      1.09,T
+050501/080011_01090843.xml,0003,0001,001028,20050501080420,001,"PAO FRANCES           ",   0.17,   6.00,   1.02,Un,"Dinheiro      ",      3.06,      3.06,      0.00,T
+050501/080011_01090843.xml,0003,0001,001028,20050501080420,002,"LEITE PAST. SERRAMAR S",   1.15,   1.00,   1.15,Un,"Dinheiro      ",      3.06,      3.06,      0.00,T
+050501/080011_01090843.xml,0003,0001,001028,20050501080420,003,"FARINHA TRIGO LILI KG ",   0.89,   1.00,   0.89,Un,"Dinheiro      ",      3.06,      3.06,      0.00,T
+050501/080011_02003462.xml,0003,0002,000953,20050501074105,001,"OLEO P/ MOTOR HAVOLINE",   6.22,   1.00,   6.22,Un,"Dinheiro      ",     10.00,      6.22,      3.78,T</code></pre>
+<p>The file contains 363966 records of itens bought in one of the supermarkets’ stores, each <strong>item</strong> in a line, so a set of lines may correspond to a single <strong>transaction</strong> (or a basket of items). Each line contains several <strong>fields</strong>, separated by commas.</p>
+<div class="classdiscussion-block">
+<div class="title">
+Class Discussion
+</div>
+<p>What are the advantages of representing the transactions one per line? What are the disadvantages?</p>
+</div>
+<p>The fields (or columns) on this file are:</p>
+<ol type="1">
+<li><code>FileID</code>: name of the file containing the original transaction.</li>
+<li><code>StoreID</code>: number of the store or branch of the supermarket.</li>
+<li><code>POSID</code>: number of the point of sale in that store.</li>
+<li><code>TransactionID</code>: id of the transaction. Every item in the transaction (shopping cart) share the same TransactionID.</li>
+<li><code>Date</code>: date of the transaction (year, month, day, hour, minute, second) as a long number.</li>
+<li><code>itemOrder</code>: ordem of tht item in the transaction.</li>
+<li><code>Description</code>: short textual description of that item.</li>
+<li><code>UnitPrice</code>: unit price for that item.</li>
+<li><code>Quantity</code>: total number of items. May be measured in units, kg or other (see field Unit below).</li>
+<li><code>Amount</code>: total paid for those items.</li>
+<li><code>Unit</code>: whether the item is bought by unit, weight etc.</li>
+<li><code>PaymentMethod</code>: method used for payment.</li>
+<li><code>TotalDue</code>: sum of prices for all items in that cart (transaction).</li>
+<li><code>TotalPaid</code>: total paid for all items in that cart (transaction). May be more than <code>TotalDue</code> (e.g.&nbsp;for payments in cash).</li>
+<li><code>Change</code>: amount of change, if any.</li>
+<li><code>Status</code>: ‘F’ for completed transaction, ‘T’ if the transaction was cancelled.</li>
+</ol>
+<p>We can see that the first line of the file contains the names of the columns, that makes it easier to read/import into data frames, which we can consider as a spreadsheet-formatted data: each line is a record of an occurrence or record (in this of an item being bought at the supermarket), and there are fields for each record (the columns of the file).</p>
+<p>Some of the values of the fields are clearly numbers (e.g.&nbsp;<code>TotalPaid</code>, <code>UnitPrice</code>), some are textual descriptions (e.g.&nbsp;<code>Description</code>). This difference between data formats is very important for some analysis and visualization techniques.</p>
+<p>Some additional data is provided for each item, in this case, related to the transaction that that item belongs to. It is possible to merge itens into transactions, to perform market basket and other analysis.</p>
+<p>There are several interesting questions we can try to answer with this kind of data, and more that will surely arise from the initial exploration.</p>
+</section>
+<section id="reading-and-preprocessing" class="level1">
+<h1>Reading and Preprocessing</h1>
+<p>Let’s read the file with the supermarket transactions data and do some preprocessing tasks. For this task we will use Python <span class="citation" data-cites="python2001">(<a href="#ref-python2001" role="doc-biblioref">Rossum and Jr. 2001</a>)</span>, Pandas <span class="citation" data-cites="pandasmckinney2012">(<a href="#ref-pandasmckinney2012" role="doc-biblioref">McKinney 2012</a>)</span> and Matplotlib <span class="citation" data-cites="matplotlibhunter2007">(<a href="#ref-matplotlibhunter2007" role="doc-biblioref">Hunter 2007</a>)</span> and Seaborn <span class="citation" data-cites="SeabornWaskom2021">(<a href="#ref-SeabornWaskom2021" role="doc-biblioref">Waskom 2021</a>)</span> for visualization. First we import the libraries we need:</p>
+<div id="4d44ece8" class="cell custompython" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># to represent and process dataframes</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt <span class="co"># to create some plots and charts</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns <span class="co"># a different graphics library.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The type of structure we are dealing with looks like a table or spreadsheet, represented in a file with each row containing fields separated by commas, and it is better represented as a <em>dataframe</em>. Reading a comma-separated value into a dataframe in Python is very easy: we can use a function of the Pandas library to get the file into a data frame, as shown below:</p>
+<div id="8816d814" class="cell custompython" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the data from a file into a dataframe, with proper character encoding</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>supermDF <span class="op">=</span> pd.read_csv(<span class="st">"Resources/Data/SupermarketCSV/transactions.csv"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                        encoding<span class="op">=</span><span class="st">"iso-8859-1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The encoding of a text file corresponds to the way characters are stored in a text file. Some tools can identify the encoding automatically, but in some cases the programmer needs to provide it.</p>
+<p>How many records and fields did we just read? The <em>shape</em> of the dataframe can be used to answer this, showing the number of rows and columns.</p>
+<div id="65fe68db" class="cell custompython" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>supermDF.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>(363966, 16)</code></pre>
+</div>
+</div>
+<p>We may need to do some preprocessing for simplicity and convenience. For example, the field <code>Date</code> was read as we will convert the field to a real date/time field.</p>
+<div id="686e0724" class="cell custompython" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the field Date to a string, which is used by pd.to_datetime with a specific</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># format to be converted into an array of datetime object, which is stored in our</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># dataframe using a new column name.</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>supermDF[<span class="st">'DateTime'</span>] <span class="op">=</span> pd.to_datetime(supermDF[<span class="st">'Date'</span>].astype(<span class="bu">str</span>),<span class="bu">format</span><span class="op">=</span><span class="st">'%Y%m</span><span class="sc">%d</span><span class="st">%H%M%S'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="basic-eda" class="level1">
+<h1>Basic EDA</h1>
+<p>Now we can do some basic exploratory data analysis. There isn’t a single recipe for that – what we should do is think about questions about the data and try to answer those with code/plots/analysis. These questions may be inspired by knowledge of the nature of what created the data, assumptions on its features or simply curiosity.</p>
+<section id="how-many-different-products-does-the-supermarket-sells" class="level2">
+<h2 class="anchored" data-anchor-id="how-many-different-products-does-the-supermarket-sells">How many different products does the supermarket sells?</h2>
+<p>In order to answer this question we would need access to different data: a complete catalogue of the products the supermarket sells. But we can get the answer to <em>how many different products the supermarket sold</em> by looking at the <code>Description</code> field and counting unique values. Here’s how:</p>
+<div id="45cb92c2" class="cell custompython" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the column Description, create a series with the unique values on it, </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># return the length of this series. </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(pd.unique(supermDF[<span class="st">'Description'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>4791</code></pre>
+</div>
+</div>
+<p>This one line of code slices the dataframe, selecting only the column/field <code>Description</code> and passes it as an argument to a the function <code>unique</code> of the Pandas library that eliminates all repeated items and returns a list, which then is used as an argument to <code>len</code> that counts the elements on that list.</p>
+<p>Another way to get the number of different products sold by the supermarket is to get a count of occurrences of each item, which can be easily done with a call to <code>value_counts</code> function of a slice of a dataframe:</p>
+<div id="33dd7a47" class="cell custompython" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show a summary of the counts for all values of the column Description.</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>supermDF[<span class="st">'Description'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>Description
+PAO FRANCES               19648
+ACUCAR REFINADO A. ALE     5067
+OLEO SOJA SOYA 900ML P     4800
+QUEIJO MUSSARELA           4694
+FLV CEBOLA                 4342
+                          ...  
+CERA POLIFLOR LIQ. INC        1
+ALCACHOFRA C\10               1
+ESP. HIKARI PAPRICA DO        1
+DOCE KISABOR P.PE MOLE        1
+BRINQ. FESTLAR 10UN AN        1
+Name: count, Length: 4791, dtype: int64</code></pre>
+</div>
+</div>
+<p>We can check which are the top ten sellers (by quantity) with:</p>
+<div id="55c98d2a" class="cell custompython" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the top ten items of the counts for all values of the column Description.</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>supermDF[<span class="st">'Description'</span>].value_counts().head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>Description
+PAO FRANCES               19648
+ACUCAR REFINADO A. ALE     5067
+OLEO SOJA SOYA 900ML P     4800
+QUEIJO MUSSARELA           4694
+FLV CEBOLA                 4342
+FLV TOMATE CARMEM          4178
+BEB. REF.COCA COLA 2L      3303
+FLV BANANA PRATA           3252
+FLV ALHO                   3196
+FLV LARANJA POCAN          3162
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<p>And even filter by quantity using a range:</p>
+<div id="52ff5e1a" class="cell custompython" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store the counts in a series.</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> supermDF[<span class="st">'Description'</span>].value_counts()</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter those between two values.</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>counts[counts.between(<span class="dv">1000</span>,<span class="dv">1200</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>Description
+AGUA SANIT. FAZ.ESPERA    1190
+LEITE COND. MOCA 395G     1153
+LEITE PAST. SERRAMAR S    1149
+GELATINA DABARRA 85 GR    1139
+FLV BATATA BOLINHA        1138
+BACON REZENDE KG          1138
+BOV.PALETA                1137
+REFRESCO DA BARRA 35G     1127
+FLV BATATA LAVADA         1122
+MARGARINA QUALY 500G C    1113
+BOV. CONTRA FILE          1100
+BOV.MUSCULO               1075
+FLV PIMENTAO VERDE        1048
+SAL ITA 1KG               1042
+MORTADELA MARBA           1039
+FLV TAKAGAKI ALFACE LI    1014
+LEITE COND. ITAMBE 395    1010
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>How many different payment methods are there in our data? Which is the most popular?</p>
+</div>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>How many transactions failed? How many succeeded?</p>
+</div>
+</section>
+<section id="whats-the-average-basket-value" class="level2">
+<h2 class="anchored" data-anchor-id="whats-the-average-basket-value">What’s the average basket value?</h2>
+<p>In order to get this information we would need to scan all itens, adding the values for each transaction and calculate the average of these values. But the way that we chose to store the itens makes the first step easier: since all item entries on the dataframe contains information on the transaction it belongs to, we can get all itens where the field <code>itemOrder</code> is one (the first item on that transaction) and use the field <code>TotalDue</code> to get the transaction’s value.</p>
+<p>First we create a subset of our dataframe containing only the first item on the transaction:</p>
+<div id="0723c54e" class="cell custompython" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new dataframe with only the first item in each transaction. </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>onlyFirstItems <span class="op">=</span> supermDF.loc[supermDF[<span class="st">'itemOrder'</span>] <span class="op">==</span> <span class="dv">1</span>].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we can get the average transaction value with:</p>
+<div id="b9df4ab7" class="cell custompython" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prints the mean of all transactions' TotalDue.</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>onlyFirstItems[<span class="st">'TotalDue'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>36.371526707300696</code></pre>
+</div>
+</div>
+<p>We can even have some fun with subsets of the dataframe:</p>
+<div id="d64d15bd" class="cell custompython" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the mean of all transactions' TotalDue.</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>ts1 <span class="op">=</span> onlyFirstItems.loc[onlyFirstItems[<span class="st">'StoreID'</span>] <span class="op">==</span> <span class="dv">1</span>,<span class="st">'TotalDue'</span>].mean()</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>ts2 <span class="op">=</span> onlyFirstItems.loc[onlyFirstItems[<span class="st">'StoreID'</span>] <span class="op">==</span> <span class="dv">2</span>,<span class="st">'TotalDue'</span>].mean()</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>ts3 <span class="op">=</span> onlyFirstItems.loc[onlyFirstItems[<span class="st">'StoreID'</span>] <span class="op">==</span> <span class="dv">3</span>,<span class="st">'TotalDue'</span>].mean()</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>ts4 <span class="op">=</span> onlyFirstItems.loc[onlyFirstItems[<span class="st">'StoreID'</span>] <span class="op">==</span> <span class="dv">4</span>,<span class="st">'TotalDue'</span>].mean()</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Format and print these values.</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean Total Due by Store: 1:</span><span class="sc">{</span>ts1<span class="sc">:.2f}</span><span class="ss">, 2:</span><span class="sc">{</span>ts2<span class="sc">:.2f}</span><span class="ss">, 3:</span><span class="sc">{</span>ts3<span class="sc">:.2f}</span><span class="ss">, 4:</span><span class="sc">{</span>ts4<span class="sc">:.2f}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean Total Due by Store: 1:36.91, 2:20.69, 3:50.56, 4:nan.</code></pre>
+</div>
+</div>
+<p>As expected there isn’t an average value for sales in the store number 4, since it does not exist:</p>
+<div id="67602fbf" class="cell custompython" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print a series with all unique values for StoreID.</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>pd.unique(supermDF[<span class="st">'StoreID'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>array([3, 2, 1])</code></pre>
+</div>
+</div>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>The code <code>onlyFirstItems.loc[onlyFirstItems['StoreID'] == '0002']</code> returns an empty dataframe. Verify and explain the reason.</p>
+</div>
+<p>We can also plot a simple histogram showing the distribution of the total values for the baskets/transactions. The key command is <code>plt.hist</code> that creates a histogram using the values of the <code>TotalDue</code> field:</p>
+<div id="9487e3d9" class="cell custompython" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the histogram of TotalDue with 20 bins.</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>plt.hist(onlyFirstItems[<span class="st">'TotalDue'</span>], bins<span class="op">=</span><span class="dv">20</span>)<span class="op">;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set some plot parameters.</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Total Due'</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Histogram of total amount due for each transaction'</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Display it.</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="23-Projects-Supermarket_files/figure-html/cell-14-output-1.png" width="610" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This can’t be right – almost all transactions’ values are clumped together below 25.000 reais and the X axis indicates the existence of a transaction of around half a million reais. This is not consistent with what is expected of sales of a small supermarket.</p>
+<p>Let’s print the top ten transactions by value:</p>
+<div id="14a0077d" class="cell custompython" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list of columns we want to show.</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>fields <span class="op">=</span> [<span class="st">'TransactionID'</span>,<span class="st">'TotalDue'</span>,<span class="st">'TotalPaid'</span>,<span class="st">'Change'</span>,<span class="st">'Status'</span>]</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the top 10 largest TotalDue values with the fields we chose.</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>onlyFirstItems.nlargest(<span class="dv">10</span>,<span class="st">'TotalDue'</span>)[fields]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">TransactionID</th>
+<th data-quarto-table-cell-role="th">TotalDue</th>
+<th data-quarto-table-cell-role="th">TotalPaid</th>
+<th data-quarto-table-cell-role="th">Change</th>
+<th data-quarto-table-cell-role="th">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">92896</td>
+<td>121443_04084497</td>
+<td>505050.0</td>
+<td>5.78</td>
+<td>505044.22</td>
+<td>T</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">267595</td>
+<td>200441_04090425</td>
+<td>101100.0</td>
+<td>1.74</td>
+<td>101098.26</td>
+<td>T</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">159154</td>
+<td>182523_04052926</td>
+<td>101050.0</td>
+<td>6.46</td>
+<td>101043.54</td>
+<td>T</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">141321</td>
+<td>164130_04052857</td>
+<td>101010.1</td>
+<td>2.05</td>
+<td>101008.05</td>
+<td>T</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24458</td>
+<td>191520_03008081</td>
+<td>100100.0</td>
+<td>96.46</td>
+<td>100003.54</td>
+<td>T</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">69744</td>
+<td>173627_02005291</td>
+<td>100100.0</td>
+<td>82.81</td>
+<td>100017.19</td>
+<td>T</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">107012</td>
+<td>100425_03010508</td>
+<td>100100.0</td>
+<td>79.60</td>
+<td>100020.40</td>
+<td>T</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">250981</td>
+<td>114813_02028185</td>
+<td>31060.0</td>
+<td>7.56</td>
+<td>31052.44</td>
+<td>T</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">40004</td>
+<td>090409_04082972</td>
+<td>21010.0</td>
+<td>1.90</td>
+<td>21008.10</td>
+<td>T</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">171630</td>
+<td>105814_04053199</td>
+<td>19000.0</td>
+<td>182.69</td>
+<td>18817.31</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+<p>We can see that there are several transactions with large total paid values <em>and</em> changes – we don’t have an explanation for that, but it is clear that we need to consider the <code>TotalPaid</code> field for our analysis. This is a lesson into not jumping on the analysis before better understanding the data, <em>and</em> on how basic EDA can show us some issues with the data.</p>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>List basic information on all transactions above R$ 1.000,00.</p>
+</div>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>Create a metric (boolean or numeric) that could be used to indicate a <em>suspicious</em> transaction (with large amounts for <code>TotalDue</code> and <code>Change</code>, for example.)</p>
+</div>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>Is there a temporal pattern on those transactions? Do they occur more in some days or hours of day?</p>
+</div>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>Are these transactions specific to one store or occur in all stores of the supermarket?</p>
+</div>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>Are all those transactions paid for with cash?</p>
+</div>
+<p>Let’s recreate the histogram using <code>TotalPaid</code> but with more bins and a log Y axis this time:</p>
+<div id="8573ec90" class="cell custompython" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.ticker <span class="im">as</span> ticker <span class="co"># Required to format the Y axis.</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the histogram of TotalDue with 50 bins.</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>plt.hist(onlyFirstItems[<span class="st">'TotalPaid'</span>], bins<span class="op">=</span><span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set some plot parameters.</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Total Paid'</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>plt.yscale(<span class="st">'log'</span>) </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Histogram of total amount paid in each transaction'</span>)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct the Y axis so values won't be displayed in scientific notation.</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="co"># This solution was suggested by ChatGPT!</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.gca()</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, _: <span class="st">'</span><span class="sc">{:g}</span><span class="st">'</span>.<span class="bu">format</span>(x)))</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Display it.</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="23-Projects-Supermarket_files/figure-html/cell-16-output-1.png" width="619" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This is better, although we can see that there is still one transaction with value above 800 reais. Let’s take a closer look at this transaction.</p>
+<div id="fefec49c" class="cell custompython" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select only some fields for displaying.</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>fields <span class="op">=</span> [<span class="st">'TransactionID'</span>,<span class="st">'Description'</span>,<span class="st">'UnitPrice'</span>,<span class="st">'Quantity'</span>,<span class="st">'Amount'</span>]</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the dataframe locating only rows where TotalPaid is &gt;= 800, then sort the</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># filtered dataframe by Amount (from larger to smaller) then show the fields we chose.</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>supermDF.loc[supermDF[<span class="st">'TotalPaid'</span>] <span class="op">&gt;=</span> <span class="dv">800</span>].sort_values(<span class="st">'Amount'</span>,ascending<span class="op">=</span><span class="va">False</span>)[fields]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">TransactionID</th>
+<th data-quarto-table-cell-role="th">Description</th>
+<th data-quarto-table-cell-role="th">UnitPrice</th>
+<th data-quarto-table-cell-role="th">Quantity</th>
+<th data-quarto-table-cell-role="th">Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">118981</td>
+<td>132950_03062294</td>
+<td>LEITE LV MILENIO 1L</td>
+<td>1.39</td>
+<td>24.00</td>
+<td>33.36</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">118995</td>
+<td>132950_03062294</td>
+<td>BOTIJAO GAZ 13kg</td>
+<td>27.90</td>
+<td>1.00</td>
+<td>27.90</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">118993</td>
+<td>132950_03062294</td>
+<td>BOTIJAO GAZ 13kg</td>
+<td>27.90</td>
+<td>1.00</td>
+<td>27.90</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">119045</td>
+<td>132950_03062294</td>
+<td>CAFE PILAO 500G</td>
+<td>4.98</td>
+<td>4.00</td>
+<td>19.92</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">119090</td>
+<td>132950_03062294</td>
+<td>BEB. CERV.SKOL LT 473M</td>
+<td>1.65</td>
+<td>12.00</td>
+<td>19.80</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">118947</td>
+<td>132950_03062294</td>
+<td>ERVILHA QUERO 200G</td>
+<td>0.69</td>
+<td>1.00</td>
+<td>0.69</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">119008</td>
+<td>132950_03062294</td>
+<td>ERVILHA QUERO 200G</td>
+<td>0.69</td>
+<td>1.00</td>
+<td>0.69</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">118939</td>
+<td>132950_03062294</td>
+<td>FLV CENOURA</td>
+<td>1.19</td>
+<td>0.53</td>
+<td>0.63</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">119025</td>
+<td>132950_03062294</td>
+<td>FLV PIMENTAO VERDE</td>
+<td>1.89</td>
+<td>0.27</td>
+<td>0.51</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">118934</td>
+<td>132950_03062294</td>
+<td>FLV LIMAO TAITI</td>
+<td>0.45</td>
+<td>0.82</td>
+<td>0.37</td>
+</tr>
+</tbody>
+</table>
+
+<p>212 rows × 5 columns</p>
+</div>
+</div>
+</div>
+</div>
+<p>It seems a large purchase, 212 itens in a transaction, but can still be considered normal.</p>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>We chose <code>supermDF['TotalPaid'] &gt;= 800</code> as a filter, knowing from the histogram that there is only one transaction that costed more than 800 reais. But what if there was more than one transaction? How do I identify the transaction IDs of purchases above a certain value, and display them separately?</p>
+</div>
+</section>
+<section id="are-there-patterns-on-the-amounts-paid-by-the-costumers" class="level2">
+<h2 class="anchored" data-anchor-id="are-there-patterns-on-the-amounts-paid-by-the-costumers">Are there patterns on the amounts paid by the costumers?</h2>
+<p>How many items our costumers buy in each transaction? Are there patterns or distributions on this amount? Let’s explore!</p>
+<p>First let’s see a histogram of the distribution of the number of items per transaction. In the way our data is organized, we need to infer this number since it is not explicit. To count the number of items per transaction we can group the dataframe by <code>TransactionID</code> and get the number of records in each group:</p>
+<div id="9f95b7ed" class="cell custompython" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group records by TransactionID, select TransactionID to extract a metric (size).</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>itemsIT <span class="op">=</span> supermDF.groupby(<span class="st">'TransactionID'</span>)[<span class="st">'TransactionID'</span>].transform(<span class="st">'size'</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Add it as a new column.</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>supermDF[<span class="st">'itemsInTransaction'</span>] <span class="op">=</span> itemsIT</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># We want only one record per transaction!</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>onlyFirstItems <span class="op">=</span> supermDF.loc[supermDF[<span class="st">'itemOrder'</span>] <span class="op">==</span> <span class="dv">1</span>].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then we can do a histogram to show the distribution of items per transaction:</p>
+<div id="abd90027" class="cell custompython" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the histogram of TotalDue with 50 bins.</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>plt.hist(onlyFirstItems[<span class="st">'itemsInTransaction'</span>], bins<span class="op">=</span><span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set some plot parameters.</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Items'</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>plt.yscale(<span class="st">'log'</span>) </span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Histogram of number of items in basket'</span>)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct the Y axis so values won't be displayed in scientific notation.</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co"># This solution was suggested by ChatGPT!</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.gca()</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, _: <span class="st">'</span><span class="sc">{:g}</span><span class="st">'</span>.<span class="bu">format</span>(x)))</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Display it.</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="23-Projects-Supermarket_files/figure-html/cell-19-output-1.png" width="619" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As expected, most of the transactions contain a few items.</p>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>To count the number of items per transaction we could also get the maximum value for each <code>itemOrder</code> with the dataframe grouped by <code>TransactionID</code>. Try it!</p>
+</div>
+<p>We expect a sort of correlation between the number of items in a transaction and its total cost (<code>TotalPaid</code>). Let’s do a quick XY (or scatter) plot to verify this:</p>
+<div id="dc89e4c5" class="cell custompython" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the scatter plot with X=itemsInTransaction abnd Y=TotalPaid</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(onlyFirstItems[<span class="st">'itemsInTransaction'</span>],onlyFirstItems[<span class="st">'TotalPaid'</span>])</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set title and axes labels.</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Scatter Plot of Number of Items in Cart versus Total Paid'</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Items in Cart'</span>)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Total Paid'</span>)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot.</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="23-Projects-Supermarket_files/figure-html/cell-20-output-1.png" width="593" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s enhance the plot with a linear regression line and confidence interval. The seaborn <span class="citation" data-cites="SeabornWaskom2021">(<a href="#ref-SeabornWaskom2021" role="doc-biblioref">Waskom 2021</a>)</span> library has a simple method for that:</p>
+<div id="404ce1ff" class="cell custompython" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the X and Y series (to make next commands shorter).</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> onlyFirstItems[<span class="st">"itemsInTransaction"</span>]</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> onlyFirstItems[<span class="st">"TotalPaid"</span>]</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot a regression plot with transparency in the data points.</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>sns.regplot(x<span class="op">=</span>X,y<span class="op">=</span>Y,scatter_kws<span class="op">=</span>{<span class="st">"color"</span>:<span class="st">"skyblue"</span>,<span class="st">"alpha"</span>:<span class="fl">0.5</span>},line_kws<span class="op">=</span>{<span class="st">"color"</span>:<span class="st">"red"</span>})</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Set title and axes labels.</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Scatter Plot of Number of Items in Cart versus Total Paid'</span>)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Items in Cart'</span>)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Total Paid'</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot.</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="23-Projects-Supermarket_files/figure-html/cell-21-output-1.png" width="593" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There are some outliers but the total paid for each transaction seems correlated with the number of items in each cart.</p>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>The regression line may be heavily influenced by the transactions with only a few items or with a low paymend due. Redo the plot but using only transactions with total above a cutoff, or with transactions with more than a specific number of items, or both.</p>
+</div>
+<p>Are those transactions paid by cash? Can we see any pattern or outlier on the payment method? Seaborn can use a discrete column as a color to help discriminate the points, let’s color the plot points using the payment method:</p>
+<div id="e96c2591" class="cell custompython" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the number of figure in inches.</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>)) </span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the X, Y and points' color series (to make next commands shorter).</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> onlyFirstItems[<span class="st">"itemsInTransaction"</span>]</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> onlyFirstItems[<span class="st">"TotalPaid"</span>]</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>PM <span class="op">=</span> onlyFirstItems[<span class="st">"PaymentMethod"</span>]</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot a regression plot with transparency in the data points.</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span>X,y<span class="op">=</span>Y,hue<span class="op">=</span>PM)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Set title and axes labels</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Scatter Plot of Number of Items in Cart versus Total Paid'</span>)</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Items in Cart'</span>)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Total Paid'</span>)</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot.</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="23-Projects-Supermarket_files/figure-html/cell-22-output-1.png" width="965" height="671" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>There is a payment category without a title. See how many transactions are in this situation and propose a way to deal with this data.</p>
+</div>
+<p>That wasn’t very useful, since there are many options of payments and we would like to aggregate them. Let’s create a new column on our dataframe to represent a simplified payment method.</p>
+<div id="f4eda6e2" class="cell custompython" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A simple function that simply the categories of payment method.</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simplifyPayment(paymethod):</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> paymethod.startswith(<span class="st">"Dinheiro"</span>):</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Dinheiro"</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> paymethod.startswith(<span class="st">"Cartao"</span>):</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Cartao"</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> paymethod.startswith(<span class="st">"Cheque"</span>):</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Cheque"</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Outros"</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Now we can add a new column based on the value of PaymentMethod.</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>onlyFirstItems[<span class="st">'SimplifiedPaymentMethod'</span>] <span class="op">=</span> <span class="op">\</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    onlyFirstItems[<span class="st">'PaymentMethod'</span>].<span class="bu">apply</span>(simplifyPayment)      </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>With this new column we can plot a more informative scatter plot:</p>
+<div id="3d00c6a9" class="cell custompython" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We need a palette - a mapping from names to colors.</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>color_mapping <span class="op">=</span> {</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Dinheiro'</span>: <span class="st">'yellowgreen'</span>,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Cartao'</span>  : <span class="st">'slateblue'</span>,</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Cheque'</span>  : <span class="st">'magenta'</span>,</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Outros'</span>  : <span class="st">'lightgrey'</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the number of figure in inches.</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>)) </span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the X, Y and points' color series (to make next commands shorter).</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> onlyFirstItems[<span class="st">"itemsInTransaction"</span>]</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> onlyFirstItems[<span class="st">"TotalPaid"</span>]</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> onlyFirstItems[<span class="st">"SimplifiedPaymentMethod"</span>]</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot a scatter plot with the data points and the new palette.</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'itemsInTransaction'</span>, y<span class="op">=</span><span class="st">'TotalPaid'</span>, <span class="op">\</span></span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'SimplifiedPaymentMethod'</span>,<span class="op">\</span></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>    s<span class="op">=</span><span class="dv">40</span>,data<span class="op">=</span>onlyFirstItems,palette<span class="op">=</span>color_mapping)</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Set title and axes labels</span></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Scatter Plot of Number of Items in Cart versus Total Paid'</span>)</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Items in Cart'</span>)</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Total Paid'</span>)</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Change the title of the legend and the marker scale.</span></span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.gca()</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>ax.legend(title<span class="op">=</span><span class="st">'Payment Method'</span>,markerscale<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot.</span></span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="23-Projects-Supermarket_files/figure-html/cell-24-output-1.png" width="965" height="671" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Some transactions’ values were about 500 reais and paid by cash – should we take a closer look?</p>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>Create plots to explore the relationship between <code>itemsInTransaction</code> and <code>TotalPaid</code> but using other fields to set the color – e.g.&nbsp;are the payment patterns the same for each of the three stores?</p>
+</div>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>Are the payment patterns the same for different hours of the day? For different days on the week?</p>
+</div>
+</section>
+<section id="are-there-temporal-patterns-on-the-sales-data" class="level2">
+<h2 class="anchored" data-anchor-id="are-there-temporal-patterns-on-the-sales-data">Are there temporal patterns on the sales data?</h2>
+<p>We can use EDA to investigate several different aspects of the data. Let’s consider the sale of a particular item, the most sold, <code>"PAO FRANCES           "</code>. Is there a temporal pattern on its sale? We can answer that with a two-dimensional histogram that shows the amount of units sold by day and time.</p>
+<p>First let’s create a subset of the data containing only the item in question. From this subset let’s also keep only the relevant fields. Let’s also create columns for day of the month and time of the day:</p>
+<div id="9e29ce83" class="cell custompython" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get only items that are equal to "PAO FRANCES           "</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>onlyBreadRolls <span class="op">=</span> supermDF.loc[supermDF[<span class="st">'Description'</span>] <span class="op">==</span> <span class="st">"PAO FRANCES           "</span>]</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Select only some of the columns.</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>onlyBreadRolls <span class="op">=</span> onlyBreadRolls[[<span class="st">'StoreID'</span>,<span class="st">'DateTime'</span>,<span class="st">'Quantity'</span>]]</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the day of month from the DateTime column, store in new column.</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>onlyBreadRolls[<span class="st">'DayOfMonth'</span>] <span class="op">=</span> onlyBreadRolls[<span class="st">'DateTime'</span>].dt.day</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the hour of day from the DateTime column, store in new column.</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>onlyBreadRolls[<span class="st">'HourOfDay'</span>] <span class="op">=</span> onlyBreadRolls[<span class="st">'DateTime'</span>].dt.hour</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>With this dataframe we can create the two-dimensional histogram, which is done by counting all values for each combination of the fields <code>DayOfMonth</code> and <code>HourOfDay</code> (see <a href="https://stackoverflow.com/questions/56360610/sum-column-based-on-another-column-in-pandas-dataframe">Sum column based on another column in Pandas DataFrame</a>).</p>
+<div id="e6ca6261" class="cell custompython" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sum the amounts for each combination of DayOfMonth and HourOfDay.</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>histoFB <span class="op">=</span> onlyBreadRolls.groupby([<span class="st">"DayOfMonth"</span>,<span class="st">"HourOfDay"</span>]).Quantity.<span class="bu">sum</span>().reset_index() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This two-dimensional histogram contains an entry for the sum of the field <code>Quantity</code> each combination of the fields <code>DayOfMonth</code> and <code>HourOfDay</code>, but if there weren’t specific combinations of <code>DayOfMonth</code> and <code>HourOfDay</code> the entry will not be created – the result of <code>grouby</code> does not return a matrix or dataframe with all possible combinations, only with the existing ones.</p>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>Print the contents of <code>histoFB</code> to understand better what was created.</p>
+</div>
+<p>The results can be used to create a heat map (a good visual representation for a two-dimensional histogram) but empty cells will not be displayed. To create a better visualization we can pad the two-dimensional so all possible combinations of <code>DayOfMonth</code> and <code>HourOfDay</code> with the non-occurring combinations filled with zeros (See <a href="https://stackoverflow.com/questions/52446571/creating-a-rectangular-heatmap-from-two-columns-of-a-pandas-dataframe">Creating a rectangular Heatmap from two columns of a Pandas dataframe</a>, <a href="https://www.statology.org/pandas-pivot-table-replace-nan-with-0/">Pandas: How to Replace NaN Values in Pivot Table with Zeros</a>, <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.reindex.html">pandas.DataFrame.reindex</a>).</p>
+<div id="d0bdceae" class="cell custompython" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorders the two-dimensional histogram as a matrix-like dataframe.</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>hmap <span class="op">=</span> histoFB.pivot(index<span class="op">=</span><span class="st">"HourOfDay"</span>, columns<span class="op">=</span><span class="st">"DayOfMonth"</span>, values<span class="op">=</span><span class="st">"Quantity"</span>)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use those indexes for the row and column indexes.</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>days <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">32</span>))</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>hours <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">24</span>))</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply those indexes to the datafrme, filling nonexistent (na) values with zeros.</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>hmap <span class="op">=</span> hmap.reindex(index<span class="op">=</span>hours).reindex(columns<span class="op">=</span>days).fillna(<span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now that we have our well-formed two-dimensional dataframe we can plot it as a heat map.</p>
+<div id="cbf61a8b" class="cell custompython" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the size, title and labels of the plot.</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">9</span>)) </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Units of Bread Rolls sold by hour and day of month'</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Day of Month'</span>)</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Hour of Day'</span>)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and show the heatmap. Note the parameters used to make it look good.</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>sns.heatmap(hmap,cmap<span class="op">=</span><span class="st">'gist_ncar'</span>,linewidths<span class="op">=</span><span class="fl">0.30</span>,annot<span class="op">=</span><span class="va">True</span>,fmt<span class="op">=</span><span class="st">'g'</span>,vmin<span class="op">=</span><span class="dv">0</span>,vmax<span class="op">=</span><span class="dv">1650</span>)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="23-Projects-Supermarket_files/figure-html/cell-28-output-1.png" width="1275" height="745" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>Visualization is a very important component of EDA. The heat map summarized the sales of bread rolls over time, pointing to several interesting features. List some of those, with possible explanations. Consider that a feature could be the beginning of another exploration path to learn more about the data! Some of these possible paths will be used in the exercises below.</p>
+</div>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>We used the color map ‘gist_ncar’ which gives good-looking results but have some issues (colors for values around 500 and 700 are somehow similar). Try different color maps to see if others enhance some aspects of the data (see <a href="https://matplotlib.org/stable/gallery/color/colormap_reference.html">Matplotlib’s Colormap reference</a> or <a href="https://matplotlib.org/stable/tutorials/colors/colormap-manipulation.html">Creating Colormaps in Matplotlib</a>).</p>
+</div>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>The heat map shows the number of bread rolls sold by the whole supermarket (all stores). Recreate the heat maps for the different stores, one heat map per store. Do they appear to behave in a similar way?</p>
+</div>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>Create new versions of the heat map separating bread rolls that were paid by cash, credit card and other payment methods. See first which payment methods are more common.</p>
+</div>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>We noticed that there were some days and hours where a lot of bread rolls were sold. Do a quick analysis on how many buyers bought bread rolls at that time and day, and how many bread rolls each costumer bought.</p>
+</div>
+<div class="exercise-block">
+<div class="title">
+&nbsp;
+</div>
+<p>Do similar heat maps for three or four other items that are frequently sold. Choose any item that grabbed your attention! Analyze the heat maps to see if there are any patterns or oddities.</p>
+</div>
+
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-matplotlibhunter2007" class="csl-entry" role="listitem">
+Hunter, John D. 2007. <span>“Matplotlib: A 2D Graphics Environment.”</span> <em>Computing in Science &amp; Engineering</em> 9 (3): 90–95. <a href="https://doi.org/10.1109/MCSE.2007.55">https://doi.org/10.1109/MCSE.2007.55</a>.
+</div>
+<div id="ref-pandasmckinney2012" class="csl-entry" role="listitem">
+McKinney, Wes. 2012. <em>Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython</em>. 1st ed. Sebastopol, CA: O’Reilly Media.
+</div>
+<div id="ref-python2001" class="csl-entry" role="listitem">
+Rossum, Guido van, and Fred L. Drake Jr. 2001. <em>Python: The Complete Reference</em>. 2nd ed. New York: McGraw-Hill.
+</div>
+<div id="ref-SeabornWaskom2021" class="csl-entry" role="listitem">
+Waskom, Michael L. 2021. <span>“Seaborn: Statistical Data Visualization.”</span> <em>Journal of Open Source Software</em> 6 (60): 3021. <a href="https://doi.org/10.21105/joss.03021">https://doi.org/10.21105/joss.03021</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p><a href="https://linktr.ee/rafaeldcsantos">Rafael Santos</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
