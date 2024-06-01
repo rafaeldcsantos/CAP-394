@@ -392,8 +392,6 @@ Are those transactions paid by cash? Can we see any pattern or outlier on the pa
 
 ```{python}
 #| classes: custompython
-# Set the number of figure in inches.
-plt.figure(figsize=(12, 8)) 
 # Create the X, Y and points' color series (to make next commands shorter).
 X = onlyFirstItems["itemsInTransaction"]
 Y = onlyFirstItems["TotalPaid"]
@@ -442,8 +440,6 @@ color_mapping = {
     'Cheque'  : 'magenta',
     'Outros'  : 'lightgrey'
 }
-# Set the number of figure in inches.
-plt.figure(figsize=(12, 8)) 
 # Create the X, Y and points' color series (to make next commands shorter).
 X = onlyFirstItems["itemsInTransaction"]
 Y = onlyFirstItems["TotalPaid"]
