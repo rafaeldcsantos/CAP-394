@@ -1,6 +1,6 @@
 ---
+lightbox: true
 format: html
-bibliography: CAP394.bib    
 ---
 
 # Supermarket Basket Analysis {#supermarketbasketanalysis}
@@ -65,13 +65,19 @@ There are several interesting questions we can try to answer with this kind of d
 
 # Reading and Preprocessing
 
-Let's read the file with the supermarket transactions data and do some preprocessing tasks. For this task we will use Python [@python2001], Pandas [@pandasmckinney2012] and Matplotlib [@matplotlibhunter2007] and Seaborn [@SeabornWaskom2021] for visualization. First we import the libraries we need:
+Let's read the file with the supermarket transactions data and do some preprocessing tasks. For this task we will use Python [@python2001], Pandas [@pandasmckinney2012] and Plot.ly [@plotly], Matplotlib [@matplotlibhunter2007] or Seaborn [@SeabornWaskom2021] for visualization, depending on the task. For some of the visualization tasks we will also need Numpy [@numpyoliphant2006numpy] and scikit-learn [@scikitpedregosa2011scikit]. 
+
+Let's import the libraries we need:
 
 ```{python}
 #| classes: custompython
-import pandas as pd # to represent and process dataframes
-import matplotlib.pyplot as plt # to create some plots and charts
-import seaborn as sns # a different graphics library.
+import pandas as pd 
+import matplotlib.pyplot as plt 
+import seaborn as sns 
+import plotly.express as px
+import plotly.graph_objects as go
+import numpy as np
+from sklearn.linear_model import LinearRegression
 ```
 
 The type of structure we are dealing with looks like a table or spreadsheet, represented in a file with each row containing fields separated by commas, and it is better represented as a _dataframe_. Reading a comma-separated value into a dataframe in Python is very easy: we can use a function of the Pandas library to get the file into a data frame, as shown below:
@@ -210,15 +216,19 @@ We can also plot a simple histogram showing the distribution of the total values
 
 ```{python}
 #| classes: custompython
-# Plot the histogram of TotalDue with 20 bins.
-plt.hist(onlyFirstItems['TotalDue'], bins=20);
-# Set some plot parameters.
-plt.xlabel('Total Due')
-plt.ylabel('Frequency')
-plt.title('Histogram of total amount due for each transaction')
-plt.grid(True)
+# Create the plot.
+fig = px.histogram(onlyFirstItems, x='TotalDue', nbins=20, 
+          title='Histogram of total amount due for each transaction')
+# Update layout for labels and grid.
+fig.update_layout(
+    xaxis_title='Total Due',
+    yaxis_title='Frequency',
+    showlegend=False
+)
+fig.update_xaxes(showgrid=True)
+fig.update_yaxes(showgrid=True)
 # Display it.
-plt.show()
+fig.show()
 ```
 
 This can't be right -- almost all transactions' values are clumped together below 25.000 reais and the X axis indicates the existence of a transaction of around half a million reais. This is not consistent with what is expected of sales of a small supermarket.
@@ -266,21 +276,28 @@ Let's recreate the histogram using `TotalPaid` but with more bins and a log Y ax
 
 ```{python}
 #| classes: custompython
-import matplotlib.ticker as ticker # Required to format the Y axis.
-# Plot the histogram of TotalDue with 50 bins.
-plt.hist(onlyFirstItems['TotalPaid'], bins=50);
-# Set some plot parameters.
-plt.xlabel('Total Paid')
-plt.ylabel('Frequency')
-plt.yscale('log') 
-plt.title('Histogram of total amount paid in each transaction')
-plt.grid(True)
-# Correct the Y axis so values won't be displayed in scientific notation.
-# This solution was suggested by ChatGPT!
-ax = plt.gca()
-ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, _: '{:g}'.format(x)))
+# Create the histogram.
+fig = go.Figure()
+fig.add_trace(go.Histogram(
+    x=onlyFirstItems['TotalPaid'],
+    nbinsx=50
+))
+# Update layout.
+fig.update_layout(
+    title='Histogram of total amount paid in each transaction',
+    xaxis_title='Total Paid',
+    yaxis_title='Frequency',
+    yaxis=dict(
+        type='log',
+        tickformat='g'
+    ),
+    showlegend=False
+)
+# Add grid/
+fig.update_xaxes(showgrid=True)
+fig.update_yaxes(showgrid=True)
 # Display it.
-plt.show()
+fig.show()
 ```
 
 This is better, although we can see that there is still one transaction with value above 800 reais. Let's take a closer look at this transaction.
@@ -318,24 +335,32 @@ supermDF['itemsInTransaction'] = itemsIT
 onlyFirstItems = supermDF.loc[supermDF['itemOrder'] == 1].copy()
 ```
 
-Then we can do a histogram to show the distribution of items per transaction:
+Then we can create a histogram to show the distribution of items per transaction:
 
 ```{python}
 #| classes: custompython
-# Plot the histogram of TotalDue with 50 bins.
-plt.hist(onlyFirstItems['itemsInTransaction'], bins=50);
-# Set some plot parameters.
-plt.xlabel('Number of Items')
-plt.ylabel('Frequency')
-plt.yscale('log') 
-plt.title('Histogram of number of items in basket')
-plt.grid(True)
-# Correct the Y axis so values won't be displayed in scientific notation.
-# This solution was suggested by ChatGPT!
-ax = plt.gca()
-ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, _: '{:g}'.format(x)))
+# Create histogram.
+fig = go.Figure()
+fig.add_trace(go.Histogram(
+    x=onlyFirstItems['itemsInTransaction'],
+    nbinsx=50
+))
+# Update layout.
+fig.update_layout(
+    title='Histogram of number of items in basket',
+    xaxis_title='Number of Items',
+    yaxis_title='Frequency',
+    yaxis=dict(
+        type='log',
+        tickformat='g'
+    ),
+    showlegend=False
+)
+fig.update_xaxes(showgrid=True)
+fig.update_yaxes(showgrid=True)
 # Display it.
-plt.show()
+fig.show()
+
 ```  
 
 As expected, most of the transactions contain a few items.
@@ -349,33 +374,61 @@ We expect a sort of correlation between the number of items in a transaction and
 
 ```{python}
 #| classes: custompython
-# Create the scatter plot with X=itemsInTransaction abnd Y=TotalPaid
-plt.scatter(onlyFirstItems['itemsInTransaction'],onlyFirstItems['TotalPaid'])
-# Set title and axes labels.
-plt.title('Scatter Plot of Number of Items in Cart versus Total Paid')
-plt.xlabel('Number of Items in Cart')
-plt.ylabel('Total Paid')
-# Show the plot.
-plt.show()
+# Create scatter plot using Plotly
+fig = px.scatter(
+    onlyFirstItems,
+    x='itemsInTransaction',
+    y='TotalPaid',
+    title='Scatter Plot of Number of Items in Cart versus Total Paid',
+    labels={
+        'itemsInTransaction': 'Number of Items in Cart',
+        'TotalPaid': 'Total Paid'
+    }
+)
+# Show the plot
+fig.show()
 ```
 
-Let's enhance the plot with a linear regression line and confidence interval. The seaborn [@SeabornWaskom2021] library has a simple method for that:
+Let’s enhance the plot with a linear regression line. We need first to fit a model using scikit-learn (@scikitpedregosa2011scikit):
 
 ```{python}
 #| classes: custompython
-# Create the X and Y series (to make next commands shorter).
-X = onlyFirstItems["itemsInTransaction"]
-Y = onlyFirstItems["TotalPaid"]
-# Plot a regression plot with transparency in the data points.
-sns.regplot(x=X,y=Y,scatter_kws={"color":"skyblue","alpha":0.5},line_kws={"color":"red"})
-# Set title and axes labels.
-plt.title('Scatter Plot of Number of Items in Cart versus Total Paid')
-plt.xlabel('Number of Items in Cart')
-plt.ylabel('Total Paid')
+# Fit linear regression model.
+X = np.array(onlyFirstItems['itemsInTransaction']).reshape(-1, 1)
+y = np.array(onlyFirstItems['TotalPaid'])
+model = LinearRegression()
+model.fit(X, y)
+y_pred = model.predict(X)
+# Create the figure.
+fig = go.Figure()
+# Add scatter plot using Plotly Graph Objects.
+fig.add_trace(go.Scatter(
+    x=onlyFirstItems['itemsInTransaction'],
+    y=onlyFirstItems['TotalPaid'],
+    mode='markers',
+    name='Data Points',
+    showlegend=False,
+    marker=dict(opacity=0.6)  # Adjust marker opacity
+))
+# Add linear regression line using Plotly Graph Objects.
+fig.add_trace(go.Scatter(
+    x=onlyFirstItems['itemsInTransaction'],
+    y=y_pred,
+    mode='lines',
+    name='Linear Regression',
+    line=dict(color='red'),
+    showlegend=False,
+))
+# Update the figure.
+fig.update_layout(
+    title='Number of Items in Basket x Total Paid',
+    xaxis_title='Number of Items',
+    yaxis_title='Total Paid',
+    showlegend=False
+)
 # Show the plot.
-plt.show()
+fig.show()
 ```
-
 
 There are some outliers but the total paid for each transaction seems correlated with the number of items in each cart.
 
@@ -385,33 +438,34 @@ The regression line may be heavily influenced by the transactions with only a fe
 ::: 
 
 
-
-Are those transactions paid by cash? Can we see any pattern or outlier on the payment method? Seaborn can use a discrete column as a color to help discriminate the points, let's color the plot points using the payment method:
+Are those transactions paid by cash? Can we see any pattern or outlier on the payment method? Let's use different colors to help discriminate the payment methods:
 
 ```{python}
 #| classes: custompython
-#| # Set the size of figure in inches.
-plt.figure(figsize=(12,7.5)) 
-# Create the X, Y and points' color series (to make next commands shorter).
-X = onlyFirstItems["itemsInTransaction"]
-Y = onlyFirstItems["TotalPaid"]
-PM = onlyFirstItems["PaymentMethod"]
-# Plot a regression plot with transparency in the data points.
-sns.scatterplot(x=X,y=Y,hue=PM)
-# Set title and axes labels
-plt.title('Scatter Plot of Number of Items in Cart versus Total Paid')
-plt.xlabel('Number of Items in Cart')
-plt.ylabel('Total Paid')
+# Create the scatter plot with Plotly Express.
+fig = px.scatter(
+    onlyFirstItems,
+    x="itemsInTransaction",
+    y="TotalPaid",
+    color="PaymentMethod",
+    title='Scatter Plot of Number of Items in Cart versus Total Paid',
+    labels={
+        'itemsInTransaction': 'Number of Items in Cart',
+        'TotalPaid': 'Total Paid'
+    }
+)
 # Show the plot.
-plt.show()
+fig.show()
 ```
+
+
 ::: {.exercise-block}
 <div class="title">&nbsp;</div>
 There is a payment category without a title. See how many transactions are in this situation and propose a way to deal with this data.
 ::: 
 
 
-That wasn't very useful, since there are many options of payments and we would like to aggregate them. Let's create a new column on our dataframe to represent a simplified payment method.
+That wasn't very useful, since there are many options of payments, some that are somehow similar, so we could aggregate them. Let's create a new column on our dataframe to represent a simplified payment method.
 ```{python}
 #| classes: custompython
 # A simple function that simply the categories of payment method.
@@ -433,35 +487,39 @@ With this new column we can plot a more informative scatter plot:
 
 ```{python}
 #| classes: custompython
-# We need a palette - a mapping from names to colors.
-color_mapping = {
+# Define a custom color palette.
+custom_color_palette = {
     'Dinheiro': 'yellowgreen',
     'Cartao'  : 'slateblue',
     'Cheque'  : 'magenta',
-    'Outros'  : 'lightgrey'
+    'Outros'  : 'lightgrey'  
 }
-# Set the size of figure in inches.
-plt.figure(figsize=(11, 8)) 
-# Create the X, Y and points' color series (to make next commands shorter).
-X = onlyFirstItems["itemsInTransaction"]
-Y = onlyFirstItems["TotalPaid"]
-col = onlyFirstItems["SimplifiedPaymentMethod"]
-# Plot a scatter plot with the data points and the new palette.
-sns.scatterplot(x='itemsInTransaction', y='TotalPaid', \
-    hue='SimplifiedPaymentMethod',\
-    s=40,data=onlyFirstItems,palette=color_mapping)
-# Set title and axes labels
-plt.title('Scatter Plot of Number of Items in Cart versus Total Paid')
-plt.xlabel('Number of Items in Cart')
-plt.ylabel('Total Paid')
-# Change the title of the legend and the marker scale.
-ax = plt.gca()
-ax.legend(title='Payment Method',markerscale=2)
+# Create the scatter plot with Plotly Express.
+fig = px.scatter(
+    onlyFirstItems,
+    x="itemsInTransaction",
+    y="TotalPaid",
+    color="SimplifiedPaymentMethod",
+    title='Scatter Plot of Number of Items in Cart versus Total Paid',
+    labels={
+        'itemsInTransaction': 'Number of Items in Cart',
+        'TotalPaid': 'Total Paid'
+    },
+    color_discrete_map=custom_color_palette
+)
 # Show the plot.
-plt.show()
+fig.show()
 ```
 
-Some transactions' values were about 500 reais and paid by cash -- should we take a closer look?
+::: classdiscussion-block
+<div class="title">Class Discussion</div>
+What are the other payment method mappings that may reveal hidden information on this data?
+::: 
+
+::: {.exercise-block}
+<div class="title">&nbsp;</div>
+Some transactions' values were about 500 reais and paid by cash -- take a closer look to see what is being sold.
+:::
 
 ::: {.exercise-block}
 <div class="title">&nbsp;</div>
@@ -511,7 +569,7 @@ The results can be used to create a heat map (a good visual representation for a
 ```{python}
 #| classes: custompython
 # Reorders the two-dimensional histogram as a matrix-like dataframe.
-hmap = histoFB.pivot(index="HourOfDay", columns="DayOfMonth", values="Quantity")
+hmap = histoFB.pivot(index="HourOfDay", columns="DayOfMonth", values="Quantity").fillna(0)
 # Use those indexes for the row and column indexes.
 days = list(range(1, 32))
 hours = list(range(24))
@@ -519,21 +577,57 @@ hours = list(range(24))
 hmap = hmap.reindex(index=hours).reindex(columns=days).fillna(0)
 ```
 
-
 Now that we have our well-formed two-dimensional dataframe we can plot it as a heat map.
-
 
 ```{python}
 #| classes: custompython
-# Set the size, title and labels of the plot.
-plt.figure(figsize=(18, 9)) 
-plt.title('Units of Bread Rolls sold by hour and day of month')
-plt.xlabel('Day of Month')
-plt.ylabel('Hour of Day')
-# Create and show the heatmap. Note the parameters used to make it look good.
-sns.heatmap(hmap,cmap='gist_ncar',linewidths=0.30,annot=True,fmt='g',vmin=0,vmax=1650)
-plt.show()
+# Create the heatmap.
+fig = go.Figure(data=go.Heatmap(
+    z=hmap.values,
+    x=hmap.columns,
+    y=hmap.index,
+    colorscale='Jet',
+    text=hmap.values,
+    texttemplate="%{text:.0f}",  # Format text to display as integers
+    textfont={"size":10},
+    hoverinfo='z',  # Display value on hover
+    showscale=True
+))
+# Update layout to add thin lines around each cell.
+# This was suggested by Code Copilot!
+fig.update_traces(
+    zmin=0, zmax=hmap.values.max(),  
+    xgap=1,  
+    ygap=1,  
+    colorbar=dict(tickfont=dict(size=10))  
+)
+# Customize the layout.
+fig.update_layout(
+    title='Heatmap of Bread Rolls Sold',
+    xaxis_title='Day of Month',
+    yaxis_title='Hour of Day',
+    xaxis=dict(
+        tickmode='linear',
+        dtick=1,  
+        tickfont=dict(size=10),
+        showgrid=False,
+        zeroline=False # Remove grid lines
+    ),
+    yaxis=dict(
+        tickmode='linear',
+        dtick=1, 
+        tickfont=dict(size=10),
+        showgrid=False,
+        zeroline=False # Remove grid lines
+    ),
+    plot_bgcolor='#808080', 
+)
+# Invert the Y-axis.
+fig.update_yaxes(autorange='reversed')
+# Show the plot.
+fig.show()
 ```
+
 ::: {.exercise-block}
 <div class="title">&nbsp;</div>
 Visualization is a very important component of EDA. The heat map summarized the sales of bread rolls over time, pointing to several interesting features. List some of those, with possible explanations. Consider that a feature could be the beginning of another exploration path to learn more about the data! Some of these possible paths will be used in the exercises below.
@@ -542,7 +636,7 @@ Visualization is a very important component of EDA. The heat map summarized the 
 
 ::: {.exercise-block}
 <div class="title">&nbsp;</div>
-We used the color map 'gist_ncar' which gives good-looking results but have some issues (colors for values around 500 and 700 are somehow similar). Try different color maps to see if others enhance some aspects of the data (see [Matplotlib's Colormap reference](https://matplotlib.org/stable/gallery/color/colormap_reference.html) or [Creating Colormaps in Matplotlib](https://matplotlib.org/stable/tutorials/colors/colormap-manipulation.html)).
+We used the color map 'Jet' which gives good-looking results but have some issues (colors for values under 350 are somehow similar). Try different color maps to see if others enhance some aspects of the data (see [Built-in Continuous Color Scales in Python](https://plotly.com/python/builtin-colorscales/) or [Continuous Color Scales and Color Bars in Python](https://plotly.com/python/colorscales/)).
 ::: 
 
 ::: {.exercise-block}

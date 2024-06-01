@@ -1,8 +1,6 @@
 ---
 lightbox: true
-format:
-  html:
-    css: Resources/CSS/custom.scss
+format: html
 ---
 
 

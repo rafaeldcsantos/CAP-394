@@ -1,7 +1,6 @@
 ---
-format:
-  html:
-    css: Resources/CSS/custom.css
+lightbox: true
+format: html
 ---
 
 # Introduction

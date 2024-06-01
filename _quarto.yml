@@ -37,5 +37,7 @@ format:
       - spacelab
     toc: true
     css: Resources/CSS/custom.css
+    bibliography: CAP394.bib
+
 
 
