@@ -1,7 +1,5 @@
 ---
-format:
-  html:
-    css: Resources/CSS/custom.scss
+format: html
 bibliography: CAP394.bib    
 ---
 
@@ -393,7 +391,7 @@ Are those transactions paid by cash? Can we see any pattern or outlier on the pa
 ```{python}
 #| classes: custompython
 #| # Set the size of figure in inches.
-plt.figure(figsize=(11, 8)) 
+plt.figure(figsize=(12,7.5)) 
 # Create the X, Y and points' color series (to make next commands shorter).
 X = onlyFirstItems["itemsInTransaction"]
 Y = onlyFirstItems["TotalPaid"]

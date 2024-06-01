@@ -31,22 +31,11 @@ website:
     center: "<a href='https://linktr.ee/rafaeldcsantos'>Rafael Santos</a>" 
 
 
-
-
-
-
 format:
   html:
     theme:
       - spacelab
-      - "Resources/SCSS/styles.scss"
     toc: true
-
-
-chapters:
-  - index.qmd
-  - 000-Intro.qmd
-  - 600-Projects.qmd
-  - 610-Capes-GraduateProgramsProjects.qmd
+    css: Resources/CSS/custom.css
 
 
