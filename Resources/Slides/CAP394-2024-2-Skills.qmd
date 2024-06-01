@@ -159,39 +159,43 @@
 
 ---
 
-![Basically, check the code for every new data release, particularly when the data sources are out of the data science team control. ](Resources/Slides/CAP394-2024-2-Skills-Slide40.png){.lightbox group="CAP394-2024-2-Skills"}
+![This is a subset of our supermarket basked data, It is in Portuguese but I think we can understand the issue: everything has a UPC or similar code. Depending on what we want to analyze we would need to merge some itens in categories, e.g. “LEITE COND” (condensed milk), “FLV” (produce), “BOV.” (meat) and so on.](Resources/Slides/CAP394-2024-2-Skills-Slide40.png){.lightbox group="CAP394-2024-2-Skills"}
 
 ---
 
-![Evaluation for this course will be based on attendance, homework and projects. Here’s the guidelines/suggestions for your project.](Resources/Slides/CAP394-2024-2-Skills-Slide41.png){.lightbox group="CAP394-2024-2-Skills"}
+![Basically, check the code for every new data release, particularly when the data sources are out of the data science team control. ](Resources/Slides/CAP394-2024-2-Skills-Slide41.png){.lightbox group="CAP394-2024-2-Skills"}
 
 ---
 
-![Step 1 is the one that may take more time. You must find a project that 1) is interesting enough for you; 2) has public or accessible data; 3) can be explored with at least the EDA concepts; 4) can be done in 3-4 months.<br>Step 2 is also very important, but if we get an interesting project we may already have interesting questions about it. But beware of projects for which the data is not readily accessible!<br>](Resources/Slides/CAP394-2024-2-Skills-Slide42.png){.lightbox group="CAP394-2024-2-Skills"}
+![Evaluation for this course will be based on attendance, homework and projects. Here’s the guidelines/suggestions for your project.](Resources/Slides/CAP394-2024-2-Skills-Slide42.png){.lightbox group="CAP394-2024-2-Skills"}
 
 ---
 
-![This is the fun part! Create code (notebooks!) that explore the data and help you tell a story about it. Check for issues on the data, see how complete it is, visualize it to see patterns.<br>It is possible that the code (especially notebooks) get too large or unwieldly, consider creating a notebook for data cleaning and saving it in an intermediate format, and other notebooks to explore it using EDA.<br>](Resources/Slides/CAP394-2024-2-Skills-Slide43.png){.lightbox group="CAP394-2024-2-Skills"}
+![Step 1 is the one that may take more time. You must find a project that 1) is interesting enough for you; 2) has public or accessible data; 3) can be explored with at least the EDA concepts; 4) can be done in 3-4 months.<br>Step 2 is also very important, but if we get an interesting project we may already have interesting questions about it. But beware of projects for which the data is not readily accessible!<br>](Resources/Slides/CAP394-2024-2-Skills-Slide43.png){.lightbox group="CAP394-2024-2-Skills"}
 
 ---
 
-![If you can do EDA on your data you can possibly see some patterns. Think again about the questions you may have about your data and see if any of those patterns can be used to answer the questions (or at least to raise more questions!)](Resources/Slides/CAP394-2024-2-Skills-Slide44.png){.lightbox group="CAP394-2024-2-Skills"}
+![This is the fun part! Create code (notebooks!) that explore the data and help you tell a story about it. Check for issues on the data, see how complete it is, visualize it to see patterns.<br>It is possible that the code (especially notebooks) get too large or unwieldly, consider creating a notebook for data cleaning and saving it in an intermediate format, and other notebooks to explore it using EDA.<br>](Resources/Slides/CAP394-2024-2-Skills-Slide44.png){.lightbox group="CAP394-2024-2-Skills"}
 
 ---
 
-![Create well-documented notebooks, with lots of text, figures and explanation about the steps you’re taking. Avoid code-only notebooks!<br>Even if the results are bad, create notebooks to tell stories about the data. These may be useful for future attempts!](Resources/Slides/CAP394-2024-2-Skills-Slide45.png){.lightbox group="CAP394-2024-2-Skills"}
+![If you can do EDA on your data you can possibly see some patterns. Think again about the questions you may have about your data and see if any of those patterns can be used to answer the questions (or at least to raise more questions!)](Resources/Slides/CAP394-2024-2-Skills-Slide45.png){.lightbox group="CAP394-2024-2-Skills"}
 
 ---
 
-![Sometimes we have the ideas and questions but not the data or the ability to create code to explore it. It is very tempting to ask a data scientist (or programmer) to solve the task for you, but remember that being a data scientist means working in an interdisciplinary way! Don’t just throw the problem and run away, talk with your collaborator, work together as a team and you will get the results. ](Resources/Slides/CAP394-2024-2-Skills-Slide46.png){.lightbox group="CAP394-2024-2-Skills"}
+![Create well-documented notebooks, with lots of text, figures and explanation about the steps you’re taking. Avoid code-only notebooks!<br>Even if the results are bad, create notebooks to tell stories about the data. These may be useful for future attempts!](Resources/Slides/CAP394-2024-2-Skills-Slide46.png){.lightbox group="CAP394-2024-2-Skills"}
 
 ---
 
-![Finally!<br>There are some additional slides that will not be part of this lecture (but eventually published). ](Resources/Slides/CAP394-2024-2-Skills-Slide47.png){.lightbox group="CAP394-2024-2-Skills"}
+![Sometimes we have the ideas and questions but not the data or the ability to create code to explore it. It is very tempting to ask a data scientist (or programmer) to solve the task for you, but remember that being a data scientist means working in an interdisciplinary way! Don’t just throw the problem and run away, talk with your collaborator, work together as a team and you will get the results. ](Resources/Slides/CAP394-2024-2-Skills-Slide47.png){.lightbox group="CAP394-2024-2-Skills"}
 
 ---
 
-![I strongly recommend the Schutt & O’Neil book, which present case studies, code, basic concepts in an easy-to-follow way.<br><br>“Introducing Data Science” is a Python-centric good, practical introduction. “Python for Data Analysis” is also a good introduction, with examples formatted as notebooks, making it easy to follow.<br><br>“Copying and Pasting from Stack Overflow” is not a real book, of course, but I feel that searching for answers for code snippets there (or using ChatGPT) is not wrong per se, as long as the reader verify the answers and try to understand what is going on!<br><br><br><br>](Resources/Slides/CAP394-2024-2-Skills-Slide48.png){.lightbox group="CAP394-2024-2-Skills"}
+![Finally!<br>There are some additional slides that will not be part of this lecture (but eventually published). ](Resources/Slides/CAP394-2024-2-Skills-Slide48.png){.lightbox group="CAP394-2024-2-Skills"}
+
+---
+
+![I strongly recommend the Schutt & O’Neil book, which present case studies, code, basic concepts in an easy-to-follow way.<br><br>“Introducing Data Science” is a Python-centric good, practical introduction. “Python for Data Analysis” is also a good introduction, with examples formatted as notebooks, making it easy to follow.<br><br>“Copying and Pasting from Stack Overflow” is not a real book, of course, but I feel that searching for answers for code snippets there (or using ChatGPT) is not wrong per se, as long as the reader verify the answers and try to understand what is going on!<br><br><br><br>](Resources/Slides/CAP394-2024-2-Skills-Slide49.png){.lightbox group="CAP394-2024-2-Skills"}
 
 ---
 
