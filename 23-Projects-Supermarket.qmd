@@ -10,7 +10,7 @@ This chapter presents a more or less complete example of a data science approach
 # The Data 
 
 The main dataset used in this project can be downloaded as 
-[a CSV-formatted file (57MB)](Resources/Data/SupermarketCSV/transactions.csv).
+[a CSV-formatted file (61MB)](Resources/Data/SupermarketCSV/transactions.csv).
 
 CSV (comma-separated values) files contains one record per line, with the fields of
 the recort separated by a special character, usually a comma. The first 10 lines of 
@@ -164,7 +164,7 @@ How many transactions failed? How many succeeded?
 ::: 
 
 
-## What's the average basket value?
+## What's the average shopping cart cost?
 
 In order to get this information we would need to scan all itens, adding the values for each transaction and calculate the average of these values. But the way that we chose to store the itens makes the first step easier: since all item entries on the dataframe contains information on the transaction it belongs to, we can get all itens where the field `itemOrder` is one (the first item on that transaction) and use the field `TotalDue` to get the transaction's value.
 
@@ -272,35 +272,60 @@ Are these transactions specific to one store or occur in all stores of the super
 Are all those transactions paid for with cash?
 ::: 
 
-Let's recreate the histogram using `TotalPaid` but with more bins and a log Y axis this time:
+Let's recreate the histogram using `TotalPaid` but with more bins and a custom X axis this time. First we need to take the log of the `TotalPaid` field:
 
 ```{python}
 #| classes: custompython
+epsilon = 0.0001
+onlyFirstItems['LogTotalPaid'] = np.log10(onlyFirstItems['TotalPaid']+epsilon)
+```
+
+Now we can see how's the distribution of `TotalPaid` in a log scale:
+
+```{python}
+#| classes: custompython
+# We will use custom tick values and labels.
+tickvals = np.log10([0.05,0.10,0.25,0.5,1,2,5,10,20,50,100,200,500,1000])
+ticktext = ['0.05','0.10','0.25','0.5','1','2','5','10','20','50','100','200','500','1000']
 # Create the histogram.
 fig = go.Figure()
 fig.add_trace(go.Histogram(
-    x=onlyFirstItems['TotalPaid'],
-    nbinsx=50
+    x=onlyFirstItems['LogTotalPaid'],
+    nbinsx=50,
+    hoverinfo='skip' # Very hard to make a working hover info!
 ))
 # Update layout.
 fig.update_layout(
     title='Histogram of total amount paid in each transaction',
     xaxis_title='Total Paid',
     yaxis_title='Frequency',
+     xaxis=dict(
+        tickmode='array',
+        tickvals=tickvals,
+        ticktext=ticktext,
+        type='linear'  
+    ),
     yaxis=dict(
-        type='log',
-        tickformat='g'
+        type='linear',
+        tickformat=',d'
     ),
     showlegend=False
 )
-# Add grid/
+# Add grids.
 fig.update_xaxes(showgrid=True)
 fig.update_yaxes(showgrid=True)
 # Display it.
 fig.show()
 ```
 
-This is better, although we can see that there is still one transaction with value above 800 reais. Let's take a closer look at this transaction.
+This is better, although we can see several transactions under one Real. 
+
+::: {.exercise-block}
+<div class="title">&nbsp;</div>
+What itens are for sale that cost under one Real? How many transactions are under one Real, how many under 20 cents of a Real?
+::: 
+
+We can also see that there is one transaction with value above 800 reais. Let's take a closer look at this transaction.
 
 ```{python}
 #| classes: custompython
@@ -659,4 +684,13 @@ We noticed that there were some days and hours where a lot of bread rolls were s
 <div class="title">&nbsp;</div>
 Do similar heat maps for three or four other items that are frequently sold. Choose any item that grabbed your attention! Analyze the heat maps to see if there are any patterns or oddities.
 ::: 
+
+# Final Comments
+
+Although we can explore lots of interesting questions and discover some patterns with this data, it must be pointed that we don't have much information about some fields on the data, e.g. on the payment methods, on why there are many total payments equal to zero, etc. 
+
+It is possible that more information on the transactions may be extracted from the original data source, a set of XML files, one per transaction, available as [a ZIP file (70MB)](Resources/Data/SupermarketCSV/transactionsXML.zip), which may must be reprocessed and converted to a format that can be ingested into dataframes.
+
+
+
 
