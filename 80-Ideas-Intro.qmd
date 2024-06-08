@@ -1,0 +1,14 @@
+---
+lightbox: true
+format: html
+---
+
+# Introduction
+
+This section will contain some Data Science ideas that _may_ be used in our lectures.
+
+Ideas are similar to [projects](50-Projects-Intro.qmd) but weren't thoroughly explored. They will require more effort on data acquisition, organization, etc. before EDA and analysis can be done.
+
+Ideas that are ready to be explored are on the sidebar on the left.
+
+

@@ -1,0 +1,31 @@
+---
+lightbox: true
+format: html
+---
+
+# Homework #1 
+
+::: info-block
+<div class="title">How to deliver</div>
+Please deliver the answer to this homework in a single PDF file. Use figures, but try to keep it under three pages.
+:::
+
+## 1 - Identify Yourself!
+
+Think about your expectatives about this course. Which one(s) of the descriptions in [What is a data scientist? 14 definitions of a data scientist!](https://crayondata.ai/what-is-a-data-scientist-14-definitions-of-a-data-scientist/) applies to you? Which one(s) doesn't? 
+
+A local PDF of that site is stored [here](Resources/References/WhatIsADataScientist.pdf).
+
+## 2 - Find Open Data.
+
+Find a source of _open data_ on the web. 
+Write one or two paragraphs about what it contains, who publishes it, what it can used for. 
+
+Get at least one of the files from that source. How easy/hard was it? How well-documented is it? Does it looks tidy?
+
+## 3 - Choose an environment.
+
+Check out [Google Colab](https://colab.research.google.com/), [Kaggle](https://www.kaggle.com/), [SciServer](https://apps.sciserver.org/dashboard/) or other online notebook environments, play with them a little and select one (or more!) to write notebooks for this class.<br>
+Alternatively, if you prefer, you can run your code locally. This tutorial on [Sharing Notebooks](https://rafaeldcsantos.github.io/SharingNotebooks/Intro.html) may help.
+
+

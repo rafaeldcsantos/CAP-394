@@ -32,15 +32,15 @@ For information on data scientists profiles see _Analyzing the Analyzers: An Int
 This material is still under construction (during the second term of 2024).
 :::
 
-## Schedule for 2024
+## Schedule for 2024 {#Schedule}
 
 | Day      | Plan                                                                             |
 |----------|----------------------------------------------------------------------------------|
-|June 14   | [No lectures today]{style="color:#ff0080"}                                       |
-|June 21   |                                                                                  |
-|June 28   |                                                                                  |
-|July 5    |                                                                                  |
-|July 12   |                                                                                  |
+|June 14   | Introduction to the course. Reading of [About the Course](00-Lectures-Intro.qmd) and [What is Data Science?](01-Lectures-WhatIs.qmd) lectures, rules for [evaluation](index.qmd#homework).                                       |
+|June 21   | Reading of [Skills for Data Science](02-Lectures-Skills.qmd) lecture. Q&A about the  [first homework](index.qmd#homework) (if needed).                                                                                 |
+|June 28   | Reading of [Supermarket Basket Analysis](53-Projects-Supermarket.qmd) case. Presentation and comments on the [first homework](index.qmd#homework).                                    |
+|July 5    | TBD.   |
+|July 12   |  TBD.<br>Presentation and comments on the [second homework](index.qmd#homework).       |
 |July 19   |                                                                                  |
 |July 26   |                                                                                  |
 |August 2  |                                                                                  |
@@ -53,12 +53,12 @@ This material is still under construction (during the second term of 2024).
 
 ## Homework
 
-| Assignment                                                                       | Due date |
+| Assignment                                                                       | Due date (*before that day's lecture!*) |
 |----------------------------------------------------------------------------------|----------|
-| TBD                                                 | June 28 |
-| TBD                                                 | July 12 |
-| TBD                                                 | July 26 |
-| TBD                                                 | August  9  |
-| Final Project - TBD                                 | August 30  |
+| [Homework #1 ](00-Homework-01.qmd)                    | June 28   |
+| [Homework #2 ](00-Homework-02.qmd)                    | July 12   |
+| TBD                                                 | July 26   |
+| TBD                                                 | August  9 |
+| Capstone Project - TBD                              | August 30 |
 
-: {tbl-colwidths="\[80,20\]" .striped .hover}
+: {tbl-colwidths="\[40,60\]" .striped .hover}

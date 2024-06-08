@@ -1,7 +1,21 @@
 /*-- scss:defaults --*/
 
+$lightRed : hsl(0,100%,80%);
+$darkRed : hsl(0,100%,50%);
+$lightOrange : hsl(30,100%,80%);
+$darkOrange : hsl(30,100%,45%);
+$lightYellow : hsl(60,100%,90%);
+$darkYellow : hsl(60,100%,40%);
+$lightGreen : hsl(90,100%,80%);
+$darkGreen : hsl(90,100%,40%);
+$lightBlue : hsl(210,100%,73%);
+$darkBlue : hsl(210,100%,45%);
+$lightPurple : hsl(300,100%,90%);
+$darkPurple : hsl(300,100%,40%);
 
-
+$pythonBorder : hsl(207,45%,49%);
+$pythonInput : hsl(197,100%,99%);
+$pythonOutput : hsl(217,100%,98%);
 
 /*-- scss:rules --*/
 body{
@@ -12,9 +26,9 @@ body{
 /* BASICS ************************************************************************************ */
 
 hr { /* A nicer horizontal rule */
-  height: 4px;
+  height: 8px;
   border: 4px;
-  background-color: hsl(240, 100%, 75%);
+  background-color: hsl(240, 10%, 75%);
   margin-top: 25px;
   margin-bottom: 25px;
 }
@@ -47,15 +61,15 @@ margin: auto;
 /* from https://forums.fast.ai/t/quarto-render-options-jupyter-notebook-python-code-cell/104690/4 */
 
 .custompython .cell-output {
-  background-color: #FCFCFC !important;
-  border: 1px solid #0080FF !important;
-  border-left: 5px solid #0080FF !important;  
+  background-color: $pythonOutput !important;
+  border: 1px solid $pythonBorder !important;
+  border-left: 5px solid $pythonBorder !important;  
   margin-bottom: 12px;
 }
 
 .custompython div.sourceCode  {
-  background-color: #FCFCFC !important; 
-  border: 1px solid #0080FF !important;
+  background-color: $pythonInput !important; 
+  border: 1px solid $pythonBorder !important;
 }
 
 .cell-output pre {
@@ -80,8 +94,8 @@ margin: auto;
   font-size: 90%;
   background-color: white; 
   padding: 0px;
-  border: 1px solid hsl(30, 100%, 75%); 
-  border-left: 5px solid hsl(30, 100%, 40%); 
+  border: 1px solid $lightOrange;
+  border-left: 5px solid $darkOrange;
   border-radius: 5px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -94,7 +108,7 @@ margin: auto;
  
 .underconstruction-block .title {
   color: black; 
-  background-color: hsl(30, 100%, 75%); 
+  background-color: $lightOrange;
   padding: 6px;
   padding-top: 2px;
   padding-bottom: 2px;
@@ -129,8 +143,8 @@ margin: auto;
   font-size: 90%;
   background-color: white;  
   padding: 0px;
-  border: 1px solid hsl(200, 90%, 90%);
-  border-left: 5px solid hsl(200, 90%, 40%);
+  border: 1px solid $lightBlue;
+  border-left: 5px solid $darkBlue;
   border-radius: 5px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -143,7 +157,7 @@ margin: auto;
  
 .classdiscussion-block .title {
   color: black; 
-  background-color: hsl(200, 90%, 90%);
+  background-color: $lightBlue;
   padding: 6px;
   padding-top: 2px;
   padding-bottom: 2px;
@@ -179,8 +193,8 @@ margin: auto;
   font-size: 90%;
   background-color: white;  
   padding: 0px;
-  border: 1px solid hsl(260, 90%, 90%);
-  border-left: 5px solid hsl(260, 90%, 40%);
+  border: 1px solid $lightPurple;
+  border-left: 5px solid $darkPurple;
   border-radius: 5px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -194,7 +208,7 @@ margin: auto;
  
 .exercise-block .title {
   color: black; 
-  background-color: hsl(260, 90%, 90%);
+  background-color: $lightPurple;
   padding: 6px;
   padding-top: 2px;
   padding-bottom: 2px;
@@ -226,5 +240,103 @@ margin: auto;
 
 
 
+/* ************************************************************************************ */
+
+/* Custom styles for "Info" blocks */
+
+.info-block {
+  display:block;
+  font-size: 90%;
+  background-color: white; 
+  padding: 0px;
+  border: 1px solid $lightGreen;
+  border-left: 5px solid $darkGreen;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.info-block p
+{
+  margin: 6px;
+}
+ 
+.info-block .title {
+  color: black; 
+  background-color: $lightGreen;
+  padding: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 0px;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.info-block .title::before {
+  content: ""; /* Empty content */
+  display: inline-block;
+  width: 22px; /* Adjust width and height as needed */
+  height: 22px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>');
+  background-size: contain; /* Adjust background size as needed */
+  background-repeat: no-repeat;
+  margin-right: 5px; /* Adjust spacing between icon and title text */
+}
+
+.info-block .title::before {
+  /* Right align the icon */
+  float: right; /* Float the icon to the right */
+}
+
+
+
+
+/* ************************************************************************************ */
+
+/* Custom styles for "Warning" blocks */
+
+.warning-block {
+  display:block;
+  font-size: 90%;
+  background-color: white; 
+  padding: 0px;
+  border: 1px solid $lightRed;
+  border-left: 5px solid $darkRed;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.warning-block p
+{
+  margin: 6px;
+}
+ 
+.warning-block .title {
+  color: black; 
+  background-color: $lightRed;
+  padding: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 0px;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.warning-block .title::before {
+  content: ""; /* Empty content */
+  display: inline-block;
+  width: 22px; /* Adjust width and height as needed */
+  height: 22px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>');
+  background-size: contain; /* Adjust background size as needed */
+  background-repeat: no-repeat;
+  margin-right: 5px; /* Adjust spacing between icon and title text */
+}
+
+.warning-block .title::before {
+  /* Right align the icon */
+  float: right; /* Float the icon to the right */
+}
 
 

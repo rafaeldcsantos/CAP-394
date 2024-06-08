@@ -1,0 +1,15 @@
+---
+lightbox: true
+format: html
+---
+ 
+ 
+# Introduction
+
+This section will contain some examples of common data science tasks in Python.
+
+Topics covered will **eventually** include:
+
+* Reading CSV and XLSX and writing CSV data.
+* Slicing and dicing.
+* Pivoting data.

@@ -1,0 +1,40 @@
+---
+lightbox: true
+format: html
+---
+
+# Demo for the blocks' styles
+
+::: info-block
+<div class="title">Info</div>
+Info Block
+:::
+
+::: underconstruction-block
+<div class="title">Under Construction</div>
+Under Construction Block
+:::
+
+::: classdiscussion-block
+<div class="title">Class Discussion</div>
+Class Discussion Block
+:::
+
+::: exercise-block
+<div class="title">&nbsp;</div>
+Exercise Block
+:::
+
+
+::: warning-block
+<div class="title">Warning</div>
+Warning Block
+:::
+
+<hr>
+
+
+::: info-block
+<div class="title">Info</div>
+Info Block
+:::

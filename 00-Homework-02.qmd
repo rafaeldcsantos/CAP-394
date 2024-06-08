@@ -1,0 +1,24 @@
+---
+lightbox: true
+format: html
+---
+
+# Homework #2
+
+::: info-block
+<div class="title">How to deliver</div>
+This homework requires reading of the [Supermarket Basket Analysis](53-Projects-Supermarket.qmd) case study.<br>
+Please deliver the answer to this homework either as an online notebook **link** or as a single, correctly formatted PDF file created from the notebook. Code, results (text or figures) _and_ comments are required. 
+:::
+
+## 1 - Playing Data Detective, part 1.
+
+Choose three exercises on the [Supermarket Basket Analysis](53-Projects-Supermarket.qmd) case study that are about _counting_ and solve them.
+
+## 2 - Playing Data Detective, part 2.
+
+We found some strange patterns on the [Supermarket Basket Analysis](53-Projects-Supermarket.qmd) case study -- e.g. very large transactions, large amounts of items bought in some days. Check if those patterns are specific to a payment method or store branch or status of the transaction.
+
+
+
+
