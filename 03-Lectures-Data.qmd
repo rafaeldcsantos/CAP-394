@@ -1,0 +1,73 @@
+---
+lightbox: true
+format: html
+---
+
+
+# Data
+
+This is the material (slides and notes) of the third lecture on the course.
+
+::: warning-block
+<div class="title">Warning</div>
+This chapter is under construction right now, and will change a lot in the next few days!
+:::
+
+{{< include Resources/Slides/CAP394-2024-3-Data.qmd >}}
+
+## Code for examples used in this lecture
+
+### Parliamentary Amendment 
+
+A *parliamentary amendment* is a proposal made by a member of parliament or a legislator to specify provisions in a bill or legislation that is being considered by the parliament. This term is commonly used in the legislative processes of various countries, including Brazil, often to earmark funds for specific projects.
+
+We can download a list of parliamentary amendments as a CSV file from the Federal Government Transparency Open Data Portal ([_Dados Abertos | Portal da Transparência do Governo Federal_](https://portaldatransparencia.gov.br/download-de-dados)).
+
+The first 15 lines of that file are shown below:
+
+``` {.plaintext}
+"Código da Emenda";"Ano da Emenda";"Tipo de Emenda";"Código do Autor da Emenda";"Nome do Autor da Emenda";"Número da emenda";"Localidade do gasto";"Código Função";"Nome Função";"Código Subfunção";"Nome Subfunção";"Valor Empenhado";"Valor Liquidado";"Valor Pago";"Valor Restos A Pagar Inscritos";"Valor Restos A Pagar Cancelados";"Valor Restos A Pagar Pagos"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"POMBAL - PB";"15";"Urbanismo";"451";"infra-estrutura urbana";"150000,00";"0,00";"0,00";"0,00";"146950,00";"3050,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"CAIÇARA - RS";"10";"Saúde";"302";"Assistência hospitalar e ambulatorial";"250000,00";"0,00";"0,00";"0,00";"0,00";"250000,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"PIAUÍ (UF)";"10";"Saúde";"572";"Desenvolvimento tecnológico e engenharia";"896692,97";"0,00";"0,00";"0,00";"0,00";"896692,97"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"SANTANA DE PARNAÍBA - SP";"15";"Urbanismo";"451";"infra-estrutura urbana";"500000,00";"0,00";"0,00";"0,00";"493100,00";"6900,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"PALMITINHO - RS";"10";"Saúde";"302";"Assistência hospitalar e ambulatorial";"250000,00";"0,00";"0,00";"0,00";"0,00";"250000,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"JANDIRA - SP";"10";"Saúde";"302";"Assistência hospitalar e ambulatorial";"1199996,15";"0,00";"0,00";"0,00";"499996,15";"700000,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"FUNILÂNDIA - MG";"20";"Agricultura";"608";"Promoção da produção agropecuária";"398737,97";"0,00";"0,00";"0,00";"10000,00";"388737,97"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"VARGEM GRANDE PAULISTA - SP";"15";"Urbanismo";"451";"infra-estrutura urbana";"250000,00";"0,00";"0,00";"0,00";"0,00";"250000,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"RESENDE - RJ";"27";"Desporto e lazer";"812";"Desporto comunitário";"692500,00";"0,00";"0,00";"0,00";"285187,50";"407312,50"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"BURITIRAMA - BA";"27";"Desporto e lazer";"812";"Desporto comunitário";"400000,00";"0,00";"0,00";"0,00";"0,00";"400000,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"JARDIM - MS";"10";"Saúde";"302";"Assistência hospitalar e ambulatorial";"3380000,00";"0,00";"0,00";"0,00";"2600000,00";"780000,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"LUZ - MG";"10";"Saúde";"302";"Assistência hospitalar e ambulatorial";"250000,00";"0,00";"0,00";"0,00";"0,00";"250000,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"MATOZINHOS - MG";"10";"Saúde";"301";"Atenção básica";"199890,00";"0,00";"0,00";"0,00";"0,00";"199890,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"MOCOCA - SP";"10";"Saúde";"301";"Atenção básica";"498940,80";"0,00";"0,00";"0,00";"0,00";"498940,80"
+```
+
+We can notice that the file is a _semicolon_-separated file. Its encoding is ISO-8859. To read it into a dataframe in Python [@python2001] and Pandas [@pandasmckinney2012] we first need to import the libraries:
+
+
+```{python}
+#| classes: custompython
+import pandas as pd
+import matplotlib.pyplot as plt
+```
+
+Now we can read the file:
+
+```{python}
+#| classes: custompython
+file = 'Resources/Data/Emendas/Emendas.csv'
+# Read the CSV file using the specified separator and encoding.
+df = pd.read_csv(file, sep=';', encoding='ISO-8859-1')
+# Display the head of the dataframe.
+print(df.head())
+```
+
+We need to filter out some columns.
+
+https://www1.siop.planejamento.gov.br/mto/doku.php/mto2024
+
+pages 229-233
+
+
+

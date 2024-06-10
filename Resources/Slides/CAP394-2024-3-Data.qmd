@@ -1,0 +1,53 @@
+## Slides
+
+
+---
+
+![Today we’ll talk about INPE, the Applied Computing Program, and the Introduction to Data Science (CAP-394) course.](Resources/Slides/CAP394-2024-3-Data-Slide1.png){.lightbox group="CAP394-2024-3-Data"}
+
+---
+
+![Here’s are our main topics. ](Resources/Slides/CAP394-2024-3-Data-Slide2.png){.lightbox group="CAP394-2024-3-Data"}
+
+---
+
+![Just as an exercise, try to explain data yourself. Avoid self-references!](Resources/Slides/CAP394-2024-3-Data-Slide3.png){.lightbox group="CAP394-2024-3-Data"}
+
+---
+
+![A very, very short definition of “data”. It uses “information” which can be interpreted as “organized data”.<br>Another definition is “collection of values that convey information”. ](Resources/Slides/CAP394-2024-3-Data-Slide4.png){.lightbox group="CAP394-2024-3-Data"}
+
+---
+
+![Raw Data is data we collect from the real word and that will be used in our explorations and analyses. There are many different formats for data, therefore many approaches to deal with it.<br>It is important (and somehow obvious) to explain that we mean digital data – data that is stored In files or similar resources in a computer, that can be read by a program or copied to other computers. Data in paper, even if it is structured, is not suited for us unless it is preprocessed (turned into digital data).<br>Even digital data may not be ready for analysis. The figure on the right shows a table (in a PDF document) with all water levels in a monitoring station for 2022, but that would be hard to import to a tabular format.](Resources/Slides/CAP394-2024-3-Data-Slide5.png){.lightbox group="CAP394-2024-3-Data"}
+
+---
+
+![Both figures show data – in a very organized way. The table is the list of graduate courses approved by CAPES, the figure is a histogram plot based on the data (with some small differences due to the time the data was collected). The histogram is part of a report for the Engineerings III Evaluation Group.<br>Interesting fact: the data on the table was generated from other data, this is quite common!<br>Tables can be represented in text files, spreadsheets, XML and other formats.](Resources/Slides/CAP394-2024-3-Data-Slide6.png){.lightbox group="CAP394-2024-3-Data"}
+
+---
+
+![Images are data that are spatially organized, and for which we expect some coherence (e.g visible patterns).<br>These are Synthetic-aperture radar images. Images on the first column show waves; on the second column we have some biological slicks (algae?) and the images on the third column show icebergs. <br>Images are from a dataset associated with the paper “A labelled ocean SAR imagery dataset of ten geophysical phenomena from Sentinel‐1 wave model”.<br>There are many ways to represent image data in a file format, and many formats that allow the specific representation of specialized data (e.g. color images, 2D signals, multispectral images…)](Resources/Slides/CAP394-2024-3-Data-Slide7.png){.lightbox group="CAP394-2024-3-Data"}
+
+---
+
+![Time series are data: there is a temporal index that set an explicit order to it. Time series may be stored as tables or spreadsheets or text files.](Resources/Slides/CAP394-2024-3-Data-Slide8.png){.lightbox group="CAP394-2024-3-Data"}
+
+---
+
+![A structured text data. XML is a format that allows representation of structured and semi-structured data using tags and hierarchies. JSON is a similar format. <br>These formats can be read (with some difficulty…) by humans and computers. They are usually stored in text files.](Resources/Slides/CAP394-2024-3-Data-Slide9.png){.lightbox group="CAP394-2024-3-Data"}
+
+---
+
+![This is an entry from a log of SQL queries submitted to an astronomy database. It is textual data, semistructured, that could be converted into tabular data with some tricks. We may see some of those later.<br>Logs are also usually stored in text files.<br>MAKIYAMA, V. H. Text mining applied to SQL queries: a case study for SDSS SkyServer. 2015. 75 p.  IBI: <8JMKD3MGP3W34P/3K6JNQ8>. (sid.inpe.br/mtc-m21b/2015/08.31.17.43-TDI). Dissertação (Mestrado em Computação Aplicada) - Instituto Nacional de Pesquisas Espaciais (INPE), São José dos Campos, 2015. Disponível em: <http://urlib.net/ibi/8JMKD3MGP3W34P/3K6JNQ8>. ](Resources/Slides/CAP394-2024-3-Data-Slide10.png){.lightbox group="CAP394-2024-3-Data"}
+
+---
+
+![There are many more variations and combinations of data types. Image time series can be represented as series of images or time series with temporal and spatial indexes. Trajectories are time series with location data associated to each point. <br>Graphs and networks are collection of edges and vertices that can be stored as text files or specialized formats. Some tasks require the mixture of data types: logs are semi-structured text files with an explicit time index, for example.](Resources/Slides/CAP394-2024-3-Data-Slide11.png){.lightbox group="CAP394-2024-3-Data"}
+
+---
+
+![Tidy Data is the best possible representation of data for exploration and analysis. It allow us to keep an organized representation of the data. This is not always possible, as we’ll see.<br>The best reference for Tidy Data is “Tidy Data”, Hadley Wickham, https://vita.had.co.nz/papers/tidy-data.pdf ](Resources/Slides/CAP394-2024-3-Data-Slide12.png){.lightbox group="CAP394-2024-3-Data"}
+
+---
+

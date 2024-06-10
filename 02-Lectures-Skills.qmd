@@ -6,7 +6,7 @@ format: html
 
 # Skills for Data Science
 
-This is the material (slides and notes) of the third lecture on the course.
+This is the material (slides and notes) of the second lecture on the course.
 
 {{< include Resources/Slides/CAP394-2024-2-Skills.qmd >}}
 
