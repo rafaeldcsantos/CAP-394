@@ -18,10 +18,23 @@ A local PDF of that site is stored [here](Resources/References/WhatIsADataScient
 
 ## 2 - Find Open Data.
 
-Find a source of _open data_ on the web. 
+Find a source of _open data_ on the web. Try to get a source of data that you can relate to.
 Write one or two paragraphs about what it contains, who publishes it, what it can used for. 
 
 Get at least one of the files from that source. How easy/hard was it? How well-documented is it? Does it looks tidy?
+
+::: hint-block
+<div class="title">Hint</div>
+If you cannot find good open data sources and if you can read Portuguese you can always check up some government data sources, e.g.
+[Portal Brasileiro de Dados Abertos](https://dados.gov.br/home), 
+[Portal da Transparência - Controladoria Geral da União](https://portaldatransparencia.gov.br/download-de-dados), 
+[Governo Aberto SP](https://www.governoaberto.sp.gov.br/
+), [Portal de
+Dados Abertos do Ministério da Educação](https://dadosabertos.mec.gov.br/),
+[Catálogo de Dados Abertos do Senado Federal](https://www12.senado.leg.br/dados-abertos/dados-abertos/catalogo-de-dados-abertos).
+:::
+
+
 
 ## 3 - Choose an environment.
 

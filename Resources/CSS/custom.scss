@@ -4,7 +4,7 @@ $lightRed : hsl(0,100%,80%);
 $darkRed : hsl(0,100%,50%);
 $lightOrange : hsl(30,100%,80%);
 $darkOrange : hsl(30,100%,45%);
-$lightYellow : hsl(60,100%,90%);
+$lightYellow : hsl(60,100%,70%);
 $darkYellow : hsl(60,100%,40%);
 $lightGreen : hsl(90,100%,80%);
 $darkGreen : hsl(90,100%,40%);
@@ -340,3 +340,51 @@ margin: auto;
 }
 
 
+
+/* ************************************************************************************ */
+
+/* Custom styles for "Hint" blocks */
+
+.hint-block {
+  display:block;
+  font-size: 90%;
+  background-color: white; 
+  padding: 0px;
+  border: 1px solid $lightYellow;
+  border-left: 5px solid $darkYellow;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.hint-block p
+{
+  margin: 6px;
+}
+ 
+.hint-block .title {
+  color: black; 
+  background-color: $lightYellow;
+  padding: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 0px;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.hint-block .title::before {
+  content: ""; /* Empty content */
+  display: inline-block;
+  width: 22px; /* Adjust width and height as needed */
+  height: 22px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M297.2 248.9C311.6 228.3 320 203.2 320 176c0-70.7-57.3-128-128-128S64 105.3 64 176c0 27.2 8.4 52.3 22.8 72.9c3.7 5.3 8.1 11.3 12.8 17.7l0 0c12.9 17.7 28.3 38.9 39.8 59.8c10.4 19 15.7 38.8 18.3 57.5H109c-2.2-12-5.9-23.7-11.8-34.5c-9.9-18-22.2-34.9-34.5-51.8l0 0 0 0c-5.2-7.1-10.4-14.2-15.4-21.4C27.6 247.9 16 213.3 16 176C16 78.8 94.8 0 192 0s176 78.8 176 176c0 37.3-11.6 71.9-31.4 100.3c-5 7.2-10.2 14.3-15.4 21.4l0 0 0 0c-12.3 16.8-24.6 33.7-34.5 51.8c-5.9 10.8-9.6 22.5-11.8 34.5H226.4c2.6-18.7 7.9-38.6 18.3-57.5c11.5-20.9 26.9-42.1 39.8-59.8l0 0 0 0 0 0c4.7-6.4 9-12.4 12.7-17.7zM192 128c-26.5 0-48 21.5-48 48c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-44.2 35.8-80 80-80c8.8 0 16 7.2 16 16s-7.2 16-16 16zm0 384c-44.2 0-80-35.8-80-80V416H272v16c0 44.2-35.8 80-80 80z"/></svg>');
+  background-size: contain; /* Adjust background size as needed */
+  background-repeat: no-repeat;
+  margin-right: 5px; /* Adjust spacing between icon and title text */
+}
+
+.hint-block .title::before {
+  /* Right align the icon */
+  float: right; /* Float the icon to the right */
+}

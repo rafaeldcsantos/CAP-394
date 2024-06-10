@@ -1,6 +1,7 @@
 ---
 lightbox: true
 format: html
+search: false
 ---
 
 # Demo for the blocks' styles
@@ -34,7 +35,7 @@ Warning Block
 <hr>
 
 
-::: info-block
-<div class="title">Info</div>
-Info Block
+::: hint-block
+<div class="title">Hint</div>
+Hint Block
 :::
