@@ -31,7 +31,8 @@ If you cannot find good open data sources and if you can read Portuguese you can
 [Governo Aberto SP](https://www.governoaberto.sp.gov.br/
 ), [Portal de
 Dados Abertos do Ministério da Educação](https://dadosabertos.mec.gov.br/),
-[Catálogo de Dados Abertos do Senado Federal](https://www12.senado.leg.br/dados-abertos/dados-abertos/catalogo-de-dados-abertos).
+[Catálogo de Dados Abertos do Senado Federal](https://www12.senado.leg.br/dados-abertos/dados-abertos/catalogo-de-dados-abertos),
+[ipeadata](http://www.ipeadata.gov.br/Default.aspx).
 :::
 
 

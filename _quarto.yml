@@ -42,6 +42,8 @@ format:
     toc: true
     css: Resources/CSS/custom.css
     bibliography: CAP394.bib
+    date: last-modified
+    date-format: long
 
 
 

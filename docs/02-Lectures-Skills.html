@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-06-11">
 
 <title>CAP-394</title>
 <style>
@@ -312,6 +313,12 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 11, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -707,20 +714,20 @@ div.csl-indent {
   1758      -2.345        1.366           -1.347           0.882</code></pre>
 <p>Let’s use Python <span class="citation" data-cites="python2001">(<a href="#ref-python2001" role="doc-biblioref">Rossum and Jr. 2001</a>)</span>, Pandas <span class="citation" data-cites="pandasmckinney2012">(<a href="#ref-pandasmckinney2012" role="doc-biblioref">McKinney 2012</a>)</span> and Matplotlib <span class="citation" data-cites="matplotlibhunter2007">(<a href="#ref-matplotlibhunter2007" role="doc-biblioref">Hunter 2007</a>)</span> for the analysis scripts, which will read the data and plot the year versus the corrected annual average temperature, and after that let’s see if we can see a trend using a basic linear model.</p>
 <p>First we import the libraries we’re going to use.</p>
-<div id="3f5b8a34" class="cell custompython" data-execution_count="1">
+<div id="55b96280" class="cell custompython" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can read the file into a data frame – more on this later in the course. If you want to reproduce this make sure you have the file in the right path. Note that we have to explicitely name the columns for this data set.</p>
-<div id="90f22e0b" class="cell custompython" data-execution_count="2">
+<div id="049002a0" class="cell custompython" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>inputfile <span class="op">=</span> <span class="st">"Resources/Data/AverageTemperature/Complete_TAVG_summary.txt"</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(inputfile,sep<span class="op">=</span><span class="st">"</span><span class="ch">\\</span><span class="st">s+"</span>,skiprows<span class="op">=</span><span class="dv">22</span>,header<span class="op">=</span><span class="va">None</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data.columns <span class="op">=</span> [<span class="st">"Year"</span>,<span class="st">"Annual.Anomaly"</span>,<span class="st">"Annual.Uncertainty"</span>,</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">"FiveYear.Anomaly"</span>,<span class="st">"FiveYear.Uncertainty"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s see how the data looks (as a data frame):</p>
-<div id="17a0097c" class="cell custompython" data-execution_count="3">
+<div id="a51d0759" class="cell custompython" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a> data </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -836,11 +843,11 @@ div.csl-indent {
 </div>
 </div>
 <p>We want to plot the temperature, but we have the anomaly. All we need to do is to add 8.65ºC to the anomaly (see a detailed explanation at <a href="https://earthobservatory.nasa.gov/world-of-change/global-temperatures">this NASA’s Earth Observatory site</a> or <a href="https://www.ncei.noaa.gov/access/monitoring/dyk/anomalies-vs-temperature">NOAA’s National Centers for Environmental Information</a>).</p>
-<div id="1e0e38e5" class="cell custompython" data-execution_count="4">
+<div id="e167a77e" class="cell custompython" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"Annual"</span>] <span class="op">=</span> data[<span class="st">"Annual.Anomaly"</span>]<span class="op">+</span><span class="fl">8.65</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now let’s plot the annual temperature against the year:</p>
-<div id="f6b72e25" class="cell custompython" data-execution_count="5">
+<div id="9433cae2" class="cell custompython" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> data.plot(kind<span class="op">=</span><span class="st">"line"</span>,x<span class="op">=</span><span class="st">"Year"</span>,y<span class="op">=</span><span class="st">"Annual"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -852,7 +859,7 @@ div.csl-indent {
 </div>
 </div>
 <p>Let’s fit a linear regression model that will basically describe temperature a function of the year using the data we have. Don’t worry about the math details for the time being.</p>
-<div id="4607604c" class="cell custompython" data-execution_count="6">
+<div id="45b1f667" class="cell custompython" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LinearRegression()</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.DataFrame(data[<span class="st">"Year"</span>])</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> pd.DataFrame(data[<span class="st">"Annual"</span>])</span>
@@ -860,7 +867,7 @@ div.csl-indent {
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>Y_pred <span class="op">=</span> model.predict(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>Y_pred</code> contains the predicted temperature values from the years. We can now create another plot that shows the original data and the linear model as a straigth line in red.</p>
-<div id="fe2f83ea" class="cell custompython" data-execution_count="7">
+<div id="67bfd09f" class="cell custompython" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.plot(data[<span class="st">"Year"</span>],data[<span class="st">"Annual"</span>])</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.plot(data[<span class="st">"Year"</span>],Y_pred,color<span class="op">=</span><span class="st">"red"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1363,7 +1370,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

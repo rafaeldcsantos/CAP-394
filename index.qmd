@@ -3,7 +3,7 @@ title: "About this Course"
 format: 
   html: 
     css: Resources/CSS/custom.scss
-bibliography: CAP394.bib       
+bibliography: CAP394.bib      
 ---
 
 These pages contains the material used for the course *Introduction to Data Science*, part of the [curriculum](https://www.gov.br/inpe/pt-br/area-conhecimento/posgraduacao/cap/catalogo-de-disciplinas) of the [Graduate Program in Applied Computing](https://www.gov.br/inpe/pt-br/area-conhecimento/posgraduacao/cap), offeredy by the [Brazilian National Institute for Space Research](https://www.gov.br/inpe/pt-br). 
@@ -12,13 +12,13 @@ The course is usually offered in the [second term](https://www.gov.br/inpe/pt-br
 
 ## Syllabus
 
-What is Data Science? Why Data Science exists as a discipline? 
-The role of a Data Scientist. Other roles and tasks in Data Science. 
-Data Collection and Discovery. Data Provenance and Annotation. 
-Data Representation: Flat Files, Databases, Tidy Data.
-Introduction to Analytics, Exploratory Data Analysis and Machine Learning.
-Reproducible Research. Data-based products. 
-Examples of applications, case studies and project development.
+&ensp; &ensp; _What is Data Science? Why Data Science exists as a discipline?_<br>
+&ensp; &ensp; _The role of a Data Scientist. Other roles and tasks in Data Science._<br>
+&ensp; &ensp; _Data Collection and Discovery. Data Provenance and Annotation._ <br>
+&ensp; &ensp; _Data Representation: Flat Files, Databases, Tidy Data._<br>
+&ensp; &ensp; _Introduction to Analytics, Exploratory Data Analysis and Machine Learning._<br>
+&ensp; &ensp; _Reproducible Research. Data-based products._ <br>
+&ensp; &ensp; _Examples of applications, case studies and project development._<br>
 
 ### Bibliography
 
