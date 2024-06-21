@@ -1,6 +1,9 @@
 ---
 lightbox: true
-format: html
+format: 
+  html: 
+    css: Resources/CSS/custom.scss
+bibliography: CAP394.bib      
 ---
 
 

@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-06-10">
+<meta name="dcterms.date" content="2024-06-15">
 
 <title>CAP-394</title>
 <style>
@@ -313,7 +313,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 10, 2024</p>
+      <p class="date">June 15, 2024</p>
     </div>
   </div>
   
@@ -443,12 +443,12 @@ Warning
 "Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"MATOZINHOS - MG";"10";"Saúde";"301";"Atenção básica";"199890,00";"0,00";"0,00";"0,00";"0,00";"199890,00"
 "Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"MOCOCA - SP";"10";"Saúde";"301";"Atenção básica";"498940,80";"0,00";"0,00";"0,00";"0,00";"498940,80"</code></pre>
 <p>We can notice that the file is a <em>semicolon</em>-separated file. Its encoding is ISO-8859. To read it into a dataframe in Python <span class="citation" data-cites="python2001">(<a href="#ref-python2001" role="doc-biblioref">Rossum and Jr. 2001</a>)</span> and Pandas <span class="citation" data-cites="pandasmckinney2012">(<a href="#ref-pandasmckinney2012" role="doc-biblioref">McKinney 2012</a>)</span> we first need to import the libraries:</p>
-<div id="c4eb7ae1" class="cell custompython" data-execution_count="1">
+<div id="bab09ad4" class="cell custompython" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can read the file:</p>
-<div id="23b139f7" class="cell custompython" data-execution_count="2">
+<div id="5f239cf8" class="cell custompython" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="st">'Resources/Data/Emendas/Emendas.csv'</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the CSV file using the specified separator and encoding.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="bu">file</span>, sep<span class="op">=</span><span class="st">';'</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
@@ -952,7 +952,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

@@ -36,7 +36,7 @@ This material is still under construction (during the second term of 2024).
 
 In the second term of 2024 our schedule is **Fridays, from 1:30PM to 5:30PM.**
 
-| Day      | Plan                                                                             |
+| Day      | Topics                                                                             |
 |----------|----------------------------------------------------------------------------------|
 |June 14   | Introduction to the course. Reading of [About the Course](00-Lectures-Intro.qmd) and [What is Data Science?](01-Lectures-WhatIs.qmd) lectures, rules for [evaluation](index.qmd#homework).                                       |
 |June 21   | Reading of [Skills for Data Science](02-Lectures-Skills.qmd) lecture. Q&A about the  [first homework](index.qmd#homework) (if needed).                                                                                 |

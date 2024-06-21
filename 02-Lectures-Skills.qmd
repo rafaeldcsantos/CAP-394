@@ -1,6 +1,9 @@
 ---
 lightbox: true
-format: html
+format: 
+  html: 
+    css: Resources/CSS/custom.scss
+bibliography: CAP394.bib      
 ---
 
 
@@ -11,6 +14,85 @@ This is the material (slides and notes) of the second lecture on the course.
 {{< include Resources/Slides/CAP394-2024-2-Skills.qmd >}}
 
 ## Code for examples used in this lecture
+
+### Diagram for Time Spent/Enjoyable Activities
+
+The pie charts in the slides used in this lecture were copied from [a dead link (will be redirected to another site)](https://visit.figure-eight.com/data-science-report.html), but since we have the percentages it would be fairly simple to reproduce it.
+
+First we import the [@plotly] library:
+
+```{python}
+#| classes: custompython
+import plotly.graph_objects as go
+```
+
+Let's create the data structures in Python:
+
+```{python}
+#| classes: custompython
+tasks = ['Collecting Data', 'Cleaning and Organizing', 'Building Training Sets',
+         'Mining Data', 'Refining Algorithms', 'Other']
+perTime = [19, 60, 3, 9, 4, 5]
+perUnenjoy = [21, 57, 10, 3, 4, 5]
+```
+
+I'd like to use a pastel color scheme:
+
+```{python}
+#| classes: custompython
+colors = ['#ff9999', '#66b3ff', '#99ff99', '#ffcc99', '#c2c2f0', '#ffb3e6']
+```
+
+Let's create the chart for "most spent part" and set some layour options:
+
+```{python}
+#| classes: custompython
+fig_time = go.Figure(data=[go.Pie(
+    labels=tasks,
+    values=perTime,
+    hole=0.4,
+    marker=dict(colors=colors),
+    textinfo='percent',
+    textposition='outside',
+    hoverinfo='label+percent',
+    sort=False, # Disable sorting to keep the order consistent
+    textfont=dict(family="Arial Black",size=18,color="#808080") 
+)])
+
+fig_time.update_layout(
+    title='What data scientists spend the most time doing',
+    showlegend=True,
+    legend=dict(title="Tasks", x=1.15, y=0.5, 
+                traceorder="normal", font=dict(size=12))
+)
+```
+
+Do more or less the same for the "lest enjoyable part" chart:
+
+```{python}
+#| classes: custompython
+fig_unenjoy = go.Figure(data=[go.Pie(
+    labels=tasks,
+    values=perUnenjoy,
+    hole=0.4,
+    marker=dict(colors=colors),
+    textinfo='percent',
+    textposition='outside',
+    hoverinfo='label+percent',
+    sort=False,  # Disable sorting to keep the order consistent
+    textfont=dict(family="Arial Black",size=18,color="#808080") 
+)])
+
+fig_unenjoy.update_layout(
+    title="What's the least enjoyable part of data science?",
+    showlegend=True,
+    legend=dict(title="Tasks", x=1.15, y=0.5, 
+                traceorder="normal", font=dict(size=12))
+)
+```
+
+
+
 
 ### Average Temperature Basic Example
 
@@ -114,3 +196,4 @@ plt.plot(data["Year"],data["Annual"])
 plt.plot(data["Year"],Y_pred,color="red")
 plt.show()
 ```
+
