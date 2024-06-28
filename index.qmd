@@ -34,14 +34,14 @@ This material is still under construction (during the second term of 2024).
 
 ## Schedule for 2024 {#Schedule}
 
-In the second term of 2024 our schedule is **Fridays, from 1:30PM to 5:30PM.**
+For the second term of 2024 our schedule is **Fridays, from 1:30PM to 5:30PM.**
 
 | Day      | Topics                                                                             |
 |----------|----------------------------------------------------------------------------------|
 |June 14   | Introduction to the course. Reading of [About the Course](00-Lectures-Intro.qmd) and [What is Data Science?](01-Lectures-WhatIs.qmd) lectures, rules for [evaluation](index.qmd#homework).                                       |
 |June 21   | Reading of [Skills for Data Science](02-Lectures-Skills.qmd) lecture. Q&A about the  [first homework](index.qmd#homework) (if needed).                                                                                 |
-|June 28   | TBD (possibly "Data").                                   |
-|July 5    | Reading of [Supermarket Basket Analysis](53-Projects-Supermarket.qmd) case. Presentation and comments on the [first homework](index.qmd#homework).   |
+|June 28   |  <span style="color:red;">Lectures suspended today</span>     |
+|July 5    | TBD (possibly "Data").  Reading of [Supermarket Basket Analysis](53-Projects-Supermarket.qmd) case. Presentation and comments on the [first homework](index.qmd#homework).   |
 |July 12   |  TBD.<br>Presentation and comments on the [second homework](index.qmd#homework).       |
 |July 19   |                                                                                  |
 |July 26   |  Presentation and comments on the [third homework](index.qmd#homework).     |
@@ -57,7 +57,7 @@ In the second term of 2024 our schedule is **Fridays, from 1:30PM to 5:30PM.**
 
 | Assignment                                                                       | Due date (*before that day's lecture!*) |
 |----------------------------------------------------------------------------------|----------|
-| [Homework #1 ](00-Homework-01.qmd)                    | June 28   |
+| [Homework #1 ](00-Homework-01.qmd)                    | ~~June 28~~ July 5   |
 | [Homework #2 ](00-Homework-02.qmd)                    | July 12   |
 | TBD                     | July 26   |
 | TBD                          | August  9 |
