@@ -41,7 +41,7 @@ For the second term of 2024 our schedule is **Fridays, from 1:30PM to 5:30PM.**
 |June 14   | Introduction to the course. Reading of [About the Course](00-Lectures-Intro.qmd) and [What is Data Science?](01-Lectures-WhatIs.qmd) lectures, rules for [evaluation](index.qmd#homework).                                       |
 |June 21   | Reading of [Skills for Data Science](02-Lectures-Skills.qmd) lecture. Q&A about the  [first homework](index.qmd#homework) (if needed).                                                                                 |
 |June 28   |  <span style="color:red;">Lectures suspended today</span>     |
-|July 5    | TBD (possibly "Data").  Reading of [Supermarket Basket Analysis](53-Projects-Supermarket.qmd) case. Presentation and comments on the [first homework](index.qmd#homework).   |
+|July 5    | TBD (possibly "Data").  Reading of the [Supermarket Basket Analysis](53-Projects-Supermarket.qmd) case. Presentation and comments on the [first homework](index.qmd#homework).   |
 |July 12   |  TBD.<br>Presentation and comments on the [second homework](index.qmd#homework).       |
 |July 19   |                                                                                  |
 |July 26   |  Presentation and comments on the [third homework](index.qmd#homework).     |
