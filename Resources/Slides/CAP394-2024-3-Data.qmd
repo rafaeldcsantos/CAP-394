@@ -79,7 +79,7 @@
 
 ---
 
-![](Resources/Slides/CAP394-2024-3-Data-Slide20.png){.lightbox group="CAP394-2024-3-Data"}
+![When dealing with data obtained from the Web try to get also a data dictionary, a document that describes what the data contains (metadata!)One common example of feature creation from data: if we have a timestamp, we can process it to get fields for days, hours, etc., possibly expanding to get information for days of the week and working hours, for example.<br>Context is much more subtle: it is not part of data nor metadata, but may give important information about it.](Resources/Slides/CAP394-2024-3-Data-Slide20.png){.lightbox group="CAP394-2024-3-Data"}
 
 ---
 
