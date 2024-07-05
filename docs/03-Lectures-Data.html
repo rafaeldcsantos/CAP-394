@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-06-15">
+<meta name="dcterms.date" content="2024-07-04">
 
 <title>CAP-394</title>
 <style>
@@ -78,7 +78,7 @@ div.csl-indent {
 }</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -125,6 +125,25 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.12.1.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+
 
 
 <link rel="stylesheet" href="Resources/CSS/custom.css">
@@ -313,7 +332,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 15, 2024</p>
+      <p class="date">July 4, 2024</p>
     </div>
   </div>
   
@@ -326,96 +345,232 @@ div.csl-indent {
 
 
 <p>This is the material (slides and notes) of the third lecture on the course.</p>
-<div class="warning-block">
-<div class="title">
-Warning
-</div>
-<p>This chapter is under construction right now, and will change a lot in the next few days!</p>
-</div>
 <section id="slides" class="level2">
 <h2 class="anchored" data-anchor-id="slides">Slides</h2>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide1.png" class="lightbox" data-gallery="CAP394-2024-3-Data" data-glightbox="description: .lightbox-desc-1" title="Today we’ll talk about INPE, the Applied Computing Program, and the Introduction to Data Science (CAP-394) course."><img src="Resources/Slides/CAP394-2024-3-Data-Slide1.png" class="img-fluid figure-img" alt="Today we’ll talk about INPE, the Applied Computing Program, and the Introduction to Data Science (CAP-394) course."></a></p>
-<figcaption>Today we’ll talk about INPE, the Applied Computing Program, and the Introduction to Data Science (CAP-394) course.</figcaption>
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="CAP394-2024-3-Data" title="Today’s lecture will be about Data."><img src="Resources/Slides/CAP394-2024-3-Data-Slide1.png" class="img-fluid figure-img" alt="Today’s lecture will be about Data."></a></p>
+<figcaption>Today’s lecture will be about Data.</figcaption>
 </figure>
 </div>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide2.png" class="lightbox" data-gallery="CAP394-2024-3-Data" data-glightbox="description: .lightbox-desc-2" title="Here’s are our main topics."><img src="Resources/Slides/CAP394-2024-3-Data-Slide2.png" class="img-fluid figure-img" alt="Here’s are our main topics."></a></p>
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide2.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="CAP394-2024-3-Data" title="Here’s are our main topics."><img src="Resources/Slides/CAP394-2024-3-Data-Slide2.png" class="img-fluid figure-img" alt="Here’s are our main topics."></a></p>
 <figcaption>Here’s are our main topics.</figcaption>
 </figure>
 </div>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide3.png" class="lightbox" data-gallery="CAP394-2024-3-Data" data-glightbox="description: .lightbox-desc-3" title="Just as an exercise, try to explain data yourself. Avoid self-references!"><img src="Resources/Slides/CAP394-2024-3-Data-Slide3.png" class="img-fluid figure-img" alt="Just as an exercise, try to explain data yourself. Avoid self-references!"></a></p>
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide3.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="CAP394-2024-3-Data" title="Just as an exercise, try to explain data yourself. Avoid self-references!"><img src="Resources/Slides/CAP394-2024-3-Data-Slide3.png" class="img-fluid figure-img" alt="Just as an exercise, try to explain data yourself. Avoid self-references!"></a></p>
 <figcaption>Just as an exercise, try to explain data yourself. Avoid self-references!</figcaption>
 </figure>
 </div>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide4.png" class="lightbox" data-gallery="CAP394-2024-3-Data" data-glightbox="description: .lightbox-desc-4" title="A very, very short definition of “data”. It uses “information” which can be interpreted as “organized data”. Another definition is “collection of values that convey information”. "><img src="Resources/Slides/CAP394-2024-3-Data-Slide4.png" class="img-fluid figure-img" alt="A very, very short definition of “data”. It uses “information” which can be interpreted as “organized data”. Another definition is “collection of values that convey information”. "></a></p>
-<figcaption>A very, very short definition of “data”. It uses “information” which can be interpreted as “organized data”.<br>Another definition is “collection of values that convey information”. </figcaption>
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide4.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="CAP394-2024-3-Data" title="A very, very short definition of “data” for our purposes (“analyzing data”). It uses “information” which can be interpreted as “organized data”. Another definition is “collection of values that convey information”. "><img src="Resources/Slides/CAP394-2024-3-Data-Slide4.png" class="img-fluid figure-img" alt="A very, very short definition of “data” for our purposes (“analyzing data”). It uses “information” which can be interpreted as “organized data”. Another definition is “collection of values that convey information”. "></a></p>
+<figcaption>A very, very short definition of “data” for our purposes (“analyzing data”). It uses “information” which can be interpreted as “organized data”.<br>Another definition is “collection of values that convey information”. </figcaption>
 </figure>
 </div>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide5.png" class="lightbox" data-gallery="CAP394-2024-3-Data" data-glightbox="description: .lightbox-desc-5" title="Raw Data is data we collect from the real word and that will be used in our explorations and analyses. There are many different formats for data, therefore many approaches to deal with it. It is important (and somehow obvious) to explain that we mean digital data – data that is stored In files or similar resources in a computer, that can be read by a program or copied to other computers. Data in paper, even if it is structured, is not suited for us unless it is preprocessed (turned into digital data). Even digital data may not be ready for analysis. The figure on the right shows a table (in a PDF document) with all water levels in a monitoring station for 2022, but that would be hard to import to a tabular format."><img src="Resources/Slides/CAP394-2024-3-Data-Slide5.png" class="img-fluid figure-img" alt="Raw Data is data we collect from the real word and that will be used in our explorations and analyses. There are many different formats for data, therefore many approaches to deal with it. It is important (and somehow obvious) to explain that we mean digital data – data that is stored In files or similar resources in a computer, that can be read by a program or copied to other computers. Data in paper, even if it is structured, is not suited for us unless it is preprocessed (turned into digital data). Even digital data may not be ready for analysis. The figure on the right shows a table (in a PDF document) with all water levels in a monitoring station for 2022, but that would be hard to import to a tabular format."></a></p>
-<figcaption>Raw Data is data we collect from the real word and that will be used in our explorations and analyses. There are many different formats for data, therefore many approaches to deal with it.<br>It is important (and somehow obvious) to explain that we mean digital data – data that is stored In files or similar resources in a computer, that can be read by a program or copied to other computers. Data in paper, even if it is structured, is not suited for us unless it is preprocessed (turned into digital data).<br>Even digital data may not be ready for analysis. The figure on the right shows a table (in a PDF document) with all water levels in a monitoring station for 2022, but that would be hard to import to a tabular format.</figcaption>
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide5.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="CAP394-2024-3-Data" title="Raw Data is the most common data type on the Web (and off it too) – data that was collected and put online or stored, without any preprocessing, annotations or even metadata."><img src="Resources/Slides/CAP394-2024-3-Data-Slide5.png" class="img-fluid figure-img" alt="Raw Data is the most common data type on the Web (and off it too) – data that was collected and put online or stored, without any preprocessing, annotations or even metadata."></a></p>
+<figcaption>Raw Data is the most common data type on the Web (and off it too) – data that was collected and put online or stored, without any preprocessing, annotations or even metadata.</figcaption>
 </figure>
 </div>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide6.png" class="lightbox" data-gallery="CAP394-2024-3-Data" data-glightbox="description: .lightbox-desc-6" title="Both figures show data – in a very organized way. The table is the list of graduate courses approved by CAPES, the figure is a histogram plot based on the data (with some small differences due to the time the data was collected). The histogram is part of a report for the Engineerings III Evaluation Group. Interesting fact: the data on the table was generated from other data, this is quite common! Tables can be represented in text files, spreadsheets, XML and other formats."><img src="Resources/Slides/CAP394-2024-3-Data-Slide6.png" class="img-fluid figure-img" alt="Both figures show data – in a very organized way. The table is the list of graduate courses approved by CAPES, the figure is a histogram plot based on the data (with some small differences due to the time the data was collected). The histogram is part of a report for the Engineerings III Evaluation Group. Interesting fact: the data on the table was generated from other data, this is quite common! Tables can be represented in text files, spreadsheets, XML and other formats."></a></p>
-<figcaption>Both figures show data – in a very organized way. The table is the list of graduate courses approved by CAPES, the figure is a histogram plot based on the data (with some small differences due to the time the data was collected). The histogram is part of a report for the Engineerings III Evaluation Group.<br>Interesting fact: the data on the table was generated from other data, this is quite common!<br>Tables can be represented in text files, spreadsheets, XML and other formats.</figcaption>
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide6.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="CAP394-2024-3-Data" title="I got this from “An overview of a dataset digitized by citizen science volunteers – the 1900-1910 Daily Weather Reports“ (https://blogs.reading.ac.uk/weather-and-climate-at-reading/2020/an-overview-of-a-dataset-digitized-by-citizen-science-volunteers-the-1900-1910-daily-weather-reports/) – very interesting read! Humans collected the data by hand, then, many years later, digitized it using Citizen Science."><img src="Resources/Slides/CAP394-2024-3-Data-Slide6.png" class="img-fluid figure-img" alt="I got this from “An overview of a dataset digitized by citizen science volunteers – the 1900-1910 Daily Weather Reports“ (https://blogs.reading.ac.uk/weather-and-climate-at-reading/2020/an-overview-of-a-dataset-digitized-by-citizen-science-volunteers-the-1900-1910-daily-weather-reports/) – very interesting read! Humans collected the data by hand, then, many years later, digitized it using Citizen Science."></a></p>
+<figcaption>I got this from “An overview of a dataset digitized by citizen science volunteers – the 1900-1910 Daily Weather Reports“ (https://blogs.reading.ac.uk/weather-and-climate-at-reading/2020/an-overview-of-a-dataset-digitized-by-citizen-science-volunteers-the-1900-1910-daily-weather-reports/) – very interesting read! Humans collected the data by hand, then, many years later, digitized it using Citizen Science.</figcaption>
 </figure>
 </div>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide7.png" class="lightbox" data-gallery="CAP394-2024-3-Data" data-glightbox="description: .lightbox-desc-7" title="Images are data that are spatially organized, and for which we expect some coherence (e.g visible patterns). These are Synthetic-aperture radar images. Images on the first column show waves; on the second column we have some biological slicks (algae?) and the images on the third column show icebergs.  Images are from a dataset associated with the paper “A labelled ocean SAR imagery dataset of ten geophysical phenomena from Sentinel‐1 wave model”. There are many ways to represent image data in a file format, and many formats that allow the specific representation of specialized data (e.g.&nbsp;color images, 2D signals, multispectral images…)"><img src="Resources/Slides/CAP394-2024-3-Data-Slide7.png" class="img-fluid figure-img" alt="Images are data that are spatially organized, and for which we expect some coherence (e.g visible patterns). These are Synthetic-aperture radar images. Images on the first column show waves; on the second column we have some biological slicks (algae?) and the images on the third column show icebergs.  Images are from a dataset associated with the paper “A labelled ocean SAR imagery dataset of ten geophysical phenomena from Sentinel‐1 wave model”. There are many ways to represent image data in a file format, and many formats that allow the specific representation of specialized data (e.g.&nbsp;color images, 2D signals, multispectral images…)"></a></p>
-<figcaption>Images are data that are spatially organized, and for which we expect some coherence (e.g visible patterns).<br>These are Synthetic-aperture radar images. Images on the first column show waves; on the second column we have some biological slicks (algae?) and the images on the third column show icebergs. <br>Images are from a dataset associated with the paper “A labelled ocean SAR imagery dataset of ten geophysical phenomena from Sentinel‐1 wave model”.<br>There are many ways to represent image data in a file format, and many formats that allow the specific representation of specialized data (e.g.&nbsp;color images, 2D signals, multispectral images…)</figcaption>
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide7.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="CAP394-2024-3-Data" title="This are the daily measures of the level on Rio Ladário, part of the Paraguay River Basin. You can get its PDF from the “Centro deHidrografia e Navegação do Oeste - MARINHA DO BRASIL” website (https://www.marinha.mil.br/chn-6/?q=alturaAnterioresRios). There is probably a spreadsheet version of this PDF somewhere. But it is usable? The raw (useful!) data is somewhere at https://www.snirh.gov.br/hidroweb/serieshistoricas"><img src="Resources/Slides/CAP394-2024-3-Data-Slide7.png" class="img-fluid figure-img" alt="This are the daily measures of the level on Rio Ladário, part of the Paraguay River Basin. You can get its PDF from the “Centro deHidrografia e Navegação do Oeste - MARINHA DO BRASIL” website (https://www.marinha.mil.br/chn-6/?q=alturaAnterioresRios). There is probably a spreadsheet version of this PDF somewhere. But it is usable? The raw (useful!) data is somewhere at https://www.snirh.gov.br/hidroweb/serieshistoricas"></a></p>
+<figcaption>This are the daily measures of the level on Rio Ladário, part of the Paraguay River Basin. You can get its PDF from the “Centro deHidrografia e Navegação do Oeste - MARINHA DO BRASIL” website (https://www.marinha.mil.br/chn-6/?q=alturaAnterioresRios).<br>There is probably a spreadsheet version of this PDF somewhere. But it is usable?<br>The raw (useful!) data is somewhere at https://www.snirh.gov.br/hidroweb/serieshistoricas</figcaption>
 </figure>
 </div>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide8.png" class="lightbox" data-gallery="CAP394-2024-3-Data" data-glightbox="description: .lightbox-desc-8" title="Time series are data: there is a temporal index that set an explicit order to it. Time series may be stored as tables or spreadsheets or text files."><img src="Resources/Slides/CAP394-2024-3-Data-Slide8.png" class="img-fluid figure-img" alt="Time series are data: there is a temporal index that set an explicit order to it. Time series may be stored as tables or spreadsheets or text files."></a></p>
-<figcaption>Time series are data: there is a temporal index that set an explicit order to it. Time series may be stored as tables or spreadsheets or text files.</figcaption>
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide8.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="CAP394-2024-3-Data" title="Both figures show data – in a very organized way. The table is the list of graduate courses approved by CAPES, the figure is a histogram plot based on the data (with some small differences due to the time the data was collected). The data is shown as a HTML table.  The chart is part of a report for the Engineering’s III Evaluation Group. Tables can be represented in text files, spreadsheets, XML and other formats.But it is still not perfect data for us – how to we query those?"><img src="Resources/Slides/CAP394-2024-3-Data-Slide8.png" class="img-fluid figure-img" alt="Both figures show data – in a very organized way. The table is the list of graduate courses approved by CAPES, the figure is a histogram plot based on the data (with some small differences due to the time the data was collected). The data is shown as a HTML table.  The chart is part of a report for the Engineering’s III Evaluation Group. Tables can be represented in text files, spreadsheets, XML and other formats.But it is still not perfect data for us – how to we query those?"></a></p>
+<figcaption>Both figures show data – in a very organized way. The table is the list of graduate courses approved by CAPES, the figure is a histogram plot based on the data (with some small differences due to the time the data was collected). The data is shown as a HTML table. <br>The chart is part of a report for the Engineering’s III Evaluation Group.<br>Tables can be represented in text files, spreadsheets, XML and other formats.But it is still not perfect data for us – how to we query those?</figcaption>
 </figure>
 </div>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide9.png" class="lightbox" data-gallery="CAP394-2024-3-Data" data-glightbox="description: .lightbox-desc-9" title="A structured text data. XML is a format that allows representation of structured and semi-structured data using tags and hierarchies. JSON is a similar format.  These formats can be read (with some difficulty…) by humans and computers. They are usually stored in text files."><img src="Resources/Slides/CAP394-2024-3-Data-Slide9.png" class="img-fluid figure-img" alt="A structured text data. XML is a format that allows representation of structured and semi-structured data using tags and hierarchies. JSON is a similar format.  These formats can be read (with some difficulty…) by humans and computers. They are usually stored in text files."></a></p>
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide9.png" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="CAP394-2024-3-Data" title="From the Portal de Imigração Laboral of MINISTÉRIO DA JUSTIÇA E SEGURANÇA PÚBLICA (https://portaldeimigracao.mj.gov.br/pt/dados/dados-consolidados1) we can get data from immigrants in Brazil. The “plano tabular” is a spreadsheet with summaries but may not be useful for most queries – we need the full data set that was used to create those summaries. We can get it from the DataMigra portal (https://www.datamigraweb.unb.br/#/public), option “SOLICITANTES DE REFÚGIO”.   "><img src="Resources/Slides/CAP394-2024-3-Data-Slide9.png" class="img-fluid figure-img" alt="From the Portal de Imigração Laboral of MINISTÉRIO DA JUSTIÇA E SEGURANÇA PÚBLICA (https://portaldeimigracao.mj.gov.br/pt/dados/dados-consolidados1) we can get data from immigrants in Brazil. The “plano tabular” is a spreadsheet with summaries but may not be useful for most queries – we need the full data set that was used to create those summaries. We can get it from the DataMigra portal (https://www.datamigraweb.unb.br/#/public), option “SOLICITANTES DE REFÚGIO”.  "></a></p>
+<figcaption>From the Portal de Imigração Laboral of MINISTÉRIO DA JUSTIÇA E SEGURANÇA PÚBLICA (https://portaldeimigracao.mj.gov.br/pt/dados/dados-consolidados1) we can get data from immigrants in Brazil. The “plano tabular” is a spreadsheet with summaries but may not be useful for most queries – we need the full data set that was used to create those summaries.<br>We can get it from the DataMigra portal (https://www.datamigraweb.unb.br/#/public), option “SOLICITANTES DE REFÚGIO”. <br><br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide10.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="CAP394-2024-3-Data" title="This section is a general discussion of what data can represent measures from the world, how it represents and how it is stored.  It is a prelude to some notes on data transformation eventually leading to EDA and machine learning. In most of the cases we would like to deal with tables, but this is not always possible…"><img src="Resources/Slides/CAP394-2024-3-Data-Slide10.png" class="img-fluid figure-img" alt="This section is a general discussion of what data can represent measures from the world, how it represents and how it is stored.  It is a prelude to some notes on data transformation eventually leading to EDA and machine learning. In most of the cases we would like to deal with tables, but this is not always possible…"></a></p>
+<figcaption>This section is a general discussion of what data can represent measures from the world, how it represents and how it is stored. <br>It is a prelude to some notes on data transformation eventually leading to EDA and machine learning.<br>In most of the cases we would like to deal with tables, but this is not always possible…</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide11.png" class="lightbox" data-glightbox="description: .lightbox-desc-11" data-gallery="CAP394-2024-3-Data" title="Here’s an example of the different ways to consider data: Structure of Data: How the data is logically organized (e.g., rows representing municipalities and columns representing features of those municipalities such as area, population, and other attributes). Representation of Data: The format or schema used to express the data (e.g., a table with rows and columns, CSV format, JSON format). Storage of Data: The physical or digital medium and file format used to save the data (e.g., flat text file, spreadsheet, database)."><img src="Resources/Slides/CAP394-2024-3-Data-Slide11.png" class="img-fluid figure-img" alt="Here’s an example of the different ways to consider data: Structure of Data: How the data is logically organized (e.g., rows representing municipalities and columns representing features of those municipalities such as area, population, and other attributes). Representation of Data: The format or schema used to express the data (e.g., a table with rows and columns, CSV format, JSON format). Storage of Data: The physical or digital medium and file format used to save the data (e.g., flat text file, spreadsheet, database)."></a></p>
+<figcaption>Here’s an example of the different ways to consider data:<br>Structure of Data: How the data is logically organized (e.g., rows representing municipalities and columns representing features of those municipalities such as area, population, and other attributes).<br>Representation of Data: The format or schema used to express the data (e.g., a table with rows and columns, CSV format, JSON format).<br>Storage of Data: The physical or digital medium and file format used to save the data (e.g., flat text file, spreadsheet, database).</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide12.png" class="lightbox" data-glightbox="description: .lightbox-desc-12" data-gallery="CAP394-2024-3-Data" title="This is our most basic data representation scheme: a collection of tuples, where each tuple element (the table column) contains measurements of some features of an object (the table lines). In this example we have a tuple on the format V1, V2, V3 .. VN, Value (where the combination V1, VN… may not be unique). We can easily imagine some operation on the tuples, e.g.&nbsp;find all values for a specific combination of “Localidade do gasto” and “Nome Função”.This is the “Emendas Parlamentares” dataset, we’ll play with it later! Get it at https://portaldatransparencia.gov.br/download-de-dados/emendas-parlamentares"><img src="Resources/Slides/CAP394-2024-3-Data-Slide12.png" class="img-fluid figure-img" alt="This is our most basic data representation scheme: a collection of tuples, where each tuple element (the table column) contains measurements of some features of an object (the table lines). In this example we have a tuple on the format V1, V2, V3 .. VN, Value (where the combination V1, VN… may not be unique). We can easily imagine some operation on the tuples, e.g.&nbsp;find all values for a specific combination of “Localidade do gasto” and “Nome Função”.This is the “Emendas Parlamentares” dataset, we’ll play with it later! Get it at https://portaldatransparencia.gov.br/download-de-dados/emendas-parlamentares"></a></p>
+<figcaption>This is our most basic data representation scheme: a collection of tuples, where each tuple element (the table column) contains measurements of some features of an object (the table lines).<br>In this example we have a tuple on the format V1, V2, V3 .. VN, Value (where the combination V1, VN… may not be unique).<br>We can easily imagine some operation on the tuples, e.g.&nbsp;find all values for a specific combination of “Localidade do gasto” and “Nome Função”.This is the “Emendas Parlamentares” dataset, we’ll play with it later! Get it at https://portaldatransparencia.gov.br/download-de-dados/emendas-parlamentares</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide13.png" class="lightbox" data-glightbox="description: .lightbox-desc-13" data-gallery="CAP394-2024-3-Data" title="This is our most basic data representation scheme: a collection of tuples.  In this example we also have tuples on the format V1, V2, V3 .. VN, Value (where the combination V1, VN… may be unique). It is easy to consider combination or aggregation operations on the tuples, for example, counting the immigrants from a country in a state, regardless of sex. This is the “Migration” dataset, we’ll play with it later! "><img src="Resources/Slides/CAP394-2024-3-Data-Slide13.png" class="img-fluid figure-img" alt="This is our most basic data representation scheme: a collection of tuples.  In this example we also have tuples on the format V1, V2, V3 .. VN, Value (where the combination V1, VN… may be unique). It is easy to consider combination or aggregation operations on the tuples, for example, counting the immigrants from a country in a state, regardless of sex. This is the “Migration” dataset, we’ll play with it later! "></a></p>
+<figcaption>This is our most basic data representation scheme: a collection of tuples. <br>In this example we also have tuples on the format V1, V2, V3 .. VN, Value (where the combination V1, VN… may be unique).<br>It is easy to consider combination or aggregation operations on the tuples, for example, counting the immigrants from a country in a state, regardless of sex.<br>This is the “Migration” dataset, we’ll play with it later!<br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide14.png" class="lightbox" data-glightbox="description: .lightbox-desc-14" data-gallery="CAP394-2024-3-Data" title="Time series are data: there is a temporal index that set an explicit order to it. Usually are represented as tuples of time -> value1, value2, valueN. We expect the time to be unique."><img src="Resources/Slides/CAP394-2024-3-Data-Slide14.png" class="img-fluid figure-img" alt="Time series are data: there is a temporal index that set an explicit order to it. Usually are represented as tuples of time -> value1, value2, valueN. We expect the time to be unique."></a></p>
+<figcaption>Time series are data: there is a temporal index that set an explicit order to it. Usually are represented as tuples of time -&gt; value1, value2, valueN. We expect the time to be unique.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide15.png" class="lightbox" data-glightbox="description: .lightbox-desc-15" data-gallery="CAP394-2024-3-Data" title="Yet another collection of tuples but with a twist.  Not only there are tuples for each participant in a project but the mapping of participants into projects is a graph, a different type of data that can be represented by tuples. This is the “CAPES-Projetos” dataset, we’ll play with it later! "><img src="Resources/Slides/CAP394-2024-3-Data-Slide15.png" class="img-fluid figure-img" alt="Yet another collection of tuples but with a twist.  Not only there are tuples for each participant in a project but the mapping of participants into projects is a graph, a different type of data that can be represented by tuples. This is the “CAPES-Projetos” dataset, we’ll play with it later! "></a></p>
+<figcaption>Yet another collection of tuples but with a twist. <br>Not only there are tuples for each participant in a project but the mapping of participants into projects is a graph, a different type of data that can be represented by tuples.<br>This is the “CAPES-Projetos” dataset, we’ll play with it later!<br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide16.png" class="lightbox" data-glightbox="description: .lightbox-desc-16" data-gallery="CAP394-2024-3-Data" title="Here’s a region of the table that corresponds to a single project. We can consider each combination of ID_PESSOA within the same ID_PROJETO to be vertices in a network with the project being an edge. The additional material on https://rafaeldcsantos.github.io/CAP-394 shows how we can do it. "><img src="Resources/Slides/CAP394-2024-3-Data-Slide16.png" class="img-fluid figure-img" alt="Here’s a region of the table that corresponds to a single project. We can consider each combination of ID_PESSOA within the same ID_PROJETO to be vertices in a network with the project being an edge. The additional material on https://rafaeldcsantos.github.io/CAP-394 shows how we can do it. "></a></p>
+<figcaption>Here’s a region of the table that corresponds to a single project. We can consider each combination of ID_PESSOA within the same ID_PROJETO to be vertices in a network with the project being an edge.<br>The additional material on https://rafaeldcsantos.github.io/CAP-394 shows how we can do it.<br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide17.png" class="lightbox" data-glightbox="description: .lightbox-desc-17" data-gallery="CAP394-2024-3-Data" title="This is a single entry from a log of SQL queries submitted to an astronomy database. It is textual data, semistructured, that could be converted into tabular data with some tricks. We may see some of those later. Logs are also usually stored in text files. MAKIYAMA, V. H. Text mining applied to SQL queries: a case study for SDSS SkyServer. 2015. 75 p.&nbsp;IBI: <8JMKD3MGP3W34P/3K6JNQ8>. (sid.inpe.br/mtc-m21b/2015/08.31.17.43-TDI). Dissertação (Mestrado em Computação Aplicada) - Instituto Nacional de Pesquisas Espaciais (INPE), São José dos Campos, 2015. Disponível em: http://urlib.net/ibi/8JMKD3MGP3W34P/3K6JNQ8."><img src="Resources/Slides/CAP394-2024-3-Data-Slide17.png" class="img-fluid figure-img" alt="This is a single entry from a log of SQL queries submitted to an astronomy database. It is textual data, semistructured, that could be converted into tabular data with some tricks. We may see some of those later. Logs are also usually stored in text files. MAKIYAMA, V. H. Text mining applied to SQL queries: a case study for SDSS SkyServer. 2015. 75 p.&nbsp;IBI: <8JMKD3MGP3W34P/3K6JNQ8>. (sid.inpe.br/mtc-m21b/2015/08.31.17.43-TDI). Dissertação (Mestrado em Computação Aplicada) - Instituto Nacional de Pesquisas Espaciais (INPE), São José dos Campos, 2015. Disponível em: http://urlib.net/ibi/8JMKD3MGP3W34P/3K6JNQ8."></a></p>
+<figcaption>This is a single entry from a log of SQL queries submitted to an astronomy database. It is textual data, semistructured, that could be converted into tabular data with some tricks. We may see some of those later.<br>Logs are also usually stored in text files.<br>MAKIYAMA, V. H. Text mining applied to SQL queries: a case study for SDSS SkyServer. 2015. 75 p.&nbsp;IBI: &lt;8JMKD3MGP3W34P/3K6JNQ8&gt;. (sid.inpe.br/mtc-m21b/2015/08.31.17.43-TDI). Dissertação (Mestrado em Computação Aplicada) - Instituto Nacional de Pesquisas Espaciais (INPE), São José dos Campos, 2015. Disponível em: <a href="http://urlib.net/ibi/8JMKD3MGP3W34P/3K6JNQ8" class="uri">http://urlib.net/ibi/8JMKD3MGP3W34P/3K6JNQ8</a>.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide18.png" class="lightbox" data-glightbox="description: .lightbox-desc-18" data-gallery="CAP394-2024-3-Data" title="A structured text data. XML is a format that allows representation of structured and semi-structured data using tags and hierarchies. JSON is a similar format.  These formats can be read (with some difficulty…) by humans and computers. They are usually stored in text files."><img src="Resources/Slides/CAP394-2024-3-Data-Slide18.png" class="img-fluid figure-img" alt="A structured text data. XML is a format that allows representation of structured and semi-structured data using tags and hierarchies. JSON is a similar format.  These formats can be read (with some difficulty…) by humans and computers. They are usually stored in text files."></a></p>
 <figcaption>A structured text data. XML is a format that allows representation of structured and semi-structured data using tags and hierarchies. JSON is a similar format. <br>These formats can be read (with some difficulty…) by humans and computers. They are usually stored in text files.</figcaption>
 </figure>
 </div>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide10.png" class="lightbox" data-gallery="CAP394-2024-3-Data" data-glightbox="description: .lightbox-desc-10" title="This is an entry from a log of SQL queries submitted to an astronomy database. It is textual data, semistructured, that could be converted into tabular data with some tricks. We may see some of those later. Logs are also usually stored in text files. MAKIYAMA, V. H. Text mining applied to SQL queries: a case study for SDSS SkyServer. 2015. 75 p.&nbsp;IBI: <8JMKD3MGP3W34P/3K6JNQ8>. (sid.inpe.br/mtc-m21b/2015/08.31.17.43-TDI). Dissertação (Mestrado em Computação Aplicada) - Instituto Nacional de Pesquisas Espaciais (INPE), São José dos Campos, 2015. Disponível em: http://urlib.net/ibi/8JMKD3MGP3W34P/3K6JNQ8."><img src="Resources/Slides/CAP394-2024-3-Data-Slide10.png" class="img-fluid figure-img" alt="This is an entry from a log of SQL queries submitted to an astronomy database. It is textual data, semistructured, that could be converted into tabular data with some tricks. We may see some of those later. Logs are also usually stored in text files. MAKIYAMA, V. H. Text mining applied to SQL queries: a case study for SDSS SkyServer. 2015. 75 p.&nbsp;IBI: <8JMKD3MGP3W34P/3K6JNQ8>. (sid.inpe.br/mtc-m21b/2015/08.31.17.43-TDI). Dissertação (Mestrado em Computação Aplicada) - Instituto Nacional de Pesquisas Espaciais (INPE), São José dos Campos, 2015. Disponível em: http://urlib.net/ibi/8JMKD3MGP3W34P/3K6JNQ8."></a></p>
-<figcaption>This is an entry from a log of SQL queries submitted to an astronomy database. It is textual data, semistructured, that could be converted into tabular data with some tricks. We may see some of those later.<br>Logs are also usually stored in text files.<br>MAKIYAMA, V. H. Text mining applied to SQL queries: a case study for SDSS SkyServer. 2015. 75 p.&nbsp;IBI: &lt;8JMKD3MGP3W34P/3K6JNQ8&gt;. (sid.inpe.br/mtc-m21b/2015/08.31.17.43-TDI). Dissertação (Mestrado em Computação Aplicada) - Instituto Nacional de Pesquisas Espaciais (INPE), São José dos Campos, 2015. Disponível em: <a href="http://urlib.net/ibi/8JMKD3MGP3W34P/3K6JNQ8" class="uri">http://urlib.net/ibi/8JMKD3MGP3W34P/3K6JNQ8</a>.</figcaption>
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide19.png" class="lightbox" data-glightbox="description: .lightbox-desc-19" data-gallery="CAP394-2024-3-Data" title="Images are data that are spatially organized, and for which we expect some coherence (e.g visible patterns). These are Synthetic-aperture radar images. Images on the first column show waves; on the second column we have some biological slicks (algae?) and the images on the third column show icebergs.  Images are from a dataset associated with the paper “A labelled ocean SAR imagery dataset of ten geophysical phenomena from Sentinel‐1 wave model”. There are many ways to represent image data in a file format, and many formats that allow the specific representation of specialized data (e.g.&nbsp;color images, 2D signals, multispectral images…) Multimedia data cannot be used directly into machine learning algorithms: we must extract features of it beforehand, which often is not a trivial task. Movies and audio are other types of multimedia data which also requires feature extraction."><img src="Resources/Slides/CAP394-2024-3-Data-Slide19.png" class="img-fluid figure-img" alt="Images are data that are spatially organized, and for which we expect some coherence (e.g visible patterns). These are Synthetic-aperture radar images. Images on the first column show waves; on the second column we have some biological slicks (algae?) and the images on the third column show icebergs.  Images are from a dataset associated with the paper “A labelled ocean SAR imagery dataset of ten geophysical phenomena from Sentinel‐1 wave model”. There are many ways to represent image data in a file format, and many formats that allow the specific representation of specialized data (e.g.&nbsp;color images, 2D signals, multispectral images…) Multimedia data cannot be used directly into machine learning algorithms: we must extract features of it beforehand, which often is not a trivial task. Movies and audio are other types of multimedia data which also requires feature extraction."></a></p>
+<figcaption>Images are data that are spatially organized, and for which we expect some coherence (e.g visible patterns).<br>These are Synthetic-aperture radar images. Images on the first column show waves; on the second column we have some biological slicks (algae?) and the images on the third column show icebergs. <br>Images are from a dataset associated with the paper “A labelled ocean SAR imagery dataset of ten geophysical phenomena from Sentinel‐1 wave model”.<br>There are many ways to represent image data in a file format, and many formats that allow the specific representation of specialized data (e.g.&nbsp;color images, 2D signals, multispectral images…)<br>Multimedia data cannot be used directly into machine learning algorithms: we must extract features of it beforehand, which often is not a trivial task.<br>Movies and audio are other types of multimedia data which also requires feature extraction.</figcaption>
 </figure>
 </div>
 <hr>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide11.png" class="lightbox" data-gallery="CAP394-2024-3-Data" data-glightbox="description: .lightbox-desc-11" title="There are many more variations and combinations of data types. Image time series can be represented as series of images or time series with temporal and spatial indexes. Trajectories are time series with location data associated to each point.  Graphs and networks are collection of edges and vertices that can be stored as text files or specialized formats. Some tasks require the mixture of data types: logs are semi-structured text files with an explicit time index, for example."><img src="Resources/Slides/CAP394-2024-3-Data-Slide11.png" class="img-fluid figure-img" alt="There are many more variations and combinations of data types. Image time series can be represented as series of images or time series with temporal and spatial indexes. Trajectories are time series with location data associated to each point.  Graphs and networks are collection of edges and vertices that can be stored as text files or specialized formats. Some tasks require the mixture of data types: logs are semi-structured text files with an explicit time index, for example."></a></p>
-<figcaption>There are many more variations and combinations of data types. Image time series can be represented as series of images or time series with temporal and spatial indexes. Trajectories are time series with location data associated to each point. <br>Graphs and networks are collection of edges and vertices that can be stored as text files or specialized formats. Some tasks require the mixture of data types: logs are semi-structured text files with an explicit time index, for example.</figcaption>
-</figure>
-</div>
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide20.png" class="lightbox" data-gallery="CAP394-2024-3-Data"><img src="Resources/Slides/CAP394-2024-3-Data-Slide20.png" class="img-fluid"></a></p>
 <hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide12.png" class="lightbox" data-gallery="CAP394-2024-3-Data" data-glightbox="description: .lightbox-desc-12" title="Tidy Data is the best possible representation of data for exploration and analysis. It allow us to keep an organized representation of the data. This is not always possible, as we’ll see. The best reference for Tidy Data is “Tidy Data”, Hadley Wickham, https://vita.had.co.nz/papers/tidy-data.pdf"><img src="Resources/Slides/CAP394-2024-3-Data-Slide12.png" class="img-fluid figure-img" alt="Tidy Data is the best possible representation of data for exploration and analysis. It allow us to keep an organized representation of the data. This is not always possible, as we’ll see. The best reference for Tidy Data is “Tidy Data”, Hadley Wickham, https://vita.had.co.nz/papers/tidy-data.pdf"></a></p>
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide21.png" class="lightbox" data-glightbox="description: .lightbox-desc-21" data-gallery="CAP394-2024-3-Data" title="Tidy Data is the best possible representation of data for exploration and analysis. It allow us to keep an organized representation of the data. This is not always possible, as we’ll see. The best reference for Tidy Data is “Tidy Data”, Hadley Wickham, https://vita.had.co.nz/papers/tidy-data.pdf"><img src="Resources/Slides/CAP394-2024-3-Data-Slide21.png" class="img-fluid figure-img" alt="Tidy Data is the best possible representation of data for exploration and analysis. It allow us to keep an organized representation of the data. This is not always possible, as we’ll see. The best reference for Tidy Data is “Tidy Data”, Hadley Wickham, https://vita.had.co.nz/papers/tidy-data.pdf"></a></p>
 <figcaption>Tidy Data is the best possible representation of data for exploration and analysis. It allow us to keep an organized representation of the data. This is not always possible, as we’ll see.<br>The best reference for Tidy Data is “Tidy Data”, Hadley Wickham, https://vita.had.co.nz/papers/tidy-data.pdf</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide22.png" class="lightbox" data-glightbox="description: .lightbox-desc-22" data-gallery="CAP394-2024-3-Data" title="Basically, we would like our data to look like a spreadsheet: each row represents an observation; each column represents one (and only one!) measure or variable on that observation. For this analogy to work we expect that the first row in the spreadsheet contains the names of the variables! Please refer to R for Data Science (2e), https://r4ds.hadley.nz/, for a more detailed description."><img src="Resources/Slides/CAP394-2024-3-Data-Slide22.png" class="img-fluid figure-img" alt="Basically, we would like our data to look like a spreadsheet: each row represents an observation; each column represents one (and only one!) measure or variable on that observation. For this analogy to work we expect that the first row in the spreadsheet contains the names of the variables! Please refer to R for Data Science (2e), https://r4ds.hadley.nz/, for a more detailed description."></a></p>
+<figcaption>Basically, we would like our data to look like a spreadsheet: each row represents an observation; each column represents one (and only one!) measure or variable on that observation. For this analogy to work we expect that the first row in the spreadsheet contains the names of the variables!<br>Please refer to R for Data Science (2e), https://r4ds.hadley.nz/, for a more detailed description.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide23.png" class="lightbox" data-glightbox="description: .lightbox-desc-23" data-gallery="CAP394-2024-3-Data" title="Does it look like a spreadsheet? It is probably tidy (but check for the single-value-in-a-cell rule!) Images can be considered tidy, but the semantics are very different – we don’t use pixels as values, usually there are some preprocessing steps first."><img src="Resources/Slides/CAP394-2024-3-Data-Slide23.png" class="img-fluid figure-img" alt="Does it look like a spreadsheet? It is probably tidy (but check for the single-value-in-a-cell rule!) Images can be considered tidy, but the semantics are very different – we don’t use pixels as values, usually there are some preprocessing steps first."></a></p>
+<figcaption>Does it look like a spreadsheet? It is probably tidy (but check for the single-value-in-a-cell rule!)<br>Images can be considered tidy, but the semantics are very different – we don’t use pixels as values, usually there are some preprocessing steps first.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide24.png" class="lightbox" data-glightbox="description: .lightbox-desc-24" data-gallery="CAP394-2024-3-Data" title="In wide format data, each variable is spread out across columns. It is better for reading by humans, some visualization and machine learning tasks. It can have missing data in its cells.In long format data, each row is an observation and there are fewer columns. It is better for subsetting, it is tidier and more economic."><img src="Resources/Slides/CAP394-2024-3-Data-Slide24.png" class="img-fluid figure-img" alt="In wide format data, each variable is spread out across columns. It is better for reading by humans, some visualization and machine learning tasks. It can have missing data in its cells.In long format data, each row is an observation and there are fewer columns. It is better for subsetting, it is tidier and more economic."></a></p>
+<figcaption>In wide format data, each variable is spread out across columns. It is better for reading by humans, some visualization and machine learning tasks. It can have missing data in its cells.In long format data, each row is an observation and there are fewer columns. It is better for subsetting, it is tidier and more economic.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide25.png" class="lightbox" data-glightbox="description: .lightbox-desc-25" data-gallery="CAP394-2024-3-Data" title="Our supermarket data looks like a spreadsheet, looks tidy but could be made tidier – at what cost? Tidiness is also somehow relative. Consider what is a record: in this example it is an item being sold so the data is tidy-ish. If we consider transactions as the data represented than the data is somehow less tidy. "><img src="Resources/Slides/CAP394-2024-3-Data-Slide25.png" class="img-fluid figure-img" alt="Our supermarket data looks like a spreadsheet, looks tidy but could be made tidier – at what cost? Tidiness is also somehow relative. Consider what is a record: in this example it is an item being sold so the data is tidy-ish. If we consider transactions as the data represented than the data is somehow less tidy. "></a></p>
+<figcaption>Our supermarket data looks like a spreadsheet, looks tidy but could be made tidier – at what cost?<br>Tidiness is also somehow relative. Consider what is a record: in this example it is an item being sold so the data is tidy-ish. If we consider transactions as the data represented than the data is somehow less tidy.<br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide26.png" class="lightbox" data-glightbox="description: .lightbox-desc-26" data-gallery="CAP394-2024-3-Data" title="We have the data, possibly raw, hopefully tidy. We may need to change its shape to process it. Let’s talk about data shapes and transformations!"><img src="Resources/Slides/CAP394-2024-3-Data-Slide26.png" class="img-fluid figure-img" alt="We have the data, possibly raw, hopefully tidy. We may need to change its shape to process it. Let’s talk about data shapes and transformations!"></a></p>
+<figcaption>We have the data, possibly raw, hopefully tidy. We may need to change its shape to process it. Let’s talk about data shapes and transformations!</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide27.png" class="lightbox" data-glightbox="description: .lightbox-desc-27" data-gallery="CAP394-2024-3-Data" title="Let’s think about the parliamentary amendments (”Emendas Parlamentares”) dataset. Each entry happened in one date (year), had an author, a code for the function, a place for the destination of the amendment and a value. On a 4-dimensional data cube we could have Year, Author, Code, Place for the dimensions and Value as the value stored in the cell. Using this way of representation, we could do some simple operations that allows exploration of the data, but on the other hand, conceptually, the cube could be made of mostly empty cells."><img src="Resources/Slides/CAP394-2024-3-Data-Slide27.png" class="img-fluid figure-img" alt="Let’s think about the parliamentary amendments (”Emendas Parlamentares”) dataset. Each entry happened in one date (year), had an author, a code for the function, a place for the destination of the amendment and a value. On a 4-dimensional data cube we could have Year, Author, Code, Place for the dimensions and Value as the value stored in the cell. Using this way of representation, we could do some simple operations that allows exploration of the data, but on the other hand, conceptually, the cube could be made of mostly empty cells."></a></p>
+<figcaption>Let’s think about the parliamentary amendments (”Emendas Parlamentares”) dataset. Each entry happened in one date (year), had an author, a code for the function, a place for the destination of the amendment and a value. On a 4-dimensional data cube we could have Year, Author, Code, Place for the dimensions and Value as the value stored in the cell. Using this way of representation, we could do some simple operations that allows exploration of the data, but on the other hand, conceptually, the cube could be made of mostly empty cells.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide28.png" class="lightbox" data-glightbox="description: .lightbox-desc-28" data-gallery="CAP394-2024-3-Data" title="We can slice a N-dimensional data cube creating a (N-1)-dimensional data cube. Consider this as an operation that selects all records where a feature is equal to a single value. Considering the amendments example, we can slice the data cube getting all records for a particular year or for a particular place for the destination. The resulting dataset can be considered a new one (e.g.&nbsp;Amendments for 2014) and the feature used for the slicing can be discarded, since all data will have the same value for this feature."><img src="Resources/Slides/CAP394-2024-3-Data-Slide28.png" class="img-fluid figure-img" alt="We can slice a N-dimensional data cube creating a (N-1)-dimensional data cube. Consider this as an operation that selects all records where a feature is equal to a single value. Considering the amendments example, we can slice the data cube getting all records for a particular year or for a particular place for the destination. The resulting dataset can be considered a new one (e.g.&nbsp;Amendments for 2014) and the feature used for the slicing can be discarded, since all data will have the same value for this feature."></a></p>
+<figcaption>We can slice a N-dimensional data cube creating a (N-1)-dimensional data cube. Consider this as an operation that selects all records where a feature is equal to a single value. Considering the amendments example, we can slice the data cube getting all records for a particular year or for a particular place for the destination. The resulting dataset can be considered a new one (e.g.&nbsp;Amendments for 2014) and the feature used for the slicing can be discarded, since all data will have the same value for this feature.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide29.png" class="lightbox" data-glightbox="description: .lightbox-desc-29" data-gallery="CAP394-2024-3-Data" title="This is basically the same – slicing can be done in any dimensions of the data cube. This would be the slicing of all amendments that will be used in a specific location. We can, of course, slice again cubes that were already sliced further reducing its dimension (e.g.&nbsp;all amendment for a year and to be used in a place)."><img src="Resources/Slides/CAP394-2024-3-Data-Slide29.png" class="img-fluid figure-img" alt="This is basically the same – slicing can be done in any dimensions of the data cube. This would be the slicing of all amendments that will be used in a specific location. We can, of course, slice again cubes that were already sliced further reducing its dimension (e.g.&nbsp;all amendment for a year and to be used in a place)."></a></p>
+<figcaption>This is basically the same – slicing can be done in any dimensions of the data cube. This would be the slicing of all amendments that will be used in a specific location. We can, of course, slice again cubes that were already sliced further reducing its dimension (e.g.&nbsp;all amendment for a year and to be used in a place).</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide30.png" class="lightbox" data-glightbox="description: .lightbox-desc-30" data-gallery="CAP394-2024-3-Data" title="Dicing is slightly different from slicing: when we dice a data cube, we keep the same number of dimensions but get a reduced data set. Consider for example getting all amendments for a range of years and set of locations. The resulting data needs to keep the features used for dicing since we may have more than one value for those."><img src="Resources/Slides/CAP394-2024-3-Data-Slide30.png" class="img-fluid figure-img" alt="Dicing is slightly different from slicing: when we dice a data cube, we keep the same number of dimensions but get a reduced data set. Consider for example getting all amendments for a range of years and set of locations. The resulting data needs to keep the features used for dicing since we may have more than one value for those."></a></p>
+<figcaption>Dicing is slightly different from slicing: when we dice a data cube, we keep the same number of dimensions but get a reduced data set. Consider for example getting all amendments for a range of years and set of locations. The resulting data needs to keep the features used for dicing since we may have more than one value for those.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide31.png" class="lightbox" data-glightbox="description: .lightbox-desc-31" data-gallery="CAP394-2024-3-Data" title="Pivoting data is a bit more complex: it uses the values of the features to create new columns and is usually done to summarize data. When we pivot data, we can use different operations to create the pivoted table cell’s values. In this case we could use “sum” to sum the values for all cells with the same Local, Categoria and Ano."><img src="Resources/Slides/CAP394-2024-3-Data-Slide31.png" class="img-fluid figure-img" alt="Pivoting data is a bit more complex: it uses the values of the features to create new columns and is usually done to summarize data. When we pivot data, we can use different operations to create the pivoted table cell’s values. In this case we could use “sum” to sum the values for all cells with the same Local, Categoria and Ano."></a></p>
+<figcaption>Pivoting data is a bit more complex: it uses the values of the features to create new columns and is usually done to summarize data.<br>When we pivot data, we can use different operations to create the pivoted table cell’s values. In this case we could use “sum” to sum the values for all cells with the same Local, Categoria and Ano.</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide32.png" class="lightbox" data-glightbox="description: .lightbox-desc-32" data-gallery="CAP394-2024-3-Data" title="Here is another example of pivoting: each project in the “CAPES-Projetos” dataset is spread out into several lines. I could pivot those to count how many members of each type each project contains. We’ll see in the examples! "><img src="Resources/Slides/CAP394-2024-3-Data-Slide32.png" class="img-fluid figure-img" alt="Here is another example of pivoting: each project in the “CAPES-Projetos” dataset is spread out into several lines. I could pivot those to count how many members of each type each project contains. We’ll see in the examples! "></a></p>
+<figcaption>Here is another example of pivoting: each project in the “CAPES-Projetos” dataset is spread out into several lines. I could pivot those to count how many members of each type each project contains. We’ll see in the examples!<br></figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Resources/Slides/CAP394-2024-3-Data-Slide33.png" class="lightbox" data-glightbox="description: .lightbox-desc-33" data-gallery="CAP394-2024-3-Data" title="Drilling up is basically aggregation and counting. Drilling down is the opposite. We can only drill down if there is data to be used to show more details. For example, I cannot drill down the table in this slide because I don’t have how to add more information to get finer details. But if I had the full date instead of they year I could break it into day, month, year and do something conceptually similar to a drill down. "><img src="Resources/Slides/CAP394-2024-3-Data-Slide33.png" class="img-fluid figure-img" alt="Drilling up is basically aggregation and counting. Drilling down is the opposite. We can only drill down if there is data to be used to show more details. For example, I cannot drill down the table in this slide because I don’t have how to add more information to get finer details. But if I had the full date instead of they year I could break it into day, month, year and do something conceptually similar to a drill down. "></a></p>
+<figcaption>Drilling up is basically aggregation and counting. Drilling down is the opposite. We can only drill down if there is data to be used to show more details.<br>For example, I cannot drill down the table in this slide because I don’t have how to add more information to get finer details. But if I had the full date instead of they year I could break it into day, month, year and do something conceptually similar to a drill down.<br></figcaption>
 </figure>
 </div>
 <hr>
@@ -442,80 +597,679 @@ Warning
 "Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"LUZ - MG";"10";"Saúde";"302";"Assistência hospitalar e ambulatorial";"250000,00";"0,00";"0,00";"0,00";"0,00";"250000,00"
 "Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"MATOZINHOS - MG";"10";"Saúde";"301";"Atenção básica";"199890,00";"0,00";"0,00";"0,00";"0,00";"199890,00"
 "Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"MOCOCA - SP";"10";"Saúde";"301";"Atenção básica";"498940,80";"0,00";"0,00";"0,00";"0,00";"498940,80"</code></pre>
-<p>We can notice that the file is a <em>semicolon</em>-separated file. Its encoding is ISO-8859. To read it into a dataframe in Python <span class="citation" data-cites="python2001">(<a href="#ref-python2001" role="doc-biblioref">Rossum and Jr. 2001</a>)</span> and Pandas <span class="citation" data-cites="pandasmckinney2012">(<a href="#ref-pandasmckinney2012" role="doc-biblioref">McKinney 2012</a>)</span> we first need to import the libraries:</p>
-<div id="165800aa" class="cell custompython" data-execution_count="1">
+<p>We can notice that the file is a <em>semicolon</em>-separated file. Its encoding is ISO-8859. To make things even more complex, the monetary values are in Brazilian format, with comma as the separator between integer and decimal parts.</p>
+<p>To read it into a dataframe in Python <span class="citation" data-cites="python2001">(<a href="#ref-python2001" role="doc-biblioref">Rossum and Jr. 2001</a>)</span> and Pandas <span class="citation" data-cites="pandasmckinney2012">(<a href="#ref-pandasmckinney2012" role="doc-biblioref">McKinney 2012</a>)</span> we first need to import the libraries:</p>
+<div id="13a2e64c" class="cell custompython" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can read the file:</p>
-<div id="d39de82d" class="cell custompython" data-execution_count="2">
+<div id="e399f643" class="cell custompython" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="st">'Resources/Data/Emendas/Emendas.csv'</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the CSV file using the specified separator and encoding.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="bu">file</span>, sep<span class="op">=</span><span class="st">';'</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the head of the dataframe.</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the Valor field to numeric, taking care of the decimals'</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># separator:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Valor'</span>] <span class="op">=</span> df[<span class="st">'Valor Empenhado'</span>].<span class="bu">str</span>.replace(<span class="st">'.'</span>, <span class="st">''</span>, regex<span class="op">=</span><span class="va">False</span>).<span class="op">\</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                                    <span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">'.'</span>).astype(<span class="bu">float</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># We don't really need some of the fields (redundant ones):</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop([<span class="st">'Código da Emenda'</span>, <span class="st">'Nome do Autor da Emenda'</span>, <span class="st">'Número da emenda'</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>              <span class="st">'Código Função'</span>,<span class="st">'Código Subfunção'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># We don't really need some of the payment fields (only 'Valor'):</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop([<span class="st">'Valor Empenhado'</span>, <span class="st">'Valor Liquidado'</span>, <span class="st">'Valor Pago'</span>, </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>              <span class="st">'Valor Restos A Pagar Inscritos'</span>,<span class="st">'Valor Restos A Pagar Cancelados'</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>              <span class="st">'Valor Restos A Pagar Pagos'</span>], axis<span class="op">=</span><span class="dv">1</span>)                                    </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Display part of the data.</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Ano da Emenda</th>
+<th data-quarto-table-cell-role="th">Tipo de Emenda</th>
+<th data-quarto-table-cell-role="th">Código do Autor da Emenda</th>
+<th data-quarto-table-cell-role="th">Localidade do gasto</th>
+<th data-quarto-table-cell-role="th">Nome Função</th>
+<th data-quarto-table-cell-role="th">Nome Subfunção</th>
+<th data-quarto-table-cell-role="th">Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2014</td>
+<td>Emenda Individual - Transferências</td>
+<td>S/I</td>
+<td>PIAUÍ (UF)</td>
+<td>Saúde</td>
+<td>Desenvolvimento tecnológico e engenharia</td>
+<td>896692.97</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2014</td>
+<td>Emenda Individual - Transferências</td>
+<td>S/I</td>
+<td>CAIÇARA - RS</td>
+<td>Saúde</td>
+<td>Assistência hospitalar e ambulatorial</td>
+<td>250000.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2014</td>
+<td>Emenda Individual - Transferências</td>
+<td>S/I</td>
+<td>CRUZEIRO DO SUL - AC</td>
+<td>Defesa nacional</td>
+<td>Assistência comunitária</td>
+<td>1250000.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2014</td>
+<td>Emenda Individual - Transferências</td>
+<td>S/I</td>
+<td>MOCOCA - SP</td>
+<td>Saúde</td>
+<td>Atenção básica</td>
+<td>498940.80</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2014</td>
+<td>Emenda Individual - Transferências</td>
+<td>S/I</td>
+<td>FUNILÂNDIA - MG</td>
+<td>Agricultura</td>
+<td>Promoção da produção agropecuária</td>
+<td>398737.97</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">64584</td>
+<td>2024</td>
+<td>Emenda Individual - Transferências</td>
+<td>4484</td>
+<td>Nacional</td>
+<td>Defesa nacional</td>
+<td>Administração geral</td>
+<td>670490.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">64585</td>
+<td>2024</td>
+<td>Emenda Individual - Transferências</td>
+<td>4484</td>
+<td>Nacional</td>
+<td>Defesa nacional</td>
+<td>Defesa terrestre</td>
+<td>599982.26</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">64586</td>
+<td>2024</td>
+<td>Emenda Individual - Transferências</td>
+<td>4484</td>
+<td>Nacional</td>
+<td>Defesa nacional</td>
+<td>Defesa terrestre</td>
+<td>420000.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">64587</td>
+<td>2024</td>
+<td>Emenda Individual - Transferências</td>
+<td>4484</td>
+<td>RIO GRANDE DO SUL (UF)</td>
+<td>Saúde</td>
+<td>Atenção básica</td>
+<td>350000.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">64588</td>
+<td>2024</td>
+<td>Emenda Individual - Transferências</td>
+<td>4484</td>
+<td>RIO GRANDE DO SUL (UF)</td>
+<td>Assistência social</td>
+<td>Assistência comunitária</td>
+<td>3750000.00</td>
+</tr>
+</tbody>
+</table>
+
+<p>64589 rows × 7 columns</p>
+</div>
+</div>
+</div>
+</div>
+<p>How many unique values we have for <code>Localidade do Gasto</code>?</p>
+<div id="148bf8e1" class="cell custompython" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>countLoG <span class="op">=</span> df[<span class="st">"Localidade do gasto"</span>].value_counts()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(countLoG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Código da Emenda  Ano da Emenda                      Tipo de Emenda  \
-0     Sem informaç           2014  Emenda Individual - Transferências   
-1     Sem informaç           2014  Emenda Individual - Transferências   
-2     Sem informaç           2014  Emenda Individual - Transferências   
-3     Sem informaç           2014  Emenda Individual - Transferências   
-4     Sem informaç           2014  Emenda Individual - Transferências   
-
-  Código do Autor da Emenda Nome do Autor da Emenda Número da emenda  \
-0                       S/I          Sem informação              S/I   
-1                       S/I          Sem informação              S/I   
-2                       S/I          Sem informação              S/I   
-3                       S/I          Sem informação              S/I   
-4                       S/I          Sem informação              S/I   
-
-        Localidade do gasto Código Função Nome Função Código Subfunção  \
-0               POMBAL - PB            15   Urbanismo              451   
-1              CAIÇARA - RS            10       Saúde              302   
-2                PIAUÍ (UF)            10       Saúde              572   
-3  SANTANA DE PARNAÍBA - SP            15   Urbanismo              451   
-4           PALMITINHO - RS            10       Saúde              302   
-
-                             Nome Subfunção Valor Empenhado Valor Liquidado  \
-0                    infra-estrutura urbana       150000,00            0,00   
-1     Assistência hospitalar e ambulatorial       250000,00            0,00   
-2  Desenvolvimento tecnológico e engenharia       896692,97            0,00   
-3                    infra-estrutura urbana       500000,00            0,00   
-4     Assistência hospitalar e ambulatorial       250000,00            0,00   
-
-  Valor Pago Valor Restos A Pagar Inscritos Valor Restos A Pagar Cancelados  \
-0       0,00                           0,00                       146950,00   
-1       0,00                           0,00                            0,00   
-2       0,00                           0,00                            0,00   
-3       0,00                           0,00                       493100,00   
-4       0,00                           0,00                            0,00   
-
-  Valor Restos A Pagar Pagos  
-0                    3050,00  
-1                  250000,00  
-2                  896692,97  
-3                    6900,00  
-4                  250000,00  </code></pre>
+<pre><code>Localidade do gasto
+SÃO PAULO (UF)         5216
+Nacional               4604
+MINAS GERAIS (UF)      4413
+RIO DE JANEIRO (UF)    2932
+BAHIA (UF)             2924
+                       ... 
+TERRA ROXA - PR           1
+CALIFÓRNIA - PR           1
+CAMPO LARGO - PR          1
+JATAIZINHO - PR           1
+ANGUERA - BA              1
+Name: count, Length: 3661, dtype: int64</code></pre>
 </div>
 </div>
-<p>We need to filter out some columns.</p>
-<p>https://www1.siop.planejamento.gov.br/mto/doku.php/mto2024</p>
-<p>pages 229-233</p>
+<p>And for <code>Nome Função</code>?</p>
+<div id="91d2309f" class="cell custompython" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>countNF <span class="op">=</span> df[<span class="st">"Nome Função"</span>].value_counts()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(countNF)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Nome Função
+Saúde                    27527
+Urbanismo                 5844
+Educação                  5837
+Agricultura               3171
+Desporto e lazer          3160
+Encargos especiais        2963
+Assistência social        2841
+Defesa nacional           2413
+Direitos da cidadania     2205
+Segurança pública         1817
+Cultura                   1771
+Comércio e serviços       1668
+Ciência e Tecnologia       641
+Gestão ambiental           616
+Organização agrária        586
+Transporte                 377
+Múltiplo                   333
+Trabalho                   306
+Comunicações               119
+Indústria                  107
+Saneamento                  82
+Administração               76
+Relações exteriores         59
+Habitação                   42
+Previdência social          20
+Energia                      6
+Essencial à justiça          2
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<p>And for <code>Código do Autor da Emenda</code>?</p>
+<div id="1fc34f94" class="cell custompython" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>countAdE <span class="op">=</span> df[<span class="st">"Código do Autor da Emenda"</span>].value_counts()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(countAdE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Código do Autor da Emenda
+S/I     2481
+8100     331
+2776     190
+1775     186
+2616     182
+        ... 
+2748       1
+1640       1
+2854       1
+2503       1
+4371       1
+Name: count, Length: 1551, dtype: int64</code></pre>
+</div>
+</div>
+<p>Let’s drop some of the rows with values that won’t be useful in this analysis, namely, all rows where the amendment proponent is non-identified:</p>
+<div id="3a98ba59" class="cell custompython" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dfId <span class="op">=</span> df[df[<span class="st">"Código do Autor da Emenda"</span>] <span class="op">!=</span> <span class="st">"S/I"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s also split the dataframe accordingly to the location of the amendments’ application, considering only the countrywide ones and the state ones:</p>
+<div id="7ee71e6f" class="cell custompython" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dfNacional <span class="op">=</span> dfId[dfId[<span class="st">"Localidade do gasto"</span>] <span class="op">==</span> <span class="st">"Nacional"</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dfStates <span class="op">=</span> dfId[dfId[<span class="st">"Localidade do gasto"</span>].<span class="bu">str</span>.contains(<span class="vs">r"\(\w</span><span class="sc">{2}</span><span class="vs">\)"</span>, regex<span class="op">=</span><span class="va">True</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Some of those operations were already examples of slicing or dicing a dataframe – we selected bits of the data based on the values of its fields. Let’s see some basic examples of pivoting. First, let’s see how is the spending in national defense year by year.</p>
+<div id="2b44880e" class="cell custompython" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dfDefesaNacional <span class="op">=</span> dfNacional[dfNacional[<span class="st">"Nome Função"</span>] <span class="op">==</span> <span class="st">"Defesa nacional"</span>]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>dfValueByYear <span class="op">=</span> dfDefesaNacional.groupby(<span class="st">"Ano da Emenda"</span>)[<span class="st">"Valor"</span>].<span class="bu">sum</span>().reset_index()</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a histogram</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(dfValueByYear, x<span class="op">=</span><span class="st">'Ano da Emenda'</span>, y<span class="op">=</span><span class="st">'Valor'</span>, </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>             title<span class="op">=</span><span class="st">'Total Values per Year in National Defense'</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>             labels<span class="op">=</span>{<span class="st">'Ano da Emenda'</span>: <span class="st">'Year'</span>, <span class="st">'Valor'</span>: <span class="st">'Total Value'</span>})</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>                            <div id="bade5154-e404-40dd-b801-19b5adc3a1ce" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("bade5154-e404-40dd-b801-19b5adc3a1ce")) {                    Plotly.newPlot(                        "bade5154-e404-40dd-b801-19b5adc3a1ce",                        [{"alignmentgroup":"True","hovertemplate":"Year=%{x}<br>Total Value=%{y}<extra></extra>","legendgroup":"","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"","offsetgroup":"","orientation":"v","showlegend":false,"textposition":"auto","x":[2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"xaxis":"x","y":[6753055.28,91561547.36,145788744.95999998,45935144.89,33398088.39,272384140.29,408111287.54,162507468.34,141835295.03,63897344.54],"yaxis":"y","type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Year"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Total Value"}},"legend":{"tracegroupgap":0},"title":{"text":"Total Values per Year in National Defense"},"barmode":"relative"},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('bade5154-e404-40dd-b801-19b5adc3a1ce');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
+</div>
+<p>Which are the possible values for <code>Nome Subfunção</code> when <code>Nome Função</code> is <code>Defesa nacional</code>?</p>
+<div id="adfd1274" class="cell custompython" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>subfuncCounts <span class="op">=</span> dfDefesaNacional[<span class="st">"Nome Subfunção"</span>].value_counts()</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Occurrences of each unique 'Nome Subfunção':"</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(subfuncCounts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Occurrences of each unique 'Nome Subfunção':
+Nome Subfunção
+Defesa naval                                208
+Administração geral                         205
+Atenção básica                              158
+Defesa terrestre                            129
+Desenvolvimento científico                   82
+Normatização e fiscalização                  80
+Defesa aérea                                 31
+Desporto comunitário                         23
+Ensino superior                              16
+Formação de recursos humanos                 12
+Desenvolvimento tecnológico e engenharia     10
+Assistência comunitária                       7
+Informação e inteligência                     7
+Ensino profissional                           7
+Assistência à criança e ao adolescente        6
+Educação básica                               6
+Tecnologia da informação                      4
+Educação de jovens e adultos                  4
+Empregabilidade                               4
+Desporto de rendimento                        2
+Habitação urbana                              2
+Múltiplo                                      2
+Assistência hospitalar e ambulatorial         1
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<p>Let’s pivot the data and see how each <code>Nome Subfunção</code> receives in amendments per year:</p>
+<div id="66963337" class="cell custompython" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a pivot table to see spending per year on different "Nome Subfunção"</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>pivot_table <span class="op">=</span> dfDefesaNacional.pivot_table(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span><span class="st">'Valor'</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="st">'Ano da Emenda'</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="st">'Nome Subfunção'</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    aggfunc<span class="op">=</span><span class="st">'sum'</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    fill_value<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>pivot_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Nome Subfunção</th>
+<th data-quarto-table-cell-role="th">Administração geral</th>
+<th data-quarto-table-cell-role="th">Assistência comunitária</th>
+<th data-quarto-table-cell-role="th">Assistência hospitalar e ambulatorial</th>
+<th data-quarto-table-cell-role="th">Assistência à criança e ao adolescente</th>
+<th data-quarto-table-cell-role="th">Atenção básica</th>
+<th data-quarto-table-cell-role="th">Defesa aérea</th>
+<th data-quarto-table-cell-role="th">Defesa naval</th>
+<th data-quarto-table-cell-role="th">Defesa terrestre</th>
+<th data-quarto-table-cell-role="th">Desenvolvimento científico</th>
+<th data-quarto-table-cell-role="th">Desenvolvimento tecnológico e engenharia</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">Educação de jovens e adultos</th>
+<th data-quarto-table-cell-role="th">Empregabilidade</th>
+<th data-quarto-table-cell-role="th">Ensino profissional</th>
+<th data-quarto-table-cell-role="th">Ensino superior</th>
+<th data-quarto-table-cell-role="th">Formação de recursos humanos</th>
+<th data-quarto-table-cell-role="th">Habitação urbana</th>
+<th data-quarto-table-cell-role="th">Informação e inteligência</th>
+<th data-quarto-table-cell-role="th">Múltiplo</th>
+<th data-quarto-table-cell-role="th">Normatização e fiscalização</th>
+<th data-quarto-table-cell-role="th">Tecnologia da informação</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Ano da Emenda</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2015</td>
+<td>180000.00</td>
+<td>0.000000e+00</td>
+<td>658600.0</td>
+<td>0.00</td>
+<td>3409092.95</td>
+<td>0.000000e+00</td>
+<td>1222114.04</td>
+<td>0.00</td>
+<td>872090.29</td>
+<td>0.00</td>
+<td>...</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>411158.00</td>
+<td>0.00</td>
+<td>0.0</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2016</td>
+<td>5448931.65</td>
+<td>0.000000e+00</td>
+<td>0.0</td>
+<td>0.00</td>
+<td>7376764.13</td>
+<td>3.457448e+07</td>
+<td>19182845.86</td>
+<td>9842748.65</td>
+<td>2539687.59</td>
+<td>4414630.00</td>
+<td>...</td>
+<td>796904.76</td>
+<td>0.00</td>
+<td>496681.39</td>
+<td>1188196.57</td>
+<td>0.00</td>
+<td>0.0</td>
+<td>44146.00</td>
+<td>0.00</td>
+<td>532505.52</td>
+<td>5123020.24</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2017</td>
+<td>899999.95</td>
+<td>0.000000e+00</td>
+<td>0.0</td>
+<td>372344.17</td>
+<td>6252646.48</td>
+<td>1.311724e+08</td>
+<td>1649996.32</td>
+<td>418705.00</td>
+<td>1092910.36</td>
+<td>0.00</td>
+<td>...</td>
+<td>499937.87</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>2000940.89</td>
+<td>99992.85</td>
+<td>0.0</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>719929.80</td>
+<td>608955.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2018</td>
+<td>3467817.82</td>
+<td>0.000000e+00</td>
+<td>0.0</td>
+<td>728545.94</td>
+<td>8477091.45</td>
+<td>1.328580e+07</td>
+<td>10179654.42</td>
+<td>150121.03</td>
+<td>2467444.96</td>
+<td>261002.30</td>
+<td>...</td>
+<td>797331.60</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>1642177.53</td>
+<td>0.00</td>
+<td>0.0</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>4378212.86</td>
+<td>0.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2019</td>
+<td>12946068.77</td>
+<td>0.000000e+00</td>
+<td>0.0</td>
+<td>200000.00</td>
+<td>4278027.18</td>
+<td>7.495838e+05</td>
+<td>9115634.68</td>
+<td>1069779.21</td>
+<td>3061103.47</td>
+<td>250564.25</td>
+<td>...</td>
+<td>310387.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>849922.83</td>
+<td>0.00</td>
+<td>0.0</td>
+<td>107017.22</td>
+<td>0.00</td>
+<td>459999.98</td>
+<td>0.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020</td>
+<td>12179455.87</td>
+<td>1.013880e+08</td>
+<td>0.0</td>
+<td>0.00</td>
+<td>7732898.18</td>
+<td>2.512486e+07</td>
+<td>48580969.78</td>
+<td>67566352.68</td>
+<td>2029995.89</td>
+<td>350000.00</td>
+<td>...</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>499754.84</td>
+<td>1099906.99</td>
+<td>0.0</td>
+<td>199994.94</td>
+<td>0.00</td>
+<td>1649943.31</td>
+<td>2338692.16</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2021</td>
+<td>8091602.51</td>
+<td>3.579937e+08</td>
+<td>0.0</td>
+<td>0.00</td>
+<td>5676381.92</td>
+<td>1.723496e+06</td>
+<td>17352748.08</td>
+<td>5104728.60</td>
+<td>1445999.60</td>
+<td>1500000.00</td>
+<td>...</td>
+<td>0.00</td>
+<td>47000.00</td>
+<td>997000.00</td>
+<td>2185588.17</td>
+<td>0.00</td>
+<td>200000.0</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>2709255.03</td>
+<td>0.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022</td>
+<td>3826570.33</td>
+<td>1.146521e+08</td>
+<td>0.0</td>
+<td>0.00</td>
+<td>1540836.98</td>
+<td>0.000000e+00</td>
+<td>15556189.45</td>
+<td>12599972.49</td>
+<td>3866116.59</td>
+<td>2048873.00</td>
+<td>...</td>
+<td>0.00</td>
+<td>149860.92</td>
+<td>1299653.37</td>
+<td>1999916.86</td>
+<td>145998.72</td>
+<td>0.0</td>
+<td>1217677.13</td>
+<td>0.00</td>
+<td>2289901.64</td>
+<td>0.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023</td>
+<td>13677887.10</td>
+<td>2.030000e+07</td>
+<td>0.0</td>
+<td>0.00</td>
+<td>10157086.31</td>
+<td>1.667826e+07</td>
+<td>33486959.03</td>
+<td>35964045.89</td>
+<td>3165758.02</td>
+<td>0.00</td>
+<td>...</td>
+<td>0.00</td>
+<td>81458.20</td>
+<td>906682.98</td>
+<td>0.00</td>
+<td>2937890.68</td>
+<td>0.0</td>
+<td>100000.00</td>
+<td>471797.54</td>
+<td>2206073.85</td>
+<td>0.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024</td>
+<td>6122575.01</td>
+<td>0.000000e+00</td>
+<td>0.0</td>
+<td>0.00</td>
+<td>874499.68</td>
+<td>0.000000e+00</td>
+<td>35933352.70</td>
+<td>15121288.42</td>
+<td>1809951.33</td>
+<td>0.00</td>
+<td>...</td>
+<td>0.00</td>
+<td>507582.56</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>123049.99</td>
+<td>24951.0</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>3288670.10</td>
+<td>0.00</td>
+</tr>
+</tbody>
+</table>
+
+<p>10 rows × 23 columns</p>
+</div>
+</div>
+</div>
+</div>
 
 
 <div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Today we’ll talk about INPE, the Applied Computing Program, and the Introduction to Data Science (CAP-394) course.</span>
+<span class="glightbox-desc lightbox-desc-1">Today’s lecture will be about Data.</span>
 <span class="glightbox-desc lightbox-desc-2">Here’s are our main topics.</span>
 <span class="glightbox-desc lightbox-desc-3">Just as an exercise, try to explain data yourself. Avoid self-references!</span>
-<span class="glightbox-desc lightbox-desc-4">A very, very short definition of “data”. It uses “information” which can be interpreted as “organized data”.<br>Another definition is “collection of values that convey information”. </span>
-<span class="glightbox-desc lightbox-desc-5">Raw Data is data we collect from the real word and that will be used in our explorations and analyses. There are many different formats for data, therefore many approaches to deal with it.<br>It is important (and somehow obvious) to explain that we mean digital data – data that is stored In files or similar resources in a computer, that can be read by a program or copied to other computers. Data in paper, even if it is structured, is not suited for us unless it is preprocessed (turned into digital data).<br>Even digital data may not be ready for analysis. The figure on the right shows a table (in a PDF document) with all water levels in a monitoring station for 2022, but that would be hard to import to a tabular format.</span>
-<span class="glightbox-desc lightbox-desc-6">Both figures show data – in a very organized way. The table is the list of graduate courses approved by CAPES, the figure is a histogram plot based on the data (with some small differences due to the time the data was collected). The histogram is part of a report for the Engineerings III Evaluation Group.<br>Interesting fact: the data on the table was generated from other data, this is quite common!<br>Tables can be represented in text files, spreadsheets, XML and other formats.</span>
-<span class="glightbox-desc lightbox-desc-7">Images are data that are spatially organized, and for which we expect some coherence (e.g visible patterns).<br>These are Synthetic-aperture radar images. Images on the first column show waves; on the second column we have some biological slicks (algae?) and the images on the third column show icebergs. <br>Images are from a dataset associated with the paper “A labelled ocean SAR imagery dataset of ten geophysical phenomena from Sentinel‐1 wave model”.<br>There are many ways to represent image data in a file format, and many formats that allow the specific representation of specialized data (e.g.&nbsp;color images, 2D signals, multispectral images…)</span>
-<span class="glightbox-desc lightbox-desc-8">Time series are data: there is a temporal index that set an explicit order to it. Time series may be stored as tables or spreadsheets or text files.</span>
-<span class="glightbox-desc lightbox-desc-9">A structured text data. XML is a format that allows representation of structured and semi-structured data using tags and hierarchies. JSON is a similar format. <br>These formats can be read (with some difficulty…) by humans and computers. They are usually stored in text files.</span>
-<span class="glightbox-desc lightbox-desc-10">This is an entry from a log of SQL queries submitted to an astronomy database. It is textual data, semistructured, that could be converted into tabular data with some tricks. We may see some of those later.<br>Logs are also usually stored in text files.<br>MAKIYAMA, V. H. Text mining applied to SQL queries: a case study for SDSS SkyServer. 2015. 75 p.&nbsp;IBI: &lt;8JMKD3MGP3W34P/3K6JNQ8&gt;. (sid.inpe.br/mtc-m21b/2015/08.31.17.43-TDI). Dissertação (Mestrado em Computação Aplicada) - Instituto Nacional de Pesquisas Espaciais (INPE), São José dos Campos, 2015. Disponível em: <a href="http://urlib.net/ibi/8JMKD3MGP3W34P/3K6JNQ8" class="uri">http://urlib.net/ibi/8JMKD3MGP3W34P/3K6JNQ8</a>.</span>
-<span class="glightbox-desc lightbox-desc-11">There are many more variations and combinations of data types. Image time series can be represented as series of images or time series with temporal and spatial indexes. Trajectories are time series with location data associated to each point. <br>Graphs and networks are collection of edges and vertices that can be stored as text files or specialized formats. Some tasks require the mixture of data types: logs are semi-structured text files with an explicit time index, for example.</span>
-<span class="glightbox-desc lightbox-desc-12">Tidy Data is the best possible representation of data for exploration and analysis. It allow us to keep an organized representation of the data. This is not always possible, as we’ll see.<br>The best reference for Tidy Data is “Tidy Data”, Hadley Wickham, https://vita.had.co.nz/papers/tidy-data.pdf</span>
+<span class="glightbox-desc lightbox-desc-4">A very, very short definition of “data” for our purposes (“analyzing data”). It uses “information” which can be interpreted as “organized data”.<br>Another definition is “collection of values that convey information”. </span>
+<span class="glightbox-desc lightbox-desc-5">Raw Data is the most common data type on the Web (and off it too) – data that was collected and put online or stored, without any preprocessing, annotations or even metadata.</span>
+<span class="glightbox-desc lightbox-desc-6">I got this from “An overview of a dataset digitized by citizen science volunteers – the 1900-1910 Daily Weather Reports“ (https://blogs.reading.ac.uk/weather-and-climate-at-reading/2020/an-overview-of-a-dataset-digitized-by-citizen-science-volunteers-the-1900-1910-daily-weather-reports/) – very interesting read! Humans collected the data by hand, then, many years later, digitized it using Citizen Science.</span>
+<span class="glightbox-desc lightbox-desc-7">This are the daily measures of the level on Rio Ladário, part of the Paraguay River Basin. You can get its PDF from the “Centro deHidrografia e Navegação do Oeste - MARINHA DO BRASIL” website (https://www.marinha.mil.br/chn-6/?q=alturaAnterioresRios).<br>There is probably a spreadsheet version of this PDF somewhere. But it is usable?<br>The raw (useful!) data is somewhere at https://www.snirh.gov.br/hidroweb/serieshistoricas</span>
+<span class="glightbox-desc lightbox-desc-8">Both figures show data – in a very organized way. The table is the list of graduate courses approved by CAPES, the figure is a histogram plot based on the data (with some small differences due to the time the data was collected). The data is shown as a HTML table. <br>The chart is part of a report for the Engineering’s III Evaluation Group.<br>Tables can be represented in text files, spreadsheets, XML and other formats.But it is still not perfect data for us – how to we query those?</span>
+<span class="glightbox-desc lightbox-desc-9">From the Portal de Imigração Laboral of MINISTÉRIO DA JUSTIÇA E SEGURANÇA PÚBLICA (https://portaldeimigracao.mj.gov.br/pt/dados/dados-consolidados1) we can get data from immigrants in Brazil. The “plano tabular” is a spreadsheet with summaries but may not be useful for most queries – we need the full data set that was used to create those summaries.<br>We can get it from the DataMigra portal (https://www.datamigraweb.unb.br/#/public), option “SOLICITANTES DE REFÚGIO”. <br><br></span>
+<span class="glightbox-desc lightbox-desc-10">This section is a general discussion of what data can represent measures from the world, how it represents and how it is stored. <br>It is a prelude to some notes on data transformation eventually leading to EDA and machine learning.<br>In most of the cases we would like to deal with tables, but this is not always possible…</span>
+<span class="glightbox-desc lightbox-desc-11">Here’s an example of the different ways to consider data:<br>Structure of Data: How the data is logically organized (e.g., rows representing municipalities and columns representing features of those municipalities such as area, population, and other attributes).<br>Representation of Data: The format or schema used to express the data (e.g., a table with rows and columns, CSV format, JSON format).<br>Storage of Data: The physical or digital medium and file format used to save the data (e.g., flat text file, spreadsheet, database).</span>
+<span class="glightbox-desc lightbox-desc-12">This is our most basic data representation scheme: a collection of tuples, where each tuple element (the table column) contains measurements of some features of an object (the table lines).<br>In this example we have a tuple on the format V1, V2, V3 .. VN, Value (where the combination V1, VN… may not be unique).<br>We can easily imagine some operation on the tuples, e.g.&nbsp;find all values for a specific combination of “Localidade do gasto” and “Nome Função”.This is the “Emendas Parlamentares” dataset, we’ll play with it later! Get it at https://portaldatransparencia.gov.br/download-de-dados/emendas-parlamentares</span>
+<span class="glightbox-desc lightbox-desc-13">This is our most basic data representation scheme: a collection of tuples. <br>In this example we also have tuples on the format V1, V2, V3 .. VN, Value (where the combination V1, VN… may be unique).<br>It is easy to consider combination or aggregation operations on the tuples, for example, counting the immigrants from a country in a state, regardless of sex.<br>This is the “Migration” dataset, we’ll play with it later!<br></span>
+<span class="glightbox-desc lightbox-desc-14">Time series are data: there is a temporal index that set an explicit order to it. Usually are represented as tuples of time -&gt; value1, value2, valueN. We expect the time to be unique.</span>
+<span class="glightbox-desc lightbox-desc-15">Yet another collection of tuples but with a twist. <br>Not only there are tuples for each participant in a project but the mapping of participants into projects is a graph, a different type of data that can be represented by tuples.<br>This is the “CAPES-Projetos” dataset, we’ll play with it later!<br></span>
+<span class="glightbox-desc lightbox-desc-16">Here’s a region of the table that corresponds to a single project. We can consider each combination of ID_PESSOA within the same ID_PROJETO to be vertices in a network with the project being an edge.<br>The additional material on https://rafaeldcsantos.github.io/CAP-394 shows how we can do it.<br></span>
+<span class="glightbox-desc lightbox-desc-17">This is a single entry from a log of SQL queries submitted to an astronomy database. It is textual data, semistructured, that could be converted into tabular data with some tricks. We may see some of those later.<br>Logs are also usually stored in text files.<br>MAKIYAMA, V. H. Text mining applied to SQL queries: a case study for SDSS SkyServer. 2015. 75 p.&nbsp;IBI: &lt;8JMKD3MGP3W34P/3K6JNQ8&gt;. (sid.inpe.br/mtc-m21b/2015/08.31.17.43-TDI). Dissertação (Mestrado em Computação Aplicada) - Instituto Nacional de Pesquisas Espaciais (INPE), São José dos Campos, 2015. Disponível em: <a href="http://urlib.net/ibi/8JMKD3MGP3W34P/3K6JNQ8" class="uri">http://urlib.net/ibi/8JMKD3MGP3W34P/3K6JNQ8</a>.</span>
+<span class="glightbox-desc lightbox-desc-18">A structured text data. XML is a format that allows representation of structured and semi-structured data using tags and hierarchies. JSON is a similar format. <br>These formats can be read (with some difficulty…) by humans and computers. They are usually stored in text files.</span>
+<span class="glightbox-desc lightbox-desc-19">Images are data that are spatially organized, and for which we expect some coherence (e.g visible patterns).<br>These are Synthetic-aperture radar images. Images on the first column show waves; on the second column we have some biological slicks (algae?) and the images on the third column show icebergs. <br>Images are from a dataset associated with the paper “A labelled ocean SAR imagery dataset of ten geophysical phenomena from Sentinel‐1 wave model”.<br>There are many ways to represent image data in a file format, and many formats that allow the specific representation of specialized data (e.g.&nbsp;color images, 2D signals, multispectral images…)<br>Multimedia data cannot be used directly into machine learning algorithms: we must extract features of it beforehand, which often is not a trivial task.<br>Movies and audio are other types of multimedia data which also requires feature extraction.</span>
+<span class="glightbox-desc lightbox-desc-21">Tidy Data is the best possible representation of data for exploration and analysis. It allow us to keep an organized representation of the data. This is not always possible, as we’ll see.<br>The best reference for Tidy Data is “Tidy Data”, Hadley Wickham, https://vita.had.co.nz/papers/tidy-data.pdf</span>
+<span class="glightbox-desc lightbox-desc-22">Basically, we would like our data to look like a spreadsheet: each row represents an observation; each column represents one (and only one!) measure or variable on that observation. For this analogy to work we expect that the first row in the spreadsheet contains the names of the variables!<br>Please refer to R for Data Science (2e), https://r4ds.hadley.nz/, for a more detailed description.</span>
+<span class="glightbox-desc lightbox-desc-23">Does it look like a spreadsheet? It is probably tidy (but check for the single-value-in-a-cell rule!)<br>Images can be considered tidy, but the semantics are very different – we don’t use pixels as values, usually there are some preprocessing steps first.</span>
+<span class="glightbox-desc lightbox-desc-24">In wide format data, each variable is spread out across columns. It is better for reading by humans, some visualization and machine learning tasks. It can have missing data in its cells.In long format data, each row is an observation and there are fewer columns. It is better for subsetting, it is tidier and more economic.</span>
+<span class="glightbox-desc lightbox-desc-25">Our supermarket data looks like a spreadsheet, looks tidy but could be made tidier – at what cost?<br>Tidiness is also somehow relative. Consider what is a record: in this example it is an item being sold so the data is tidy-ish. If we consider transactions as the data represented than the data is somehow less tidy.<br></span>
+<span class="glightbox-desc lightbox-desc-26">We have the data, possibly raw, hopefully tidy. We may need to change its shape to process it. Let’s talk about data shapes and transformations!</span>
+<span class="glightbox-desc lightbox-desc-27">Let’s think about the parliamentary amendments (”Emendas Parlamentares”) dataset. Each entry happened in one date (year), had an author, a code for the function, a place for the destination of the amendment and a value. On a 4-dimensional data cube we could have Year, Author, Code, Place for the dimensions and Value as the value stored in the cell. Using this way of representation, we could do some simple operations that allows exploration of the data, but on the other hand, conceptually, the cube could be made of mostly empty cells.</span>
+<span class="glightbox-desc lightbox-desc-28">We can slice a N-dimensional data cube creating a (N-1)-dimensional data cube. Consider this as an operation that selects all records where a feature is equal to a single value. Considering the amendments example, we can slice the data cube getting all records for a particular year or for a particular place for the destination. The resulting dataset can be considered a new one (e.g.&nbsp;Amendments for 2014) and the feature used for the slicing can be discarded, since all data will have the same value for this feature.</span>
+<span class="glightbox-desc lightbox-desc-29">This is basically the same – slicing can be done in any dimensions of the data cube. This would be the slicing of all amendments that will be used in a specific location. We can, of course, slice again cubes that were already sliced further reducing its dimension (e.g.&nbsp;all amendment for a year and to be used in a place).</span>
+<span class="glightbox-desc lightbox-desc-30">Dicing is slightly different from slicing: when we dice a data cube, we keep the same number of dimensions but get a reduced data set. Consider for example getting all amendments for a range of years and set of locations. The resulting data needs to keep the features used for dicing since we may have more than one value for those.</span>
+<span class="glightbox-desc lightbox-desc-31">Pivoting data is a bit more complex: it uses the values of the features to create new columns and is usually done to summarize data.<br>When we pivot data, we can use different operations to create the pivoted table cell’s values. In this case we could use “sum” to sum the values for all cells with the same Local, Categoria and Ano.</span>
+<span class="glightbox-desc lightbox-desc-32">Here is another example of pivoting: each project in the “CAPES-Projetos” dataset is spread out into several lines. I could pivot those to count how many members of each type each project contains. We’ll see in the examples!<br></span>
+<span class="glightbox-desc lightbox-desc-33">Drilling up is basically aggregation and counting. Drilling down is the opposite. We can only drill down if there is data to be used to show more details.<br>For example, I cannot drill down the table in this slide because I don’t have how to add more information to get finer details. But if I had the full date instead of they year I could break it into day, month, year and do something conceptually similar to a drill down.<br></span>
 </div>
 
 </section>
@@ -952,7 +1706,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

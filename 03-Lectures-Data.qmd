@@ -8,10 +8,6 @@ format: html
 
 This is the material (slides and notes) of the third lecture on the course.
 
-::: warning-block
-<div class="title">Warning</div>
-This chapter is under construction right now, and will change a lot in the next few days!
-:::
 
 {{< include Resources/Slides/CAP394-2024-3-Data.qmd >}}
 
@@ -43,13 +39,15 @@ The first 15 lines of that file are shown below:
 "Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"MOCOCA - SP";"10";"Saúde";"301";"Atenção básica";"498940,80";"0,00";"0,00";"0,00";"0,00";"498940,80"
 ```
 
-We can notice that the file is a _semicolon_-separated file. Its encoding is ISO-8859. To read it into a dataframe in Python [@python2001] and Pandas [@pandasmckinney2012] we first need to import the libraries:
+We can notice that the file is a _semicolon_-separated file. Its encoding is ISO-8859. To make things even more complex, the monetary values are in Brazilian format, with comma as the separator between integer and decimal parts. 
+
+To read it into a dataframe in Python [@python2001] and Pandas [@pandasmckinney2012] we first need to import the libraries:
 
 
 ```{python}
 #| classes: custompython
 import pandas as pd
-import matplotlib.pyplot as plt
+import plotly.express as px
 ```
 
 Now we can read the file:
@@ -59,15 +57,107 @@ Now we can read the file:
 file = 'Resources/Data/Emendas/Emendas.csv'
 # Read the CSV file using the specified separator and encoding.
 df = pd.read_csv(file, sep=';', encoding='ISO-8859-1')
-# Display the head of the dataframe.
-print(df.head())
+# Convert the Valor field to numeric, taking care of the decimals'
+# separator:
+df['Valor'] = df['Valor Empenhado'].str.replace('.', '', regex=False).\
+                                    str.replace(',', '.').astype(float)
+# We don't really need some of the fields (redundant ones):
+df = df.drop(['Código da Emenda', 'Nome do Autor da Emenda', 'Número da emenda',
+              'Código Função','Código Subfunção'], axis=1)
+# We don't really need some of the payment fields (only 'Valor'):
+df = df.drop(['Valor Empenhado', 'Valor Liquidado', 'Valor Pago', 
+              'Valor Restos A Pagar Inscritos','Valor Restos A Pagar Cancelados',
+              'Valor Restos A Pagar Pagos'], axis=1)                                    
+# Display part of the data.
+df
 ```
 
-We need to filter out some columns.
+How many unique values we have for `Localidade do Gasto`? 
 
-https://www1.siop.planejamento.gov.br/mto/doku.php/mto2024
+```{python}
+#| classes: custompython
+countLoG = df["Localidade do gasto"].value_counts()
+# Print the result
+print(countLoG)
+```
 
-pages 229-233
+And for `Nome Função`?
+
+```{python}
+#| classes: custompython
+countNF = df["Nome Função"].value_counts()
+# Print the result
+print(countNF)
+```
+
+And for `Código do Autor da Emenda`?
+
+```{python}
+#| classes: custompython
+countAdE = df["Código do Autor da Emenda"].value_counts()
+# Print the result
+print(countAdE)
+```
+
+Let's drop some of the rows with values that won't be useful in this analysis, namely, all rows where the amendment proponent is non-identified:
+
+```{python}
+#| classes: custompython
+dfId = df[df["Código do Autor da Emenda"] != "S/I"]
+```
+
+Let's also split the dataframe accordingly to the location of the amendments' application, considering only the countrywide ones and the state ones:
+
+```{python}
+#| classes: custompython
+dfNacional = dfId[dfId["Localidade do gasto"] == "Nacional"]
+dfStates = dfId[dfId["Localidade do gasto"].str.contains(r"\(\w{2}\)", regex=True)]
+```
+
+Some of those operations were already examples of slicing or dicing a dataframe -- we selected bits of the data based on the values of its fields. Let's see some basic examples of pivoting. First, let's see how is the spending in national defense year by year.
+
+```{python}
+#| classes: custompython
+dfDefesaNacional = dfNacional[dfNacional["Nome Função"] == "Defesa nacional"]
+dfValueByYear = dfDefesaNacional.groupby("Ano da Emenda")["Valor"].sum().reset_index()
+# Create a histogram
+fig = px.bar(dfValueByYear, x='Ano da Emenda', y='Valor', 
+             title='Total Values per Year in National Defense',
+             labels={'Ano da Emenda': 'Year', 'Valor': 'Total Value'})
+# Show the plot
+fig.show()
+```
+
+Which are the possible values for `Nome Subfunção` when `Nome Função` is `Defesa nacional`?
+
+
+```{python}
+#| classes: custompython
+subfuncCounts = dfDefesaNacional["Nome Subfunção"].value_counts()
+print("\nOccurrences of each unique 'Nome Subfunção':")
+print(subfuncCounts)
+```
+
+Let's pivot the data and see how each `Nome Subfunção` receives in amendments per year:
+
+```{python}
+#| classes: custompython
+
+# Create a pivot table to see spending per year on different "Nome Subfunção"
+pivot_table = dfDefesaNacional.pivot_table(
+    values='Valor',
+    index='Ano da Emenda',
+    columns='Nome Subfunção',
+    aggfunc='sum',
+    fill_value=0
+)
+pivot_table
+```
+
+
+
+
+
 
 
 
