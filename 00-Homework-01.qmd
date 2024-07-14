@@ -32,8 +32,11 @@ If you cannot find good open data sources and if you can read Portuguese you can
 ), [Portal de
 Dados Abertos do Ministério da Educação](https://dadosabertos.mec.gov.br/),
 [Catálogo de Dados Abertos do Senado Federal](https://www12.senado.leg.br/dados-abertos/dados-abertos/catalogo-de-dados-abertos),
-[ipeadata](http://www.ipeadata.gov.br/Default.aspx)
-[Dados Abertos da Agência Nacional de Águas e Saneamento Básico](https://dadosabertos.ana.gov.br/).
+[ipeadata](http://www.ipeadata.gov.br/Default.aspx), 
+[Dados Abertos da Agência Nacional de Águas e Saneamento Básico](https://dadosabertos.ana.gov.br/),
+[Remuneração dos Magistrados](https://www.cnj.jus.br/transparencia-cnj/remuneracao-dos-magistrados/), 
+[Harvard Dataverse](https://dataverse.harvard.edu/)
+.
 :::
 
 

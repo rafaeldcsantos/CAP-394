@@ -15,7 +15,7 @@ The main dataset used in this project can be downloaded as
 [a CSV-formatted file (61MB)](Resources/Data/SupermarketCSV/transactions.csv).
 
 CSV (comma-separated values) files contains one record per line, with the fields of
-the recort separated by a special character, usually a comma. The first 10 lines of 
+the record separated by a special character, usually a comma. The first 10 lines of 
 that file are shown below (lines are wide, please scroll horizontally to see all the fields):
 
 ``` {.plaintext}
@@ -31,7 +31,7 @@ FileID,StoreID,POSID,TransactionID,Date,itemOrder,Description,UnitPrice,Quantity
 050501/080011_02003462.xml,0003,0002,000953,20050501074105,001,"OLEO P/ MOTOR HAVOLINE",   6.22,   1.00,   6.22,Un,"Dinheiro      ",     10.00,      6.22,      3.78,T
 ```
 
-The file contains 363966 records of itens bought in one of the supermarkets' stores, each **item** in a line, so a set of lines may correspond to a single **transaction** (or a basket of items). Each line contains several **fields**, separated by commas. 
+The file contains 363966 records of items bought in one of the supermarkets' stores, each **item** in a line, so a set of lines may correspond to a single **transaction** (or a basket of items). Each line contains several **fields**, separated by commas. 
 
 ::: classdiscussion-block
 <div class="title">Class Discussion</div>
@@ -45,23 +45,23 @@ The fields (or columns) on this file are:
 3. `POSID`: number of the point of sale in that store.
 4. `TransactionID`: id of the transaction. Every item in the transaction (shopping cart) share the same TransactionID.
 5. `Date`: date of the transaction (year, month, day, hour, minute, second) as a long number.
-6. `itemOrder`: ordem of tht item in the transaction.
+6. `itemOrder`: order of that item in the transaction.
 7. `Description`: short textual description of that item.
 9. `UnitPrice`: unit price for that item.
 8. `Quantity`: total number of items. May be measured in units, kg or other (see field Unit below).
 8. `Amount`: total paid for those items.
 9. `Unit`: whether the item is bought by unit, weight etc.
 9. `PaymentMethod`: method used for payment.
+9. `TotalPaid`: total paid for all items in that cart (transaction). May be more than `TotalDue` (e.g. for payments in cash with change).
 9. `TotalDue`: sum of prices for all items in that cart (transaction).
-9. `TotalPaid`: total paid for all items in that cart (transaction). May be more than `TotalDue` (e.g. for payments in cash).
 9. `Change`: amount of change, if any.
-9. `Status`: 'F' for completed transaction, 'T' if the transaction was cancelled.
+9. `Status`: 'F' for completed transaction, 'T' if the transaction was canceled.
 
 We can see that the first line of the file contains the names of the columns, that makes it easier to read/import into data frames, which we can consider as a spreadsheet-formatted data: each line is a record of an occurrence or record (in this of an item being bought at the supermarket), and there are fields for each record (the columns of the file). 
 
 Some of the values of the fields are clearly numbers (e.g. `TotalPaid`, `UnitPrice`), some are textual descriptions (e.g. `Description`). This difference between data formats is very important for some analysis and visualization techniques.
 
-Some additional data is provided for each item, in this case, related to the transaction that that item belongs to. It is possible to merge itens into transactions, to perform market basket and other analysis. 
+Some additional data is provided for each item, in this case, related to the transaction that that item belongs to. It is possible to merge items into transactions, to perform market basket and other analysis. 
 
 There are several interesting questions we can try to answer with this kind of data, and more that will surely arise from the initial exploration.
 
@@ -111,7 +111,6 @@ print(supermDF.dtypes)
 ```
 
 The field `Date` was read as an `int64` value, let's convert it to a real date/time field.
-
 
 ```{python}
 #| classes: custompython
@@ -242,25 +241,144 @@ fig.update_yaxes(showgrid=True)
 fig.show()
 ```
 
-This can't be right -- almost all transactions' values are clumped together below 25.000 reais and the X axis indicates the existence of a transaction of around half a million reais. This is not consistent with what is expected of sales of a small supermarket.
+We can see most of the values are clumped around R$ 0.00, with some traces above R$ 800.00. Let's try to change the scale of the total amount due to get a better sense of the distribution. 
 
-Let's print the top ten transactions by value:
+```{python}
+#| classes: custompython
+epsilon = 0.0001 # Avoid zeros.
+onlyFirstItems['LogTotalDue'] = np.log10(onlyFirstItems['TotalDue']+epsilon)
+```
+
+Then we create a customized histogram with a log scale:
+
+```{python}
+#| classes: custompython
+# We will use custom tick values and labels.
+tickvals = np.log10([0.01,0.05,0.10,0.25,0.5,1,2,5,10,20,50,100,200,500,1000])
+ticktext = ['0.01','0.05','0.10','0.25','0.5','1','2','5','10','20','50','100','200','500','1000']
+# Create the histogram.
+fig = go.Figure()
+fig.add_trace(go.Histogram(
+    x=onlyFirstItems['LogTotalDue'],
+    nbinsx=50,
+    hoverinfo='skip' # Very hard to make a working hover info!
+))
+# Update layout.
+fig.update_layout(
+    title='Histogram of total amount due for each transaction',
+    xaxis_title='Total Due',
+    yaxis_title='Frequency',
+     xaxis=dict(
+        tickmode='array',
+        tickvals=tickvals,
+        ticktext=ticktext,
+        type='linear'  
+    ),
+    yaxis=dict(
+        type='linear',
+        tickformat=',d'
+    ),
+    showlegend=False
+)
+# Add grids.
+fig.update_xaxes(showgrid=True)
+fig.update_yaxes(showgrid=True)
+# Display it.
+fig.show()
+```
+
+::: {.exercise-block}
+<div class="title">&nbsp;</div>
+Some transactions costed less than one Real. What itens are for sale that cost under one Real? How many transactions are under one Real, how many under 20 cents of a Real?
+::: 
+
+We can also see that there is one transaction with value above 800 reais. Let's take a closer look at this transaction.
+
+
+```{python}
+#| classes: custompython
+# Select only some fields for displaying.
+fields = ['TransactionID','Description','UnitPrice','Quantity','Amount']
+# Filter the dataframe locating only rows where TotalPaid is >= 800, then sort the
+# filtered dataframe by Amount (from larger to smaller) then show the fields we chose.
+supermDF.loc[supermDF['TotalPaid'] >= 800].sort_values('Amount',ascending=False)[fields]
+```
+
+It seems a large purchase, 212 itens in a transaction, but can still be considered normal.
+
+::: {.exercise-block}
+<div class="title">&nbsp;</div>
+We chose `supermDF['TotalPaid'] >= 800` as a filter, knowing from the histogram that there is only one transaction that costed more than 800 reais.
+But what if there was more than one transaction? How do I identify the transaction IDs of purchases above a certain value, and display them separately?
+::: 
+
+Just out of curiosity let's do the same chart for the `TotalPaid` values: we expect to have a similar distribution since people pay the same values that are due or slightly more (for cash transactions).
+
+First let's create the log-scaled data:
+
+
+```{python}
+#| classes: custompython
+epsilon = 0.0001 # Avoid zeros.
+onlyFirstItems['LogTotalPaid'] = np.log10(onlyFirstItems['TotalPaid']+epsilon)
+```
+
+Then the histogram:
+
+```{python}
+#| classes: custompython
+# We will use custom tick values and labels.
+tickvals = np.log10([0.01,0.05,0.10,0.25,0.5,1,2,5,10,20,50,100,200,500,1000,100000])
+ticktext = ['0.01','0.05','0.10','0.25','0.5','1','2','5','10','20',\
+            '50','100','200','500','1000','100000']
+# Create the histogram.
+fig = go.Figure()
+fig.add_trace(go.Histogram(
+    x=onlyFirstItems['LogTotalPaid'],
+    nbinsx=50,
+    hoverinfo='skip' # Very hard to make a working hover info!
+))
+# Update layout.
+fig.update_layout(
+    title='Histogram of total amount paid for each transaction',
+    xaxis_title='Total Due',
+    yaxis_title='Frequency',
+     xaxis=dict(
+        tickmode='array',
+        tickvals=tickvals,
+        ticktext=ticktext,
+        type='linear'  
+    ),
+    yaxis=dict(
+        type='linear',
+        tickformat=',d'
+    ),
+    showlegend=False
+)
+# Add grids.
+fig.update_xaxes(showgrid=True)
+fig.update_yaxes(showgrid=True)
+# Display it.
+fig.show()
+```
+
+This can't be right -- almost all transactions' due values are clumped together below 10 reais reais and the X axis indicates the existence of a payment of around half a million reais (while the highest due amount was around 800 reais). 
+
+Let's print the top ten transactions's payment by value:
 
 ```{python}
 #| classes: custompython
 # Create a list of columns we want to show.
 fields = ['TransactionID','TotalDue','TotalPaid','Change','Status']
 # Print the top 10 largest TotalDue values with the fields we chose.
-onlyFirstItems.nlargest(10,'TotalDue')[fields]
+onlyFirstItems.nlargest(10,'TotalPaid')[fields]
 ```
-
-
 
 We can see that there are several transactions with large total paid values *and* changes -- we don't have an explanation for that, but it is clear that we need to consider the  `TotalPaid` field for our analysis. This is a lesson into not jumping on the analysis before better understanding the data, *and* on how basic EDA can show us some issues with the data.
 
 ::: {.exercise-block}
 <div class="title">&nbsp;</div>
-List basic information on all transactions above R$ 1.000,00.
+List basic information on all due payments above R$ 1.000,00.
 ::: 
 
 ::: {.exercise-block}
@@ -283,79 +401,9 @@ Are these transactions specific to one store or occur in all stores of the super
 Are all those transactions paid for with cash?
 ::: 
 
-Let's recreate the histogram using `TotalPaid` but with more bins and a custom X axis this time. First we need to take the log of the `TotalPaid` field:
 
-```{python}
-#| classes: custompython
-epsilon = 0.0001
-onlyFirstItems['LogTotalPaid'] = np.log10(onlyFirstItems['TotalPaid']+epsilon)
-```
 
-Now we can see how's the distribution of `TotalPaid` in a log scale:
-
-```{python}
-#| classes: custompython
-# We will use custom tick values and labels.
-tickvals = np.log10([0.05,0.10,0.25,0.5,1,2,5,10,20,50,100,200,500,1000])
-ticktext = ['0.05','0.10','0.25','0.5','1','2','5','10','20','50','100','200','500','1000']
-# Create the histogram.
-fig = go.Figure()
-fig.add_trace(go.Histogram(
-    x=onlyFirstItems['LogTotalPaid'],
-    nbinsx=50,
-    hoverinfo='skip' # Very hard to make a working hover info!
-))
-# Update layout.
-fig.update_layout(
-    title='Histogram of total amount paid in each transaction',
-    xaxis_title='Total Paid',
-    yaxis_title='Frequency',
-     xaxis=dict(
-        tickmode='array',
-        tickvals=tickvals,
-        ticktext=ticktext,
-        type='linear'  
-    ),
-    yaxis=dict(
-        type='linear',
-        tickformat=',d'
-    ),
-    showlegend=False
-)
-# Add grids.
-fig.update_xaxes(showgrid=True)
-fig.update_yaxes(showgrid=True)
-# Display it.
-fig.show()
-```
-
-This is better, although we can see several transactions under one Real. 
-
-::: {.exercise-block}
-<div class="title">&nbsp;</div>
-What itens are for sale that cost under one Real? How many transactions are under one Real, how many under 20 cents of a Real?
-::: 
-
-We can also see that there is one transaction with value above 800 reais. Let's take a closer look at this transaction.
-
-```{python}
-#| classes: custompython
-# Select only some fields for displaying.
-fields = ['TransactionID','Description','UnitPrice','Quantity','Amount']
-# Filter the dataframe locating only rows where TotalPaid is >= 800, then sort the
-# filtered dataframe by Amount (from larger to smaller) then show the fields we chose.
-supermDF.loc[supermDF['TotalPaid'] >= 800].sort_values('Amount',ascending=False)[fields]
-```
-
-It seems a large purchase, 212 itens in a transaction, but can still be considered normal.
-
-::: {.exercise-block}
-<div class="title">&nbsp;</div>
-We chose `supermDF['TotalPaid'] >= 800` as a filter, knowing from the histogram that there is only one transaction that costed more than 800 reais.
-But what if there was more than one transaction? How do I identify the transaction IDs of purchases above a certain value, and display them separately?
-::: 
-
-## Are there patterns on the amounts paid by the costumers?
+## Are there patterns on the number of items in the carts?
 
 How many items our costumers buy in each transaction? Are there patterns or distributions on this amount? Let's explore!
 
@@ -388,7 +436,7 @@ fig.update_layout(
     yaxis_title='Frequency',
     yaxis=dict(
         type='log',
-        tickformat='g'
+        tickformat='~s'
     ),
     showlegend=False
 )
@@ -396,7 +444,6 @@ fig.update_xaxes(showgrid=True)
 fig.update_yaxes(showgrid=True)
 # Display it.
 fig.show()
-
 ```  
 
 As expected, most of the transactions contain a few items.
@@ -414,11 +461,11 @@ We expect a sort of correlation between the number of items in a transaction and
 fig = px.scatter(
     onlyFirstItems,
     x='itemsInTransaction',
-    y='TotalPaid',
-    title='Scatter Plot of Number of Items in Cart versus Total Paid',
+    y='TotalDue',
+    title='Scatter Plot of Number of Items in Cart versus Total Due',
     labels={
         'itemsInTransaction': 'Number of Items in Cart',
-        'TotalPaid': 'Total Paid'
+        'TotalPaid': 'Total Due'
     }
 )
 # Show the plot
@@ -431,7 +478,7 @@ Let’s enhance the plot with a linear regression line. We need first to fit a m
 #| classes: custompython
 # Fit linear regression model.
 X = np.array(onlyFirstItems['itemsInTransaction']).reshape(-1, 1)
-y = np.array(onlyFirstItems['TotalPaid'])
+y = np.array(onlyFirstItems['TotalDue'])
 model = LinearRegression()
 model.fit(X, y)
 y_pred = model.predict(X)
@@ -440,7 +487,7 @@ fig = go.Figure()
 # Add scatter plot using Plotly Graph Objects.
 fig.add_trace(go.Scatter(
     x=onlyFirstItems['itemsInTransaction'],
-    y=onlyFirstItems['TotalPaid'],
+    y=onlyFirstItems['TotalDue'],
     mode='markers',
     name='Data Points',
     showlegend=False,
@@ -457,9 +504,9 @@ fig.add_trace(go.Scatter(
 ))
 # Update the figure.
 fig.update_layout(
-    title='Number of Items in Basket x Total Paid',
+    title='Number of Items in Basket x Total Due',
     xaxis_title='Number of Items',
-    yaxis_title='Total Paid',
+    yaxis_title='Total Due',
     showlegend=False
 )
 # Show the plot.
@@ -482,12 +529,12 @@ Are those transactions paid by cash? Can we see any pattern or outlier on the pa
 fig = px.scatter(
     onlyFirstItems,
     x="itemsInTransaction",
-    y="TotalPaid",
+    y="TotalDue",
     color="PaymentMethod",
-    title='Scatter Plot of Number of Items in Cart versus Total Paid',
+    title='Scatter Plot of Number of Items in Cart versus Total Due',
     labels={
         'itemsInTransaction': 'Number of Items in Cart',
-        'TotalPaid': 'Total Paid'
+        'TotalDue': 'Total Due'
     }
 )
 # Show the plot.
@@ -534,12 +581,12 @@ custom_color_palette = {
 fig = px.scatter(
     onlyFirstItems,
     x="itemsInTransaction",
-    y="TotalPaid",
+    y="TotalDue",
     color="SimplifiedPaymentMethod",
-    title='Scatter Plot of Number of Items in Cart versus Total Paid',
+    title='Scatter Plot of Number of Items in Cart versus Total Due',
     labels={
         'itemsInTransaction': 'Number of Items in Cart',
-        'TotalPaid': 'Total Paid'
+        'TotalDue': 'Total Due'
     },
     color_discrete_map=custom_color_palette
 )

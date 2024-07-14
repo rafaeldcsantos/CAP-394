@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-07-04">
+<meta name="dcterms.date" content="2024-07-06">
 
 <title>CAP-394</title>
 <style>
@@ -21,64 +21,10 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -125,25 +71,6 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-<script type="text/javascript">
-window.PlotlyConfig = {MathJaxConfig: 'local'};
-if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
-if (typeof require !== 'undefined') {
-require.undef("plotly");
-requirejs.config({
-    paths: {
-        'plotly': ['https://cdn.plot.ly/plotly-2.12.1.min']
-    }
-});
-require(['plotly'], function(Plotly) {
-    window._Plotly = Plotly;
-});
-}
-</script>
-
 
 
 <link rel="stylesheet" href="Resources/CSS/custom.css">
@@ -275,6 +202,12 @@ require(['plotly'], function(Plotly) {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./51-Projects-Amendments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parliamentary Amendments</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./53-Projects-Supermarket.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Supermarket Basket Analysis</span></a>
   </div>
@@ -308,10 +241,10 @@ require(['plotly'], function(Plotly) {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
-  <li><a href="#code-for-examples-used-in-this-lecture" id="toc-code-for-examples-used-in-this-lecture" class="nav-link" data-scroll-target="#code-for-examples-used-in-this-lecture">Code for examples used in this lecture</a>
+  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">Data</a>
   <ul class="collapse">
-  <li><a href="#parliamentary-amendment" id="toc-parliamentary-amendment" class="nav-link" data-scroll-target="#parliamentary-amendment">Parliamentary Amendment</a></li>
+  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
+  <li><a href="#code-for-examples-used-in-this-lecture" id="toc-code-for-examples-used-in-this-lecture" class="nav-link" data-scroll-target="#code-for-examples-used-in-this-lecture">Code for examples used in this lecture</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -321,7 +254,6 @@ require(['plotly'], function(Plotly) {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-Lectures-Intro.html">Lectures</a></li><li class="breadcrumb-item"><a href="./03-Lectures-Data.html">Data</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Data</h1>
 </div>
 
 
@@ -332,7 +264,7 @@ require(['plotly'], function(Plotly) {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 4, 2024</p>
+      <p class="date">July 6, 2024</p>
     </div>
   </div>
   
@@ -344,6 +276,8 @@ require(['plotly'], function(Plotly) {
 </header>
 
 
+<section id="data" class="level1">
+<h1>Data</h1>
 <p>This is the material (slides and notes) of the third lecture on the course.</p>
 <section id="slides" class="level2">
 <h2 class="anchored" data-anchor-id="slides">Slides</h2>
@@ -582,664 +516,7 @@ require(['plotly'], function(Plotly) {
 </section>
 <section id="code-for-examples-used-in-this-lecture" class="level2">
 <h2 class="anchored" data-anchor-id="code-for-examples-used-in-this-lecture">Code for examples used in this lecture</h2>
-<section id="parliamentary-amendment" class="level3">
-<h3 class="anchored" data-anchor-id="parliamentary-amendment">Parliamentary Amendment</h3>
-<p>A <em>parliamentary amendment</em> is a proposal made by a member of parliament or a legislator to specify provisions in a bill or legislation that is being considered by the parliament. This term is commonly used in the legislative processes of various countries, including Brazil, often to earmark funds for specific projects.</p>
-<p>We can download a list of parliamentary amendments as a CSV file from the Federal Government Transparency Open Data Portal (<a href="https://portaldatransparencia.gov.br/download-de-dados"><em>Dados Abertos | Portal da Transparência do Governo Federal</em></a>).</p>
-<p>The first 15 lines of that file are shown below:</p>
-<pre class="plaintext"><code>"Código da Emenda";"Ano da Emenda";"Tipo de Emenda";"Código do Autor da Emenda";"Nome do Autor da Emenda";"Número da emenda";"Localidade do gasto";"Código Função";"Nome Função";"Código Subfunção";"Nome Subfunção";"Valor Empenhado";"Valor Liquidado";"Valor Pago";"Valor Restos A Pagar Inscritos";"Valor Restos A Pagar Cancelados";"Valor Restos A Pagar Pagos"
-"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"POMBAL - PB";"15";"Urbanismo";"451";"infra-estrutura urbana";"150000,00";"0,00";"0,00";"0,00";"146950,00";"3050,00"
-"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"CAIÇARA - RS";"10";"Saúde";"302";"Assistência hospitalar e ambulatorial";"250000,00";"0,00";"0,00";"0,00";"0,00";"250000,00"
-"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"PIAUÍ (UF)";"10";"Saúde";"572";"Desenvolvimento tecnológico e engenharia";"896692,97";"0,00";"0,00";"0,00";"0,00";"896692,97"
-"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"SANTANA DE PARNAÍBA - SP";"15";"Urbanismo";"451";"infra-estrutura urbana";"500000,00";"0,00";"0,00";"0,00";"493100,00";"6900,00"
-"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"PALMITINHO - RS";"10";"Saúde";"302";"Assistência hospitalar e ambulatorial";"250000,00";"0,00";"0,00";"0,00";"0,00";"250000,00"
-"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"JANDIRA - SP";"10";"Saúde";"302";"Assistência hospitalar e ambulatorial";"1199996,15";"0,00";"0,00";"0,00";"499996,15";"700000,00"
-"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"FUNILÂNDIA - MG";"20";"Agricultura";"608";"Promoção da produção agropecuária";"398737,97";"0,00";"0,00";"0,00";"10000,00";"388737,97"
-"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"VARGEM GRANDE PAULISTA - SP";"15";"Urbanismo";"451";"infra-estrutura urbana";"250000,00";"0,00";"0,00";"0,00";"0,00";"250000,00"
-"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"RESENDE - RJ";"27";"Desporto e lazer";"812";"Desporto comunitário";"692500,00";"0,00";"0,00";"0,00";"285187,50";"407312,50"
-"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"BURITIRAMA - BA";"27";"Desporto e lazer";"812";"Desporto comunitário";"400000,00";"0,00";"0,00";"0,00";"0,00";"400000,00"
-"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"JARDIM - MS";"10";"Saúde";"302";"Assistência hospitalar e ambulatorial";"3380000,00";"0,00";"0,00";"0,00";"2600000,00";"780000,00"
-"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"LUZ - MG";"10";"Saúde";"302";"Assistência hospitalar e ambulatorial";"250000,00";"0,00";"0,00";"0,00";"0,00";"250000,00"
-"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"MATOZINHOS - MG";"10";"Saúde";"301";"Atenção básica";"199890,00";"0,00";"0,00";"0,00";"0,00";"199890,00"
-"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"MOCOCA - SP";"10";"Saúde";"301";"Atenção básica";"498940,80";"0,00";"0,00";"0,00";"0,00";"498940,80"</code></pre>
-<p>We can notice that the file is a <em>semicolon</em>-separated file. Its encoding is ISO-8859. To make things even more complex, the monetary values are in Brazilian format, with comma as the separator between integer and decimal parts.</p>
-<p>To read it into a dataframe in Python <span class="citation" data-cites="python2001">(<a href="#ref-python2001" role="doc-biblioref">Rossum and Jr. 2001</a>)</span> and Pandas <span class="citation" data-cites="pandasmckinney2012">(<a href="#ref-pandasmckinney2012" role="doc-biblioref">McKinney 2012</a>)</span> we first need to import the libraries:</p>
-<div id="c8dc2882" class="cell custompython" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now we can read the file:</p>
-<div id="2459bcad" class="cell custompython" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="st">'Resources/Data/Emendas/Emendas.csv'</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the CSV file using the specified separator and encoding.</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="bu">file</span>, sep<span class="op">=</span><span class="st">';'</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the Valor field to numeric, taking care of the decimals'</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># separator:</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Valor'</span>] <span class="op">=</span> df[<span class="st">'Valor Empenhado'</span>].<span class="bu">str</span>.replace(<span class="st">'.'</span>, <span class="st">''</span>, regex<span class="op">=</span><span class="va">False</span>).<span class="op">\</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                                    <span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">'.'</span>).astype(<span class="bu">float</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># We don't really need some of the fields (redundant ones):</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop([<span class="st">'Código da Emenda'</span>, <span class="st">'Nome do Autor da Emenda'</span>, <span class="st">'Número da emenda'</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>              <span class="st">'Código Função'</span>,<span class="st">'Código Subfunção'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># We don't really need some of the payment fields (only 'Valor'):</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop([<span class="st">'Valor Empenhado'</span>, <span class="st">'Valor Liquidado'</span>, <span class="st">'Valor Pago'</span>, </span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>              <span class="st">'Valor Restos A Pagar Inscritos'</span>,<span class="st">'Valor Restos A Pagar Cancelados'</span>,</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>              <span class="st">'Valor Restos A Pagar Pagos'</span>], axis<span class="op">=</span><span class="dv">1</span>)                                    </span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Display part of the data.</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<div>
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Ano da Emenda</th>
-<th data-quarto-table-cell-role="th">Tipo de Emenda</th>
-<th data-quarto-table-cell-role="th">Código do Autor da Emenda</th>
-<th data-quarto-table-cell-role="th">Localidade do gasto</th>
-<th data-quarto-table-cell-role="th">Nome Função</th>
-<th data-quarto-table-cell-role="th">Nome Subfunção</th>
-<th data-quarto-table-cell-role="th">Valor</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2014</td>
-<td>Emenda Individual - Transferências</td>
-<td>S/I</td>
-<td>PIAUÍ (UF)</td>
-<td>Saúde</td>
-<td>Desenvolvimento tecnológico e engenharia</td>
-<td>896692.97</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2014</td>
-<td>Emenda Individual - Transferências</td>
-<td>S/I</td>
-<td>CAIÇARA - RS</td>
-<td>Saúde</td>
-<td>Assistência hospitalar e ambulatorial</td>
-<td>250000.00</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2014</td>
-<td>Emenda Individual - Transferências</td>
-<td>S/I</td>
-<td>CRUZEIRO DO SUL - AC</td>
-<td>Defesa nacional</td>
-<td>Assistência comunitária</td>
-<td>1250000.00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2014</td>
-<td>Emenda Individual - Transferências</td>
-<td>S/I</td>
-<td>MOCOCA - SP</td>
-<td>Saúde</td>
-<td>Atenção básica</td>
-<td>498940.80</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2014</td>
-<td>Emenda Individual - Transferências</td>
-<td>S/I</td>
-<td>FUNILÂNDIA - MG</td>
-<td>Agricultura</td>
-<td>Promoção da produção agropecuária</td>
-<td>398737.97</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">64584</td>
-<td>2024</td>
-<td>Emenda Individual - Transferências</td>
-<td>4484</td>
-<td>Nacional</td>
-<td>Defesa nacional</td>
-<td>Administração geral</td>
-<td>670490.00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">64585</td>
-<td>2024</td>
-<td>Emenda Individual - Transferências</td>
-<td>4484</td>
-<td>Nacional</td>
-<td>Defesa nacional</td>
-<td>Defesa terrestre</td>
-<td>599982.26</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">64586</td>
-<td>2024</td>
-<td>Emenda Individual - Transferências</td>
-<td>4484</td>
-<td>Nacional</td>
-<td>Defesa nacional</td>
-<td>Defesa terrestre</td>
-<td>420000.00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">64587</td>
-<td>2024</td>
-<td>Emenda Individual - Transferências</td>
-<td>4484</td>
-<td>RIO GRANDE DO SUL (UF)</td>
-<td>Saúde</td>
-<td>Atenção básica</td>
-<td>350000.00</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">64588</td>
-<td>2024</td>
-<td>Emenda Individual - Transferências</td>
-<td>4484</td>
-<td>RIO GRANDE DO SUL (UF)</td>
-<td>Assistência social</td>
-<td>Assistência comunitária</td>
-<td>3750000.00</td>
-</tr>
-</tbody>
-</table>
-
-<p>64589 rows × 7 columns</p>
-</div>
-</div>
-</div>
-</div>
-<p>How many unique values we have for <code>Localidade do Gasto</code>?</p>
-<div id="85a5a6bc" class="cell custompython" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>countLoG <span class="op">=</span> df[<span class="st">"Localidade do gasto"</span>].value_counts()</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(countLoG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Localidade do gasto
-SÃO PAULO (UF)         5216
-Nacional               4604
-MINAS GERAIS (UF)      4413
-RIO DE JANEIRO (UF)    2932
-BAHIA (UF)             2924
-                       ... 
-TERRA ROXA - PR           1
-CALIFÓRNIA - PR           1
-CAMPO LARGO - PR          1
-JATAIZINHO - PR           1
-ANGUERA - BA              1
-Name: count, Length: 3661, dtype: int64</code></pre>
-</div>
-</div>
-<p>And for <code>Nome Função</code>?</p>
-<div id="11ddfb1c" class="cell custompython" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>countNF <span class="op">=</span> df[<span class="st">"Nome Função"</span>].value_counts()</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(countNF)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Nome Função
-Saúde                    27527
-Urbanismo                 5844
-Educação                  5837
-Agricultura               3171
-Desporto e lazer          3160
-Encargos especiais        2963
-Assistência social        2841
-Defesa nacional           2413
-Direitos da cidadania     2205
-Segurança pública         1817
-Cultura                   1771
-Comércio e serviços       1668
-Ciência e Tecnologia       641
-Gestão ambiental           616
-Organização agrária        586
-Transporte                 377
-Múltiplo                   333
-Trabalho                   306
-Comunicações               119
-Indústria                  107
-Saneamento                  82
-Administração               76
-Relações exteriores         59
-Habitação                   42
-Previdência social          20
-Energia                      6
-Essencial à justiça          2
-Name: count, dtype: int64</code></pre>
-</div>
-</div>
-<p>And for <code>Código do Autor da Emenda</code>?</p>
-<div id="9daba51e" class="cell custompython" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>countAdE <span class="op">=</span> df[<span class="st">"Código do Autor da Emenda"</span>].value_counts()</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(countAdE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Código do Autor da Emenda
-S/I     2481
-8100     331
-2776     190
-1775     186
-2616     182
-        ... 
-2748       1
-1640       1
-2854       1
-2503       1
-4371       1
-Name: count, Length: 1551, dtype: int64</code></pre>
-</div>
-</div>
-<p>Let’s drop some of the rows with values that won’t be useful in this analysis, namely, all rows where the amendment proponent is non-identified:</p>
-<div id="14cf8be3" class="cell custompython" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dfId <span class="op">=</span> df[df[<span class="st">"Código do Autor da Emenda"</span>] <span class="op">!=</span> <span class="st">"S/I"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Let’s also split the dataframe accordingly to the location of the amendments’ application, considering only the countrywide ones and the state ones:</p>
-<div id="252ad3cb" class="cell custompython" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dfNacional <span class="op">=</span> dfId[dfId[<span class="st">"Localidade do gasto"</span>] <span class="op">==</span> <span class="st">"Nacional"</span>]</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dfStates <span class="op">=</span> dfId[dfId[<span class="st">"Localidade do gasto"</span>].<span class="bu">str</span>.contains(<span class="vs">r"\(\w</span><span class="sc">{2}</span><span class="vs">\)"</span>, regex<span class="op">=</span><span class="va">True</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Some of those operations were already examples of slicing or dicing a dataframe – we selected bits of the data based on the values of its fields. Let’s see some basic examples of pivoting. First, let’s see how is the spending in national defense year by year.</p>
-<div id="a39b9f92" class="cell custompython" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dfDefesaNacional <span class="op">=</span> dfNacional[dfNacional[<span class="st">"Nome Função"</span>] <span class="op">==</span> <span class="st">"Defesa nacional"</span>]</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>dfValueByYear <span class="op">=</span> dfDefesaNacional.groupby(<span class="st">"Ano da Emenda"</span>)[<span class="st">"Valor"</span>].<span class="bu">sum</span>().reset_index()</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a histogram</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(dfValueByYear, x<span class="op">=</span><span class="st">'Ano da Emenda'</span>, y<span class="op">=</span><span class="st">'Valor'</span>, </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>             title<span class="op">=</span><span class="st">'Total Values per Year in National Defense'</span>,</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>             labels<span class="op">=</span>{<span class="st">'Ano da Emenda'</span>: <span class="st">'Year'</span>, <span class="st">'Valor'</span>: <span class="st">'Total Value'</span>})</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>                            <div id="0eab069b-6260-4447-ab42-a7b0968e6cbd" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("0eab069b-6260-4447-ab42-a7b0968e6cbd")) {                    Plotly.newPlot(                        "0eab069b-6260-4447-ab42-a7b0968e6cbd",                        [{"alignmentgroup":"True","hovertemplate":"Year=%{x}<br>Total Value=%{y}<extra></extra>","legendgroup":"","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"","offsetgroup":"","orientation":"v","showlegend":false,"textposition":"auto","x":[2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"xaxis":"x","y":[6753055.28,91561547.36,145788744.95999998,45935144.89,33398088.39,272384140.29,408111287.54,162507468.34,141835295.03,63897344.54],"yaxis":"y","type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Year"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Total Value"}},"legend":{"tracegroupgap":0},"title":{"text":"Total Values per Year in National Defense"},"barmode":"relative"},                        {"responsive": true}                    ).then(function(){
-                            
-var gd = document.getElementById('0eab069b-6260-4447-ab42-a7b0968e6cbd');
-var x = new MutationObserver(function (mutations, observer) {{
-        var display = window.getComputedStyle(gd).display;
-        if (!display || display === 'none') {{
-            console.log([gd, 'removed!']);
-            Plotly.purge(gd);
-            observer.disconnect();
-        }}
-}});
-
-// Listen for the removal of the full notebook cells
-var notebookContainer = gd.closest('#notebook-container');
-if (notebookContainer) {{
-    x.observe(notebookContainer, {childList: true});
-}}
-
-// Listen for the clearing of the current output cell
-var outputEl = gd.closest('.output');
-if (outputEl) {{
-    x.observe(outputEl, {childList: true});
-}}
-
-                        })                };                });            </script>        </div>
-</div>
-</div>
-<p>Which are the possible values for <code>Nome Subfunção</code> when <code>Nome Função</code> is <code>Defesa nacional</code>?</p>
-<div id="9d99401f" class="cell custompython" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>subfuncCounts <span class="op">=</span> dfDefesaNacional[<span class="st">"Nome Subfunção"</span>].value_counts()</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Occurrences of each unique 'Nome Subfunção':"</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(subfuncCounts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Occurrences of each unique 'Nome Subfunção':
-Nome Subfunção
-Defesa naval                                208
-Administração geral                         205
-Atenção básica                              158
-Defesa terrestre                            129
-Desenvolvimento científico                   82
-Normatização e fiscalização                  80
-Defesa aérea                                 31
-Desporto comunitário                         23
-Ensino superior                              16
-Formação de recursos humanos                 12
-Desenvolvimento tecnológico e engenharia     10
-Assistência comunitária                       7
-Informação e inteligência                     7
-Ensino profissional                           7
-Assistência à criança e ao adolescente        6
-Educação básica                               6
-Tecnologia da informação                      4
-Educação de jovens e adultos                  4
-Empregabilidade                               4
-Desporto de rendimento                        2
-Habitação urbana                              2
-Múltiplo                                      2
-Assistência hospitalar e ambulatorial         1
-Name: count, dtype: int64</code></pre>
-</div>
-</div>
-<p>Let’s pivot the data and see how each <code>Nome Subfunção</code> receives in amendments per year:</p>
-<div id="7ba3a0ae" class="cell custompython" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a pivot table to see spending per year on different "Nome Subfunção"</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>pivot_table <span class="op">=</span> dfDefesaNacional.pivot_table(</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span><span class="st">'Valor'</span>,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="st">'Ano da Emenda'</span>,</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="st">'Nome Subfunção'</span>,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    aggfunc<span class="op">=</span><span class="st">'sum'</span>,</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    fill_value<span class="op">=</span><span class="dv">0</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>pivot_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
-<div>
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th">Nome Subfunção</th>
-<th data-quarto-table-cell-role="th">Administração geral</th>
-<th data-quarto-table-cell-role="th">Assistência comunitária</th>
-<th data-quarto-table-cell-role="th">Assistência hospitalar e ambulatorial</th>
-<th data-quarto-table-cell-role="th">Assistência à criança e ao adolescente</th>
-<th data-quarto-table-cell-role="th">Atenção básica</th>
-<th data-quarto-table-cell-role="th">Defesa aérea</th>
-<th data-quarto-table-cell-role="th">Defesa naval</th>
-<th data-quarto-table-cell-role="th">Defesa terrestre</th>
-<th data-quarto-table-cell-role="th">Desenvolvimento científico</th>
-<th data-quarto-table-cell-role="th">Desenvolvimento tecnológico e engenharia</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">Educação de jovens e adultos</th>
-<th data-quarto-table-cell-role="th">Empregabilidade</th>
-<th data-quarto-table-cell-role="th">Ensino profissional</th>
-<th data-quarto-table-cell-role="th">Ensino superior</th>
-<th data-quarto-table-cell-role="th">Formação de recursos humanos</th>
-<th data-quarto-table-cell-role="th">Habitação urbana</th>
-<th data-quarto-table-cell-role="th">Informação e inteligência</th>
-<th data-quarto-table-cell-role="th">Múltiplo</th>
-<th data-quarto-table-cell-role="th">Normatização e fiscalização</th>
-<th data-quarto-table-cell-role="th">Tecnologia da informação</th>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">Ano da Emenda</th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2015</td>
-<td>180000.00</td>
-<td>0.000000e+00</td>
-<td>658600.0</td>
-<td>0.00</td>
-<td>3409092.95</td>
-<td>0.000000e+00</td>
-<td>1222114.04</td>
-<td>0.00</td>
-<td>872090.29</td>
-<td>0.00</td>
-<td>...</td>
-<td>0.00</td>
-<td>0.00</td>
-<td>0.00</td>
-<td>411158.00</td>
-<td>0.00</td>
-<td>0.0</td>
-<td>0.00</td>
-<td>0.00</td>
-<td>0.00</td>
-<td>0.00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">2016</td>
-<td>5448931.65</td>
-<td>0.000000e+00</td>
-<td>0.0</td>
-<td>0.00</td>
-<td>7376764.13</td>
-<td>3.457448e+07</td>
-<td>19182845.86</td>
-<td>9842748.65</td>
-<td>2539687.59</td>
-<td>4414630.00</td>
-<td>...</td>
-<td>796904.76</td>
-<td>0.00</td>
-<td>496681.39</td>
-<td>1188196.57</td>
-<td>0.00</td>
-<td>0.0</td>
-<td>44146.00</td>
-<td>0.00</td>
-<td>532505.52</td>
-<td>5123020.24</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2017</td>
-<td>899999.95</td>
-<td>0.000000e+00</td>
-<td>0.0</td>
-<td>372344.17</td>
-<td>6252646.48</td>
-<td>1.311724e+08</td>
-<td>1649996.32</td>
-<td>418705.00</td>
-<td>1092910.36</td>
-<td>0.00</td>
-<td>...</td>
-<td>499937.87</td>
-<td>0.00</td>
-<td>0.00</td>
-<td>2000940.89</td>
-<td>99992.85</td>
-<td>0.0</td>
-<td>0.00</td>
-<td>0.00</td>
-<td>719929.80</td>
-<td>608955.00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">2018</td>
-<td>3467817.82</td>
-<td>0.000000e+00</td>
-<td>0.0</td>
-<td>728545.94</td>
-<td>8477091.45</td>
-<td>1.328580e+07</td>
-<td>10179654.42</td>
-<td>150121.03</td>
-<td>2467444.96</td>
-<td>261002.30</td>
-<td>...</td>
-<td>797331.60</td>
-<td>0.00</td>
-<td>0.00</td>
-<td>1642177.53</td>
-<td>0.00</td>
-<td>0.0</td>
-<td>0.00</td>
-<td>0.00</td>
-<td>4378212.86</td>
-<td>0.00</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2019</td>
-<td>12946068.77</td>
-<td>0.000000e+00</td>
-<td>0.0</td>
-<td>200000.00</td>
-<td>4278027.18</td>
-<td>7.495838e+05</td>
-<td>9115634.68</td>
-<td>1069779.21</td>
-<td>3061103.47</td>
-<td>250564.25</td>
-<td>...</td>
-<td>310387.00</td>
-<td>0.00</td>
-<td>0.00</td>
-<td>849922.83</td>
-<td>0.00</td>
-<td>0.0</td>
-<td>107017.22</td>
-<td>0.00</td>
-<td>459999.98</td>
-<td>0.00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">2020</td>
-<td>12179455.87</td>
-<td>1.013880e+08</td>
-<td>0.0</td>
-<td>0.00</td>
-<td>7732898.18</td>
-<td>2.512486e+07</td>
-<td>48580969.78</td>
-<td>67566352.68</td>
-<td>2029995.89</td>
-<td>350000.00</td>
-<td>...</td>
-<td>0.00</td>
-<td>0.00</td>
-<td>0.00</td>
-<td>499754.84</td>
-<td>1099906.99</td>
-<td>0.0</td>
-<td>199994.94</td>
-<td>0.00</td>
-<td>1649943.31</td>
-<td>2338692.16</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2021</td>
-<td>8091602.51</td>
-<td>3.579937e+08</td>
-<td>0.0</td>
-<td>0.00</td>
-<td>5676381.92</td>
-<td>1.723496e+06</td>
-<td>17352748.08</td>
-<td>5104728.60</td>
-<td>1445999.60</td>
-<td>1500000.00</td>
-<td>...</td>
-<td>0.00</td>
-<td>47000.00</td>
-<td>997000.00</td>
-<td>2185588.17</td>
-<td>0.00</td>
-<td>200000.0</td>
-<td>0.00</td>
-<td>0.00</td>
-<td>2709255.03</td>
-<td>0.00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">2022</td>
-<td>3826570.33</td>
-<td>1.146521e+08</td>
-<td>0.0</td>
-<td>0.00</td>
-<td>1540836.98</td>
-<td>0.000000e+00</td>
-<td>15556189.45</td>
-<td>12599972.49</td>
-<td>3866116.59</td>
-<td>2048873.00</td>
-<td>...</td>
-<td>0.00</td>
-<td>149860.92</td>
-<td>1299653.37</td>
-<td>1999916.86</td>
-<td>145998.72</td>
-<td>0.0</td>
-<td>1217677.13</td>
-<td>0.00</td>
-<td>2289901.64</td>
-<td>0.00</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2023</td>
-<td>13677887.10</td>
-<td>2.030000e+07</td>
-<td>0.0</td>
-<td>0.00</td>
-<td>10157086.31</td>
-<td>1.667826e+07</td>
-<td>33486959.03</td>
-<td>35964045.89</td>
-<td>3165758.02</td>
-<td>0.00</td>
-<td>...</td>
-<td>0.00</td>
-<td>81458.20</td>
-<td>906682.98</td>
-<td>0.00</td>
-<td>2937890.68</td>
-<td>0.0</td>
-<td>100000.00</td>
-<td>471797.54</td>
-<td>2206073.85</td>
-<td>0.00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">2024</td>
-<td>6122575.01</td>
-<td>0.000000e+00</td>
-<td>0.0</td>
-<td>0.00</td>
-<td>874499.68</td>
-<td>0.000000e+00</td>
-<td>35933352.70</td>
-<td>15121288.42</td>
-<td>1809951.33</td>
-<td>0.00</td>
-<td>...</td>
-<td>0.00</td>
-<td>507582.56</td>
-<td>0.00</td>
-<td>0.00</td>
-<td>123049.99</td>
-<td>24951.0</td>
-<td>0.00</td>
-<td>0.00</td>
-<td>3288670.10</td>
-<td>0.00</td>
-</tr>
-</tbody>
-</table>
-
-<p>10 rows × 23 columns</p>
-</div>
-</div>
-</div>
-</div>
+<p>See the <a href="./51-Projects-Amendments.html">Parliamentary Amendments</a> project!</p>
 
 
 <div class="hidden" aria-hidden="true">
@@ -1277,18 +554,10 @@ Name: count, dtype: int64</code></pre>
 <span class="glightbox-desc lightbox-desc-32">Here is another example of pivoting: each project in the “CAPES-Projetos” dataset is spread out into several lines. I could pivot those to count how many members of each type each project contains. We’ll see in the examples!<br></span>
 <span class="glightbox-desc lightbox-desc-33">Drilling up is basically aggregation and counting. Drilling down is the opposite. We can only drill down if there is data to be used to show more details.<br>For example, I cannot drill down the table in this slide because I don’t have how to add more information to get finer details. But if I had the full date instead of they year I could break it into day, month, year and do something conceptually similar to a drill down.<br></span>
 </div>
-
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-pandasmckinney2012" class="csl-entry" role="listitem">
-McKinney, Wes. 2012. <em>Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython</em>. 1st ed. Sebastopol, CA: O’Reilly Media.
-</div>
-<div id="ref-python2001" class="csl-entry" role="listitem">
-Rossum, Guido van, and Fred L. Drake Jr. 2001. <em>Python: The Complete Reference</em>. 2nd ed. New York: McGraw-Hill.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1712,7 +981,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false,"closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

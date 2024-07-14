@@ -27,6 +27,7 @@ website:
       - section: "Projects"
         contents:
         - 50-Projects-Intro.qmd
+        - 51-Projects-Amendments.qmd
         - 53-Projects-Supermarket.qmd
       - section: "Ideas Bank"
         contents:

@@ -1,0 +1,577 @@
+---
+lightbox: true
+format: html
+---
+
+# Parliamentary Amendments {#parliamentaryamendments}
+
+A *parliamentary amendment* is a proposal made by a member of parliament or a legislator to specify provisions in a bill or legislation that is being considered by the parliament. This term is commonly used in the legislative processes of various countries, including Brazil, often to earmark funds for specific projects.
+
+This chapter presents a basic (and incomplete!) example of a data science approach to analysis of a very simple parliamentary amendment database. The data was obtained from a government itself.
+
+The examples in this chapter show how even a simple database can be explored and used to give ideas for more interesting questions that may require more data.
+
+# The Data 
+
+We can download a list of parliamentary amendments as a CSV file from the Federal Government Transparency Open Data Portal ([_Dados Abertos | Portal da Transparência do Governo Federal_](https://portaldatransparencia.gov.br/download-de-dados)). A data dictionary, in Portuguese, can be found at [_Dicionário de Dados - Emendas Parlamentares_](https://portaldatransparencia.gov.br/pagina-interna/603482-dicionario-de-dados-emendas-parlamentares). An online, searchable version of the data can be explored at [_Consulta de Emendas Parlamentares | Portal da Transparência do Governo Federal_](https://portaldatransparencia.gov.br/emendas/consulta?ordenarPor=autor&direcao=asc).
+
+The first lines of that file are shown below:
+
+``` {.plaintext}
+"Código da Emenda";"Ano da Emenda";"Tipo de Emenda";"Código do Autor da Emenda";"Nome do Autor da Emenda";"Número da emenda";"Localidade do gasto";"Código Função";"Nome Função";"Código Subfunção";"Nome Subfunção";"Valor Empenhado";"Valor Liquidado";"Valor Pago";"Valor Restos A Pagar Inscritos";"Valor Restos A Pagar Cancelados";"Valor Restos A Pagar Pagos"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"POMBAL - PB";"15";"Urbanismo";"451";"infra-estrutura urbana";"150000,00";"0,00";"0,00";"0,00";"146950,00";"3050,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"CAIÇARA - RS";"10";"Saúde";"302";"Assistência hospitalar e ambulatorial";"250000,00";"0,00";"0,00";"0,00";"0,00";"250000,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"PIAUÍ (UF)";"10";"Saúde";"572";"Desenvolvimento tecnológico e engenharia";"896692,97";"0,00";"0,00";"0,00";"0,00";"896692,97"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"SANTANA DE PARNAÍBA - SP";"15";"Urbanismo";"451";"infra-estrutura urbana";"500000,00";"0,00";"0,00";"0,00";"493100,00";"6900,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"PALMITINHO - RS";"10";"Saúde";"302";"Assistência hospitalar e ambulatorial";"250000,00";"0,00";"0,00";"0,00";"0,00";"250000,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"JANDIRA - SP";"10";"Saúde";"302";"Assistência hospitalar e ambulatorial";"1199996,15";"0,00";"0,00";"0,00";"499996,15";"700000,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"FUNILÂNDIA - MG";"20";"Agricultura";"608";"Promoção da produção agropecuária";"398737,97";"0,00";"0,00";"0,00";"10000,00";"388737,97"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"VARGEM GRANDE PAULISTA - SP";"15";"Urbanismo";"451";"infra-estrutura urbana";"250000,00";"0,00";"0,00";"0,00";"0,00";"250000,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"RESENDE - RJ";"27";"Desporto e lazer";"812";"Desporto comunitário";"692500,00";"0,00";"0,00";"0,00";"285187,50";"407312,50"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"BURITIRAMA - BA";"27";"Desporto e lazer";"812";"Desporto comunitário";"400000,00";"0,00";"0,00";"0,00";"0,00";"400000,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"JARDIM - MS";"10";"Saúde";"302";"Assistência hospitalar e ambulatorial";"3380000,00";"0,00";"0,00";"0,00";"2600000,00";"780000,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"LUZ - MG";"10";"Saúde";"302";"Assistência hospitalar e ambulatorial";"250000,00";"0,00";"0,00";"0,00";"0,00";"250000,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"MATOZINHOS - MG";"10";"Saúde";"301";"Atenção básica";"199890,00";"0,00";"0,00";"0,00";"0,00";"199890,00"
+"Sem informaç";"2014";"Emenda Individual - Transferências";"S/I";"Sem informação";"S/I";"MOCOCA - SP";"10";"Saúde";"301";"Atenção básica";"498940,80";"0,00";"0,00";"0,00";"0,00";"498940,80"
+```
+
+We can notice that the fields on the file are separated by semicolons. Its encoding is ISO-8859. To make things even more complex, the monetary values are in Brazilian format, with comma as the separator between integer and decimal parts. 
+
+
+# Reading and Preprocessing {#readingandpreprocessing}
+
+To read it into a dataframe in Python [@python2001] and Pandas [@pandasmckinney2012] we first need to import the libraries:
+
+```{python}
+#| classes: custompython
+import pandas as pd
+import plotly.express as px
+import json
+```
+
+Now we can read the file into a dataframe, using the correct encoding and field separators:
+
+```{python}
+#| classes: custompython
+file = 'Resources/Data/Emendas/Emendas.csv'
+# Read the CSV file using the specified separator and encoding.
+df = pd.read_csv(file, sep=';', encoding='ISO-8859-1')
+```
+
+The next step is to convert the field `Valor Empenhado` (the one that interest us more) to numeric, fixing the decimals' separator -- just replace some characters and convert it to float.
+
+```{python}
+#| classes: custompython
+df['Valor'] = df['Valor Empenhado'].str.replace('.', '', regex=False).\
+                                    str.replace(',', '.').astype(float)
+```
+
+Some of the fields on this dataframe are redundant, being numeric codes for textual descriptions. Wen can drop those. Just to be on the safe side let's also keep only the amendment's author code but not his/her name.
+
+```{python}
+#| classes: custompython
+# We don't really need some of the fields (redundant ones):
+df = df.drop(['Nome do Autor da Emenda', 'Número da emenda',
+              'Código Função','Código Subfunção'], axis=1)
+```
+
+Of all the columns with values' information, the one that interest us is the `Valor`, which was converted from `Valor Empenhado` (value that was committed for that amendment). Let's keep that one and drop the others.
+
+```{python}
+#| classes: custompython
+# We don't really need some of the payment fields (only 'Valor'):
+df = df.drop(['Valor Empenhado', 'Valor Liquidado', 'Valor Pago', 
+              'Valor Restos A Pagar Inscritos','Valor Restos A Pagar Cancelados',
+              'Valor Restos A Pagar Pagos'], axis=1)                                    
+```
+
+Let's take a look at the data:
+
+```{python}
+#| classes: custompython
+# Display part of the data.
+df
+```
+
+We can see that there are `Localidade do Gasto` for the whole country, for abroad (`Exterior`), for regions, for states, for counties and in multiple locations (`MÚLTIPLO`). If we're going to compare some amendments per location, it is better to split the data into those different levels:
+
+```{python}
+#| classes: custompython
+dfCountry = df[df["Localidade do gasto"] == "Nacional"]
+dfAbroad = df[df["Localidade do gasto"] == "Exterior"]
+dfMultiple = df[df["Localidade do gasto"] == "MÚLTIPLO"]
+regions = ["Norte","Centro-Oeste","Nordeste","Sudeste","Sul"]
+dfRegions = df[df["Localidade do gasto"].isin(regions)]
+dfStates = df[df["Localidade do gasto"].str.contains(r"\(\w{2}\)", regex=True)]
+dfCounties = df[df["Localidade do gasto"].str.contains(" - ")]
+```
+
+Let's count how many records we have in each subset, also calculate the sum to see if we have any record not in a subset:
+
+```{python}
+#| classes: custompython
+dfCount = len(df)
+dfCountryCount = len(dfCountry)
+dfAbroadCount = len(dfAbroad)
+dfMultipleCount = len(dfMultiple)
+dfRegionsCount = len(dfRegions)
+dfStatesCount = len(dfStates)
+dfCountiesCount = len(dfCounties)
+total = dfCountryCount+dfAbroadCount+dfMultipleCount+\
+        dfRegionsCount+dfStatesCount+dfCountiesCount
+print("Number of records in the original DataFrame:", dfCount)
+print("Number of records in the 'Nacional' subset:", dfCountryCount)
+print("Number of records in the 'Exterior' subset:", dfAbroadCount)
+print("Number of records in the 'Multiple' subset:", dfMultipleCount)
+print("Number of records in the 'Regions' subset:", dfRegionsCount)
+print("Number of records in the 'State (UF)' subset:", dfStatesCount)
+print("Number of records in the 'County - State' subset:", dfCountiesCount)
+print("Total number of records in the subsets:",total)
+```
+
+::: classdiscussion-block
+<div class="title">Class Discussion</div>
+There are other ways to partition or subpartition the data, with or without overlapping between the subsets. Which ones you suggest, and why?
+:::
+
+::: {.exercise-block}
+<div class="title">&nbsp;</div>
+Instead of partitioning the dataframe into different categories we could _annotate_ it, creating a new field that identified whether the amendment's location is National, State, etc. This may help in other analysis and exercises.
+::: 
+
+# Basic EDA
+
+Let's use different subsets of the data to illustrate different EDA concepts.
+
+## Functions and Subfunctions
+
+Functions (`Nome Função`) and subfunctions (`Nome Subfunção`) are the categories of application of the amendments' values. Let's take a look at their combinations and frequency.
+
+```{python}
+#| classes: custompython
+cfunctions = df.groupby(["Nome Função","Nome Subfunção"]).size().reset_index(name='Count')
+cfunctions
+```
+
+We can create sunburst charts to show the distribution of amendments by functions and subfunctions. For consistency we will create a colormap for the sunburst charts that ensure the use of the same color for the same function:
+
+```{python}
+#| classes: custompython
+functionsU = cfunctions["Nome Função"].unique()
+colors = px.colors.qualitative.Plotly
+# Create a dictionary to map each "Nome Função" to a specific color
+colormap = {function: colors[i % len(colors)] for i, function in enumerate(functionsU)}
+```
+
+With the grouped data and colormap we can create the sunburst chart with the code below:
+
+```{python}
+#| classes: custompython
+# Create a Sunburst chart
+sunburstC = px.sunburst(cfunctions, 
+                        path=['Nome Função', 'Nome Subfunção'], 
+                        values='Count', 
+                        title='Number of Amendments by Function and Subfunction',
+                        labels={'Nome Função': 'Function', 'Nome Subfunção': \
+                            'Subfunction', 'Count': 'Number of Amendments'},
+                        color='Nome Função',
+                        color_discrete_map=colormap)
+# Display the chart
+sunburstC.show()
+```
+
+Let's do the same chart but considering the total amount of the amendments. All we need to do is create a different grouping of the data:
+
+```{python}
+#| classes: custompython
+vfunctions = df.groupby(["Nome Função", "Nome Subfunção"])["Valor"].sum().reset_index(name='Amount')
+vfunctions
+```
+
+Then plot the sunburst chart (using the same colormap as the previous chart to make comparisons easier):
+
+```{python}
+#| classes: custompython
+# Create a Sunburst chart
+sunburstV = px.sunburst(vfunctions, 
+                        path=['Nome Função', 'Nome Subfunção'], 
+                        values='Amount', 
+                        title='Total Amount of Amendments by Function and Subfunction',
+                        labels={'Nome Função': 'Function', 'Nome Subfunção': \
+                            'Subfunction', 'Count': 'Number of Amendments'},
+                        color='Nome Função',
+                        color_discrete_map=colormap)
+# Display the chart
+sunburstV.show()
+```
+
+::: classdiscussion-block
+<div class="title">Class Discussion</div>
+Do a quick comparison between the two plots and find differences in the visibility of their slices.
+:::
+
+## Countrywide Amendments
+
+How many types of `Nome Função` (main function) do we have for countrywide amendments?
+
+```{python}
+#| classes: custompython
+functionCounts = dfCountry["Nome Função"].value_counts()
+functionCounts
+```
+
+Are all those functions spread evenly through the years? Let's compare them with a plot. First we group the data by `Nome Função` and `Ano da Emenda` counting how many amendments we had in each group:
+
+
+```{python}
+#| classes: custompython
+cpy = dfCountry.groupby(["Nome Função","Ano da Emenda"]).size().\
+        reset_index(name='Count')
+cpy
+```
+
+Then we create a faceted line plot, with a facet for each `Nome Função`.
+
+```{python}
+#| classes: custompython
+# Create a faceted line plot
+fig = px.line(cpy, 
+              x='Ano da Emenda', 
+              y='Count', 
+              color='Nome Função',
+              facet_col='Nome Função', 
+              facet_col_wrap=3,
+              title='Amendments per Year per Function',
+              labels={'Ano da Emenda': 'Year', 'Count': 'Amendments', 
+                      'Nome Função': ''},
+              markers=True)
+# Update layout for better spacing and readability
+fig.update_layout(
+    height=1020,
+    showlegend=False,
+    margin=dict(t=80) 
+)
+# Remove the automatic subplot titles
+for annotation in fig['layout']['annotations']:
+    annotation['text'] = annotation['text'].split("=")[-1]
+# Update x-axes to show ticks and labels for all subplots
+years = cpy["Ano da Emenda"].unique()
+years.sort()
+fig.update_xaxes(showticklabels=True,tickvals=years,tickangle=90,
+                 tickfont=dict(size=10))  
+fig.update_yaxes(title_font=dict(size=10))
+# Display the plot
+fig.show()
+```
+
+Not all functions had amendments for each year in our data -- some have gaps, while some happened only during a short period.
+
+The plot above counted the number of amendments. Let's modify it so it shows the total value of the amendments, under the same conditions. First we group the data:
+
+```{python}
+#| classes: custompython
+# Group by "Nome Função" and "Ano da Emenda" and sum the values
+spy = dfCountry.groupby(["Nome Função", "Ano da Emenda"])["Valor"].sum().\
+        reset_index(name='Total Value')
+spy
+```
+
+Then we do the same faceted plot:
+
+```{python}
+#| classes: custompython
+# Create a faceted line plot
+fig = px.line(spy, 
+              x='Ano da Emenda', 
+              y='Total Value', 
+              color='Nome Função',
+              facet_col='Nome Função', 
+              facet_col_wrap=3,
+              title='Amendments Total Value per Year per Function',
+              labels={'Ano da Emenda': 'Year', 'Count': 'Amendmts', 'Nome Função': ''},
+              markers=True)
+# Update layout for better spacing and readability
+fig.update_layout(
+    height=990,
+    showlegend=False,
+    margin=dict(t=80)     
+)
+# Remove the automatic subplot titles
+for annotation in fig['layout']['annotations']:
+    annotation['text'] = annotation['text'].split("=")[-1]
+# Update x-axes to show ticks and labels for all subplots
+years = spy["Ano da Emenda"].unique()
+years.sort()
+fig.update_xaxes(showticklabels=True,tickvals=years,tickangle=90,tickfont=dict(size=10))  
+fig.update_yaxes(title_font=dict(size=10))
+# Display the plot
+fig.show()
+```
+
+::: classdiscussion-block
+<div class="title">Class Discussion</div>
+Do a quick comparison between the two plots to find functions and years with a large value but small number of amendments.
+:::
+
+::: {.exercise-block}
+<div class="title">&nbsp;</div>
+Do the same faceted plot for your region, state and county. Point differences between the number of amendments and values.
+::: 
+
+## Amendments per State
+
+Let's take a look at the amendments per state dataframe and some subsets of it. Just for fun let's use choropleths -- maps that represent variables.
+
+We can use a simple 3-step process to create a choropleth: first get one GeoJSON file ready for our purposes, then prepare our data so it matches what is on the GeoJSON then create the plot itself.
+
+A quick search on the web will show several sites with GeoJSON data that can be used for our project. Two are [Moisés Lima's brazil-states-geojson](https://www.kaggle.com/datasets/moiseslima/majson) at Kaggle, and [Giuliano Macedo geodata-br-states](https://github.com/giuliano-macedo/geodata-br-states) at Github. We'll use this second one, which was downloaded and stored locally [here](Resources/Data/Emendas/br_states.json).
+
+Then we need to prepare the subset of our data that contains states' amendments only, and also rename the `Localidade do gasto` field so it contains only the states' name in uppercase:
+
+```{python}
+#| classes: custompython
+dfStatesPrep = dfStates.groupby(["Localidade do gasto"]).size().reset_index(name='Count')
+dfStatesPrep['Localidade do gasto'] = \
+  dfStatesPrep['Localidade do gasto'].str.replace(r'\ \(UF\)', '', regex=True)
+dfStatesPrep
+```
+
+The GeoJSON file contains coordinates for the shapes of the object it contains and also some properties for each object. In our case we have a property named `Estado` that contains the state's names. We will load the GeoJSON file and change the values of the `Estado` property so these will also be in uppercase:
+
+```{python}
+#| classes: custompython
+with open("Resources/Data/Emendas/br_states.json") as f:
+    geojson_data = json.load(f)
+for feature in geojson_data['features']:
+    feature['properties']['Estado'] = feature['properties']['Estado'].upper()
+```
+
+Now that we prepared the data and the GeoJSON file we can create the choropleth with Plotly with this code:
+
+```{python}
+#| classes: custompython
+fig = px.choropleth(
+    dfStatesPrep, # The dataframe
+    geojson=geojson_data, # The GeoJSON data
+    # These two parameters identify the field on the dataframe and 
+    # property on the GeoJSON data that must match.
+    locations='Localidade do gasto', 
+    featureidkey="properties.Estado", 
+    color='Count', 
+    hover_name='Localidade do gasto',
+    hover_data=['Count'],
+    title='Number of Amendments per State',
+    color_continuous_scale="Viridis"
+)
+# Update layout for better spacing and readability
+fig.update_geos(fitbounds="locations", visible=False)
+fig.update_layout(margin={"r":0,"t":35,"l":0,"b":0})
+# Display the map
+fig.show()
+```
+
+::: {.exercise-block}
+<div class="title">&nbsp;</div>
+Do a similar choropleth for the total amount of amendments per state.
+::: 
+
+::: {.exercise-block}
+<div class="title">&nbsp;</div>
+Do a similar choropleth for a subset of the States' data for a specific function (get a popular one!), showing either the number of amendments or total amount.
+::: 
+
+::: {.exercise-block}
+<div class="title">&nbsp;</div>
+Find a GeoJSON file for your state, and create a choropleth for all counties in your state with the total amount of amendments for a specific function. 
+::: 
+
+::: {.exercise-block}
+<div class="title">&nbsp;</div>
+Get the population of states (and regions) from Wikipedia: [Lista de unidades federativas do Brasil por população](https://pt.wikipedia.org/wiki/Lista_de_unidades_federativas_do_Brasil_por_popula%C3%A7%C3%A3o) or [Federative units of Brazil](https://en.wikipedia.org/wiki/Federative_units_of_Brazil#List). Calculate and plot the number of amendments and total value per state considering the population. Which charts can help visualize and compare this data?
+::: 
+
+## Amendments per Author
+
+How's the distribution of amendments per `Código do Autor da Emenda`?
+
+```{python}
+#| classes: custompython
+countAdE = df["Código do Autor da Emenda"].value_counts()
+# Print the result
+print(countAdE)
+```
+
+Amendments with author code `S/I` (_Sem Informação_ , without information) are anonymous, therefore intriguing. Let's explore it a bit, first creating two subsets of the original dataframe (and checking how many amendments' authors are `S/I`)
+
+```{python}
+#| classes: custompython
+dfSI = df[df["Código do Autor da Emenda"] == "S/I"]
+dfWI = df[df["Código do Autor da Emenda"] != "S/I"]
+recordSI = len(dfSI)
+print(f"Total records in dfSI DataFrame: {recordSI}")
+```
+
+Is the distribution of the unidentified authors' amendments different from the ones from identified authors? Let's check with sunburts plots, comparing the amounts by function and subfunction!
+
+First we create the groupings:
+
+```{python}
+#| classes: custompython
+SIdist = dfSI.groupby(["Nome Função","Nome Subfunção"])["Valor"].sum().reset_index(name='Amount')
+WIdist = dfWI.groupby(["Nome Função","Nome Subfunção"])["Valor"].sum().reset_index(name='Amount')
+```
+
+Now the sunburst charts:
+
+```{python}
+#| classes: custompython
+sunburstSI = px.sunburst(SIdist, 
+                         path=['Nome Função', 'Nome Subfunção'], 
+                         values='Amount', 
+                         title='Amount of SI Amendments by Function and Subfunction',
+                         labels={'Nome Função': 'Function', 'Nome Subfunção': \
+                             'Subfunction', 'Count': 'Number of Amendments'},
+                         color='Nome Função',
+                         color_discrete_map=colormap)
+# Display the chart
+sunburstV.show()
+```
+
+```{python}
+#| classes: custompython
+# Create a Sunburst chart
+sunburstV = px.sunburst(WIdist, 
+                        path=['Nome Função', 'Nome Subfunção'], 
+                        values='Amount', 
+                        title='Amount of WI Amendments by Function and Subfunction',
+                        labels={'Nome Função': 'Function', 'Nome Subfunção': \
+                            'Subfunction', 'Count': 'Number of Amendments'},
+                        color='Nome Função',
+                        color_discrete_map=colormap)
+# Display the chart
+sunburstV.show()
+```
+
+::: {.exercise-block}
+<div class="title">&nbsp;</div>
+Distributions of amendments with and without the identification of the author are somehow similar, but some functions have a different order (total amount). Identify those and dig on the data for the values.
+::: 
+
+::: {.exercise-block}
+<div class="title">&nbsp;</div>
+Amendments authors' can be identified by their names or by the -- but we filtered this information on the [Reading and Preprocessing](#readingandpreprocessing) section. Redo the filtered dataframes so we can have one for individual amendments, one for unidentified authors' amendments and one for amendments where the author's names start with "BANCADA DA" (a Party Parliamentary Group or Wing). These three subsets must complement each other in the sense that no record should appear in more than one subset and no records is out of any subset.
+::: 
+
+::: {.exercise-block}
+<div class="title">&nbsp;</div>
+Based on the results of the previous exercise, consider that most "Bancadas" are associated to a state. Are all amendments from a particular state group destined for that state? Analyze the cases where this happens and where it doesn't.
+::: 
+
+Let's take a last look at the identified/non-identified amendments. How's their count per year? 
+
+First we group the separate dataframes and label them so we can use them in the same chart:
+
+```{python}
+#| classes: custompython
+# For the ones without identification
+grDfSI = dfSI.groupby("Ano da Emenda").size().reset_index(name='Count')
+grDfSI['Type'] = 'Without Id.'
+# For the ones with identification
+grDfWI = dfWI.groupby("Ano da Emenda").size().reset_index(name='Count')
+grDfWI['Type'] = 'With Id.'
+# Combine them
+bothDfs = pd.concat([grDfSI,grDfWI])
+```
+
+Now we plot the total of amendments per year:
+
+```{python}
+#| classes: custompython
+fig = px.line(bothDfs, x="Ano da Emenda", y="Count", color='Type',
+              title="Total Amount of Amendments per Year",
+              labels={"Ano da Emenda": "Year", "Count": "Number of Amendments", "Type": "Type"})
+fig.show()
+```
+
+No amendments without the authors' identification were submitted after 2020!
+
+Going back to the distribution of the amendments per author, we can see that there are some authors (or groups) that are more prolific. How many amendments they create per year? Let's consider the top 12 authors:
+
+```{python}
+#| classes: custompython
+top12 = dfWI["Código do Autor da Emenda"].value_counts().nlargest(12).index
+dftop12 = dfWI[dfWI["Código do Autor da Emenda"].isin(top12)]
+dfG = dftop12.groupby(["Código do Autor da Emenda", "Ano da Emenda"]).size().\
+               reset_index(name='Count')
+```
+
+Now let's plot how many amendments each authored per year.
+
+```{python}
+#| classes: custompython
+fig = px.line(dfG, x="Ano da Emenda", y="Count", color="Código do Autor da Emenda",
+              markers=True,
+              title="Number of Amendments per Year by Top 12 Authors",
+              labels={"Ano da Emenda": "Year", "Count": "Number of Amendments",
+                      "Código do Autor da Emenda": "Author"})
+fig.update_yaxes(type='log')
+# Display the plot
+fig.show()
+```
+
+::: {.exercise-block}
+<div class="title">&nbsp;</div>
+Who is the author whose code is 8100? Should we consider this data? If not, filter the amendments from this author and redo the chart. 
+::: 
+
+## Amendments per Functions and Years
+
+Let's pick up some interesting functions (`Defesa nacional`, `Educação` and `Saúde`) and compare the total value of the amendments they received per year. We'll consider amendments that were destined to the whole country.
+
+```{python}
+#| classes: custompython
+dfDefense = dfCountry[dfCountry["Nome Função"] == "Defesa nacional"]
+dfDefenseY = dfDefense.groupby("Ano da Emenda")["Valor"].sum().reset_index()
+dfDefenseY['Type'] = 'Defesa Nacional'
+dfEducation = dfCountry[dfCountry["Nome Função"] == "Educação"]
+dfEducationY = dfEducation.groupby("Ano da Emenda")["Valor"].sum().reset_index()
+dfEducationY['Type'] = 'Educação'
+dfHealth = dfCountry[dfCountry["Nome Função"] == "Saúde"]
+dfHealthY = dfHealth.groupby("Ano da Emenda")["Valor"].sum().reset_index()
+dfHealthY['Type'] = 'Saúde'
+# Combine them
+bothDfs = pd.concat([dfDefenseY,dfEducationY,dfHealthY])
+```
+
+Then create the chart:
+
+```{python}
+#| classes: custompython
+fig = px.line(bothDfs, x="Ano da Emenda", y="Valor", color='Type',
+              title="Total Amount of Amendments per Year",
+              labels={"Ano da Emenda": "Year", "Count": "Number of Amendments",\
+                      "Type": "Type"})
+fig.show()
+```
+
+::: {.exercise-block}
+<div class="title">&nbsp;</div>
+How would the information on this chart compare to amendments destined for states or regions?
+::: 
+
+# Final Remarks
+
+Most of the analysis in this section were done considering that the data file for the amendments is all we have, therefore, some of the results were interesting but inconclusive -- much more data, from other sources, would be required for real investigative work.
+
+For example, we may see patterns or outliers in some charts, and maybe some can be explained with common sense (e.g. an increased spending on health around 2020) but explanation of some (e.g. an increased spending on education, also around 2020) would require more context or external data.
+
+There is more data on the site [_Consulta de Emendas Parlamentares | Portal da Transparência do Governo Federal_](https://portaldatransparencia.gov.br/emendas/consulta?ordenarPor=autor&direcao=asc), and it is possible to filter for more fields and download part of the data. For example, it is possible to search for amendments related with _budgetary actions_ of the government, such as "005O - FOMENTO A PESQUISA CIENTIFICA, INOVACAO E EXTENSAO TECNOLOGICA NA AMAZONIA LEGAL" that would relate to all budget for research, innovation and outreach on the Amazon region, but there aren't any amendments for that. Nonetheless interested readers should explore that site to see what other data can be obtained.
+
+There are many other interesting information sources that could be used to complement the ones presented in this section, that may or may not be easy to find and use. Some ideas are:
+
+* Find information on **IDH** (Human Development Index) for counties and states in different years and compare the IDH before and after application of the amendments' resources. 
+* Find population information (preferrably stratified) and find patterns and outliers of application of amendments for counties that have similar population profiles.
+* Get information on the political parties of the amendments' authors for grouping and analysis accordingly to parties.
+
+
+
