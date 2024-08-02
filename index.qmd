@@ -43,12 +43,12 @@ For the second term of 2024 our schedule is **Fridays, from 1:30PM to 5:30PM.**
 |June 28   |  <span style="color:red;">Lectures suspended today</span>     |
 |July 5    | Reading of [Data](03-Lectures-Data.qmd).   Presentation and comments on the [first homework](index.qmd#homework).   |
 |July 12   |  Reading of the [Supermarket Basket Analysis](53-Projects-Supermarket.qmd) case.<br>Presentation and comments on the [second homework](index.qmd#homework).       |
-|July 19   |                                                                                  |
+|July 19   | <span style="color:red;">Lectures suspended today</span>       |
 |July 26   | <span style="color:red;">Lectures suspended today</span>   |
-|August 2  |                                                                                  |
-|August 9  |  Presentation and comments on the [third homework](index.qmd#homework).     |
-|August 16 |                                                                                  |
-|August 23 |                                                                                  |
+|August 2  |  Short introduction to models and classification (lecture notes still under construction)                                                                                |
+|August 9  | Let's talk about the capstone project?    |
+|August 16 |         Presentation and comments on the [third homework](index.qmd#homework).                                                                           |
+|August 23 |  Models, classification and clustering (probably)                                                                           |
 |August 30 | Presentation and comments on the [Capstone Project](index.qmd#homework).     |
 
 : {tbl-colwidths="\[20,80\]" .striped .hover}
