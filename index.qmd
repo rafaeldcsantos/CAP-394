@@ -8,7 +8,7 @@ bibliography: CAP394.bib
 
 These pages contains the material used for the course *Introduction to Data Science*, part of the [curriculum](https://www.gov.br/inpe/pt-br/area-conhecimento/posgraduacao/cap/catalogo-de-disciplinas) of the [Graduate Program in Applied Computing](https://www.gov.br/inpe/pt-br/area-conhecimento/posgraduacao/cap), offeredy by the [Brazilian National Institute for Space Research](https://www.gov.br/inpe/pt-br). 
 
-The course is usually offered in the [second term](https://www.gov.br/inpe/pt-br/area-conhecimento/posgraduacao/calendario-academico) of each year, exclusively on-site. Albeit the material is in English, classes are usually taught in Portuguese.
+The course is usually offered in the [second term](https://www.gov.br/inpe/pt-br/area-conhecimento/posgraduacao/calendario-academico) of each year, **exclusively asynchronously**. Albeit the material is in English, classes are usually taught in Portuguese.
 
 ## Syllabus
 
@@ -29,21 +29,41 @@ For information on data scientists profiles see _Analyzing the Analyzers: An Int
 
 ::: underconstruction-block 
 <div class="title">Under Construction</div>
-This material is still under construction (during the second term of 2024).
+This material is continually being revised and improved. 
 :::
 
-## Schedule for 2024 {#Schedule}
+## Schedule for 2025 {#Schedule}
 
-For the second term of 2024 our schedule is **Fridays, from 1:30PM to 5:30PM.**
+For the second term of 2025 our schedule is **Fridays, from 1:30PM to 5:30PM.**
 
-| Day      | Topics                                                                             |
+| Day        | Topics                                                                             |
+|------------|----------------------------------------------------------------------------------|
+| June 20    | <span style="color:red;">Lectures suspended today</span>  |
+| June 27    | Introduction to the course. Reading of [About the Course](00-Lectures-Intro.qmd) and [What is Data Science?](01-Lectures-WhatIs.qmd) lectures, rules for [evaluation](index.qmd#homework).|
+| July  4    | Reading of [Skills for Data Science](02-Lectures-Skills.qmd) lecture. Q&A about the  [first homework](index.qmd#homework) (if needed).     |
+| July 11    | |
+| July 18    | |
+| July 25    | |
+| August 1   | |
+| August 8   | |
+| August 15  | |
+| August 22  | |
+| August 27  | |
+| September 5| |
+: {tbl-colwidths="\[20,80\]" .striped .hover}
+
+
+
+
+
+<!-- | Day      | Topics                                                                             |
 |----------|----------------------------------------------------------------------------------|
-|June 14   | Introduction to the course. Reading of [About the Course](00-Lectures-Intro.qmd) and [What is Data Science?](01-Lectures-WhatIs.qmd) lectures, rules for [evaluation](index.qmd#homework).                                       |
-|June 21   | Reading of [Skills for Data Science](02-Lectures-Skills.qmd) lecture. Q&A about the  [first homework](index.qmd#homework) (if needed).                                                                                 |
+|June 20   | Introduction to the course. .                                       |
+|June 21   |                                                                             |
 |June 28   |  <span style="color:red;">Lectures suspended today</span>     |
 |July 5    | Reading of [Data](03-Lectures-Data.qmd).   Presentation and comments on the [first homework](index.qmd#homework).   |
 |July 12   |  Reading of the [Supermarket Basket Analysis](53-Projects-Supermarket.qmd) case.<br>Presentation and comments on the [second homework](index.qmd#homework).       |
-|July 19   | <span style="color:red;">Lectures suspended today</span>       |
+|July 19   |      |
 |July 26   | <span style="color:red;">Lectures suspended today</span>   |
 |August 2  |  Short introduction to models and classification (lecture notes still under construction)                                                                                |
 |August 9  | Let's talk about the capstone project?    |
@@ -51,15 +71,14 @@ For the second term of 2024 our schedule is **Fridays, from 1:30PM to 5:30PM.**
 |August 23 |  Models, classification and clustering (probably)                                                                           |
 |August 30 | Presentation and comments on the [Capstone Project](index.qmd#homework).     |
 
-: {tbl-colwidths="\[20,80\]" .striped .hover}
+: {tbl-colwidths="\[20,80\]" .striped .hover} -->
 
 ## Homework
 
 | Assignment                                                                       | Due date (*before that day's lecture!*) |
 |----------------------------------------------------------------------------------|----------|
-| [Homework #1 ](00-Homework-01.qmd)                    | ~~June 28~~ July 5   |
-| [Homework #2 ](00-Homework-02.qmd)                    | July 19   |
+| [Homework #1 ](00-Homework-01.qmd)                    | July 4   |
 | TBD                          | August  9 |
-| Capstone Project            | August 30 |
+| Capstone Project            | September 5 |
 
 : {tbl-colwidths="\[40,60\]" .striped .hover}

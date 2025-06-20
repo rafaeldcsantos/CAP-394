@@ -11,4 +11,4 @@ bibliography: CAP394.bib
 
 This is the material (slides and notes) of the introduction to the course.
 
-{{< include Resources/Slides/CAP394-2024-0-AboutCourse.qmd >}}
+{{< include Resources/Slides/CAP394-2025-0-AboutCourse.qmd >}}

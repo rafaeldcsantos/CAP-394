@@ -1,0 +1,237 @@
+
+
+---
+lightbox: true
+format: html
+---
+
+```{python}
+#| classes: custompython
+
+import pandas as pd
+import re
+import os
+
+def extract_header_and_data_with_title(file_path):
+    title_pattern = re.compile(r"TG\d{2}")
+    
+    with open(file_path, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+        
+        # Extract title
+        title = None
+        for line in lines:
+            if title_pattern.match(line):
+                title = line.strip()
+                break
+
+        # Skip initial lines and header line
+        header_line_index = lines.index(title + '\n') + 2
+        
+        # Extract header
+        header = lines[header_line_index].strip()
+        
+        # Read and parse the data manually
+        data_lines = lines[header_line_index + 2:]
+        records = []
+        
+        # Define a regular expression pattern to match each line of the data
+        pattern = re.compile(r"(\d+)\s+(.+?)\s+(\d{2}/\d{2}/\d{4})\s+(\d+)\s+(.+)")
+
+        for line in data_lines:
+            match = pattern.match(line)
+            if match:
+                inscricao = match.group(1)
+                nome = match.group(2)
+                nascimento = match.group(3)
+                nota_objetiva = match.group(4)
+                situacao = match.group(5)
+
+                # Append the record to the list
+                records.append({
+                    'Inscrição': inscricao,
+                    'Nome': nome,
+                    'Nascimento': nascimento,
+                    'NotaObjetiva': int(nota_objetiva),
+                    'Situação': situacao,
+                    'Header': header
+                })
+
+        # Create a DataFrame from the list of records
+        data = pd.DataFrame(records)
+
+        # Convert 'Nascimento' to datetime format
+        data['Nascimento'] = pd.to_datetime(data['Nascimento'], format='%d/%m/%Y')
+        data['Vaga'] = title
+        return data, title
+
+# Using the provided file
+# Directory containing the text files
+directory_path = '/Users/rafael/Downloads/Concurso/'
+
+# Initialize a list to store DataFrames
+all_dataframes = []
+
+# Iterate over all files in the directory
+for filename in os.listdir(directory_path):
+    if filename.startswith('tecno') and filename.endswith('.txt'):
+        file_path = os.path.join(directory_path, filename)
+        df, title = extract_header_and_data_with_title(file_path)
+        all_dataframes.append(df)
+
+# Concatenate all DataFrames into a single DataFrame
+combined_df = pd.concat(all_dataframes, ignore_index=True)
+
+# Save the combined DataFrame to a CSV file
+combined_df.to_csv('/Users/rafael/Downloads/Concurso/combined_data.csv', index=False)
+
+print("Data has been combined and saved to combined_data.csv")
+
+
+
+
+
+
+```
+
+
+```{python}
+#| classes: custompython
+import pandas as pd
+import re
+import os
+
+def extract_data_with_title(file_path):
+    title_pattern = re.compile(r"(TG\d{2}) - .+")
+    
+    with open(file_path, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+        
+        # Extract title
+        title = None
+        for line in lines:
+            match = title_pattern.match(line)
+            if match:
+                title = match.group(1)  # Extract the TGXX part
+                break
+
+        # Skip initial lines and header line
+        header_line_index = lines.index(line) + 2
+        
+        # Read and parse the data manually
+        data_lines = lines[header_line_index + 2:]
+        records = []
+        
+        # Define a regular expression pattern to match each line of the data
+        pattern = re.compile(r"(\d+)\s+(.+?)\s+(\d{2}/\d{2}/\d{4})\s+(\d+)\s+(.+)")
+
+        for line in data_lines:
+            match = pattern.match(line)
+            if match:
+                inscricao = match.group(1)
+                nome = match.group(2)
+                nascimento = match.group(3)
+                nota_objetiva = match.group(4)
+                situacao = match.group(5)
+
+                # Append the record to the list
+                records.append({
+                    'Inscrição': inscricao,
+                    'Nome': nome,
+                    'Nascimento': nascimento,
+                    'NotaObjetiva': int(nota_objetiva),
+                    'Situação': situacao,
+                    'Title': title  # Add the simplified title
+                })
+
+        # Create a DataFrame from the list of records
+        data = pd.DataFrame(records)
+
+        # Convert 'Nascimento' to datetime format
+        data['Nascimento'] = pd.to_datetime(data['Nascimento'], format='%d/%m/%Y')
+
+        return data
+
+# Directory containing the text files
+directory_path = '/Users/rafael/Downloads/Concurso/'
+
+# Initialize a list to store DataFrames
+all_dataframes = []
+
+# Iterate over all files in the directory
+for filename in os.listdir(directory_path):
+    if filename.startswith('tecno') and filename.endswith('.txt'):
+        file_path = os.path.join(directory_path, filename)
+        df = extract_data_with_title(file_path)
+        all_dataframes.append(df)
+
+# Concatenate all DataFrames into a single DataFrame
+combined_df = pd.concat(all_dataframes, ignore_index=True)
+
+# Save the combined DataFrame to a CSV file
+combined_df.to_csv('/Users/rafael/Downloads/Concurso/combined_data2.csv', index=False)
+
+print("Data has been combined and saved to combined_data.csv")
+```
+
+```{python}
+#| classes: custompython
+import plotly.express as px
+
+current_date = pd.Timestamp.now()
+combined_df['Age'] = (current_date - combined_df['Nascimento']).dt.days / 365.25  # Account for leap years
+
+
+# Create a unique integer for each category to map to a color
+title_categories = combined_df['Title'].unique()
+title_to_int = {title: i for i, title in enumerate(title_categories)}
+
+# Map the Title column to integers
+combined_df['Vaga'] = combined_df['Title'].map(title_to_int)
+
+count_ages_below_30 = combined_df[combined_df['Age'] < 30].shape[0]
+count_ages_above_60 = combined_df[combined_df['Age'] > 60].shape[0]
+
+
+# Use a continuous color scale to get the rainbow effect
+color_scale = px.colors.sequential.Viridis
+
+
+
+# Create a scatter plot using Plotly
+fig = px.scatter(combined_df, x='Age', y='NotaObjetiva', color='Vaga',
+                 labels={'Age': 'Idade', 'NotaObjetiva': 'Nota Objetiva', 'Title': 'Vaga'},
+                 title='Nota Objetiva por Idade e Vaga',
+                 color_continuous_scale=color_scale)
+
+fig.update_traces(
+    marker=dict(size=10, opacity=0.6),  # Larger size and more transparent
+    selector=dict(mode='markers')
+)                 
+
+fig.add_vline(x=30, line=dict(color='blue', width=2), annotation_text=f"<30: {count_ages_below_30} candidatos", annotation_position="top right")
+fig.add_vline(x=60, line=dict(color='red', width=2), annotation_text=f">60: {count_ages_above_60} candidatos", annotation_position="top right")
+
+
+fig.show()
+
+
+
+```
+
+
+
+```{python}
+#| classes: custompython
+
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+title_list = combined_df['Title'].unique()
+num_titles = len(title_list)  # Count of unique titles
+
+print(num_titles)
+
+
+
+
+```

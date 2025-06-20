@@ -17,21 +17,21 @@ website:
         - 00-Lectures-Intro.qmd
         - 01-Lectures-WhatIs.qmd
         - 02-Lectures-Skills.qmd
-        - 03-Lectures-Data.qmd
-      - section: "Cookbook"
-        contents:
-        - 20-Cookbook-Intro.qmd
-      - section: "Visualization"
-        contents:
-        - 30-Visualization-Intro.qmd
-      - section: "Projects"
-        contents:
-        - 50-Projects-Intro.qmd
-        - 51-Projects-Amendments.qmd
-        - 53-Projects-Supermarket.qmd
-      - section: "Ideas Bank"
-        contents:
-        - 80-Ideas-Intro.qmd
+      #   - 03-Lectures-Data.qmd
+      # - section: "Cookbook"
+      #   contents:
+      #   - 20-Cookbook-Intro.qmd
+      # - section: "Visualization"
+      #   contents:
+      #   - 30-Visualization-Intro.qmd
+      # - section: "Projects"
+      #   contents:
+      #   - 50-Projects-Intro.qmd
+      #   - 51-Projects-Amendments.qmd
+      #   - 53-Projects-Supermarket.qmd
+      # - section: "Ideas Bank"
+      #   contents:
+      #   - 80-Ideas-Intro.qmd
   page-footer: 
     center: "<a href='https://linktr.ee/rafaeldcsantos'>Rafael Santos</a>" 
 

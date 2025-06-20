@@ -1,0 +1,195 @@
+
+
+---
+lightbox: true
+format: html
+---
+
+```{python}
+#| classes: custompython
+import pandas as pd 
+import matplotlib.pyplot as plt 
+import seaborn as sns 
+import plotly.express as px
+import plotly.graph_objects as go
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
+# Read the data from a file into a dataframe, with proper character encoding
+supermDF = pd.read_csv("Resources/Data/SupermarketCSV/transactions.csv",
+                        encoding="iso-8859-1")
+supermDF['DateTime'] = pd.to_datetime(supermDF['Date'].astype(str),format='%Y%m%d%H%M%S')
+
+# Get only the first itens.
+filtered_df = supermDF[supermDF['itemOrder'] == 1]
+filtered_df['DayOfMonth'] = filtered_df['DateTime'].dt.day
+filtered_df['HourOfDay'] = filtered_df['DateTime'].dt.hour
+
+histoValues = filtered_df.groupby(["HourOfDay","DayOfMonth"])['Change'].sum().reset_index()
+# Reorders the two-dimensional histogram as a matrix-like dataframe.
+hmap = histoValues.pivot(index="HourOfDay", columns="DayOfMonth", values="Change").fillna(0)
+# Use those indexes for the row and column indexes.
+days = list(range(1, 32))
+hours = list(range(24))
+# Apply those indexes to the dataframe, filling nonexistent (na) values with zeros.
+hmap = hmap.reindex(index=hours).reindex(columns=days).fillna(0)
+hmap.to_csv("transactions-change-heatmap.csv")
+```
+
+```{python}
+#| classes: custompython
+
+data = pd.read_csv("transactions-change-heatmap.csv")
+
+hourly_data = data.set_index('HourOfDay')
+holidays = ['1', '8', '15', '22', '26', '29']
+workdays = [day for day in hourly_data.columns if day not in holidays]
+
+# Split the data into workdays and holidays
+workdays_data = hourly_data[workdays]
+holidays_data = hourly_data[holidays]
+
+
+```    
+
+```{python}
+
+# Create the heatmap.
+fig = go.Figure(data=go.Heatmap(
+    z=hmap.values,
+    x=hmap.columns,
+    y=hmap.index,
+    colorscale='Jet',
+    text=hmap.values,
+    texttemplate="%{text:.0f}",  # Format text to display as integers
+    textfont={"size":10},
+    hoverinfo='z',  # Display value on hover
+    showscale=True
+))
+# Update layout to add thin lines around each cell.
+# This was suggested by Code Copilot!
+fig.update_traces(
+    zmin=0, zmax=hmap.values.max(),  
+    xgap=1,  
+    ygap=1,  
+    colorbar=dict(tickfont=dict(size=10))  
+)
+# Customize the layout.
+fig.update_layout(
+    title='Heatmap of Total Sales for Beer',
+    xaxis_title='Day of Month',
+    yaxis_title='Hour of Day',
+    xaxis=dict(
+        tickmode='linear',
+        dtick=1,  
+        tickfont=dict(size=10),
+        showgrid=False,
+        zeroline=False # Remove grid lines
+    ),
+    yaxis=dict(
+        tickmode='linear',
+        dtick=1, 
+        tickfont=dict(size=10),
+        showgrid=False,
+        zeroline=False # Remove grid lines
+    ),
+    plot_bgcolor='#808080', 
+)
+# Invert the Y-axis.
+fig.update_yaxes(autorange='reversed')
+# Show the plot.
+fig.show()
+```    
+
+```{python}
+
+import pandas as pd
+import plotly.graph_objects as go
+import matplotlib.cm as cm
+import matplotlib.colors as mcolors
+
+# Load the data
+data = pd.read_csv("transactions-change-heatmap.csv")
+
+# Prepare the data for plotting
+hourly_data = data.set_index('HourOfDay')
+
+# Define holidays and workdays based on the given information
+holidays = ['1', '8', '15', '22', '26', '29']
+workdays = [day for day in hourly_data.columns if day not in holidays]
+
+# Split the data into workdays and holidays
+workdays_data = hourly_data[workdays]
+holidays_data = hourly_data[holidays]
+
+# Calculate the total number of transactions per hour for each subset
+total_transactions_per_hour_workdays = workdays_data.sum(axis=1)
+total_transactions_per_hour_holidays = holidays_data.sum(axis=1)
+
+# Calculate the weighted average hour for each subset
+hours = hourly_data.index.values
+weighted_average_hour_workdays = (total_transactions_per_hour_workdays * hours).sum() / total_transactions_per_hour_workdays.sum()
+weighted_average_hour_holidays = (total_transactions_per_hour_holidays * hours).sum() / total_transactions_per_hour_holidays.sum()
+
+# Create a color map using greenish hues for workdays and reddish hues for holidays
+workday_colors = [mcolors.to_hex(cm.Greens(i / len(workdays_data.columns))) for i in range(len(workdays_data.columns))]
+holiday_colors = [mcolors.to_hex(cm.Reds(i / len(holidays_data.columns))) for i in range(len(holidays_data.columns))]
+
+# Create the plot
+fig = go.Figure()
+
+# Add a line for each workday
+for i, day in enumerate(workdays_data.columns):
+    fig.add_trace(go.Scatter(
+        x=workdays_data.index,
+        y=workdays_data[day],
+        mode='lines',
+        line=dict(color=workday_colors[i]),
+        name=f'Workday {day}',
+        showlegend=False  # Disable the legend
+    ))
+
+# Add a line for each holiday
+for i, day in enumerate(holidays_data.columns):
+    fig.add_trace(go.Scatter(
+        x=holidays_data.index,
+        y=holidays_data[day],
+        mode='lines',
+        line=dict(color=holiday_colors[i]),
+        name=f'Holiday {day}',
+        showlegend=False  # Disable the legend
+    ))
+
+# Add a thick vertical red line for the weighted average hour of workdays
+fig.add_trace(go.Scatter(
+    x=[weighted_average_hour_workdays, weighted_average_hour_workdays],
+    y=[0, hourly_data.values.max()],
+    mode='lines',
+    line=dict(color='darkgreen', width=4),
+    name='Average Hour Workdays',
+    showlegend=True  # Show legend for the average hour line
+))
+
+# Add a thick vertical purple line for the weighted average hour of holidays
+fig.add_trace(go.Scatter(
+    x=[weighted_average_hour_holidays, weighted_average_hour_holidays],
+    y=[0, hourly_data.values.max()],
+    mode='lines',
+    line=dict(color='darkred', width=4),
+    name='Average Hour Holidays',
+    showlegend=True  # Show legend for the average hour line
+))
+
+# Customize the layout
+fig.update_layout(
+    title='Hourly Sum of Changes for Workdays and Holidays',
+    xaxis_title='Hour of the Day',
+    yaxis_title='Number of Transactions',
+    xaxis=dict(tickmode='linear', tick0=0, dtick=1),
+    yaxis=dict(type='log'),  # Set y-axis to logarithmic scale
+    hovermode='x unified'
+)
+
+# Show the plot
+fig.show()
+```    

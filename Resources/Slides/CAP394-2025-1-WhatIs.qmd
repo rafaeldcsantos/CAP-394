@@ -1,0 +1,85 @@
+## Slides
+
+
+---
+
+![This is our second lecture. We will loosely define what is data science and the job of the data scientists. ](Resources/Slides/CAP394-2025-1-WhatIs-Slide1.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![Basically, we will get some interesting definitions, which are not completely clear – but we’ll see why!](Resources/Slides/CAP394-2025-1-WhatIs-Slide2.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![There is a lot of hype around data science. We will see that while some concepts are new the fundamentals are based on science/technology that already existed before. ](Resources/Slides/CAP394-2025-1-WhatIs-Slide3.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![There is a lot of hype around data science, and we need to tone it down so we can really understand why it is useful. <br>Here are the links to the sites:<br><ul><br><li><a href=“http://www.mckinsey.com/insights/americas/us_game_changers”>http://www.mckinsey.com/insights/americas/us_game_changers </a> -- this one is not valid anymore!</li><br><li><a href=“https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century”>https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century</a></li><br><li><a href=“https://www.forbes.com/sites/emc/2014/06/26/the-hottest-jobs-in-it-training-tomorrows-data-scientists/?sh=4a15004c212c”> https://www.forbes.com/sites/emc/2014/06/26/the-hottest-jobs-in-it-training-tomorrows-data-scientists/?sh=4a15004c212c </a></li><br></ul>](Resources/Slides/CAP394-2025-1-WhatIs-Slide4.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![A quick look at the www.glassdoor.com.br site with job offers and industry averages. Take this with a grain of salt…](Resources/Slides/CAP394-2025-1-WhatIs-Slide5.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![Some random ads and calls for proposals/grants I’ve received in the last 5 years. Data Science academic jobs and opportunities are real!](Resources/Slides/CAP394-2025-1-WhatIs-Slide6.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![It is quite easy to learn Data Science – there are many training offers from short online courses to degree-granting courses, from US$ 50 dollars a year to US$ 5000 dollars for three semestes, from blogs and social media posts to known universities and providers... <br>https://www.datascienceprograms.org/ mentions that “We have researched over 1,000 universities with a data science degree at all levels. In our database, there ~990 different data science or analytics programs.”<br>Which one should I choose? Depends on your constraints and self-learning abilities!](Resources/Slides/CAP394-2025-1-WhatIs-Slide7.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![The original article is no longer available, as it happens with many news stories beyond paywalls, but the basic idea is the same: data science is built upon concepts, science and technology decades old, but the data deluge and new, cheaper technologies allowed mass usage and simplified the development of applications. ](Resources/Slides/CAP394-2025-1-WhatIs-Slide8.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![These four recent advances let us understand better the hype about data science. More (available) data and better/easier/cheaper tools allows more people to analyze the data. Advantages on learning from the data allows more people (particularly non-CS majors) to play with the data and discover new information.](Resources/Slides/CAP394-2025-1-WhatIs-Slide9.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![Please see the source at http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram for a detailed description. <br>I like to point at the interdisciplinary aspect of data science. You cannot just get the data and hack it with code or math without knowing what the data represents in the real world. ](Resources/Slides/CAP394-2025-1-WhatIs-Slide10.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![See https://www.crayondata.com/what-is-a-data-scientist-14-definitions-of-a-data-scientist/ for the complete list. It is interesting because most definitions cover some aspects of being a data scientist, with some pointing that we already are data scientists!](Resources/Slides/CAP394-2025-1-WhatIs-Slide11.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![Back to the definition: this is a very good definition for an academic data scientist, i.e. someone who many not have the economic constraints associated with companies (and in most cases not have the funding they have!)<br>I’ll say this several times, but this book is highly recommended (considering this courses’ roots and objectives).](Resources/Slides/CAP394-2025-1-WhatIs-Slide12.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![OK, we’re getting closer to understand what is data science (right?). We can infer that is a data scientist. We know that are plenty of ways to study data science. <br>In this course we will learn some data science by doing. We will play with some problems that may not be scientific but can be easily understood so we can ask questions about the data, formulate what-if scenarios and identify faults on our own approaches. This learn-by-doing can then be applied to your own project.](Resources/Slides/CAP394-2025-1-WhatIs-Slide13.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![I use this figure a lot – it is based on the book Doing Data Science by Rachel Schutt and Cathy O’Neil, OReilly, 2014, which I highly recommend. The icons I use in this document are based on the figure.<br>It shows the data science process, or a data science project cycle. Basically, we collect data about something we want to study, clean and preprocess it, do some basic (and more complex analysis), visualize/report/publish and eventually create a new data product that can be used by others. <br>All this is used to make decisions, which purposefully will be outside of the scope of most of our projects (usually decisions come from managers and other stakeholders of the project). <br>Not all steps must be followed, and some results may require retracing of the steps. But this basic compartmentalization helps us organize our ideas for the project, and we can comment on the skills required for each step. <br><br> ](Resources/Slides/CAP394-2025-1-WhatIs-Slide14.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![](Resources/Slides/CAP394-2025-1-WhatIs-Slide15.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![I strongly recommend the Schutt & O’Neil book, which present case studies, code, basic concepts in an easy-to-follow way.<br><br>“Introducing Data Science” is a Python-centric good, practical introduction. “Python for Data Analysis” is also a good introduction, with examples formatted as notebooks, making it easy to follow.<br><br>“Copying and Pasting from Stack Overflow” is not a real book, of course, but I feel that searching for answers for code snippets there (or using ChatGPT) is not wrong per se, as long as the reader verify the answers and try to understand what is going on!<br><br><br><br>](Resources/Slides/CAP394-2025-1-WhatIs-Slide16.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![Some topics for discussion.](Resources/Slides/CAP394-2025-1-WhatIs-Slide17.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![See the post at https://datasciencetut.com/is-data-science-a-dying-profession/ -- altough ML and LLMs and other ML tools may help in some tasks, ](Resources/Slides/CAP394-2025-1-WhatIs-Slide18.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![Here’s a result of uploading 2000 shopping-cart transactions to ChatGPT’s Data Analyst. After a few interactions and while providing Python code, Data Analyst was able to find something curious about this data (we’ll see it in detail during the course).](Resources/Slides/CAP394-2025-1-WhatIs-Slide19.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+
+![Data Analyst choked several times in a 64Mb CSV file. It was able to process the data and give some insights – including complaining about not having more data.<br>](Resources/Slides/CAP394-2025-1-WhatIs-Slide20.jpeg){.lightbox group="CAP394-2025-1-WhatIs"}
+
+---
+

@@ -11,6 +11,6 @@ bibliography: CAP394.bib
 
 This is the material (slides and notes) of the first lecture on the course.
 
-{{< include Resources/Slides/CAP394-2024-1-WhatIs.qmd >}}
+{{< include Resources/Slides/CAP394-2025-1-WhatIs.qmd >}}
 
 
