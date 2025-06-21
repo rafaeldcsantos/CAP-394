@@ -483,6 +483,8 @@ outline = go.Choropleth(
 )
 ```
 
+Let's add the trace to the base map. (we will use the dummy vatiable `_` to avoid the display of the temporary map).
+
 ```{python}
 #| classes: custompython
 _ = fig.add_trace(outline)
