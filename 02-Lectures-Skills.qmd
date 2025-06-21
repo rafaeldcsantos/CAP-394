@@ -65,6 +65,7 @@ fig_time.update_layout(
     legend=dict(title="Tasks", x=1.15, y=0.5, 
                 traceorder="normal", font=dict(size=12))
 )
+fig_time.show()
 ```
 
 Do more or less the same for the "lest enjoyable part" chart:
@@ -89,6 +90,7 @@ fig_unenjoy.update_layout(
     legend=dict(title="Tasks", x=1.15, y=0.5, 
                 traceorder="normal", font=dict(size=12))
 )
+fig_unenjoy.show()
 ```
 
 

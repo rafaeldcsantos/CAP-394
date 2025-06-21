@@ -33,6 +33,12 @@ hr {
 
 /* CUSTOM CODE BLOCKS *********************************************************************************** */
 /* from https://forums.fast.ai/t/quarto-render-options-jupyter-notebook-python-code-cell/104690/4 */
+.cell-output:empty {
+  display: none; }
+
+.cell-output:has(script):not(:has(div, svg, canvas)) {
+  display: none; }
+
 .custompython .cell-output {
   background-color: #f5f9ff !important;
   border: 1px solid #4583b5 !important;

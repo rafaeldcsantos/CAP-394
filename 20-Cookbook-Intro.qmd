@@ -1,0 +1,10 @@
+---
+lightbox: true
+format: html
+---
+ 
+ 
+# Introduction
+
+This section will contain some examples on how to solve common data science tasks using Python.
+

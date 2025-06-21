@@ -60,12 +60,22 @@ margin: auto;
 
 /* from https://forums.fast.ai/t/quarto-render-options-jupyter-notebook-python-code-cell/104690/4 */
 
+.cell-output:empty {
+  display: none;
+}
+
+.cell-output:has(script):not(:has(div,svg,canvas)) {
+  display: none;
+}
+
 .custompython .cell-output {
   background-color: $pythonOutput !important;
   border: 1px solid $pythonBorder !important;
   border-left: 5px solid $pythonBorder !important;  
   margin-bottom: 12px;
 }
+
+
 
 .custompython div.sourceCode  {
   background-color: $pythonInput !important; 

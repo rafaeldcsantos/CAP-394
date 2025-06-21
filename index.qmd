@@ -8,7 +8,7 @@ bibliography: CAP394.bib
 
 These pages contains the material used for the course *Introduction to Data Science*, part of the [curriculum](https://www.gov.br/inpe/pt-br/area-conhecimento/posgraduacao/cap/catalogo-de-disciplinas) of the [Graduate Program in Applied Computing](https://www.gov.br/inpe/pt-br/area-conhecimento/posgraduacao/cap), offeredy by the [Brazilian National Institute for Space Research](https://www.gov.br/inpe/pt-br). 
 
-The course is usually offered in the [second term](https://www.gov.br/inpe/pt-br/area-conhecimento/posgraduacao/calendario-academico) of each year, **exclusively asynchronously**. Albeit the material is in English, classes are usually taught in Portuguese.
+The course is usually offered in the [second term](https://www.gov.br/inpe/pt-br/area-conhecimento/posgraduacao/calendario-academico) of each year, **exclusively asynchronously**. Although the material is in English, classes are usually taught in Portuguese.
 
 ## Syllabus
 
@@ -49,7 +49,7 @@ For the second term of 2025 our schedule is **Fridays, from 1:30PM to 5:30PM.**
 | August 15  | |
 | August 22  | |
 | August 27  | |
-| September 5| |
+| September 5| Presentation and comments on the [Capstone Project](index.qmd#homework).|
 : {tbl-colwidths="\[20,80\]" .striped .hover}
 
 
@@ -58,9 +58,7 @@ For the second term of 2025 our schedule is **Fridays, from 1:30PM to 5:30PM.**
 
 <!-- | Day      | Topics                                                                             |
 |----------|----------------------------------------------------------------------------------|
-|June 20   | Introduction to the course. .                                       |
-|June 21   |                                                                             |
-|June 28   |  <span style="color:red;">Lectures suspended today</span>     |
+
 |July 5    | Reading of [Data](03-Lectures-Data.qmd).   Presentation and comments on the [first homework](index.qmd#homework).   |
 |July 12   |  Reading of the [Supermarket Basket Analysis](53-Projects-Supermarket.qmd) case.<br>Presentation and comments on the [second homework](index.qmd#homework).       |
 |July 19   |      |
@@ -69,7 +67,7 @@ For the second term of 2025 our schedule is **Fridays, from 1:30PM to 5:30PM.**
 |August 9  | Let's talk about the capstone project?    |
 |August 16 |         Presentation and comments on the [third homework](index.qmd#homework).                                                                           |
 |August 23 |  Models, classification and clustering (probably)                                                                           |
-|August 30 | Presentation and comments on the [Capstone Project](index.qmd#homework).     |
+|August 30 |      |
 
 : {tbl-colwidths="\[20,80\]" .striped .hover} -->
 

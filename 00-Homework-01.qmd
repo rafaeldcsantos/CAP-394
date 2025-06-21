@@ -23,39 +23,61 @@ _Alternatively_ get a data source related to your own research and describe it.
 
 ## Data sources
 
-A non-categorized list.
+A badly categorized list.
+
+### Governmental Data (Brazil)
 
 1. [Catálogo IPEVSC – Bases de Dados Online.pdf](https://institutowerner.org.br/4187-2/) 
-1. [Download PubMed Data](https://pubmed.ncbi.nlm.nih.gov/download/) 
-1. [SciELO Data](https://data.scielo.org/dataverse/scielodata) 
-1. [Agência de Bibliotecas e Coleções Digitais da Universidade de São Paulo](https://www.abcd.usp.br/bases-dados/) 
+1. [Portal da Transparência - Dados Abertos](https://portaldatransparencia.gov.br/download-de-dados)
 1. [Portal Brasileiro de Dados Abertos](https://dados.gov.br/home)
-1. [Sete conjuntos de dados públicos que você pode analisar gratuitamente agora mesmo](https://www.tableau.com/pt-br/learn/articles/free-public-data-sets) 
-1. [Arquivo Nacional - Outras bases de dados](https://www.gov.br/arquivonacional/pt-br/servicos/bases-de-dados/bases) 
-1. [Base dos Dados (ONG)](https://basedosdados.org/) 
-1. [Portal Brasileiro de Dados Abertos do Banco Central](https://dadosabertos.bcb.gov.br/) 
 1. [Dados Abertos - Instituto Brasileiro de Geografia e Estatística](https://dados.gov.br/dados/organizacoes/visualizar/instituto-brasileiro-de-geografia-e-estatistica-ibge) 
-1. [Tabela Brasileira de Composição de Alimentos](https://www.tbca.net.br/) 
+1. [Portal Brasileiro de Dados Abertos do Banco Central](https://dadosabertos.bcb.gov.br/) 
 1. [Portal da Transparência - Controladoria Geral da União](https://portaldatransparencia.gov.br/download-de-dados)
 1. [Governo Aberto SP](https://www.governoaberto.sp.gov.br/)
 1. [Portal de Dados Abertos do Ministério da Educação](https://dadosabertos.mec.gov.br/) 
 1. [ipeadata](http://www.ipeadata.gov.br/Default.aspx) 
 1. [Dados Abertos da Agência Nacional de Águas e Saneamento Básico](https://dadosabertos.ana.gov.br/)
-1. [Remuneração dos Magistrados](https://www.cnj.jus.br/transparencia-cnj/remuneracao-dos-magistrados/)
 1. [Catálogo de Dados Abertos do Senado Federal](https://www12.senado.leg.br/dados-abertos/dados-abertos/catalogo-de-dados-abertos)
-1. [Harvard Dataverse](https://dataverse.harvard.edu/)
-1. [European data - The official portal for European data](https://data.europa.eu/en)
+1. [Remuneração dos Magistrados](https://www.cnj.jus.br/transparencia-cnj/remuneracao-dos-magistrados/)
+1. [Arquivo Nacional - Outras bases de dados](https://www.gov.br/arquivonacional/pt-br/servicos/bases-de-dados/bases) 
+
+
+### Governmental and Agencies Data (World)
+
+1. [U.S. Government's Open Data](https://data.gov/)
 1. [World Bank Open Data](https://data.worldbank.org/)
 1. [UNdata](https://data.un.org/)
-1. [U.S. Government's Open Data](https://data.gov/)
-1. [NASA Earth Observation Data](https://www.earthdata.nasa.gov/)
-1. [Kaggle Datasets](https://www.kaggle.com/datasets)
-1. [Our World in Data](https://ourworldindata.org/)
-1. [CDC logoCenters for Disease Control and Prevention Data](https://data.cdc.gov/)
+1. [European data - The official portal for European data](https://data.europa.eu/en)
 1. [World Health Organization Data](https://www.who.int/data/gho)
 1. [Global Biodiversity Information Facility](https://www.gbif.org/)
-1. [NOAA Climate Data Online](https://www.ncei.noaa.gov/cdo-web/)
+1. [CDC logoCenters for Disease Control and Prevention Data](https://data.cdc.gov/)
+
+### Environmental Data 
+
 1. [Copernicus Climate Data Store](https://cds.climate.copernicus.eu/)
+1. [NASA Earth Observation Data](https://www.earthdata.nasa.gov/)
+1. [NOAA Climate Data Online](https://www.ncei.noaa.gov/cdo-web/)
+
+### Health Data
+
+1. [Download PubMed Data](https://pubmed.ncbi.nlm.nih.gov/download/) 
+1. [Tabela Brasileira de Composição de Alimentos](https://www.tbca.net.br/) 
+
+
+### Other Collections
+
+1. [Harvard Dataverse](https://dataverse.harvard.edu/)
 1. [OpenML](https://www.openml.org/)
 1. [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/)
-1. [Harvard Dataverse](https://dataverse.harvard.edu/)
+1. [Kaggle Datasets](https://www.kaggle.com/datasets)
+1. [Our World in Data](https://ourworldindata.org/)
+1. [SciELO Data](https://data.scielo.org/dataverse/scielodata) 
+1. [Agência de Bibliotecas e Coleções Digitais da Universidade de São Paulo](https://www.abcd.usp.br/bases-dados/) 
+1. [Base dos Dados (ONG)](https://basedosdados.org/) 
+1. [Sete conjuntos de dados públicos que você pode analisar gratuitamente agora mesmo](https://www.tableau.com/pt-br/learn/articles/free-public-data-sets) 
+
+# Auxiliary Data
+
+1. [Instituto Brasileiro de Geografia e Estatística - Malha Municipal](https://www.ibge.gov.br/geociencias/organizacao-do-territorio/malhas-territoriais/15774-malhas.html)
+
+
