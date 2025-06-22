@@ -36,6 +36,7 @@ A badly categorized list.
 1. [Governo Aberto SP](https://www.governoaberto.sp.gov.br/)
 1. [Portal de Dados Abertos do Ministério da Educação](https://dadosabertos.mec.gov.br/) 
 1. [ipeadata](http://www.ipeadata.gov.br/Default.aspx) 
+1. [Agência Nacional de Aviação Civil (Anac) - Dados Abertos](https://www.gov.br/anac/pt-br/acesso-a-informacao/dados-abertos)
 1. [Dados Abertos da Agência Nacional de Águas e Saneamento Básico](https://dadosabertos.ana.gov.br/)
 1. [Catálogo de Dados Abertos do Senado Federal](https://www12.senado.leg.br/dados-abertos/dados-abertos/catalogo-de-dados-abertos)
 1. [Remuneração dos Magistrados](https://www.cnj.jus.br/transparencia-cnj/remuneracao-dos-magistrados/)

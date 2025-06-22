@@ -6,5 +6,5 @@ format: html
  
 # Introduction
 
-This section will contain some examples on how to solve common data science tasks using Python.
+This section will contain some examples on how to solve common data science tasks using Python. Usually there is relation with some examples we'll see elsewhere in this site, but will be shown in more detail in this section.
 

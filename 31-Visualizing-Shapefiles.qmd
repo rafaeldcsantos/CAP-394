@@ -9,7 +9,9 @@ bibliography: CAP394.bib
 
 # Visualizing Geographic Information
 
-In this section we will see some recipes to display geographic information (i.e. data with have some spatial context). Here are some useful definitions:
+In this section we will see some recipes to display geographic information (i.e. data with have some spatial context) and that can be visualized using maps and choropleths.
+
+Here are some useful definitions:
 
 Geographic Information
 : Geographic Information is data that includes spatial components — usually coordinates (latitude/longitude), geometric data (points, lines, polygons), and possibly additional attributes related to the geometric data.
@@ -17,12 +19,20 @@ Geographic Information
 Maps
 : Maps are visual representations of geographic information. We'll often use a base map, which gives the base geographical context, with other spatial features (points, polygons, labels) which provides additional visual information.
 
-Choropleth Map
+Choropleth or Choropleth Map
 : A special type of map where geographic regions are displayed with information (often color) based on a data value, like area, population, count of objects inside the region, etc.
 
 Layers
 : Layers are the components of a map, stacked to combine geographically-linked information.
 For example, we can create a map with a layer for the boundaries, another one for major cities, another one with labels and so on.
+
+Shapefile
+: A shapefile is a widely used format for storing geographic features and their attributes. It can represent points, lines, or polygons (such as locations, roads, or boundaries). A shapefile is actually a group of files (commonly `.shp`, `.shx`, `.dbf`) that together describe the geometry and associated data of the features.
+
+GeoJSON
+: GeoJSON is a modern, text-based format (based on JSON) for encoding geographic features and their properties. It stores geometries like points, lines, and polygons along with their attribute data in a single `.geojson` or `.json` file. It is easy to read and is widely used for web applications and data interchange.
+
+
 
 
 ## Before we start...
@@ -36,6 +46,7 @@ Let's see how to read a shapefile and get basic information. First let's import 
 
 ```{python}
 #| classes: custompython
+import pandas as pd
 import geopandas as gpd
 import json
 import plotly.express as px
@@ -44,6 +55,7 @@ import plotly.graph_objects as go
 ```
 
 ::: info-block
+<div class="title">About Plotly</div>
 I prefer to use Plotly for visualization -- there are other alternatives but I think it is more flexible and the plots and charts are interactive and visually more attractive. 
 :::
 
@@ -91,6 +103,14 @@ shapeSP_simplified["geometry"] = \
 Please refer to `shapely`'s [documentation](https://shapely.readthedocs.io/en/stable/manual.html#object.simplify) for information and example of the methods' parameters.
 
 Using `simplify` may trigger a warning in some cases, particularly when a geometry is smaller than the specified tolerance. To avoid this, you can try using a smaller tolerance value. In practice, it may take some adjustment to find an appropriate value, but for simple visualization purposes, the warning can often be safely ignored.
+
+::: warning-block
+<div class="title">Warning</div>
+Note on Using Shapefiles and GeoJSON with Plotly
+: While shapefiles and GeoJSONs are great for working with geographic data, be aware that Plotly can struggle with large or highly detailed geometries — especially when rendering complex polygons or large datasets directly in the browser. If your maps are slow to render or fail to load, consider simplifying your geometries or using lower-resolution data.
+
+For more advanced visualization of large-scale or high-resolution spatial data, consider using tools like [Kepler.gl](https://kepler.gl/), [Leaflet](https://leafletjs.com/), or [deck.gl](https://deck.gl/), which are designed to handle large geographic datasets more efficiently. These tools are beyond the scope of this section, but worth exploring for heavy-duty mapping needs.
+:::
 
 # Simple Maps 
 
@@ -453,6 +473,10 @@ fig.update_layout(
 
 ## Two layers: Boundaries of Brazil and States
 
+Eventually we will need to plot more than one layer in a single map. When using plotly the trick is to start by the base or most important layer (usually the one with the data, and the one for which we want to have the hover function) and add other layers as traces.
+
+Here's how to create the base layer: 
+
 ```{python}
 #| classes: custompython
 fig = px.choropleth(
@@ -463,9 +487,19 @@ fig = px.choropleth(
     hover_name="NM_UF",
     custom_data=["NM_UF", "NM_REGIA", "AREA_KM2"],
     color_discrete_sequence=["#009440"],
-    projection="mercator"
+    projection="mercator",
 )
 ```
+
+We can adjust some rendering options but we need to assign the update to the dummy vatiable `_` to avoid the display of a temporary map:
+
+```{python}
+#| classes: custompython
+
+_ = fig.update_traces(marker_line_width=1, marker_line_color="#a0a0ff")
+```
+
+Now we create the other layer, that will be rendered in transparent color:
 
 ```{python}
 #| classes: custompython
@@ -473,22 +507,26 @@ fig = px.choropleth(
 outline = go.Choropleth(
     geojson=shapeBR.__geo_interface__,
     locations=shapeBR["PAIS"],
-    featureidkey="properties.PAIS",  # must match GeoJSON property
-    z=[0]*len(shapeBR),  # one z value per feature
+    featureidkey="properties.PAIS",  
+    z=[0]*len(shapeBR),  # one z value per feature, any value
     showscale=False,
-    marker_line_color='black',
+    marker_line_color='#808080',
     marker_line_width=3,
     colorscale=[[0, 'rgba(0,0,0,0)'], [1, 'rgba(0,0,0,0)']],
+    hoverinfo='skip',      # <-- disables hover
+    hovertemplate=None,    # <-- disables custom hover
     name="Brasil"
 )
 ```
 
-Let's add the trace to the base map. (we will use the dummy vatiable `_` to avoid the display of the temporary map).
+Let's add the trace to the base map (again using a dummy variable):
 
 ```{python}
 #| classes: custompython
 _ = fig.add_trace(outline)
 ```
+
+Now we can set the hover information, but only for the base layer:
 
 ```{python}
 #| classes: custompython
@@ -502,6 +540,8 @@ for trace in fig.data:
         )
 ```
 
+And set up boundaries and the title for the map:
+
 ```{python}
 #| classes: custompython
 fig.update_geos(fitbounds="locations", visible=False)
@@ -512,31 +552,186 @@ fig.update_layout(
 )
 ``` 
 
-# TEST 3
+# Maps with External Data
+
+Let's work through a more advanced example: a two-layer map that includes external geographic data not found in the shapefile. Specifically, we’ll use aerodrome information from Brazil’s [Agência Nacional de Aviação Civil (Anac) - Dados Abertos](https://www.gov.br/anac/pt-br/acesso-a-informacao/dados-abertos), which includes details about public and private aerodromes.
+
+Although the data files are labeled as CSVs, they include a header metadata line and use semicolons (`;`) as field separators. Fortunately, we can still read them cleanly with a few extra parameters:
 
 ```{python}
 #| classes: custompython
-#| warning: false
-# Path to the .shp file.
-shapefile_path = "Resources/Data/Shapefiles/MG_Municipios_2024.shp"
-# Read shapefile
-shapeMMG_Raw = gpd.read_file(shapefile_path)
-# Simplify the geometries for faster processing and rendering!
-shapeMMG = shapeMMG_Raw.copy()
-shapeMMG["geometry"] = shapeMMG["geometry"].simplify(tolerance=0.05, preserve_topology=False)
-# How many records do I have?
-print(len(shapeUF))
-print(json.dumps(shapeMMG.__geo_interface__['features'][0]['properties'], indent=2))
+privados_df = pd.read_csv("Resources/Data/Shapefiles/AerodromosPrivados.csv", sep=";", 
+                          encoding="latin1", skiprows=1)
+publicos_df = pd.read_csv("Resources/Data/Shapefiles/AerodromosPublicos.csv", sep=";", 
+                          encoding="latin1", skiprows=1)
 ```
 
+Even though both files come from the same source, their formats differ slightly. The private aerodromes file uses commas as decimal separators in the latitude and longitude fields, so we need to convert these to proper floating-point numbers.
+
+Since we’ll later merge the public and private datasets, we’ll also add a new column to label each entry as `Privado`, identifying them as private aerodromes.
+
+```{python}
+#| classes: custompython
+# Clean and prepare the private dataset
+privados = privados_df[["Nome", "Município", "UF", "LATGEOPOINT", "LONGEOPOINT"]].copy()
+privados["LATGEOPOINT"] = privados["LATGEOPOINT"].astype(str).str.replace(",", ".").astype(float)
+privados["LONGEOPOINT"] = privados["LONGEOPOINT"].astype(str).str.replace(",", ".").astype(float)
+privados["Tipo"] = "Privado"
+```
+
+We also need to preprocess the data from public aerodromes. In this case, the `UF` field contains the full state names rather than the desired two-letter abbreviations. To prepare the data for merging with the private aerodromes dataset, we'll map the full names to their abbreviations.
+
+As with the private dataset, we’ll also add a `Tipo` column to label each entry — in this case, as `Publico` — to indicate that these are public aerodromes.
+
+```{python}
+#| classes: custompython
+# Mapping of Brazilian state full names to abbreviations
+estado_para_uf = {
+    "Acre": "AC", "Alagoas": "AL", "Amapá": "AP", "Amazonas": "AM", "Bahia": "BA",
+    "Ceará": "CE", "Distrito Federal": "DF", "Espírito Santo": "ES", "Goiás": "GO",
+    "Maranhão": "MA", "Mato Grosso": "MT", "Mato Grosso do Sul": "MS", "Minas Gerais": "MG",
+    "Pará": "PA", "Paraíba": "PB", "Paraná": "PR", "Pernambuco": "PE", "Piauí": "PI",
+    "Rio de Janeiro": "RJ", "Rio Grande do Norte": "RN", "Rio Grande do Sul": "RS",
+    "Rondônia": "RO", "Roraima": "RR", "Santa Catarina": "SC", "São Paulo": "SP",
+    "Sergipe": "SE", "Tocantins": "TO"
+}
+
+# Clean and prepare the public dataset
+publicos = publicos_df[["Nome", "Município", "UF", "LATGEOPOINT", "LONGEOPOINT"]].copy()
+publicos["UF"] = publicos["UF"].map(estado_para_uf)
+publicos["Tipo"] = "Publico"
+```
+
+Now that both datasets have been cleaned and standardized, we can merge the private and public aerodromes into a single DataFrame.
+
+```{python}
+#| classes: custompython
+# Merge datasets
+aerodromos = pd.concat([privados, publicos], ignore_index=True)
+```
+
+Next, we want to calculate the number of private, public, and total aerodromes in each state. We start by grouping the data by state (`UF`) and type (`Tipo`), and then map the resulting counts into the `shapeUF` GeoDataFrame using the `SIGLA_UF` field as the key.
+
+```{python}
+#| classes: custompython
+# Step 1: Count aerodromes by UF and Tipo
+counts = aerodromos.groupby(["UF", "Tipo"]).size().unstack(fill_value=0)
+
+# Then map counts from the `counts` table using that column
+shapeUF["Privado"] = shapeUF["SIGLA_UF"].map(counts["Privado"]).fillna(0).astype(int)
+shapeUF["Publico"] = shapeUF["SIGLA_UF"].map(counts["Publico"]).fillna(0).astype(int)
+shapeUF["Total"] = shapeUF["Privado"] + shapeUF["Publico"]
+```
+
+With the datasets cleaned and enriched, we can now build the map using three different layers. The first layer contains the state polygons, and defines a `custom_data` array specifying which attributes should appear in the hover tooltip.
+
+```{python}
+#| classes: custompython
+fig = px.choropleth(
+    shapeUF,
+    geojson=shapeUF.__geo_interface__,
+    locations=shapeUF["SIGLA_UF"], 
+    featureidkey="properties.SIGLA_UF", 
+    color="CD_UF",
+    hover_name="NM_UF",
+    custom_data=["NM_UF", "NM_REGIA", "AREA_KM2", "Publico", "Privado", "Total"],
+    color_discrete_sequence=["#A0FFB0"],
+    projection="mercator",
+)
+```
+
+Next, we adjust the outline color and width of the polygons in the first layer. We assign the update to a dummy variable (`_`) so the plot is not displayed immediately.
 
 ```{python}
 #| classes: custompython
 
+_ = fig.update_traces(marker_line_width=1, marker_line_color="#a0a0ff")
 ```
+
+Now we create the second layer, which will render an outline of the entire country with transparent fill and a gray border. To ensure this layer doesn't interfere with the hover behavior of the state polygons, we explicitly disable all tooltips for it.
+
+```{python}
+#| classes: custompython
+# Outline layer (entire Brazil — no color fill, just black outline)
+outline = go.Choropleth(
+    geojson=shapeBR.__geo_interface__,
+    locations=shapeBR["PAIS"],
+    featureidkey="properties.PAIS",  
+    z=[0]*len(shapeBR), 
+    showscale=False,
+    marker_line_color='#808080',
+    marker_line_width=3,
+    colorscale=[[0, 'rgba(0,0,0,0)'], [1, 'rgba(0,0,0,0)']],
+    hoverinfo='skip',      # <-- disables hover
+    hovertemplate=None,    # <-- disables custom hover
+    name="Brasil"
+)
+```
+
+We now add the outline layer to the base map. As before, we assign the result to a dummy variable (`_`) to prevent the intermediate output from being rendered.
+
+```{python}
+#| classes: custompython
+_ = fig.add_trace(outline)
+```
+
+Finally, we add the third layer, containing point markers for the aerodromes based on their geographic coordinates. Since we want the hover behavior to remain focused on the state polygons, we disable tooltips for this layer as well.
 
 
 ```{python}
 #| classes: custompython
-
+# Aerodromes layer (Scattergeo for points)
+points = go.Scattergeo(
+    lon=aerodromos["LONGEOPOINT"],
+    lat=aerodromos["LATGEOPOINT"],
+    text=aerodromos["Nome"] + " (" + aerodromos["Tipo"] + ")",
+    mode="markers",
+    marker=dict(
+        size=5,
+        color=aerodromos["Tipo"].map({"Publico": "#0077CC", "Privado": "#CC3300"}),
+        opacity=0.7,
+        line=dict(width=0)
+    ),
+    name="Aeródromos",
+    hoverinfo='skip',      # <-- disables hover
+    hovertemplate=None,    # <-- disables custom hover
+)
 ```
+
+We add the aerodromes point layer to the map. As with previous layers, we assign the operation to a dummy variable (`_`) to suppress intermediate output.
+
+```{python}
+#| classes: custompython
+_ = fig.add_trace(points)
+```
+
+
+Now we can set the hover information, but only for the states layer — which is the only one that includes `custom_data`. We check each trace and apply the custom hover template only if the trace has this attribute.
+
+```{python}
+#| classes: custompython
+for trace in fig.data:
+    if hasattr(trace, "customdata") and trace.customdata is not None:
+        trace.hovertemplate = (
+            "<b>%{customdata[0]}</b><br>" +
+            "Region: %{customdata[1]}<br>" +
+            "Area: %{customdata[2]:,.0f} km²<br><br>" +
+            "Public: %{customdata[3]}<br>" +
+            "Private: %{customdata[4]}<br>" +
+            "<b>Total: %{customdata[5]}</b><br>" +
+            "<extra></extra>"
+        )
+```
+
+Finally, we adjust the geographic boundaries and layout of the map. We use `fitbounds="locations"` to ensure the view fits the plotted shapes, and hide the geographic base layer (`visible=False`). We also set the map title and remove outer margins and legends for a cleaner look.
+
+```{python}
+#| classes: custompython
+fig.update_geos(fitbounds="locations", visible=False)
+fig.update_layout(
+    title="Aerodromes in Brazil",
+    showlegend=False,
+    margin={"r": 0, "t": 40, "l": 0, "b": 0}
+)
+``` 
+
