@@ -1,0 +1,18 @@
+I will upload two CSV files with lists of public and private airstrips in Brazil:
+
+AerodromosPrivados.csv: Fields of interest are Nome, Municipio, UF, LATGEOPOINT, LONGEOPOINT.
+⚠️ Coordinates use commas as decimal separators.
+
+AerodromosPublicos.csv: Same fields, but UF contains full state names instead of abbreviations, and coordinates use dots correctly.
+
+Task:
+Clean both datasets to:
+
+Convert coordinates to floats with dot decimal separators.
+
+Convert full state names to two-letter UF abbreviations.
+
+Add a column Tipo with values "Privado" or "Publico".
+
+Merge into a single DataFrame with columns:
+Nome, Municipio, UF, LATGEOPOINT, LONGEOPOINT, Tipo.

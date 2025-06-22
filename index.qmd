@@ -38,21 +38,19 @@ For the second term of 2025 our schedule is **Fridays, from 1:30PM to 5:30PM.**
 
 | Day        | Topics                                                                             |
 |------------|----------------------------------------------------------------------------------|
-| June 20    | <span style="color:red;">Lectures suspended today</span>  |
+| June 20    | <span style="color:red;">Lectures suspended today.</span>  |
 | June 27    | Introduction to the course. Reading of [About the Course](00-Lectures-Intro.qmd) and [What is Data Science?](01-Lectures-WhatIs.qmd) lectures, rules for [evaluation](index.qmd#homework).|
 | July  4    | Reading of [Skills for Data Science](02-Lectures-Skills.qmd) lecture. Q&A about the  [first homework](index.qmd#homework) (if needed).     |
-| July 11    | |
-| July 18    | |
-| July 25    | |
-| August 1   | |
-| August 8   | |
-| August 15  | |
-| August 22  | |
-| August 27  | |
+| July 11    | TBD |
+| July 18    | TBD |
+| July 25    | TBD |
+| August 1   | TBD |
+| August 8   | TBD |
+| August 15  | TBD |
+| August 22  | TBD |
+| August 27  | TBD |
 | September 5| Presentation and comments on the [Capstone Project](index.qmd#homework).|
 : {tbl-colwidths="\[20,80\]" .striped .hover}
-
-
 
 
 
@@ -75,8 +73,9 @@ For the second term of 2025 our schedule is **Fridays, from 1:30PM to 5:30PM.**
 
 | Assignment                                                                       | Due date (*before that day's lecture!*) |
 |----------------------------------------------------------------------------------|----------|
-| [Homework #1 ](00-Homework-01.qmd)                    | July 4   |
-| TBD                          | August  9 |
+| [Homework #1 ](00-Homework-01.qmd)                    | July 11   |
+| TBD                          | July 25 |
+| TBD                          | August 15 |
 | Capstone Project            | September 5 |
 
 : {tbl-colwidths="\[40,60\]" .striped .hover}

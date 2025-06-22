@@ -21,8 +21,6 @@ website:
       - section: "Cookbook"
         contents:
         - 20-Cookbook-Intro.qmd
-      - section: "Visualization"
-        contents:
         - 31-Visualizing-Shapefiles.qmd
       - section: "Projects"
         contents:
