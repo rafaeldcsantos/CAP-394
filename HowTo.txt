@@ -1,0 +1,7 @@
+conda update -n base -c defaults conda
+conda info --envs
+
+conda create -n DataScience python=3.13 -y
+conda activate DataScience
+
+conda install pandas numpy geopandas pandasql jupyter plotly

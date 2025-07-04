@@ -13,17 +13,16 @@ Please deliver the answer to this homework in a single PDF file or GitHub.io pub
 ## Find Data
 
 Find a source of _open data_ on the web (see some suggestions below). Try to get a source of data that you can relate to.
-Write one or two paragraphs about what it contains, who publishes it, what it can be used for. 
+Write two or three paragraphs about what it contains, who publishes it, what it can be used for. 
+**Think about a research, journalism or simple curiosity purpose for that data. Think about how to answer the question.**
 
-Get at least one of the files from that source. How easy/hard was it? How well-documented is it? Does it looks tidy? Does it looks complete?
+Get at least one of the files from that source. How easy/hard was it? How well-documented is it? Does it looks tidy? Does it looks complete? Will you need more data from the same source or other sources? Are there _risks_ on using this data for the intended purposes?
 
 _Alternatively_ get a data source related to your own research and describe it. 
 
-
+[Here's an *example*](Resources/Examples/PrimeiraTarefa.pdf) (in Portuguese) of a complete homework solution.
 
 ## Data sources
-
-A badly categorized list.
 
 ### Governmental Data (Brazil)
 
@@ -36,6 +35,7 @@ A badly categorized list.
 1. [Portal da Transparência - Controladoria Geral da União](https://portaldatransparencia.gov.br/download-de-dados)
 1. [Governo Aberto SP](https://www.governoaberto.sp.gov.br/)
 1. [Portal de Dados Abertos do Ministério da Educação](https://dadosabertos.mec.gov.br/) 
+1. [Dados Abertos CAPES](https://dadosabertos.capes.gov.br/)
 1. [ipeadata](http://www.ipeadata.gov.br/Default.aspx) 
 1. [Agência Nacional de Aviação Civil (Anac) - Dados Abertos](https://www.gov.br/anac/pt-br/acesso-a-informacao/dados-abertos)
 1. [Dados Abertos da Agência Nacional de Águas e Saneamento Básico](https://dadosabertos.ana.gov.br/)
