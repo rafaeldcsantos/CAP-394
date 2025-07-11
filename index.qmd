@@ -41,8 +41,8 @@ For the second term of 2025 our schedule is **Fridays, from 1:30PM to 5:30PM.**
 | June 20    | <span style="color:red;">Lectures suspended today.</span>  |
 | June 27    | Introduction to the course. Reading of [About the Course](00-Lectures-Intro.qmd) and [What is Data Science?](01-Lectures-WhatIs.qmd) lectures, rules for [evaluation](index.qmd#homework).|
 | July  4    | Reading of [Skills for Data Science](02-Lectures-Skills.qmd) lecture. Q&A about the  [first homework](00-Homework-01.qmd) (if needed).     |
-| July 11    | TBD |
-| July 18    | TBD |
+| July 11    | Reading of [Data](03-Lectures-Data.qmd). Presentation and comments on the [first homework](00-Homework-01.qmd).  |
+| July 18    | TBC: Reading of the [Parliamentary Amendments](51-Projects-Amendments.qmd) project. |
 | July 25    | TBD |
 | August 1   | TBD |
 | August 8   | TBD |
@@ -57,7 +57,7 @@ For the second term of 2025 our schedule is **Fridays, from 1:30PM to 5:30PM.**
 <!-- | Day      | Topics                                                                             |
 |----------|----------------------------------------------------------------------------------|
 
-|July 5    | Reading of [Data](03-Lectures-Data.qmd).   Presentation and comments on the [first homework](index.qmd#homework).   |
+|July 5    |    |
 |July 12   |  Reading of the [Supermarket Basket Analysis](53-Projects-Supermarket.qmd) case.<br>Presentation and comments on the [second homework](index.qmd#homework).       |
 |July 19   |      |
 |July 26   | <span style="color:red;">Lectures suspended today</span>   |

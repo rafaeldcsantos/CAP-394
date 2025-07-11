@@ -3,13 +3,11 @@ lightbox: true
 format: html
 ---
 
-
 # Data
 
 This is the material (slides and notes) of the third lecture on the course.
 
-
-{{< include Resources/Slides/CAP394-2024-3-Data.qmd >}}
+{{< include Resources/Slides/CAP394-2025-3-Data.qmd >}}
 
 ## Code for examples used in this lecture
 
