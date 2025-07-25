@@ -88,8 +88,8 @@ The type of structure we are dealing with looks like a table or spreadsheet, rep
 ```{python}
 #| classes: custompython
 # Read the data from a file into a dataframe, with proper character encoding
-supermDF = pd.read_csv("Resources/Data/SupermarketCSV/transactions.csv",
-                        encoding="iso-8859-1")
+supermDF = pd.read_csv("Resources/Data/SupermarketCSV/transactions.csv.gz",
+                        encoding="iso-8859-1",compression='gzip')
 ```
 
 The encoding of a text file corresponds to the way characters are stored in a text file. Some tools can identify the encoding automatically, but in some cases the programmer needs to provide it. 
@@ -756,7 +756,7 @@ Still under construction.
 
 Although we can explore lots of interesting questions and discover some patterns with this data, it must be pointed that we don't have much information about some fields on the data, e.g. on the payment methods, on why there are many total payments equal to zero, etc. 
 
-It is possible that more information on the transactions may be extracted from the original data source, a set of XML files, one per transaction, available as [a ZIP file (70MB)](Resources/Data/SupermarketCSV/transactionsXML.zip), which may must be reprocessed and converted to a format that can be ingested into dataframes.
+It is possible that more information on the transactions may be extracted from the original data source, a set of XML files, one per transaction, available as two ZIP files: [part 1, 40 MB](Resources/Data/SupermarketCSV/transactionsXML_1.zip) and [part 2, 33 MB](Resources/Data/SupermarketCSV/transactionsXML_2.zip); which may must be reprocessed and converted to a format that can be ingested into dataframes.
 
 
 

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-large_files=$(find . -path ./.git -prune -o -type f -size +90M -print)
+large_files=$(find . -path ./.git -prune -o -type f -size +48M -print)
 
 if [[ -n "$large_files" ]]; then
-  echo "❌ The following files are larger than 90MB and will block the push:"
+  echo "❌ The following files are larger than 48MB and will block the push:"
   echo "$large_files"
   echo "Please remove them or use Git LFS."
   exit 1
