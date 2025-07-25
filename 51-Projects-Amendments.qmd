@@ -7,7 +7,7 @@ format: html
 
 A *parliamentary amendment* is a proposal made by a member of parliament or a legislator to specify provisions in a bill or legislation that is being considered by the parliament. This term is commonly used in the legislative processes of various countries, including Brazil, often to earmark funds for specific projects.
 
-This chapter presents a basic (and incomplete!) example of a data science approach to analysis of a very simple parliamentary amendment database. The data was obtained from a government site.
+This chapter presents a basic (and incomplete!) example of a data science approach to analysis of a very simple parliamentary amendment database. The data was obtained from a government open data site.
 
 The examples in this chapter show how even a simple dataset can be explored and used to give ideas for more interesting questions that may require more data.
 
@@ -91,6 +91,13 @@ Let's take a look at the data:
 #| classes: custompython
 # Display part of the data.
 df
+```
+
+
+```{python}
+#| classes: custompython
+# Display the dimensions of the data.
+df.shape
 ```
 
 We can see that there are `Localidade do Gasto` for the whole country, for abroad (`Exterior`), for regions, for states, for counties and in multiple locations (`MÚLTIPLO`). If we're going to compare some amendments per location, it is better to split the data into those different levels:
@@ -184,7 +191,8 @@ Let's do the same chart but considering the total amount of the amendments. All 
 
 ```{python}
 #| classes: custompython
-vfunctions = df.groupby(["Nome Função", "Nome Subfunção"])["Valor"].sum().reset_index(name='Amount')
+vfunctions = df.groupby(["Nome Função", "Nome Subfunção"])["Valor"].sum().\
+    reset_index(name='Amount')
 vfunctions
 ```
 
@@ -417,8 +425,10 @@ First we create the groupings:
 
 ```{python}
 #| classes: custompython
-SIdist = dfSI.groupby(["Nome Função","Nome Subfunção"])["Valor"].sum().reset_index(name='Amount')
-WIdist = dfWI.groupby(["Nome Função","Nome Subfunção"])["Valor"].sum().reset_index(name='Amount')
+SIdist = dfSI.groupby(["Nome Função","Nome Subfunção"])["Valor"].sum().\
+    reset_index(name='Amount')
+WIdist = dfWI.groupby(["Nome Função","Nome Subfunção"])["Valor"].sum().\
+    reset_index(name='Amount')
 ```
 
 Now the sunburst charts:
